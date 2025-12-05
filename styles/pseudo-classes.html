@@ -1,0 +1,955 @@
+<!DOCTYPE html>
+<html lang="ky">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Псевдокласстар - Сабак</title>
+    <link rel="stylesheet" href="pseudo-classes-styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Псевдокласстар</h1>
+            <p class="subtitle">Баштап жаткандар үчүн толук сабак</p>
+        </header>
+
+        <!-- ТЕОРИЯ БӨЛҮМҮ -->
+        <section class="theory-section">
+            <h2>📚 Теория</h2>
+            
+            <div class="theory-card">
+                <h3>1. Псевдокласстар деген эмне?</h3>
+                
+                <p><strong>Псевдокласстар</strong> - элементтин айрым абалын же кызматын тандайт.</p>
+                
+                <h4>Негизги түшүнүктөр:</h4>
+                <ul>
+                    <li><strong>:hover</strong> - мышканын үстүнө келгенде</li>
+                    <li><strong>:active</strong> - басылганда</li>
+                    <li><strong>:focus</strong> - фокус алганда</li>
+                    <li><strong>:first-child</strong> - биринчи бала</li>
+                    <li><strong>:last-child</strong> - акыркы бала</li>
+                    <li><strong>:nth-child()</strong> - n-чи бала</li>
+                </ul>
+                
+                <div class="code-example">
+                    <pre><code>/* Псевдокласстар */
+.element:hover { }        /* Мышканын үстүнө келгенде */
+.element:active { }       /* Басылганда */
+.element:focus { }        /* Фокус алганда */
+.element:first-child { }  /* Биринчи бала */
+.element:last-child { }   /* Акыркы бала */
+.element:nth-child(2) { } /* Экинчи бала */
+
+/* Псевдокласстар : (эки нукта) менен башталат */</code></pre>
+                </div>
+            </div>
+
+            <div class="theory-card">
+                <h3>2. :hover - Мышканын үстүнө келгенде</h3>
+                
+                <p><strong>:hover</strong> - мышканын курсору элементтин үстүнө келгенде стилдерди колдонуу.</p>
+                
+                <h4>Колдонулушу:</h4>
+                <ul>
+                    <li>Баскычтарды стилдөө</li>
+                    <li>Сылкаларды стилдөө</li>
+                    <li>Карточкаларды стилдөө</li>
+                    <li>Интерактивдүү элементтер</li>
+                </ul>
+                
+                <h4>Синтаксис:</h4>
+                <ul>
+                    <li><code>.element:hover { }</code> - мышканын үстүнө келгенде</li>
+                    <li>Бардык элементтерде колдонулат</li>
+                    <li>Курсор элементтин үстүндө болгондо иштейт</li>
+                </ul>
+                
+                <div class="code-example">
+                    <pre><code>/* :hover - Мышканын үстүнө келгенде */
+.button {
+    background: #667eea;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+}
+
+.button:hover {
+    background: #764ba2;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.link {
+    color: #667eea;
+    text-decoration: none;
+}
+
+.link:hover {
+    color: #764ba2;
+    text-decoration: underline;
+}
+
+/* :hover мышканын үстүнө келгенде иштейт */</code></pre>
+                </div>
+            </div>
+
+            <div class="theory-card">
+                <h3>3. :active - Басылганда</h3>
+                
+                <p><strong>:active</strong> - элемент басылганда стилдерди колдонуу.</p>
+                
+                <h4>Колдонулушу:</h4>
+                <ul>
+                    <li>Баскычтарды басылганда стилдөө</li>
+                    <li>Интерактивдүү элементтер</li>
+                    <li>Кликтин эффекти</li>
+                </ul>
+                
+                <h4>Синтаксис:</h4>
+                <ul>
+                    <li><code>.element:active { }</code> - басылганда</li>
+                    <li>Элемент басылганда гана иштейт</li>
+                    <li>Кыска мөөнөттө иштейт</li>
+                </ul>
+                
+                <div class="code-example">
+                    <pre><code>/* :active - Басылганда */
+.button {
+    background: #667eea;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+}
+
+.button:active {
+    background: #4CAF50;
+    transform: scale(0.95);
+    box-shadow: inset 0 2px 4px rgba(0,0,0,0.2);
+}
+
+/* :active элемент басылганда иштейт */</code></pre>
+                </div>
+            </div>
+
+            <div class="theory-card">
+                <h3>4. :focus - Фокус алганда</h3>
+                
+                <p><strong>:focus</strong> - элемент фокус алганда (input, button, a) стилдерди колдонуу.</p>
+                
+                <h4>Колдонулушу:</h4>
+                <ul>
+                    <li>Input элементтерин стилдөө</li>
+                    <li>Баскычтарды стилдөө</li>
+                    <li>Accessibility (жеңилдик)</li>
+                    <li>Keyboard navigation</li>
+                </ul>
+                
+                <h4>Синтаксис:</h4>
+                <ul>
+                    <li><code>.element:focus { }</code> - фокус алганда</li>
+                    <li>Tab баскычы менен фокус алынат</li>
+                    <li>Input элементтерине клик кылганда</li>
+                </ul>
+                
+                <div class="code-example">
+                    <pre><code>/* :focus - Фокус алганда */
+.input {
+    padding: 10px;
+    border: 2px solid #ddd;
+    border-radius: 5px;
+}
+
+.input:focus {
+    outline: none;
+    border-color: #667eea;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+.button:focus {
+    outline: 2px solid #667eea;
+    outline-offset: 2px;
+}
+
+/* :focus фокус алганда иштейт */</code></pre>
+                </div>
+            </div>
+
+            <div class="theory-card">
+                <h3>5. :first-child - Биринчи бала</h3>
+                
+                <p><strong>:first-child</strong> - ата-эне элементин биринчи баласын тандайт.</p>
+                
+                <h4>Колдонулушу:</h4>
+                <ul>
+                    <li>Биринчи элементин стилдөө</li>
+                    <li>Списоктердин биринчи элементи</li>
+                    <li>Карточкалардын биринчи элементи</li>
+                </ul>
+                
+                <h4>Синтаксис:</h4>
+                <ul>
+                    <li><code>.element:first-child { }</code> - биринчи бала</li>
+                    <li>Ата-эне элементин биринчи баласы</li>
+                    <li>Бардык элементтерде колдонулат</li>
+                </ul>
+                
+                <div class="code-example">
+                    <pre><code>/* :first-child - Биринчи бала */
+.list-item {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+.list-item:first-child {
+    border-top: 2px solid #667eea;
+    font-weight: bold;
+}
+
+.card:first-child {
+    margin-top: 0;
+}
+
+/* :first-child биринчи баланы тандайт */</code></pre>
+                </div>
+            </div>
+
+            <div class="theory-card">
+                <h3>6. :last-child - Акыркы бала</h3>
+                
+                <p><strong>:last-child</strong> - ата-эне элементин акыркы баласын тандайт.</p>
+                
+                <h4>Колдонулушу:</h4>
+                <ul>
+                    <li>Акыркы элементин стилдөө</li>
+                    <li>Списоктердин акыркы элементи</li>
+                    <li>Карточкалардын акыркы элементи</li>
+                </ul>
+                
+                <h4>Синтаксис:</h4>
+                <ul>
+                    <li><code>.element:last-child { }</code> - акыркы бала</li>
+                    <li>Ата-эне элементин акыркы баласы</li>
+                    <li>Бардык элементтерде колдонулат</li>
+                </ul>
+                
+                <div class="code-example">
+                    <pre><code>/* :last-child - Акыркы бала */
+.list-item {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+.list-item:last-child {
+    border-bottom: none;
+    border-radius: 0 0 10px 10px;
+}
+
+.card:last-child {
+    margin-bottom: 0;
+}
+
+/* :last-child акыркы баланы тандайт */</code></pre>
+                </div>
+            </div>
+
+            <div class="theory-card">
+                <h3>7. :nth-child() - n-чи бала</h3>
+                
+                <p><strong>:nth-child()</strong> - ата-эне элементин n-чи баласын тандайт.</p>
+                
+                <h4>Колдонулушу:</h4>
+                <ul>
+                    <li>Белгилүү баланы тандау</li>
+                    <li>Зебра-стилдер (жуп/так)</li>
+                    <li>Белгилүү элементтерди стилдөө</li>
+                </ul>
+                
+                <h4>Синтаксис:</h4>
+                <ul>
+                    <li><code>:nth-child(2)</code> - экинчи бала</li>
+                    <li><code>:nth-child(odd)</code> - так элементтер (1, 3, 5...)</li>
+                    <li><code>:nth-child(even)</code> - жуп элементтер (2, 4, 6...)</li>
+                    <li><code>:nth-child(3n)</code> - 3кө бөлүнгөн элементтер (3, 6, 9...)</li>
+                    <li><code>:nth-child(2n+1)</code> - формула менен</li>
+                </ul>
+                
+                <div class="code-example">
+                    <pre><code>/* :nth-child() - n-чи бала */
+.item:nth-child(2) {
+    background: #667eea;
+    color: white;
+}
+
+.item:nth-child(odd) {
+    background: #f8f9fa;
+}
+
+.item:nth-child(even) {
+    background: #ffffff;
+}
+
+.item:nth-child(3n) {
+    border-left: 3px solid #667eea;
+}
+
+.item:nth-child(2n+1) {
+    font-weight: bold;
+}
+
+/* :nth-child() n-чи баланы тандайт */</code></pre>
+                </div>
+            </div>
+
+            <div class="theory-card">
+                <h3>8. Псевдокласстарды комбинациялоо</h3>
+                
+                <p>Псевдокласстарды бирге колдонуу - көп псевдокласстарды бирге.</p>
+                
+                <h4>Комбинациялар:</h4>
+                <ul>
+                    <li><code>:hover:active</code> - hover жана active</li>
+                    <li><code>:focus:hover</code> - focus жана hover</li>
+                    <li><code>:first-child:hover</code> - биринчи бала + hover</li>
+                    <li><code>:nth-child(2):hover</code> - экинчи бала + hover</li>
+                </ul>
+                
+                <div class="code-example">
+                    <pre><code>/* Псевдокласстарды комбинациялоо */
+.button:hover {
+    background: #764ba2;
+}
+
+.button:active {
+    transform: scale(0.95);
+}
+
+.button:hover:active {
+    background: #4CAF50;
+}
+
+.item:first-child:hover {
+    background: #667eea;
+    color: white;
+}
+
+.item:nth-child(2):hover {
+    transform: translateX(10px);
+}
+
+/* Псевдокласстарды бирге колдонуу */</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- ЖЕНИЛ МИСАЛДАР -->
+        <section class="examples-section">
+            <h2>🟢 ЖЕНИЛ МИСАЛДАР</h2>
+
+            <div class="example-group">
+                <h3>Мисал 1: :hover - Баскыч</h3>
+                <div class="demo-box">
+                    <button class="hover-button">Мышканын үстүнө келгиле</button>
+                </div>
+                <div class="code-example">
+                    <pre><code>/* :hover - Баскыч */
+.hover-button {
+    padding: 10px 20px;
+    background: #667eea;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: all 0.3s;
+}
+
+.hover-button:hover {
+    background: #764ba2;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+/* HTML */
+&lt;button class="hover-button"&gt;Мышканын үстүнө келгиле&lt;/button&gt;</code></pre>
+                </div>
+            </div>
+
+            <div class="example-group">
+                <h3>Мисал 2: :active - Басылганда</h3>
+                <div class="demo-box">
+                    <button class="active-button">Басыңыз</button>
+                </div>
+                <div class="code-example">
+                    <pre><code>/* :active - Басылганда */
+.active-button {
+    padding: 10px 20px;
+    background: #667eea;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: all 0.1s;
+}
+
+.active-button:active {
+    background: #4CAF50;
+    transform: scale(0.95);
+    box-shadow: inset 0 2px 4px rgba(0,0,0,0.2);
+}
+
+/* HTML */
+&lt;button class="active-button"&gt;Басыңыз&lt;/button&gt;</code></pre>
+                </div>
+            </div>
+
+            <div class="example-group">
+                <h3>Мисал 3: :focus - Input</h3>
+                <div class="demo-box">
+                    <input type="text" class="focus-input" placeholder="Клик кылыңыз же Tab баскычын басыңыз">
+                </div>
+                <div class="code-example">
+                    <pre><code>/* :focus - Input */
+.focus-input {
+    padding: 10px;
+    border: 2px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+    width: 100%;
+    transition: all 0.3s;
+}
+
+.focus-input:focus {
+    outline: none;
+    border-color: #667eea;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+/* HTML */
+&lt;input type="text" class="focus-input" placeholder="..."&gt;</code></pre>
+                </div>
+            </div>
+
+            <div class="example-group">
+                <h3>Мисал 4: :first-child - Биринчи элемент</h3>
+                <div class="demo-box">
+                    <div class="first-child-list">
+                        <div class="first-child-item">Биринчи элемент</div>
+                        <div class="first-child-item">Экинчи элемент</div>
+                        <div class="first-child-item">Үчүнчү элемент</div>
+                    </div>
+                </div>
+                <div class="code-example">
+                    <pre><code>/* :first-child - Биринчи элемент */
+.first-child-item {
+    padding: 15px;
+    background: #f8f9fa;
+    margin-bottom: 10px;
+    border-radius: 5px;
+}
+
+.first-child-item:first-child {
+    background: #667eea;
+    color: white;
+    font-weight: bold;
+    border-top: 3px solid #764ba2;
+}
+
+/* HTML */
+&lt;div class="first-child-list"&gt;
+    &lt;div class="first-child-item"&gt;Биринчи элемент&lt;/div&gt;
+    &lt;div class="first-child-item"&gt;Экинчи элемент&lt;/div&gt;
+    &lt;div class="first-child-item"&gt;Үчүнчү элемент&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+                </div>
+            </div>
+
+            <div class="example-group">
+                <h3>Мисал 5: :last-child - Акыркы элемент</h3>
+                <div class="demo-box">
+                    <div class="last-child-list">
+                        <div class="last-child-item">Биринчи элемент</div>
+                        <div class="last-child-item">Экинчи элемент</div>
+                        <div class="last-child-item">Акыркы элемент</div>
+                    </div>
+                </div>
+                <div class="code-example">
+                    <pre><code>/* :last-child - Акыркы элемент */
+.last-child-item {
+    padding: 15px;
+    background: #f8f9fa;
+    margin-bottom: 10px;
+    border-radius: 5px;
+}
+
+.last-child-item:last-child {
+    background: #764ba2;
+    color: white;
+    font-weight: bold;
+    border-bottom: 3px solid #667eea;
+    margin-bottom: 0;
+}
+
+/* HTML */
+&lt;div class="last-child-list"&gt;
+    &lt;div class="last-child-item"&gt;Биринчи элемент&lt;/div&gt;
+    &lt;div class="last-child-item"&gt;Экинчи элемент&lt;/div&gt;
+    &lt;div class="last-child-item"&gt;Акыркы элемент&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+                </div>
+            </div>
+
+            <div class="example-group">
+                <h3>Мисал 6: :nth-child() - n-чи элемент</h3>
+                <div class="demo-box">
+                    <div class="nth-child-list">
+                        <div class="nth-child-item">1</div>
+                        <div class="nth-child-item">2</div>
+                        <div class="nth-child-item">3</div>
+                        <div class="nth-child-item">4</div>
+                        <div class="nth-child-item">5</div>
+                    </div>
+                </div>
+                <div class="code-example">
+                    <pre><code>/* :nth-child() - n-чи элемент */
+.nth-child-item {
+    padding: 15px;
+    background: #f8f9fa;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.nth-child-item:nth-child(2) {
+    background: #667eea;
+    color: white;
+}
+
+.nth-child-item:nth-child(odd) {
+    border-left: 3px solid #667eea;
+}
+
+.nth-child-item:nth-child(even) {
+    border-left: 3px solid #764ba2;
+}
+
+/* HTML */
+&lt;div class="nth-child-list"&gt;
+    &lt;div class="nth-child-item"&gt;1&lt;/div&gt;
+    &lt;div class="nth-child-item"&gt;2&lt;/div&gt;
+    &lt;div class="nth-child-item"&gt;3&lt;/div&gt;
+    &lt;div class="nth-child-item"&gt;4&lt;/div&gt;
+    &lt;div class="nth-child-item"&gt;5&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- ООР МИСАЛДАР -->
+        <section class="examples-section">
+            <h2>🔴 ООР МИСАЛДАР</h2>
+
+            <div class="example-group">
+                <h3>Мисал 7: :hover + :active - Комбинация</h3>
+                <div class="demo-box">
+                    <button class="combo-button">Мышканын үстүнө келгиле жана басыңыз</button>
+                </div>
+                <div class="code-example">
+                    <pre><code>/* :hover + :active - Комбинация */
+.combo-button {
+    padding: 10px 20px;
+    background: #667eea;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: all 0.3s;
+}
+
+.combo-button:hover {
+    background: #764ba2;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.combo-button:active {
+    transform: scale(0.95);
+    box-shadow: inset 0 2px 4px rgba(0,0,0,0.2);
+}
+
+.combo-button:hover:active {
+    background: #4CAF50;
+}
+
+/* HTML */
+&lt;button class="combo-button"&gt;Мышканын үстүнө келгиле жана басыңыз&lt;/button&gt;</code></pre>
+                </div>
+            </div>
+
+            <div class="example-group">
+                <h3>Мисал 8: :nth-child() менен зебра-стилдер</h3>
+                <div class="demo-box">
+                    <div class="zebra-list">
+                        <div class="zebra-item">Элемент 1</div>
+                        <div class="zebra-item">Элемент 2</div>
+                        <div class="zebra-item">Элемент 3</div>
+                        <div class="zebra-item">Элемент 4</div>
+                        <div class="zebra-item">Элемент 5</div>
+                        <div class="zebra-item">Элемент 6</div>
+                    </div>
+                </div>
+                <div class="code-example">
+                    <pre><code>/* :nth-child() менен зебра-стилдер */
+.zebra-item {
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    transition: all 0.3s;
+}
+
+.zebra-item:nth-child(odd) {
+    background: #f8f9fa;
+}
+
+.zebra-item:nth-child(even) {
+    background: #ffffff;
+}
+
+.zebra-item:nth-child(3n) {
+    border-left: 3px solid #667eea;
+}
+
+.zebra-item:hover {
+    background: #667eea;
+    color: white;
+    transform: translateX(10px);
+}
+
+/* HTML */
+&lt;div class="zebra-list"&gt;
+    &lt;div class="zebra-item"&gt;Элемент 1&lt;/div&gt;
+    &lt;div class="zebra-item"&gt;Элемент 2&lt;/div&gt;
+    &lt;div class="zebra-item"&gt;Элемент 3&lt;/div&gt;
+    &lt;div class="zebra-item"&gt;Элемент 4&lt;/div&gt;
+    &lt;div class="zebra-item"&gt;Элемент 5&lt;/div&gt;
+    &lt;div class="zebra-item"&gt;Элемент 6&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+                </div>
+            </div>
+
+            <div class="example-group">
+                <h3>Мисал 9: :first-child + :last-child - Биринчи жана акыркы</h3>
+                <div class="demo-box">
+                    <div class="first-last-list">
+                        <div class="first-last-item">Биринчи</div>
+                        <div class="first-last-item">Экинчи</div>
+                        <div class="first-last-item">Үчүнчү</div>
+                        <div class="first-last-item">Акыркы</div>
+                    </div>
+                </div>
+                <div class="code-example">
+                    <pre><code>/* :first-child + :last-child - Биринчи жана акыркы */
+.first-last-item {
+    padding: 15px;
+    background: #f8f9fa;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    transition: all 0.3s;
+}
+
+.first-last-item:first-child {
+    background: #667eea;
+    color: white;
+    font-weight: bold;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.first-last-item:last-child {
+    background: #764ba2;
+    color: white;
+    font-weight: bold;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    margin-bottom: 0;
+}
+
+.first-last-item:hover {
+    transform: translateX(10px);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+/* HTML */
+&lt;div class="first-last-list"&gt;
+    &lt;div class="first-last-item"&gt;Биринчи&lt;/div&gt;
+    &lt;div class="first-last-item"&gt;Экинчи&lt;/div&gt;
+    &lt;div class="first-last-item"&gt;Үчүнчү&lt;/div&gt;
+    &lt;div class="first-last-item"&gt;Акыркы&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+                </div>
+            </div>
+
+            <div class="example-group">
+                <h3>Мисал 10: Бардык касиеттер бирге</h3>
+                <div class="demo-box">
+                    <div class="all-pseudo-list">
+                        <div class="all-pseudo-item">1 - Биринчи</div>
+                        <div class="all-pseudo-item">2 - Экинчи</div>
+                        <div class="all-pseudo-item">3 - Үчүнчү</div>
+                        <div class="all-pseudo-item">4 - Төртүнчү</div>
+                        <div class="all-pseudo-item">5 - Бешинчи</div>
+                        <div class="all-pseudo-item">6 - Алтынчы</div>
+                    </div>
+                    <input type="text" class="all-pseudo-input" placeholder="Focus менен тестирлеңиз">
+                    <button class="all-pseudo-button">Hover, Active, Focus менен тестирлеңиз</button>
+                </div>
+                <div class="code-example">
+                    <pre><code>/* Бардык касиеттер бирге */
+.all-pseudo-item {
+    padding: 15px;
+    background: #f8f9fa;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    transition: all 0.3s;
+}
+
+.all-pseudo-item:first-child {
+    background: #667eea;
+    color: white;
+    font-weight: bold;
+}
+
+.all-pseudo-item:last-child {
+    background: #764ba2;
+    color: white;
+    font-weight: bold;
+}
+
+.all-pseudo-item:nth-child(odd) {
+    border-left: 3px solid #667eea;
+}
+
+.all-pseudo-item:nth-child(even) {
+    border-left: 3px solid #764ba2;
+}
+
+.all-pseudo-item:hover {
+    transform: translateX(10px);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+.all-pseudo-input {
+    width: 100%;
+    padding: 10px;
+    border: 2px solid #ddd;
+    border-radius: 5px;
+    margin-top: 20px;
+}
+
+.all-pseudo-input:focus {
+    outline: none;
+    border-color: #667eea;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+.all-pseudo-button {
+    width: 100%;
+    padding: 10px;
+    background: #667eea;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    margin-top: 10px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.all-pseudo-button:hover {
+    background: #764ba2;
+    transform: translateY(-2px);
+}
+
+.all-pseudo-button:active {
+    transform: scale(0.95);
+}
+
+.all-pseudo-button:focus {
+    outline: 2px solid #667eea;
+    outline-offset: 2px;
+}</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- ПРАКТИКА -->
+        <section class="practice-section">
+            <h2>💻 ПРАКТИКА</h2>
+            <div class="practice-card">
+                <h3>Өзүңүз кылыңыз:</h3>
+                <ol>
+                    <li>:hover менен баскычты стилдеңиз</li>
+                    <li>:active менен басылганда эффект кылыңыз</li>
+                    <li>:focus менен input стилдеңиз</li>
+                    <li>:first-child менен биринчи элементин стилдеңиз</li>
+                    <li>:last-child менен акыркы элементин стилдеңиз</li>
+                    <li>:nth-child(2) менен экинчи элементин стилдеңиз</li>
+                    <li>:nth-child(odd) менен так элементтерди стилдеңиз</li>
+                    <li>:nth-child(even) менен жуп элементтерди стилдеңиз</li>
+                    <li>:hover + :active комбинациясын кылыңыз</li>
+                    <li>Бардык касиеттерди бирге практикалаңыз</li>
+                </ol>
+            </div>
+        </section>
+
+        <!-- КЕСТЕ -->
+        <section class="table-section">
+            <h2>📊 Псевдокласстар</h2>
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Псевдокласс</th>
+                            <th>Түшүндүрмө</th>
+                            <th>Мисал</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><code>:hover</code></td>
+                            <td>Мышканын үстүнө келгенде</td>
+                            <td><code>.button:hover { }</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>:active</code></td>
+                            <td>Басылганда</td>
+                            <td><code>.button:active { }</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>:focus</code></td>
+                            <td>Фокус алганда</td>
+                            <td><code>.input:focus { }</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>:first-child</code></td>
+                            <td>Биринчи бала</td>
+                            <td><code>.item:first-child { }</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>:last-child</code></td>
+                            <td>Акыркы бала</td>
+                            <td><code>.item:last-child { }</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>:nth-child(2)</code></td>
+                            <td>Экинчи бала</td>
+                            <td><code>.item:nth-child(2) { }</code></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section class="table-section">
+            <h2>📊 :nth-child() варианты</h2>
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Синтаксис</th>
+                            <th>Түшүндүрмө</th>
+                            <th>Мисал</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><code>:nth-child(2)</code></td>
+                            <td>Экинчи элемент</td>
+                            <td>2</td>
+                        </tr>
+                        <tr>
+                            <td><code>:nth-child(odd)</code></td>
+                            <td>Так элементтер</td>
+                            <td>1, 3, 5, 7...</td>
+                        </tr>
+                        <tr>
+                            <td><code>:nth-child(even)</code></td>
+                            <td>Жуп элементтер</td>
+                            <td>2, 4, 6, 8...</td>
+                        </tr>
+                        <tr>
+                            <td><code>:nth-child(3n)</code></td>
+                            <td>3кө бөлүнгөн</td>
+                            <td>3, 6, 9, 12...</td>
+                        </tr>
+                        <tr>
+                            <td><code>:nth-child(2n+1)</code></td>
+                            <td>Формула</td>
+                            <td>1, 3, 5, 7...</td>
+                        </tr>
+                        <tr>
+                            <td><code>:nth-child(-n+3)</code></td>
+                            <td>Биринчи 3 элемент</td>
+                            <td>1, 2, 3</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section class="table-section">
+            <h2>📊 Псевдокласстардын колдонулушу</h2>
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Псевдокласс</th>
+                            <th>Колдонулушу</th>
+                            <th>Элементтер</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><code>:hover</code></td>
+                            <td>Интерактивдүү элементтер</td>
+                            <td>Баскычтар, сылкалар, карточкалар</td>
+                        </tr>
+                        <tr>
+                            <td><code>:active</code></td>
+                            <td>Басылганда эффект</td>
+                            <td>Баскычтар, сылкалар</td>
+                        </tr>
+                        <tr>
+                            <td><code>:focus</code></td>
+                            <td>Фокус стилдери</td>
+                            <td>Input, button, a</td>
+                        </tr>
+                        <tr>
+                            <td><code>:first-child</code></td>
+                            <td>Биринчи элементин стилдөө</td>
+                            <td>Списоктер, карточкалар</td>
+                        </tr>
+                        <tr>
+                            <td><code>:last-child</code></td>
+                            <td>Акыркы элементин стилдөө</td>
+                            <td>Списоктер, карточкалар</td>
+                        </tr>
+                        <tr>
+                            <td><code>:nth-child()</code></td>
+                            <td>Белгилүү элементин стилдөө</td>
+                            <td>Списоктер, таблицалар</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <footer>
+            <p>Бактылуу окуу! 🎓</p>
+        </footer>
+    </div>
+</body>
+</html>
+

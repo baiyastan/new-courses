@@ -1,0 +1,850 @@
+<!DOCTYPE html>
+<html lang="ky">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Переход жана Анимация - Сабак</title>
+    <link rel="stylesheet" href="transition-animation-styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Переход жана Анимация</h1>
+            <p class="subtitle">Баштап жаткандар үчүн толук сабак</p>
+        </header>
+
+        <!-- ТЕОРИЯ БӨЛҮМҮ -->
+        <section class="theory-section">
+            <h2>📚 Теория</h2>
+            
+            <div class="theory-card">
+                <h3>1. Transition деген эмне?</h3>
+                
+                <p><strong>Transition</strong> - CSS касиеттеринин өзгөрүшүн жумшак кылуу.</p>
+                
+                <h4>Негизги түшүнүктөр:</h4>
+                <ul>
+                    <li><strong>transition</strong> - бардык касиеттер үчүн</li>
+                    <li><strong>transition-property</strong> - касиет аты</li>
+                    <li><strong>transition-duration</strong> - убакыт</li>
+                    <li><strong>transition-timing-function</strong> - ылдамдык функциясы</li>
+                    <li><strong>transition-delay</strong> - кечигүү</li>
+                </ul>
+                
+                <div class="code-example">
+                    <pre><code>/* Transition */
+.element {
+    background: #667eea;
+    transition: background 0.3s ease;
+}
+
+.element:hover {
+    background: #764ba2;
+}
+
+/* Transition касиеттердин өзгөрүшүн жумшак кылат */</code></pre>
+                </div>
+            </div>
+
+            <div class="theory-card">
+                <h3>2. transition - Бардык касиеттер</h3>
+                
+                <p><strong>transition</strong> - бардык касиеттер үчүн переход.</p>
+                
+                <h4>Синтаксис:</h4>
+                <ul>
+                    <li><code>transition: property duration timing-function delay;</code></li>
+                    <li><code>transition: all 0.3s ease;</code> - бардык касиеттер</li>
+                    <li><code>transition: background 0.3s;</code> - бир касиет</li>
+                    <li><code>transition: background 0.3s, color 0.3s;</code> - көп касиеттер</li>
+                </ul>
+                
+                <h4>Колдонулушу:</h4>
+                <ul>
+                    <li>Касиеттердин өзгөрүшүн жумшак кылуу</li>
+                    <li>Hover эффекттери</li>
+                    <li>Интерактивдүү элементтер</li>
+                </ul>
+                
+                <div class="code-example">
+                    <pre><code>/* transition - Бардык касиеттер */
+.element {
+    background: #667eea;
+    color: white;
+    transition: all 0.3s ease;
+}
+
+.element:hover {
+    background: #764ba2;
+    transform: translateY(-5px);
+}
+
+/* transition: property duration timing-function delay; */</code></pre>
+                </div>
+            </div>
+
+            <div class="theory-card">
+                <h3>3. transition-property - Касиет аты</h3>
+                
+                <p><strong>transition-property</strong> - кайсы касиеттерге переход колдонулат.</p>
+                
+                <h4>Варианттар:</h4>
+                <ul>
+                    <li><code>transition-property: all;</code> - бардык касиеттер</li>
+                    <li><code>transition-property: background;</code> - фон</li>
+                    <li><code>transition-property: transform;</code> - трансформация</li>
+                    <li><code>transition-property: background, color;</code> - көп касиеттер</li>
+                </ul>
+                
+                <div class="code-example">
+                    <pre><code>/* transition-property - Касиет аты */
+.element {
+    transition-property: background;
+    transition-duration: 0.3s;
+}
+
+.element {
+    transition-property: background, color, transform;
+    transition-duration: 0.3s;
+}
+
+/* Кайсы касиеттерге переход колдонулат */</code></pre>
+                </div>
+            </div>
+
+            <div class="theory-card">
+                <h3>4. transition-duration - Убакыт</h3>
+                
+                <p><strong>transition-duration</strong> - переходдун убактысы.</p>
+                
+                <h4>Варианттар:</h4>
+                <ul>
+                    <li><code>transition-duration: 0.3s;</code> - секунд</li>
+                    <li><code>transition-duration: 300ms;</code> - миллисекунд</li>
+                    <li><code>transition-duration: 0.5s;</code> - жарым секунд</li>
+                    <li><code>transition-duration: 1s;</code> - бир секунд</li>
+                </ul>
+                
+                <h4>Эрежелер:</h4>
+                <ul>
+                    <li>s (секунд) же ms (миллисекунд)</li>
+                    <li>0.3s = 300ms</li>
+                    <li>Кыска убакыт - тез өзгөрүү</li>
+                    <li>Узун убакыт - жай өзгөрүү</li>
+                </ul>
+                
+                <div class="code-example">
+                    <pre><code>/* transition-duration - Убакыт */
+.element {
+    transition: background 0.3s;
+}
+
+.element {
+    transition: background 300ms;
+}
+
+.element {
+    transition: background 1s;
+}
+
+/* Убакыт секунд (s) же миллисекунд (ms) менен */</code></pre>
+                </div>
+            </div>
+
+            <div class="theory-card">
+                <h3>5. transition-timing-function - Ылдамдык функциясы</h3>
+                
+                <p><strong>transition-timing-function</strong> - переходдун ылдамдык функциясы.</p>
+                
+                <h4>Варианттар:</h4>
+                <ul>
+                    <li><code>ease</code> - жумшак (дефолт)</li>
+                    <li><code>linear</code> - тең ылдамдыкта</li>
+                    <li><code>ease-in</code> - башталышта жай</li>
+                    <li><code>ease-out</code> - аягында жай</li>
+                    <li><code>ease-in-out</code> - башталышта жана аягында жай</li>
+                    <li><code>cubic-bezier()</code> - кастомдуу функция</li>
+                </ul>
+                
+                <div class="code-example">
+                    <pre><code>/* transition-timing-function - Ылдамдык функциясы */
+.element {
+    transition: background 0.3s ease;
+}
+
+.element {
+    transition: background 0.3s linear;
+}
+
+.element {
+    transition: background 0.3s ease-in-out;
+}
+
+.element {
+    transition: background 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Ылдамдык функциясы өзгөрүүнүн стилин аныктайт */</code></pre>
+                </div>
+            </div>
+
+            <div class="theory-card">
+                <h3>6. transition-delay - Кечигүү</h3>
+                
+                <p><strong>transition-delay</strong> - переходдун башталуу кечигүүсү.</p>
+                
+                <h4>Варианттар:</h4>
+                <ul>
+                    <li><code>transition-delay: 0s;</code> - кечигүү жок</li>
+                    <li><code>transition-delay: 0.2s;</code> - 0.2 секунд кечигүү</li>
+                    <li><code>transition-delay: 500ms;</code> - 500 миллисекунд кечигүү</li>
+                </ul>
+                
+                <div class="code-example">
+                    <pre><code>/* transition-delay - Кечигүү */
+.element {
+    transition: background 0.3s ease 0.2s;
+}
+
+.element {
+    transition: background 0.3s ease 500ms;
+}
+
+/* Кечигүү переходдун башталуу убактысын кечиктирет */</code></pre>
+                </div>
+            </div>
+
+            <div class="theory-card">
+                <h3>7. @keyframes - Анимация</h3>
+                
+                <p><strong>@keyframes</strong> - анимациянын кадрларын аныктоо.</p>
+                
+                <h4>Негизги түшүнүктөр:</h4>
+                <ul>
+                    <li><strong>@keyframes</strong> - анимациянын кадрлары</li>
+                    <li><strong>animation</strong> - анимацияны колдонуу</li>
+                    <li><strong>from</strong> - башталышы (0%)</li>
+                    <li><strong>to</strong> - аягы (100%)</li>
+                    <li><strong>%</strong> - процент менен кадрлар</li>
+                </ul>
+                
+                <div class="code-example">
+                    <pre><code>/* @keyframes - Анимация */
+@keyframes slide {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(100px);
+    }
+}
+
+.element {
+    animation: slide 1s ease;
+}
+
+/* @keyframes анимациянын кадрларын аныктайт */</code></pre>
+                </div>
+            </div>
+
+            <div class="theory-card">
+                <h3>8. animation - Анимацияны колдонуу</h3>
+                
+                <p><strong>animation</strong> - @keyframes анимациясын колдонуу.</p>
+                
+                <h4>Синтаксис:</h4>
+                <ul>
+                    <li><code>animation: name duration timing-function delay iteration-count direction;</code></li>
+                    <li><code>animation: slide 1s ease;</code> - негизги</li>
+                    <li><code>animation: slide 1s ease infinite;</code> - чексиз</li>
+                </ul>
+                
+                <h4>Касиеттер:</h4>
+                <ul>
+                    <li><code>animation-name</code> - анимация аты</li>
+                    <li><code>animation-duration</code> - убакыт</li>
+                    <li><code>animation-timing-function</code> - ылдамдык функциясы</li>
+                    <li><code>animation-delay</code> - кечигүү</li>
+                    <li><code>animation-iteration-count</code> - кайталоо саны</li>
+                    <li><code>animation-direction</code> - багыт</li>
+                </ul>
+                
+                <div class="code-example">
+                    <pre><code>/* animation - Анимацияны колдонуу */
+.element {
+    animation: slide 1s ease;
+}
+
+.element {
+    animation: slide 1s ease infinite;
+}
+
+.element {
+    animation: slide 1s ease 0.5s 3 alternate;
+}
+
+/* animation: name duration timing-function delay iteration-count direction; */</code></pre>
+                </div>
+            </div>
+
+            <div class="theory-card">
+                <h3>9. @keyframes менен проценттер</h3>
+                
+                <p>@keyframes менен проценттер - анимациянын кадрларын процент менен аныктоо.</p>
+                
+                <h4>Синтаксис:</h4>
+                <ul>
+                    <li><code>0%</code> - башталышы</li>
+                    <li><code>50%</code> - ортосу</li>
+                    <li><code>100%</code> - аягы</li>
+                    <li>Көп кадрлар колдонулат</li>
+                </ul>
+                
+                <div class="code-example">
+                    <pre><code>/* @keyframes менен проценттер */
+@keyframes bounce {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-50px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+.element {
+    animation: bounce 1s ease infinite;
+}
+
+/* Проценттер менен көп кадрлар */</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- ЖЕНИЛ МИСАЛДАР -->
+        <section class="examples-section">
+            <h2>🟢 ЖЕНИЛ МИСАЛДАР</h2>
+
+            <div class="example-group">
+                <h3>Мисал 1: transition - Фон өзгөрүү</h3>
+                <div class="demo-box">
+                    <div class="transition-bg">Мышканын үстүнө келгиле</div>
+                </div>
+                <div class="code-example">
+                    <pre><code>/* transition - Фон өзгөрүү */
+.transition-bg {
+    padding: 20px;
+    background: #667eea;
+    color: white;
+    border-radius: 10px;
+    transition: background 0.3s ease;
+    cursor: pointer;
+}
+
+.transition-bg:hover {
+    background: #764ba2;
+}
+
+/* HTML */
+&lt;div class="transition-bg"&gt;Мышканын үстүнө келгиле&lt;/div&gt;</code></pre>
+                </div>
+            </div>
+
+            <div class="example-group">
+                <h3>Мисал 2: transition - Көп касиеттер</h3>
+                <div class="demo-box">
+                    <div class="transition-multiple">Мышканын үстүнө келгиле</div>
+                </div>
+                <div class="code-example">
+                    <pre><code>/* transition - Көп касиеттер */
+.transition-multiple {
+    padding: 20px;
+    background: #667eea;
+    color: white;
+    border-radius: 10px;
+    transition: background 0.3s ease, transform 0.3s ease, color 0.3s ease;
+    cursor: pointer;
+}
+
+.transition-multiple:hover {
+    background: #764ba2;
+    transform: translateY(-5px);
+    color: #f5576c;
+}
+
+/* HTML */
+&lt;div class="transition-multiple"&gt;Мышканын үстүнө келгиле&lt;/div&gt;</code></pre>
+                </div>
+            </div>
+
+            <div class="example-group">
+                <h3>Мисал 3: transition - all</h3>
+                <div class="demo-box">
+                    <div class="transition-all">Мышканын үстүнө келгиле</div>
+                </div>
+                <div class="code-example">
+                    <pre><code>/* transition - all */
+.transition-all {
+    padding: 20px;
+    background: #667eea;
+    color: white;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.transition-all:hover {
+    background: #764ba2;
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
+/* HTML */
+&lt;div class="transition-all"&gt;Мышканын үстүнө келгиле&lt;/div&gt;</code></pre>
+                </div>
+            </div>
+
+            <div class="example-group">
+                <h3>Мисал 4: @keyframes - Slide</h3>
+                <div class="demo-box">
+                    <div class="animation-slide">Анимация</div>
+                </div>
+                <div class="code-example">
+                    <pre><code>/* @keyframes - Slide */
+@keyframes slide {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(100px);
+    }
+}
+
+.animation-slide {
+    padding: 20px;
+    background: #667eea;
+    color: white;
+    border-radius: 10px;
+    animation: slide 2s ease infinite alternate;
+}
+
+/* HTML */
+&lt;div class="animation-slide"&gt;Анимация&lt;/div&gt;</code></pre>
+                </div>
+            </div>
+
+            <div class="example-group">
+                <h3>Мисал 5: @keyframes - Bounce</h3>
+                <div class="demo-box">
+                    <div class="animation-bounce">Анимация</div>
+                </div>
+                <div class="code-example">
+                    <pre><code>/* @keyframes - Bounce */
+@keyframes bounce {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-30px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+.animation-bounce {
+    padding: 20px;
+    background: #667eea;
+    color: white;
+    border-radius: 10px;
+    animation: bounce 1s ease infinite;
+}
+
+/* HTML */
+&lt;div class="animation-bounce"&gt;Анимация&lt;/div&gt;</code></pre>
+                </div>
+            </div>
+
+            <div class="example-group">
+                <h3>Мисал 6: @keyframes - Rotate</h3>
+                <div class="demo-box">
+                    <div class="animation-rotate">Анимация</div>
+                </div>
+                <div class="code-example">
+                    <pre><code>/* @keyframes - Rotate */
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.animation-rotate {
+    padding: 20px;
+    background: #667eea;
+    color: white;
+    border-radius: 10px;
+    animation: rotate 2s linear infinite;
+}
+
+/* HTML */
+&lt;div class="animation-rotate"&gt;Анимация&lt;/div&gt;</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- ООР МИСАЛДАР -->
+        <section class="examples-section">
+            <h2>🔴 ООР МИСАЛДАР</h2>
+
+            <div class="example-group">
+                <h3>Мисал 7: transition-delay - Кечигүү</h3>
+                <div class="demo-box">
+                    <div class="transition-delay-container">
+                        <div class="transition-delay-item">1</div>
+                        <div class="transition-delay-item">2</div>
+                        <div class="transition-delay-item">3</div>
+                    </div>
+                </div>
+                <div class="code-example">
+                    <pre><code>/* transition-delay - Кечигүү */
+.transition-delay-container {
+    display: flex;
+    gap: 10px;
+}
+
+.transition-delay-item {
+    padding: 20px;
+    background: #667eea;
+    color: white;
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+    cursor: pointer;
+}
+
+.transition-delay-item:nth-child(1) {
+    transition-delay: 0s;
+}
+
+.transition-delay-item:nth-child(2) {
+    transition-delay: 0.1s;
+}
+
+.transition-delay-item:nth-child(3) {
+    transition-delay: 0.2s;
+}
+
+.transition-delay-container:hover .transition-delay-item {
+    transform: translateY(-10px);
+}
+
+/* HTML */
+&lt;div class="transition-delay-container"&gt;
+    &lt;div class="transition-delay-item"&gt;1&lt;/div&gt;
+    &lt;div class="transition-delay-item"&gt;2&lt;/div&gt;
+    &lt;div class="transition-delay-item"&gt;3&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+                </div>
+            </div>
+
+            <div class="example-group">
+                <h3>Мисал 8: @keyframes - Көп кадрлар</h3>
+                <div class="demo-box">
+                    <div class="animation-complex">Анимация</div>
+                </div>
+                <div class="code-example">
+                    <pre><code>/* @keyframes - Көп кадрлар */
+@keyframes complex {
+    0% {
+        transform: translateX(0) rotate(0deg);
+        background: #667eea;
+    }
+    25% {
+        transform: translateX(50px) rotate(90deg);
+        background: #764ba2;
+    }
+    50% {
+        transform: translateX(0) rotate(180deg);
+        background: #f5576c;
+    }
+    75% {
+        transform: translateX(-50px) rotate(270deg);
+        background: #4CAF50;
+    }
+    100% {
+        transform: translateX(0) rotate(360deg);
+        background: #667eea;
+    }
+}
+
+.animation-complex {
+    padding: 20px;
+    background: #667eea;
+    color: white;
+    border-radius: 10px;
+    animation: complex 3s ease infinite;
+}
+
+/* HTML */
+&lt;div class="animation-complex"&gt;Анимация&lt;/div&gt;</code></pre>
+                </div>
+            </div>
+
+            <div class="example-group">
+                <h3>Мисал 9: transition + @keyframes - Бирге</h3>
+                <div class="demo-box">
+                    <div class="transition-animation">Мышканын үстүнө келгиле</div>
+                </div>
+                <div class="code-example">
+                    <pre><code>/* transition + @keyframes - Бирге */
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+}
+
+.transition-animation {
+    padding: 20px;
+    background: #667eea;
+    color: white;
+    border-radius: 10px;
+    transition: background 0.3s ease;
+    animation: pulse 2s ease infinite;
+    cursor: pointer;
+}
+
+.transition-animation:hover {
+    background: #764ba2;
+    animation-play-state: paused;
+}
+
+/* HTML */
+&lt;div class="transition-animation"&gt;Мышканын үстүнө келгиле&lt;/div&gt;</code></pre>
+                </div>
+            </div>
+
+            <div class="example-group">
+                <h3>Мисал 10: Бардык касиеттер бирге</h3>
+                <div class="demo-box">
+                    <div class="all-transition">Transition</div>
+                    <div class="all-animation">Animation</div>
+                </div>
+                <div class="code-example">
+                    <pre><code>/* Бардык касиеттер бирге */
+@keyframes all-anim {
+    0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 1;
+    }
+    50% {
+        transform: translateY(-20px) rotate(180deg);
+        opacity: 0.8;
+    }
+    100% {
+        transform: translateY(0) rotate(360deg);
+        opacity: 1;
+    }
+}
+
+.all-transition {
+    padding: 20px;
+    background: #667eea;
+    color: white;
+    border-radius: 10px;
+    transition: all 0.3s ease 0.1s;
+    margin-bottom: 20px;
+    cursor: pointer;
+}
+
+.all-transition:hover {
+    background: #764ba2;
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+}
+
+.all-animation {
+    padding: 20px;
+    background: #764ba2;
+    color: white;
+    border-radius: 10px;
+    animation: all-anim 2s ease infinite;
+}
+
+/* HTML */
+&lt;div class="all-transition"&gt;Transition&lt;/div&gt;
+&lt;div class="all-animation"&gt;Animation&lt;/div&gt;</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- ПРАКТИКА -->
+        <section class="practice-section">
+            <h2>💻 ПРАКТИКА</h2>
+            <div class="practice-card">
+                <h3>Өзүңүз кылыңыз:</h3>
+                <ol>
+                    <li>transition менен фон өзгөрүү кылыңыз</li>
+                    <li>transition менен көп касиеттерди өзгөртүңүз</li>
+                    <li>transition: all менен бардык касиеттерди өзгөртүңүз</li>
+                    <li>transition-delay менен кечигүү кошуңуз</li>
+                    <li>@keyframes менен slide анимациясын кылыңыз</li>
+                    <li>@keyframes менен bounce анимациясын кылыңыз</li>
+                    <li>@keyframes менен rotate анимациясын кылыңыз</li>
+                    <li>@keyframes менен көп кадрларды кылыңыз</li>
+                    <li>transition + @keyframes бирге колдонуңуз</li>
+                    <li>Бардык касиеттерди бирге практикалаңыз</li>
+                </ol>
+            </div>
+        </section>
+
+        <!-- КЕСТЕ -->
+        <section class="table-section">
+            <h2>📊 Transition касиеттери</h2>
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Касиет</th>
+                            <th>Түшүндүрмө</th>
+                            <th>Мисал</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><code>transition</code></td>
+                            <td>Бардык касиеттер</td>
+                            <td><code>transition: all 0.3s ease;</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>transition-property</code></td>
+                            <td>Касиет аты</td>
+                            <td><code>transition-property: background;</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>transition-duration</code></td>
+                            <td>Убакыт</td>
+                            <td><code>transition-duration: 0.3s;</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>transition-timing-function</code></td>
+                            <td>Ылдамдык функциясы</td>
+                            <td><code>transition-timing-function: ease;</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>transition-delay</code></td>
+                            <td>Кечигүү</td>
+                            <td><code>transition-delay: 0.2s;</code></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section class="table-section">
+            <h2>📊 Animation касиеттери</h2>
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Касиет</th>
+                            <th>Түшүндүрмө</th>
+                            <th>Мисал</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><code>animation</code></td>
+                            <td>Бардык касиеттер</td>
+                            <td><code>animation: slide 1s ease;</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>animation-name</code></td>
+                            <td>Анимация аты</td>
+                            <td><code>animation-name: slide;</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>animation-duration</code></td>
+                            <td>Убакыт</td>
+                            <td><code>animation-duration: 1s;</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>animation-timing-function</code></td>
+                            <td>Ылдамдык функциясы</td>
+                            <td><code>animation-timing-function: ease;</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>animation-delay</code></td>
+                            <td>Кечигүү</td>
+                            <td><code>animation-delay: 0.5s;</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>animation-iteration-count</code></td>
+                            <td>Кайталоо саны</td>
+                            <td><code>animation-iteration-count: infinite;</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>animation-direction</code></td>
+                            <td>Багыт</td>
+                            <td><code>animation-direction: alternate;</code></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section class="table-section">
+            <h2>📊 Timing Function</h2>
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Функция</th>
+                            <th>Түшүндүрмө</th>
+                            <th>Колдонулушу</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><code>ease</code></td>
+                            <td>Жумшак (дефолт)</td>
+                            <td>Көп учурда</td>
+                        </tr>
+                        <tr>
+                            <td><code>linear</code></td>
+                            <td>Тең ылдамдыкта</td>
+                            <td>Rotate анимациялар</td>
+                        </tr>
+                        <tr>
+                            <td><code>ease-in</code></td>
+                            <td>Башталышта жай</td>
+                            <td>Кириш анимациялар</td>
+                        </tr>
+                        <tr>
+                            <td><code>ease-out</code></td>
+                            <td>Аягында жай</td>
+                            <td>Чыгуу анимациялар</td>
+                        </tr>
+                        <tr>
+                            <td><code>ease-in-out</code></td>
+                            <td>Башталышта жана аягында жай</td>
+                            <td>Көп учурда</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <footer>
+            <p>Бактылуу окуу! 🎓</p>
+        </footer>
+    </div>
+</body>
+</html>
+

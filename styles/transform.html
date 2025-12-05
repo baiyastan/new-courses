@@ -1,0 +1,780 @@
+<!DOCTYPE html>
+<html lang="ky">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Transform - Сабак</title>
+    <link rel="stylesheet" href="transform-styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>CSS Transform</h1>
+            <p class="subtitle">Баштап жаткандар үчүн толук сабак</p>
+        </header>
+
+        <!-- ТЕОРИЯ БӨЛҮМҮ -->
+        <section class="theory-section">
+            <h2>📚 Теория</h2>
+            
+            <div class="theory-card">
+                <h3>1. Transform деген эмне?</h3>
+                
+                <p><strong>Transform</strong> - элементтерди трансформациялоо (кыймыл, айлануу, масштабдоо).</p>
+                
+                <h4>Негизги түшүнүктөр:</h4>
+                <ul>
+                    <li><strong>transform</strong> - трансформация касиети</li>
+                    <li><strong>scale()</strong> - масштабдоо (чоңойтуу/кичирейтүү)</li>
+                    <li><strong>rotate()</strong> - айлануу</li>
+                    <li><strong>translate()</strong> - кыймыл (жылдыруу)</li>
+                    <li><strong>transform-origin</strong> - трансформациянын башталышы</li>
+                </ul>
+                
+                <div class="code-example">
+                    <pre><code>/* Transform */
+.element {
+    transform: scale(1.2);
+}
+
+.element {
+    transform: rotate(45deg);
+}
+
+.element {
+    transform: translate(50px, 50px);
+}
+
+/* Transform элементтерди трансформациялайт */</code></pre>
+                </div>
+            </div>
+
+            <div class="theory-card">
+                <h3>2. scale() - Масштабдоо</h3>
+                
+                <p><strong>scale()</strong> - элементин чоңдугун өзгөртүү.</p>
+                
+                <h4>Синтаксис:</h4>
+                <ul>
+                    <li><code>scale(1)</code> - дефолт чоңдук</li>
+                    <li><code>scale(1.5)</code> - 1.5 эсе чоңойтуу</li>
+                    <li><code>scale(0.5)</code> - 2 эсе кичирейтүү</li>
+                    <li><code>scale(2, 1)</code> - туурасы 2 эсе, бийиктиги 1 эсе</li>
+                    <li><code>scaleX(2)</code> - туурасы гана</li>
+                    <li><code>scaleY(2)</code> - бийиктиги гана</li>
+                </ul>
+                
+                <h4>Колдонулушу:</h4>
+                <ul>
+                    <li>Hover эффекттери</li>
+                    <li>Zoom эффекттери</li>
+                    <li>Интерактивдүү элементтер</li>
+                </ul>
+                
+                <div class="code-example">
+                    <pre><code>/* scale() - Масштабдоо */
+.element {
+    transform: scale(1);
+}
+
+.element:hover {
+    transform: scale(1.2);
+}
+
+.element {
+    transform: scale(2, 1.5);
+}
+
+.element {
+    transform: scaleX(1.5);
+    transform: scaleY(0.8);
+}
+
+/* scale() элементин чоңдугун өзгөртөт */</code></pre>
+                </div>
+            </div>
+
+            <div class="theory-card">
+                <h3>3. rotate() - Айлануу</h3>
+                
+                <p><strong>rotate()</strong> - элементин айлануу бурчу.</p>
+                
+                <h4>Синтаксис:</h4>
+                <ul>
+                    <li><code>rotate(0deg)</code> - айлануу жок</li>
+                    <li><code>rotate(45deg)</code> - 45 градус айлануу</li>
+                    <li><code>rotate(90deg)</code> - 90 градус айлануу</li>
+                    <li><code>rotate(180deg)</code> - 180 градус айлануу</li>
+                    <li><code>rotate(360deg)</code> - толук айлануу</li>
+                    <li><code>rotate(-45deg)</code> - тескери багытта</li>
+                </ul>
+                
+                <h4>Колдонулушу:</h4>
+                <ul>
+                    <li>Айлануу анимациялар</li>
+                    <li>Иконкаларды айлануу</li>
+                    <li>Декоративдүү элементтер</li>
+                </ul>
+                
+                <div class="code-example">
+                    <pre><code>/* rotate() - Айлануу */
+.element {
+    transform: rotate(0deg);
+}
+
+.element:hover {
+    transform: rotate(45deg);
+}
+
+.element {
+    transform: rotate(90deg);
+}
+
+.element {
+    transform: rotate(-45deg);
+}
+
+/* rotate() элементин айлануу бурчу */</code></pre>
+                </div>
+            </div>
+
+            <div class="theory-card">
+                <h3>4. translate() - Кыймыл</h3>
+                
+                <p><strong>translate()</strong> - элементин позициясын өзгөртүү.</p>
+                
+                <h4>Синтаксис:</h4>
+                <ul>
+                    <li><code>translate(0, 0)</code> - кыймыл жок</li>
+                    <li><code>translate(50px, 0)</code> - оңго 50px</li>
+                    <li><code>translate(0, 50px)</code> - ылдый 50px</li>
+                    <li><code>translate(50px, 50px)</code> - оңго жана ылдый</li>
+                    <li><code>translateX(50px)</code> - туурасы гана</li>
+                    <li><code>translateY(50px)</code> - бийиктиги гана</li>
+                    <li><code>translate(-50px, -50px)</code> - солго жана жогору</li>
+                </ul>
+                
+                <h4>Колдонулушу:</h4>
+                <ul>
+                    <li>Кыймыл анимациялар</li>
+                    <li>Hover эффекттери</li>
+                    <li>Элементтерди жылдыруу</li>
+                </ul>
+                
+                <div class="code-example">
+                    <pre><code>/* translate() - Кыймыл */
+.element {
+    transform: translate(0, 0);
+}
+
+.element:hover {
+    transform: translate(50px, 50px);
+}
+
+.element {
+    transform: translateX(50px);
+}
+
+.element {
+    transform: translateY(-50px);
+}
+
+/* translate() элементин позициясын өзгөртөт */</code></pre>
+                </div>
+            </div>
+
+            <div class="theory-card">
+                <h3>5. transform-origin - Башталыш чекити</h3>
+                
+                <p><strong>transform-origin</strong> - трансформациянын башталыш чекити.</p>
+                
+                <h4>Варианттар:</h4>
+                <ul>
+                    <li><code>transform-origin: center;</code> - борбор (дефолт)</li>
+                    <li><code>transform-origin: top left;</code> - жогору сол</li>
+                    <li><code>transform-origin: bottom right;</code> - ылдый оң</li>
+                    <li><code>transform-origin: 50% 50%;</code> - процент менен</li>
+                    <li><code>transform-origin: 0 0;</code> - пиксел менен</li>
+                </ul>
+                
+                <div class="code-example">
+                    <pre><code>/* transform-origin - Башталыш чекити */
+.element {
+    transform: rotate(45deg);
+    transform-origin: center;
+}
+
+.element {
+    transform: scale(1.5);
+    transform-origin: top left;
+}
+
+.element {
+    transform: rotate(90deg);
+    transform-origin: 0 0;
+}
+
+/* transform-origin трансформациянын башталыш чекитин аныктайт */</code></pre>
+                </div>
+            </div>
+
+            <div class="theory-card">
+                <h3>6. Көп transform функциялар</h3>
+                
+                <p>Көп transform функцияларды бирге колдонуу - көп трансформациялар бирге.</p>
+                
+                <h4>Синтаксис:</h4>
+                <ul>
+                    <li><code>transform: scale(1.2) rotate(45deg);</code> - scale + rotate</li>
+                    <li><code>transform: translate(50px) scale(1.5);</code> - translate + scale</li>
+                    <li><code>transform: rotate(45deg) translate(50px);</code> - rotate + translate</li>
+                    <li>Бардык функциялар бирге</li>
+                </ul>
+                
+                <h4>Эрежелер:</h4>
+                <ul>
+                    <li>Функциялар боштук менен бөлүнөт</li>
+                    <li>Тартиби маанилүү</li>
+                    <li>Алгачкы функция алгач иштейт</li>
+                </ul>
+                
+                <div class="code-example">
+                    <pre><code>/* Көп transform функциялар */
+.element {
+    transform: scale(1.2) rotate(45deg);
+}
+
+.element {
+    transform: translate(50px) scale(1.5);
+}
+
+.element {
+    transform: rotate(45deg) translate(50px) scale(1.2);
+}
+
+/* Көп функциялар бирге колдонулат */</code></pre>
+                </div>
+            </div>
+
+            <div class="theory-card">
+                <h3>7. Transform менен transition</h3>
+                
+                <p>Transform менен transition - трансформацияны жумшак кылуу.</p>
+                
+                <h4>Колдонулушу:</h4>
+                <ul>
+                    <li>Transform өзгөрүшүн жумшак кылуу</li>
+                    <li>Hover эффекттери</li>
+                    <li>Анимациялар</li>
+                </ul>
+                
+                <div class="code-example">
+                    <pre><code>/* Transform менен transition */
+.element {
+    transform: scale(1);
+    transition: transform 0.3s ease;
+}
+
+.element:hover {
+    transform: scale(1.2);
+}
+
+.element {
+    transform: rotate(0deg);
+    transition: transform 0.5s ease;
+}
+
+.element:hover {
+    transform: rotate(45deg);
+}
+
+/* transition transform өзгөрүшүн жумшак кылат */</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- ЖЕНИЛ МИСАЛДАР -->
+        <section class="examples-section">
+            <h2>🟢 ЖЕНИЛ МИСАЛДАР</h2>
+
+            <div class="example-group">
+                <h3>Мисал 1: scale() - Чоңойтуу</h3>
+                <div class="demo-box">
+                    <div class="transform-scale">Мышканын үстүнө келгиле</div>
+                </div>
+                <div class="code-example">
+                    <pre><code>/* scale() - Чоңойтуу */
+.transform-scale {
+    padding: 20px;
+    background: #667eea;
+    color: white;
+    border-radius: 10px;
+    transform: scale(1);
+    transition: transform 0.3s ease;
+    cursor: pointer;
+}
+
+.transform-scale:hover {
+    transform: scale(1.2);
+}
+
+/* HTML */
+&lt;div class="transform-scale"&gt;Мышканын үстүнө келгиле&lt;/div&gt;</code></pre>
+                </div>
+            </div>
+
+            <div class="example-group">
+                <h3>Мисал 2: rotate() - Айлануу</h3>
+                <div class="demo-box">
+                    <div class="transform-rotate">Мышканын үстүнө келгиле</div>
+                </div>
+                <div class="code-example">
+                    <pre><code>/* rotate() - Айлануу */
+.transform-rotate {
+    padding: 20px;
+    background: #667eea;
+    color: white;
+    border-radius: 10px;
+    transform: rotate(0deg);
+    transition: transform 0.3s ease;
+    cursor: pointer;
+}
+
+.transform-rotate:hover {
+    transform: rotate(45deg);
+}
+
+/* HTML */
+&lt;div class="transform-rotate"&gt;Мышканын үстүнө келгиле&lt;/div&gt;</code></pre>
+                </div>
+            </div>
+
+            <div class="example-group">
+                <h3>Мисал 3: translate() - Кыймыл</h3>
+                <div class="demo-box">
+                    <div class="transform-translate">Мышканын үстүнө келгиле</div>
+                </div>
+                <div class="code-example">
+                    <pre><code>/* translate() - Кыймыл */
+.transform-translate {
+    padding: 20px;
+    background: #667eea;
+    color: white;
+    border-radius: 10px;
+    transform: translate(0, 0);
+    transition: transform 0.3s ease;
+    cursor: pointer;
+}
+
+.transform-translate:hover {
+    transform: translate(50px, 50px);
+}
+
+/* HTML */
+&lt;div class="transform-translate"&gt;Мышканын үстүнө келгиле&lt;/div&gt;</code></pre>
+                </div>
+            </div>
+
+            <div class="example-group">
+                <h3>Мисал 4: scaleX() жана scaleY()</h3>
+                <div class="demo-box">
+                    <div class="transform-scale-x">scaleX</div>
+                    <div class="transform-scale-y">scaleY</div>
+                </div>
+                <div class="code-example">
+                    <pre><code>/* scaleX() жана scaleY() */
+.transform-scale-x {
+    padding: 20px;
+    background: #667eea;
+    color: white;
+    border-radius: 10px;
+    transform: scaleX(1);
+    transition: transform 0.3s ease;
+    cursor: pointer;
+    margin-bottom: 10px;
+}
+
+.transform-scale-x:hover {
+    transform: scaleX(1.5);
+}
+
+.transform-scale-y {
+    padding: 20px;
+    background: #764ba2;
+    color: white;
+    border-radius: 10px;
+    transform: scaleY(1);
+    transition: transform 0.3s ease;
+    cursor: pointer;
+}
+
+.transform-scale-y:hover {
+    transform: scaleY(1.5);
+}
+
+/* HTML */
+&lt;div class="transform-scale-x"&gt;scaleX&lt;/div&gt;
+&lt;div class="transform-scale-y"&gt;scaleY&lt;/div&gt;</code></pre>
+                </div>
+            </div>
+
+            <div class="example-group">
+                <h3>Мисал 5: translateX() жана translateY()</h3>
+                <div class="demo-box">
+                    <div class="transform-translate-x">translateX</div>
+                    <div class="transform-translate-y">translateY</div>
+                </div>
+                <div class="code-example">
+                    <pre><code>/* translateX() жана translateY() */
+.transform-translate-x {
+    padding: 20px;
+    background: #667eea;
+    color: white;
+    border-radius: 10px;
+    transform: translateX(0);
+    transition: transform 0.3s ease;
+    cursor: pointer;
+    margin-bottom: 10px;
+}
+
+.transform-translate-x:hover {
+    transform: translateX(50px);
+}
+
+.transform-translate-y {
+    padding: 20px;
+    background: #764ba2;
+    color: white;
+    border-radius: 10px;
+    transform: translateY(0);
+    transition: transform 0.3s ease;
+    cursor: pointer;
+}
+
+.transform-translate-y:hover {
+    transform: translateY(-50px);
+}
+
+/* HTML */
+&lt;div class="transform-translate-x"&gt;translateX&lt;/div&gt;
+&lt;div class="transform-translate-y"&gt;translateY&lt;/div&gt;</code></pre>
+                </div>
+            </div>
+
+            <div class="example-group">
+                <h3>Мисал 6: transform-origin</h3>
+                <div class="demo-box">
+                    <div class="transform-origin-center">Center</div>
+                    <div class="transform-origin-top-left">Top Left</div>
+                </div>
+                <div class="code-example">
+                    <pre><code>/* transform-origin */
+.transform-origin-center {
+    padding: 20px;
+    background: #667eea;
+    color: white;
+    border-radius: 10px;
+    transform: rotate(45deg);
+    transform-origin: center;
+    transition: transform 0.3s ease;
+    cursor: pointer;
+    margin-bottom: 10px;
+}
+
+.transform-origin-top-left {
+    padding: 20px;
+    background: #764ba2;
+    color: white;
+    border-radius: 10px;
+    transform: rotate(45deg);
+    transform-origin: top left;
+    transition: transform 0.3s ease;
+    cursor: pointer;
+}
+
+/* HTML */
+&lt;div class="transform-origin-center"&gt;Center&lt;/div&gt;
+&lt;div class="transform-origin-top-left"&gt;Top Left&lt;/div&gt;</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- ООР МИСАЛДАР -->
+        <section class="examples-section">
+            <h2>🔴 ООР МИСАЛДАР</h2>
+
+            <div class="example-group">
+                <h3>Мисал 7: scale() + rotate() - Бирге</h3>
+                <div class="demo-box">
+                    <div class="transform-combo-1">Мышканын үстүнө келгиле</div>
+                </div>
+                <div class="code-example">
+                    <pre><code>/* scale() + rotate() - Бирге */
+.transform-combo-1 {
+    padding: 20px;
+    background: #667eea;
+    color: white;
+    border-radius: 10px;
+    transform: scale(1) rotate(0deg);
+    transition: transform 0.3s ease;
+    cursor: pointer;
+}
+
+.transform-combo-1:hover {
+    transform: scale(1.2) rotate(45deg);
+}
+
+/* HTML */
+&lt;div class="transform-combo-1"&gt;Мышканын үстүнө келгиле&lt;/div&gt;</code></pre>
+                </div>
+            </div>
+
+            <div class="example-group">
+                <h3>Мисал 8: translate() + scale() - Бирге</h3>
+                <div class="demo-box">
+                    <div class="transform-combo-2">Мышканын үстүнө келгиле</div>
+                </div>
+                <div class="code-example">
+                    <pre><code>/* translate() + scale() - Бирге */
+.transform-combo-2 {
+    padding: 20px;
+    background: #667eea;
+    color: white;
+    border-radius: 10px;
+    transform: translate(0, 0) scale(1);
+    transition: transform 0.3s ease;
+    cursor: pointer;
+}
+
+.transform-combo-2:hover {
+    transform: translate(50px, -50px) scale(1.2);
+}
+
+/* HTML */
+&lt;div class="transform-combo-2"&gt;Мышканын үстүнө келгиле&lt;/div&gt;</code></pre>
+                </div>
+            </div>
+
+            <div class="example-group">
+                <h3>Мисал 9: rotate() + translate() - Бирге</h3>
+                <div class="demo-box">
+                    <div class="transform-combo-3">Мышканын үстүнө келгиле</div>
+                </div>
+                <div class="code-example">
+                    <pre><code>/* rotate() + translate() - Бирге */
+.transform-combo-3 {
+    padding: 20px;
+    background: #667eea;
+    color: white;
+    border-radius: 10px;
+    transform: rotate(0deg) translate(0, 0);
+    transition: transform 0.3s ease;
+    cursor: pointer;
+}
+
+.transform-combo-3:hover {
+    transform: rotate(45deg) translate(50px, 50px);
+}
+
+/* HTML */
+&lt;div class="transform-combo-3"&gt;Мышканын үстүнө келгиле&lt;/div&gt;</code></pre>
+                </div>
+            </div>
+
+            <div class="example-group">
+                <h3>Мисал 10: Бардык касиеттер бирге</h3>
+                <div class="demo-box">
+                    <div class="transform-all">Мышканын үстүнө келгиле</div>
+                </div>
+                <div class="code-example">
+                    <pre><code>/* Бардык касиеттер бирге */
+.transform-all {
+    padding: 20px;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+    border-radius: 10px;
+    transform: scale(1) rotate(0deg) translate(0, 0);
+    transform-origin: center;
+    transition: transform 0.5s ease;
+    cursor: pointer;
+}
+
+.transform-all:hover {
+    transform: scale(1.2) rotate(45deg) translate(30px, -30px);
+}
+
+/* HTML */
+&lt;div class="transform-all"&gt;Мышканын үстүнө келгиле&lt;/div&gt;</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- ПРАКТИКА -->
+        <section class="practice-section">
+            <h2>💻 ПРАКТИКА</h2>
+            <div class="practice-card">
+                <h3>Өзүңүз кылыңыз:</h3>
+                <ol>
+                    <li>scale() менен элементин чоңдугун өзгөртүңүз</li>
+                    <li>rotate() менен элементин айлануу бурчу</li>
+                    <li>translate() менен элементин позициясын өзгөртүңүз</li>
+                    <li>scaleX() жана scaleY() менен туурасы жана бийиктиги</li>
+                    <li>translateX() жана translateY() менен туурасы жана бийиктиги</li>
+                    <li>transform-origin менен башталыш чекити</li>
+                    <li>scale() + rotate() бирге колдонуңуз</li>
+                    <li>translate() + scale() бирге колдонуңуз</li>
+                    <li>rotate() + translate() бирге колдонуңуз</li>
+                    <li>Бардык касиеттерди бирге практикалаңыз</li>
+                </ol>
+            </div>
+        </section>
+
+        <!-- КЕСТЕ -->
+        <section class="table-section">
+            <h2>📊 Transform функциялар</h2>
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Функция</th>
+                            <th>Түшүндүрмө</th>
+                            <th>Мисал</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><code>scale(1.5)</code></td>
+                            <td>Масштабдоо</td>
+                            <td>1.5 эсе чоңойтуу</td>
+                        </tr>
+                        <tr>
+                            <td><code>scaleX(2)</code></td>
+                            <td>Туурасы масштабдоо</td>
+                            <td>Туурасы 2 эсе</td>
+                        </tr>
+                        <tr>
+                            <td><code>scaleY(0.5)</code></td>
+                            <td>Бийиктиги масштабдоо</td>
+                            <td>Бийиктиги 0.5 эсе</td>
+                        </tr>
+                        <tr>
+                            <td><code>rotate(45deg)</code></td>
+                            <td>Айлануу</td>
+                            <td>45 градус айлануу</td>
+                        </tr>
+                        <tr>
+                            <td><code>translate(50px, 50px)</code></td>
+                            <td>Кыймыл</td>
+                            <td>Оңго 50px, ылдый 50px</td>
+                        </tr>
+                        <tr>
+                            <td><code>translateX(50px)</code></td>
+                            <td>Туурасы кыймыл</td>
+                            <td>Оңго 50px</td>
+                        </tr>
+                        <tr>
+                            <td><code>translateY(-50px)</code></td>
+                            <td>Бийиктиги кыймыл</td>
+                            <td>Жогору 50px</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section class="table-section">
+            <h2>📊 transform-origin варианттар</h2>
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Вариант</th>
+                            <th>Түшүндүрмө</th>
+                            <th>Мисал</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><code>center</code></td>
+                            <td>Борбор (дефолт)</td>
+                            <td>Элементин борбору</td>
+                        </tr>
+                        <tr>
+                            <td><code>top left</code></td>
+                            <td>Жогору сол</td>
+                            <td>Жогору сол бурч</td>
+                        </tr>
+                        <tr>
+                            <td><code>top right</code></td>
+                            <td>Жогору оң</td>
+                            <td>Жогору оң бурч</td>
+                        </tr>
+                        <tr>
+                            <td><code>bottom left</code></td>
+                            <td>Ылдый сол</td>
+                            <td>Ылдый сол бурч</td>
+                        </tr>
+                        <tr>
+                            <td><code>bottom right</code></td>
+                            <td>Ылдый оң</td>
+                            <td>Ылдый оң бурч</td>
+                        </tr>
+                        <tr>
+                            <td><code>50% 50%</code></td>
+                            <td>Процент менен</td>
+                            <td>Борбор (50% 50%)</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section class="table-section">
+            <h2>📊 Transform колдонулушу</h2>
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Функция</th>
+                            <th>Колдонулушу</th>
+                            <th>Артыкчылыгы</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><code>scale()</code></td>
+                            <td>Zoom эффекттери, hover</td>
+                            <td>Чоңойтуу/кичирейтүү</td>
+                        </tr>
+                        <tr>
+                            <td><code>rotate()</code></td>
+                            <td>Айлануу анимациялар</td>
+                            <td>Айлануу эффекттери</td>
+                        </tr>
+                        <tr>
+                            <td><code>translate()</code></td>
+                            <td>Кыймыл анимациялар</td>
+                            <td>Позицияны өзгөртүү</td>
+                        </tr>
+                        <tr>
+                            <td><code>transform-origin</code></td>
+                            <td>Башталыш чекити</td>
+                            <td>Трансформациянын башталышы</td>
+                        </tr>
+                        <tr>
+                            <td>Көп функциялар</td>
+                            <td>Көп эффекттер</td>
+                            <td>Күчүрүү эффекттери</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <footer>
+            <p>Бактылуу окуу! 🎓</p>
+        </footer>
+    </div>
+</body>
+</html>
+

@@ -1,0 +1,762 @@
+<!DOCTYPE html>
+<html lang="ky">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Псевдоэлементтер - Сабак</title>
+    <link rel="stylesheet" href="pseudo-elements-styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Псевдоэлементтер</h1>
+            <p class="subtitle">Баштап жаткандар үчүн толук сабак</p>
+        </header>
+
+        <!-- ТЕОРИЯ БӨЛҮМҮ -->
+        <section class="theory-section">
+            <h2>📚 Теория</h2>
+            
+            <div class="theory-card">
+                <h3>1. Псевдоэлементтер деген эмне?</h3>
+                
+                <p><strong>Псевдоэлементтер</strong> - элементтин айрым бөлүгүн же виртуалдык элементин тандайт.</p>
+                
+                <h4>Негизги түшүнүктөр:</h4>
+                <ul>
+                    <li><strong>::before</strong> - элементин алдына контент кошуу</li>
+                    <li><strong>::after</strong> - элементин артына контент кошуу</li>
+                    <li><strong>::selection</strong> - тандалган текстти стилдөө</li>
+                    <li><strong>::</strong> - эки нукта (псевдоэлементтер үчүн)</li>
+                </ul>
+                
+                <div class="code-example">
+                    <pre><code>/* Псевдоэлементтер */
+.element::before { }      /* Элементин алдына */
+.element::after { }       /* Элементин артына */
+.element::selection { }   /* Тандалган текст */
+
+/* Псевдоэлементтер :: (эки нукта) менен башталат */
+/* content касиети милдеттүү */</code></pre>
+                </div>
+            </div>
+
+            <div class="theory-card">
+                <h3>2. ::before - Элементин алдына</h3>
+                
+                <p><strong>::before</strong> - элементин алдына виртуалдык элементин түзүү.</p>
+                
+                <h4>Колдонулушу:</h4>
+                <ul>
+                    <li>Иконкаларды кошуу</li>
+                    <li>Декоративдүү элементтер</li>
+                    <li>Тексттин алдына кошуу</li>
+                    <li>CSS менен контент түзүү</li>
+                </ul>
+                
+                <h4>Синтаксис:</h4>
+                <ul>
+                    <li><code>.element::before { }</code> - элементин алдына</li>
+                    <li><code>content: "";</code> - милдеттүү касиет</li>
+                    <li>Виртуалдык элемент (HTML'де жок)</li>
+                </ul>
+                
+                <div class="code-example">
+                    <pre><code>/* ::before - Элементин алдына */
+.element::before {
+    content: "🔍";
+    margin-right: 10px;
+}
+
+.icon::before {
+    content: "";
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    background: #667eea;
+    border-radius: 50%;
+}
+
+/* content касиети милдеттүү */
+/* ::before элементин алдына кошулат */</code></pre>
+                </div>
+            </div>
+
+            <div class="theory-card">
+                <h3>3. ::after - Элементин артына</h3>
+                
+                <p><strong>::after</strong> - элементин артына виртуалдык элементин түзүү.</p>
+                
+                <h4>Колдонулушу:</h4>
+                <ul>
+                    <li>Иконкаларды кошуу</li>
+                    <li>Декоративдүү элементтер</li>
+                    <li>Тексттин артына кошуу</li>
+                    <li>CSS менен контент түзүү</li>
+                </ul>
+                
+                <h4>Синтаксис:</h4>
+                <ul>
+                    <li><code>.element::after { }</code> - элементин артына</li>
+                    <li><code>content: "";</code> - милдеттүү касиет</li>
+                    <li>Виртуалдык элемент (HTML'де жок)</li>
+                </ul>
+                
+                <div class="code-example">
+                    <pre><code>/* ::after - Элементин артына */
+.element::after {
+    content: "→";
+    margin-left: 10px;
+}
+
+.link::after {
+    content: "";
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    background: #667eea;
+    border-radius: 50%;
+}
+
+/* content касиети милдеттүү */
+/* ::after элементин артына кошулат */</code></pre>
+                </div>
+            </div>
+
+            <div class="theory-card">
+                <h3>4. content касиети</h3>
+                
+                <p><strong>content</strong> - псевдоэлементтин мазмунун аныктоо.</p>
+                
+                <h4>Варианттар:</h4>
+                <ul>
+                    <li><code>content: "";</code> - бош контент</li>
+                    <li><code>content: "Текст";</code> - текст</li>
+                    <li><code>content: "🔍";</code> - эмодзи</li>
+                    <li><code>content: attr(data-icon);</code> - атрибут мааниси</li>
+                    <li><code>content: url(image.png);</code> - сүрөт</li>
+                </ul>
+                
+                <h4>Эрежелер:</h4>
+                <ul>
+                    <li>content милдеттүү касиет</li>
+                    <li>content жок болсо, псевдоэлемент көрүнбөйт</li>
+                    <li>Бош контент: <code>content: "";</code></li>
+                </ul>
+                
+                <div class="code-example">
+                    <pre><code>/* content касиети */
+.element::before {
+    content: "";              /* Бош контент */
+}
+
+.element::before {
+    content: "🔍";            /* Эмодзи */
+}
+
+.element::before {
+    content: "Текст";         /* Текст */
+}
+
+.element::before {
+    content: attr(data-icon);  /* Атрибут мааниси */
+}
+
+.element::before {
+    content: url(icon.png);   /* Сүрөт */
+}
+
+/* content милдеттүү касиет */</code></pre>
+                </div>
+            </div>
+
+            <div class="theory-card">
+                <h3>5. ::selection - Тандалган текст</h3>
+                
+                <p><strong>::selection</strong> - тандалган текстти стилдөө.</p>
+                
+                <h4>Колдонулушу:</h4>
+                <ul>
+                    <li>Тандалган текстти стилдөө</li>
+                    <li>Текстти тандаганда эффект</li>
+                    <li>UX жакшыртуу</li>
+                </ul>
+                
+                <h4>Синтаксис:</h4>
+                <ul>
+                    <li><code>::selection { }</code> - тандалган текст</li>
+                    <li>Текст тандалганда гана иштейт</li>
+                    <li>Бардык элементтерде колдонулат</li>
+                </ul>
+                
+                <h4>Колдонулуучу касиеттер:</h4>
+                <ul>
+                    <li><code>color</code> - текст түсү</li>
+                    <li><code>background-color</code> - фон түсү</li>
+                    <li><code>text-shadow</code> - текст көлөкөсү</li>
+                </ul>
+                
+                <div class="code-example">
+                    <pre><code>/* ::selection - Тандалган текст */
+::selection {
+    background-color: #667eea;
+    color: white;
+}
+
+.text::selection {
+    background-color: #764ba2;
+    color: white;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+}
+
+/* ::selection тандалган текстти стилдейт */</code></pre>
+                </div>
+            </div>
+
+            <div class="theory-card">
+                <h3>6. ::before жана ::after бирге</h3>
+                
+                <p>::before жана ::after бирге колдонуу - элементин алдына жана артына контент кошуу.</p>
+                
+                <h4>Колдонулушу:</h4>
+                <ul>
+                    <li>Декоративдүү элементтер</li>
+                    <li>Иконкаларды кошуу</li>
+                    <li>Көп контент кошуу</li>
+                </ul>
+                
+                <div class="code-example">
+                    <pre><code>/* ::before жана ::after бирге */
+.element::before {
+    content: "🔍";
+    margin-right: 10px;
+}
+
+.element::after {
+    content: "→";
+    margin-left: 10px;
+}
+
+/* Элементин алдына жана артына контент */</code></pre>
+                </div>
+            </div>
+
+            <div class="theory-card">
+                <h3>7. Псевдоэлементтер менен стилдер</h3>
+                
+                <p>Псевдоэлементтер менен стилдер - бардык CSS касиеттери колдонулат.</p>
+                
+                <h4>Колдонулуучу касиеттер:</h4>
+                <ul>
+                    <li><code>display</code> - көрсөтүү</li>
+                    <li><code>position</code> - позиция</li>
+                    <li><code>width</code>, <code>height</code> - өлчөмдөр</li>
+                    <li><code>background</code> - фон</li>
+                    <li><code>border</code> - чек</li>
+                    <li>Бардык башка CSS касиеттери</li>
+                </ul>
+                
+                <div class="code-example">
+                    <pre><code>/* Псевдоэлементтер менен стилдер */
+.element::before {
+    content: "";
+    display: block;
+    width: 50px;
+    height: 50px;
+    background: #667eea;
+    border-radius: 50%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+/* Бардык CSS касиеттери колдонулат */</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- ЖЕНИЛ МИСАЛДАР -->
+        <section class="examples-section">
+            <h2>🟢 ЖЕНИЛ МИСАЛДАР</h2>
+
+            <div class="example-group">
+                <h3>Мисал 1: ::before - Иконка</h3>
+                <div class="demo-box">
+                    <div class="before-icon">Текст иконка менен</div>
+                </div>
+                <div class="code-example">
+                    <pre><code>/* ::before - Иконка */
+.before-icon::before {
+    content: "🔍";
+    margin-right: 10px;
+    font-size: 18px;
+}
+
+.before-icon {
+    font-size: 18px;
+    padding: 10px;
+}
+
+/* HTML */
+&lt;div class="before-icon"&gt;Текст иконка менен&lt;/div&gt;</code></pre>
+                </div>
+            </div>
+
+            <div class="example-group">
+                <h3>Мисал 2: ::after - Стрелка</h3>
+                <div class="demo-box">
+                    <div class="after-arrow">Текст стрелка менен</div>
+                </div>
+                <div class="code-example">
+                    <pre><code>/* ::after - Стрелка */
+.after-arrow::after {
+    content: "→";
+    margin-left: 10px;
+    font-size: 18px;
+    color: #667eea;
+}
+
+.after-arrow {
+    font-size: 18px;
+    padding: 10px;
+}
+
+/* HTML */
+&lt;div class="after-arrow"&gt;Текст стрелка менен&lt;/div&gt;</code></pre>
+                </div>
+            </div>
+
+            <div class="example-group">
+                <h3>Мисал 3: ::before - Бош контент</h3>
+                <div class="demo-box">
+                    <div class="before-empty">Текст бош контент менен</div>
+                </div>
+                <div class="code-example">
+                    <pre><code>/* ::before - Бош контент */
+.before-empty::before {
+    content: "";
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    background: #667eea;
+    border-radius: 50%;
+    margin-right: 10px;
+    vertical-align: middle;
+}
+
+.before-empty {
+    font-size: 18px;
+    padding: 10px;
+}
+
+/* HTML */
+&lt;div class="before-empty"&gt;Текст бош контент менен&lt;/div&gt;</code></pre>
+                </div>
+            </div>
+
+            <div class="example-group">
+                <h3>Мисал 4: ::after - Бош контент</h3>
+                <div class="demo-box">
+                    <div class="after-empty">Текст бош контент менен</div>
+                </div>
+                <div class="code-example">
+                    <pre><code>/* ::after - Бош контент */
+.after-empty::after {
+    content: "";
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    background: #764ba2;
+    border-radius: 50%;
+    margin-left: 10px;
+    vertical-align: middle;
+}
+
+.after-empty {
+    font-size: 18px;
+    padding: 10px;
+}
+
+/* HTML */
+&lt;div class="after-empty"&gt;Текст бош контент менен&lt;/div&gt;</code></pre>
+                </div>
+            </div>
+
+            <div class="example-group">
+                <h3>Мисал 5: ::before + ::after - Бирге</h3>
+                <div class="demo-box">
+                    <div class="before-after">Текст</div>
+                </div>
+                <div class="code-example">
+                    <pre><code>/* ::before + ::after - Бирге */
+.before-after::before {
+    content: "🔍";
+    margin-right: 10px;
+    font-size: 18px;
+}
+
+.before-after::after {
+    content: "→";
+    margin-left: 10px;
+    font-size: 18px;
+    color: #667eea;
+}
+
+.before-after {
+    font-size: 18px;
+    padding: 10px;
+}
+
+/* HTML */
+&lt;div class="before-after"&gt;Текст&lt;/div&gt;</code></pre>
+                </div>
+            </div>
+
+            <div class="example-group">
+                <h3>Мисал 6: ::selection - Тандалган текст</h3>
+                <div class="demo-box">
+                    <div class="selection-text">Бул текстти тандаңыз (мышка менен сууруңуз)</div>
+                </div>
+                <div class="code-example">
+                    <pre><code>/* ::selection - Тандалган текст */
+.selection-text {
+    font-size: 18px;
+    padding: 20px;
+    background: #f8f9fa;
+    border-radius: 5px;
+}
+
+.selection-text::selection {
+    background-color: #667eea;
+    color: white;
+}
+
+/* HTML */
+&lt;div class="selection-text"&gt;Бул текстти тандаңыз&lt;/div&gt;</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- ООР МИСАЛДАР -->
+        <section class="examples-section">
+            <h2>🔴 ООР МИСАЛДАР</h2>
+
+            <div class="example-group">
+                <h3>Мисал 7: ::before - Декоративдүү элемент</h3>
+                <div class="demo-box">
+                    <div class="decorative-before">Декоративдүү элемент</div>
+                </div>
+                <div class="code-example">
+                    <pre><code>/* ::before - Декоративдүү элемент */
+.decorative-before {
+    position: relative;
+    padding: 20px 20px 20px 60px;
+    background: #f8f9fa;
+    border-radius: 10px;
+    font-size: 18px;
+}
+
+.decorative-before::before {
+    content: "";
+    position: absolute;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 30px;
+    height: 30px;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    border-radius: 50%;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+/* HTML */
+&lt;div class="decorative-before"&gt;Декоративдүү элемент&lt;/div&gt;</code></pre>
+                </div>
+            </div>
+
+            <div class="example-group">
+                <h3>Мисал 8: ::after - Tooltip</h3>
+                <div class="demo-box">
+                    <div class="tooltip-after">Мышканын үстүнө келгиле
+                        <span class="tooltip-text">Бул tooltip</span>
+                    </div>
+                </div>
+                <div class="code-example">
+                    <pre><code>/* ::after - Tooltip */
+.tooltip-after {
+    position: relative;
+    display: inline-block;
+    padding: 10px 20px;
+    background: #667eea;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.tooltip-text {
+    visibility: hidden;
+    position: absolute;
+    bottom: 125%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #333;
+    color: white;
+    padding: 8px 12px;
+    border-radius: 5px;
+    white-space: nowrap;
+    font-size: 14px;
+}
+
+.tooltip-after:hover .tooltip-text {
+    visibility: visible;
+}
+
+.tooltip-text::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 5px solid transparent;
+    border-top-color: #333;
+}
+
+/* HTML */
+&lt;div class="tooltip-after"&gt;
+    Мышканын үстүнө келгиле
+    &lt;span class="tooltip-text"&gt;Бул tooltip&lt;/span&gt;
+&lt;/div&gt;</code></pre>
+                </div>
+            </div>
+
+            <div class="example-group">
+                <h3>Мисал 9: ::before + ::after - Көп элементтер</h3>
+                <div class="demo-box">
+                    <div class="multiple-pseudo">Көп псевдоэлементтер</div>
+                </div>
+                <div class="code-example">
+                    <pre><code>/* ::before + ::after - Көп элементтер */
+.multiple-pseudo {
+    position: relative;
+    padding: 20px 60px;
+    background: #f8f9fa;
+    border-radius: 10px;
+    font-size: 18px;
+    text-align: center;
+}
+
+.multiple-pseudo::before {
+    content: "🔍";
+    position: absolute;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 24px;
+}
+
+.multiple-pseudo::after {
+    content: "→";
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 24px;
+    color: #667eea;
+}
+
+/* HTML */
+&lt;div class="multiple-pseudo"&gt;Көп псевдоэлементтер&lt;/div&gt;</code></pre>
+                </div>
+            </div>
+
+            <div class="example-group">
+                <h3>Мисал 10: Бардык касиеттер бирге</h3>
+                <div class="demo-box">
+                    <div class="all-pseudo-element">Бардык псевдоэлементтер</div>
+                    <div class="all-selection-text">Бул текстти тандаңыз (мышка менен сууруңуз)</div>
+                </div>
+                <div class="code-example">
+                    <pre><code>/* Бардык касиеттер бирге */
+.all-pseudo-element {
+    position: relative;
+    padding: 20px 80px;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+    border-radius: 10px;
+    font-size: 18px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.all-pseudo-element::before {
+    content: "🔍";
+    position: absolute;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 24px;
+}
+
+.all-pseudo-element::after {
+    content: "→";
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 24px;
+}
+
+.all-selection-text {
+    font-size: 18px;
+    padding: 20px;
+    background: #f8f9fa;
+    border-radius: 5px;
+}
+
+.all-selection-text::selection {
+    background-color: #667eea;
+    color: white;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+}
+
+/* HTML */
+&lt;div class="all-pseudo-element"&gt;Бардык псевдоэлементтер&lt;/div&gt;
+&lt;div class="all-selection-text"&gt;Бул текстти тандаңыз&lt;/div&gt;</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- ПРАКТИКА -->
+        <section class="practice-section">
+            <h2>💻 ПРАКТИКА</h2>
+            <div class="practice-card">
+                <h3>Өзүңүз кылыңыз:</h3>
+                <ol>
+                    <li>::before менен иконка кошуңуз</li>
+                    <li>::after менен стрелка кошуңуз</li>
+                    <li>::before менен бош контент кошуңуз</li>
+                    <li>::after менен бош контент кошуңуз</li>
+                    <li>::before + ::after бирге колдонуңуз</li>
+                    <li>::selection менен тандалган текстти стилдеңиз</li>
+                    <li>::before менен декоративдүү элемент кылыңыз</li>
+                    <li>::after менен tooltip кылыңыз</li>
+                    <li>Көп псевдоэлементтер менен элемент кылыңыз</li>
+                    <li>Бардык касиеттерди бирге практикалаңыз</li>
+                </ol>
+            </div>
+        </section>
+
+        <!-- КЕСТЕ -->
+        <section class="table-section">
+            <h2>📊 Псевдоэлементтер</h2>
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Псевдоэлемент</th>
+                            <th>Түшүндүрмө</th>
+                            <th>Мисал</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><code>::before</code></td>
+                            <td>Элементин алдына</td>
+                            <td><code>.element::before { }</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>::after</code></td>
+                            <td>Элементин артына</td>
+                            <td><code>.element::after { }</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>::selection</code></td>
+                            <td>Тандалган текст</td>
+                            <td><code>::selection { }</code></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section class="table-section">
+            <h2>📊 content касиети</h2>
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Синтаксис</th>
+                            <th>Түшүндүрмө</th>
+                            <th>Мисал</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><code>content: "";</code></td>
+                            <td>Бош контент</td>
+                            <td>Декоративдүү элементтер</td>
+                        </tr>
+                        <tr>
+                            <td><code>content: "Текст";</code></td>
+                            <td>Текст</td>
+                            <td>Иконкалар, символдор</td>
+                        </tr>
+                        <tr>
+                            <td><code>content: "🔍";</code></td>
+                            <td>Эмодзи</td>
+                            <td>Иконкалар</td>
+                        </tr>
+                        <tr>
+                            <td><code>content: attr(data-icon);</code></td>
+                            <td>Атрибут мааниси</td>
+                            <td>Динамикалык контент</td>
+                        </tr>
+                        <tr>
+                            <td><code>content: url(image.png);</code></td>
+                            <td>Сүрөт</td>
+                            <td>Сүрөттөр</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section class="table-section">
+            <h2>📊 Псевдоэлементтердин колдонулушу</h2>
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Псевдоэлемент</th>
+                            <th>Колдонулушу</th>
+                            <th>Касиеттери</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><code>::before</code></td>
+                            <td>Иконкалар, декоративдүү элементтер</td>
+                            <td>content милдеттүү</td>
+                        </tr>
+                        <tr>
+                            <td><code>::after</code></td>
+                            <td>Иконкалар, декоративдүү элементтер</td>
+                            <td>content милдеттүү</td>
+                        </tr>
+                        <tr>
+                            <td><code>::selection</code></td>
+                            <td>Тандалган текстти стилдөө</td>
+                            <td>color, background-color</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <footer>
+            <p>Бактылуу окуу! 🎓</p>
+        </footer>
+    </div>
+</body>
+</html>
+

@@ -1,0 +1,1104 @@
+<!DOCTYPE html>
+<html lang="ky">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BEM Методологиясы - Сабак</title>
+    <link rel="stylesheet" href="bem-styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>BEM Методологиясы</h1>
+            <p class="subtitle">Баштап жаткандар үчүн толук сабак</p>
+        </header>
+
+        <!-- ТЕОРИЯ БӨЛҮМҮ -->
+        <section class="theory-section">
+            <h2>📚 Теория</h2>
+            
+            <div class="theory-card">
+                <h3>1. BEM деген эмне?</h3>
+                
+                <p><strong>BEM</strong> (Block Element Modifier) - CSS класс аталыштарын түзүү методологиясы.</p>
+                
+                <h4>Негизги түшүнүктөр:</h4>
+                <ul>
+                    <li><strong>Block</strong> - Блок (көз карандысыз компонент)</li>
+                    <li><strong>Element</strong> - Элемент (блоктун бөлүгү)</li>
+                    <li><strong>Modifier</strong> - Модификатор (блок же элементтин варианты)</li>
+                    <li><strong>Именование</strong> - Аталыш эрежелери</li>
+                </ul>
+                
+                <div class="code-example">
+                    <pre><code>/* BEM Методологиясы */
+.block { }                    /* Block */
+.block__element { }           /* Element */
+.block--modifier { }          /* Modifier */
+.block__element--modifier { } /* Element + Modifier */
+
+/* Блок__Элемент--Модификатор */</code></pre>
+                </div>
+            </div>
+
+            <div class="theory-card">
+                <h3>2. Block (Блок) - Көз карандысыз компонент</h3>
+                
+                <p><strong>Block</strong> - көз карандысыз компонент, кайра колдонулуучу бөлүк.</p>
+                
+                <h4>Блоктун касиеттери:</h4>
+                <ul>
+                    <li>Көз карандысыз компонент</li>
+                    <li>Кайра колдонулуучу</li>
+                    <li>Бир аталыш менен</li>
+                    <li>Бир маанилүүлүк</li>
+                </ul>
+                
+                <h4>Мисалдар:</h4>
+                <ul>
+                    <li><code>.button</code> - баскыч</li>
+                    <li><code>.card</code> - карточка</li>
+                    <li><code>.menu</code> - меню</li>
+                    <li><code>.header</code> - баштык</li>
+                </ul>
+                
+                <div class="code-example">
+                    <pre><code>/* Block - Блок */
+.button {
+    padding: 10px 20px;
+    background: #667eea;
+    color: white;
+    border: none;
+    border-radius: 5px;
+}
+
+.card {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.menu {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+/* Блок - көз карандысыз компонент */</code></pre>
+                </div>
+            </div>
+
+            <div class="theory-card">
+                <h3>3. Element (Элемент) - Блоктун бөлүгү</h3>
+                
+                <p><strong>Element</strong> - блоктун бөлүгү, блоксуз жалгыз колдонулбайт.</p>
+                
+                <h4>Элементтин касиеттери:</h4>
+                <ul>
+                    <li>Блоктун бөлүгү</li>
+                    <li>Блоксуз жалгыз колдонулбайт</li>
+                    <li>__ (эки underscore) менен бөлүнөт</li>
+                    <li>Блок__Элемент форматы</li>
+                </ul>
+                
+                <h4>Синтаксис:</h4>
+                <ul>
+                    <li><code>.block__element</code> - элемент</li>
+                    <li><code>.button__icon</code> - баскычтын иконкасы</li>
+                    <li><code>.card__title</code> - карточканын заголовогу</li>
+                    <li><code>.menu__item</code> - менюнун элементи</li>
+                </ul>
+                
+                <div class="code-example">
+                    <pre><code>/* Element - Элемент */
+.button {
+    padding: 10px 20px;
+}
+
+.button__icon {
+    width: 20px;
+    height: 20px;
+}
+
+.button__text {
+    font-weight: bold;
+}
+
+.card {
+    padding: 20px;
+}
+
+.card__title {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.card__content {
+    color: #666;
+}
+
+.menu {
+    display: flex;
+}
+
+.menu__item {
+    padding: 10px;
+}
+
+/* Элемент - блоктун бөлүгү, __ менен бөлүнөт */</code></pre>
+                </div>
+            </div>
+
+            <div class="theory-card">
+                <h3>4. Modifier (Модификатор) - Вариант</h3>
+                
+                <p><strong>Modifier</strong> - блок же элементтин варианты, көрүнүшүн өзгөртөт.</p>
+                
+                <h4>Модификатордун касиеттери:</h4>
+                <ul>
+                    <li>Блок же элементтин варианты</li>
+                    <li>Көрүнүшүн өзгөртөт</li>
+                    <li>-- (эки тире) менен бөлүнөт</li>
+                    <li>Блок--Модификатор форматы</li>
+                </ul>
+                
+                <h4>Синтаксис:</h4>
+                <ul>
+                    <li><code>.block--modifier</code> - блоктун модификатору</li>
+                    <li><code>.button--primary</code> - баскычтын primary варианты</li>
+                    <li><code>.card--large</code> - карточканын чоң варианты</li>
+                    <li><code>.menu__item--active</code> - меню элементинин актив варианты</li>
+                </ul>
+                
+                <div class="code-example">
+                    <pre><code>/* Modifier - Модификатор */
+.button {
+    padding: 10px 20px;
+}
+
+.button--primary {
+    background: #667eea;
+    color: white;
+}
+
+.button--secondary {
+    background: #764ba2;
+    color: white;
+}
+
+.button--large {
+    padding: 15px 30px;
+    font-size: 18px;
+}
+
+.card {
+    padding: 20px;
+}
+
+.card--large {
+    padding: 40px;
+}
+
+.card--highlighted {
+    border: 2px solid #667eea;
+}
+
+.menu__item--active {
+    background: #667eea;
+    color: white;
+}
+
+/* Модификатор - вариант, -- менен бөлүнөт */</code></pre>
+                </div>
+            </div>
+
+            <div class="theory-card">
+                <h3>5. Именование (Аталыш эрежелери)</h3>
+                
+                <p><strong>Именование</strong> - BEM'де класс аталыштарын түзүү эрежелери.</p>
+                
+                <h4>Эрежелер:</h4>
+                <ul>
+                    <li><strong>Кичине тамга</strong> - бардык аталыштар кичине тамга менен</li>
+                    <li><strong>Тире (-)</strong> - сөздөрдү бөлүү үчүн</li>
+                    <li><strong>__ (эки underscore)</strong> - элементти бөлүү үчүн</li>
+                    <li><strong>-- (эки тире)</strong> - модификаторду бөлүү үчүн</li>
+                    <li><strong>Бир аталыш</strong> - бир компонент, бир аталыш</li>
+                </ul>
+                
+                <h4>Мисалдар:</h4>
+                <ul>
+                    <li>✅ <code>.button</code> - туура</li>
+                    <li>✅ <code>.button__icon</code> - туура</li>
+                    <li>✅ <code>.button--primary</code> - туура</li>
+                    <li>❌ <code>.Button</code> - туура эмес (чоң тамга)</li>
+                    <li>❌ <code>.button_icon</code> - туура эмес (бир underscore)</li>
+                    <li>❌ <code>.button-primary</code> - туура эмес (бир тире)</li>
+                </ul>
+                
+                <div class="code-example">
+                    <pre><code>/* Именование - Аталыш эрежелери */
+
+/* ✅ ТУУРА */
+.button { }
+.button__icon { }
+.button--primary { }
+.card__title--large { }
+
+/* ❌ ТУУРА ЭМЕС */
+.Button { }              /* Чоң тамга */
+.button_icon { }         /* Бир underscore */
+.button-primary { }     /* Бир тире */
+.button__icon-primary { } /* Модификатор туура эмес */
+
+/* Эрежелер:
+   1. Кичине тамга
+   2. Тире (-) сөздөрдү бөлүү үчүн
+   3. __ элементти бөлүү үчүн
+   4. -- модификаторду бөлүү үчүн */</code></pre>
+                </div>
+            </div>
+
+            <div class="theory-card">
+                <h3>6. Блок__Элемент--Модификатор</h3>
+                
+                <p>Блок, Элемент жана Модификаторду бирге колдонуу.</p>
+                
+                <h4>Комбинациялар:</h4>
+                <ul>
+                    <li><code>.block</code> - блок</li>
+                    <li><code>.block__element</code> - элемент</li>
+                    <li><code>.block--modifier</code> - блоктун модификатору</li>
+                    <li><code>.block__element--modifier</code> - элементтин модификатору</li>
+                </ul>
+                
+                <div class="code-example">
+                    <pre><code>/* Блок__Элемент--Модификатор */
+
+/* Блок */
+.card { }
+
+/* Блок + Элемент */
+.card__title { }
+.card__content { }
+
+/* Блок + Модификатор */
+.card--large { }
+.card--highlighted { }
+
+/* Блок + Элемент + Модификатор */
+.card__title--large { }
+.card__content--centered { }
+
+/* HTML */
+&lt;div class="card card--large"&gt;
+    &lt;h2 class="card__title card__title--large"&gt;Заголовок&lt;/h2&gt;
+    &lt;p class="card__content card__content--centered"&gt;Мазмун&lt;/p&gt;
+&lt;/div&gt;</code></pre>
+                </div>
+            </div>
+
+            <div class="theory-card">
+                <h3>7. BEM'дин артыкчылыктары</h3>
+                
+                <p>BEM методологиясынын негизги артыкчылыктары.</p>
+                
+                <h4>Артыкчылыктары:</h4>
+                <ul>
+                    <li><strong>Түшүнүктүүлүк</strong> - код оңой түшүнүлөт</li>
+                    <li><strong>Кайра колдонуу</strong> - компоненттер кайра колдонулат</li>
+                    <li><strong>Көз карандысыздык</strong> - блоктор көз карандысыз</li>
+                    <li><strong>Масштабдалуу</strong> - чоң проекттерде иштейт</li>
+                    <li><strong>Колдоо</strong> - кодду колдоо оңой</li>
+                </ul>
+                
+                <div class="code-example">
+                    <pre><code>/* BEM'дин артыкчылыктары */
+
+/* 1. Түшүнүктүүлүк */
+.button__icon { }  /* Баскычтын иконкасы - түшүнүктүү */
+
+/* 2. Кайра колдонуу */
+.button { }  /* Бардык жерде колдонулат */
+
+/* 3. Көз карандысыздык */
+.card { }  /* Башка компоненттерге көз каранды эмес */
+
+/* 4. Масштабдалуу */
+.header { }
+.header__logo { }
+.header__menu { }
+.header__menu--mobile { }
+
+/* 5. Колдоо */
+/* Кодду колдоо оңой, эмне эмнеге тиешелүү экенин билебиз */</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- ЖЕНИЛ МИСАЛДАР -->
+        <section class="examples-section">
+            <h2>🟢 ЖЕНИЛ МИСАЛДАР</h2>
+
+            <div class="example-group">
+                <h3>Мисал 1: Block - Баскыч</h3>
+                <div class="demo-box">
+                    <button class="button">Баскыч</button>
+                </div>
+                <div class="code-example">
+                    <pre><code>/* Block - Баскыч */
+.button {
+    padding: 10px 20px;
+    background: #667eea;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+/* HTML */
+&lt;button class="button"&gt;Баскыч&lt;/button&gt;</code></pre>
+                </div>
+            </div>
+
+            <div class="example-group">
+                <h3>Мисал 2: Block__Element - Баскыч + Элемент</h3>
+                <div class="demo-box">
+                    <button class="button">
+                        <span class="button__icon">🔍</span>
+                        <span class="button__text">Издөө</span>
+                    </button>
+                </div>
+                <div class="code-example">
+                    <pre><code>/* Block__Element - Баскыч + Элемент */
+.button {
+    padding: 10px 20px;
+    background: #667eea;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.button__icon {
+    font-size: 18px;
+}
+
+.button__text {
+    font-weight: bold;
+}
+
+/* HTML */
+&lt;button class="button"&gt;
+    &lt;span class="button__icon"&gt;🔍&lt;/span&gt;
+    &lt;span class="button__text"&gt;Издөө&lt;/span&gt;
+&lt;/button&gt;</code></pre>
+                </div>
+            </div>
+
+            <div class="example-group">
+                <h3>Мисал 3: Block--Modifier - Баскыч + Модификатор</h3>
+                <div class="demo-box">
+                    <button class="button">Дефолт</button>
+                    <button class="button button--primary">Primary</button>
+                    <button class="button button--secondary">Secondary</button>
+                    <button class="button button--large">Large</button>
+                </div>
+                <div class="code-example">
+                    <pre><code>/* Block--Modifier - Баскыч + Модификатор */
+.button {
+    padding: 10px 20px;
+    background: #667eea;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 5px;
+}
+
+.button--primary {
+    background: #4CAF50;
+}
+
+.button--secondary {
+    background: #764ba2;
+}
+
+.button--large {
+    padding: 15px 30px;
+    font-size: 18px;
+}
+
+/* HTML */
+&lt;button class="button"&gt;Дефолт&lt;/button&gt;
+&lt;button class="button button--primary"&gt;Primary&lt;/button&gt;
+&lt;button class="button button--secondary"&gt;Secondary&lt;/button&gt;
+&lt;button class="button button--large"&gt;Large&lt;/button&gt;</code></pre>
+                </div>
+            </div>
+
+            <div class="example-group">
+                <h3>Мисал 4: Block__Element--Modifier - Элемент + Модификатор</h3>
+                <div class="demo-box">
+                    <div class="card">
+                        <h3 class="card__title">Дефолт заголовок</h3>
+                        <h3 class="card__title card__title--large">Чоң заголовок</h3>
+                        <p class="card__content">Дефолт мазмун</p>
+                        <p class="card__content card__content--centered">Ортолонгон мазмун</p>
+                    </div>
+                </div>
+                <div class="code-example">
+                    <pre><code>/* Block__Element--Modifier - Элемент + Модификатор */
+.card {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.card__title {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.card__title--large {
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.card__content {
+    color: #666;
+}
+
+.card__content--centered {
+    text-align: center;
+}
+
+/* HTML */
+&lt;div class="card"&gt;
+    &lt;h3 class="card__title"&gt;Дефолт заголовок&lt;/h3&gt;
+    &lt;h3 class="card__title card__title--large"&gt;Чоң заголовок&lt;/h3&gt;
+    &lt;p class="card__content"&gt;Дефолт мазмун&lt;/p&gt;
+    &lt;p class="card__content card__content--centered"&gt;Ортолонгон мазмун&lt;/p&gt;
+&lt;/div&gt;</code></pre>
+                </div>
+            </div>
+
+            <div class="example-group">
+                <h3>Мисал 5: Меню - Блок + Элемент + Модификатор</h3>
+                <div class="demo-box">
+                    <ul class="menu">
+                        <li class="menu__item">Башкы</li>
+                        <li class="menu__item menu__item--active">Биз жөнүндө</li>
+                        <li class="menu__item">Кызматтар</li>
+                        <li class="menu__item">Байланыш</li>
+                    </ul>
+                </div>
+                <div class="code-example">
+                    <pre><code>/* Меню - Блок + Элемент + Модификатор */
+.menu {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    padding: 0;
+    margin: 0;
+}
+
+.menu__item {
+    padding: 10px 15px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.menu__item--active {
+    background: #667eea;
+    color: white;
+}
+
+/* HTML */
+&lt;ul class="menu"&gt;
+    &lt;li class="menu__item"&gt;Башкы&lt;/li&gt;
+    &lt;li class="menu__item menu__item--active"&gt;Биз жөнүндө&lt;/li&gt;
+    &lt;li class="menu__item"&gt;Кызматтар&lt;/li&gt;
+    &lt;li class="menu__item"&gt;Байланыш&lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+                </div>
+            </div>
+
+            <div class="example-group">
+                <h3>Мисал 6: Карточка - Көп элементтер</h3>
+                <div class="demo-box">
+                    <div class="card">
+                        <div class="card__header">
+                            <h3 class="card__title">Карточканын заголовогу</h3>
+                        </div>
+                        <div class="card__body">
+                            <p class="card__content">Карточканын мазмуну</p>
+                        </div>
+                        <div class="card__footer">
+                            <button class="card__button">Баскыч</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="code-example">
+                    <pre><code>/* Карточка - Көп элементтер */
+.card {
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    overflow: hidden;
+}
+
+.card__header {
+    padding: 20px;
+    background: #f8f9fa;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.card__title {
+    font-size: 24px;
+    margin: 0;
+}
+
+.card__body {
+    padding: 20px;
+}
+
+.card__content {
+    color: #666;
+    margin: 0;
+}
+
+.card__footer {
+    padding: 20px;
+    background: #f8f9fa;
+    border-top: 1px solid #e0e0e0;
+}
+
+.card__button {
+    padding: 10px 20px;
+    background: #667eea;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* HTML */
+&lt;div class="card"&gt;
+    &lt;div class="card__header"&gt;
+        &lt;h3 class="card__title"&gt;Карточканын заголовогу&lt;/h3&gt;
+    &lt;/div&gt;
+    &lt;div class="card__body"&gt;
+        &lt;p class="card__content"&gt;Карточканын мазмуну&lt;/p&gt;
+    &lt;/div&gt;
+    &lt;div class="card__footer"&gt;
+        &lt;button class="card__button"&gt;Баскыч&lt;/button&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- ООР МИСАЛДАР -->
+        <section class="examples-section">
+            <h2>🔴 ООР МИСАЛДАР</h2>
+
+            <div class="example-group">
+                <h3>Мисал 7: Header - Көп блоктор</h3>
+                <div class="demo-box">
+                    <header class="header">
+                        <div class="header__logo">Logo</div>
+                        <nav class="header__nav">
+                            <ul class="menu">
+                                <li class="menu__item menu__item--active">Башкы</li>
+                                <li class="menu__item">Биз жөнүндө</li>
+                                <li class="menu__item">Кызматтар</li>
+                            </ul>
+                        </nav>
+                        <button class="header__button header__button--mobile">☰</button>
+                    </header>
+                </div>
+                <div class="code-example">
+                    <pre><code>/* Header - Көп блоктор */
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+    background: white;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.header__logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: #667eea;
+}
+
+.header__nav {
+    display: flex;
+}
+
+.menu {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    margin: 0;
+    padding: 0;
+}
+
+.menu__item {
+    padding: 10px 15px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.menu__item--active {
+    background: #667eea;
+    color: white;
+}
+
+.header__button {
+    display: none;
+    padding: 10px;
+    background: #667eea;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.header__button--mobile {
+    display: block;
+}
+
+/* HTML */
+&lt;header class="header"&gt;
+    &lt;div class="header__logo"&gt;Logo&lt;/div&gt;
+    &lt;nav class="header__nav"&gt;
+        &lt;ul class="menu"&gt;
+            &lt;li class="menu__item menu__item--active"&gt;Башкы&lt;/li&gt;
+            &lt;li class="menu__item"&gt;Биз жөнүндө&lt;/li&gt;
+            &lt;li class="menu__item"&gt;Кызматтар&lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/nav&gt;
+    &lt;button class="header__button header__button--mobile"&gt;☰&lt;/button&gt;
+&lt;/header&gt;</code></pre>
+                </div>
+            </div>
+
+            <div class="example-group">
+                <h3>Мисал 8: Форма - Көп элементтер + Модификатор</h3>
+                <div class="demo-box">
+                    <form class="form">
+                        <div class="form__group">
+                            <label class="form__label">Аты</label>
+                            <input type="text" class="form__input" placeholder="Атыңызды киргизиңиз">
+                        </div>
+                        <div class="form__group">
+                            <label class="form__label form__label--required">Email</label>
+                            <input type="email" class="form__input form__input--error" placeholder="Email">
+                            <span class="form__error">Email туура эмес</span>
+                        </div>
+                        <button type="submit" class="form__button form__button--primary">Жөнөтүү</button>
+                    </form>
+                </div>
+                <div class="code-example">
+                    <pre><code>/* Форма - Көп элементтер + Модификатор */
+.form {
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    max-width: 400px;
+}
+
+.form__group {
+    margin-bottom: 20px;
+}
+
+.form__label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #333;
+}
+
+.form__label--required::after {
+    content: " *";
+    color: red;
+}
+
+.form__input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.form__input--error {
+    border-color: red;
+}
+
+.form__error {
+    display: block;
+    color: red;
+    font-size: 14px;
+    margin-top: 5px;
+}
+
+.form__button {
+    padding: 10px 20px;
+    background: #667eea;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.form__button--primary {
+    background: #4CAF50;
+}
+
+/* HTML */
+&lt;form class="form"&gt;
+    &lt;div class="form__group"&gt;
+        &lt;label class="form__label"&gt;Аты&lt;/label&gt;
+        &lt;input type="text" class="form__input" placeholder="Атыңызды киргизиңиз"&gt;
+    &lt;/div&gt;
+    &lt;div class="form__group"&gt;
+        &lt;label class="form__label form__label--required"&gt;Email&lt;/label&gt;
+        &lt;input type="email" class="form__input form__input--error" placeholder="Email"&gt;
+        &lt;span class="form__error"&gt;Email туура эмес&lt;/span&gt;
+    &lt;/div&gt;
+    &lt;button type="submit" class="form__button form__button--primary"&gt;Жөнөтүү&lt;/button&gt;
+&lt;/form&gt;</code></pre>
+                </div>
+            </div>
+
+            <div class="example-group">
+                <h3>Мисал 9: Grid Layout - Көп блоктор</h3>
+                <div class="demo-box">
+                    <div class="grid">
+                        <div class="grid__item">1</div>
+                        <div class="grid__item grid__item--large">2</div>
+                        <div class="grid__item">3</div>
+                        <div class="grid__item">4</div>
+                        <div class="grid__item grid__item--wide">5</div>
+                        <div class="grid__item">6</div>
+                    </div>
+                </div>
+                <div class="code-example">
+                    <pre><code>/* Grid Layout - Көп блоктор */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.grid__item {
+    background: #667eea;
+    color: white;
+    padding: 30px;
+    border-radius: 10px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 24px;
+}
+
+.grid__item--large {
+    grid-row: span 2;
+    background: #764ba2;
+}
+
+.grid__item--wide {
+    grid-column: span 2;
+    background: #4CAF50;
+}
+
+/* HTML */
+&lt;div class="grid"&gt;
+    &lt;div class="grid__item"&gt;1&lt;/div&gt;
+    &lt;div class="grid__item grid__item--large"&gt;2&lt;/div&gt;
+    &lt;div class="grid__item"&gt;3&lt;/div&gt;
+    &lt;div class="grid__item"&gt;4&lt;/div&gt;
+    &lt;div class="grid__item grid__item--wide"&gt;5&lt;/div&gt;
+    &lt;div class="grid__item"&gt;6&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+                </div>
+            </div>
+
+            <div class="example-group">
+                <h3>Мисал 10: Бардык касиеттер бирге</h3>
+                <div class="demo-box">
+                    <div class="product-card product-card--featured">
+                        <div class="product-card__image">
+                            <span class="product-card__badge product-card__badge--new">Жаңы</span>
+                            <img src="https://image-cdn.hypb.st/https://hypebeast.com/image/2023/07/drake-nike-nocta-glide-colorways-preview-info-1.jpg?cbr=1&q=90" alt="">
+                        </div>
+                        <div class="product-card__body">
+                            <h3 class="product-card__title">Продукт</h3>
+                            <p class="product-card__description">Продукттун сүрөттөмөсү</p>
+                            <div class="product-card__price">1000 сом</div>
+                            <button class="product-card__button product-card__button--primary">Сатып алуу</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="code-example">
+                    <pre><code>/* Бардык касиеттер бирге */
+.product-card {
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    overflow: hidden;
+    max-width: 300px;
+}
+
+.product-card--featured {
+    border: 2px solid #667eea;
+}
+
+.product-card__image {
+    background: #f8f9fa;
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.product-card__badge {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: #4CAF50;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.product-card__badge--new {
+    background: #f5576c;
+}
+
+.product-card__body {
+    padding: 20px;
+}
+
+.product-card__title {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.product-card__description {
+    color: #666;
+    margin-bottom: 15px;
+}
+
+.product-card__price {
+    font-size: 24px;
+    font-weight: bold;
+    color: #667eea;
+    margin-bottom: 15px;
+}
+
+.product-card__button {
+    width: 100%;
+    padding: 10px;
+    background: #667eea;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.product-card__button--primary {
+    background: #4CAF50;
+}
+
+/* HTML */
+&lt;div class="product-card product-card--featured"&gt;
+    &lt;div class="product-card__image"&gt;
+        &lt;span class="product-card__badge product-card__badge--new"&gt;Жаңы&lt;/span&gt;
+    &lt;/div&gt;
+    &lt;div class="product-card__body"&gt;
+        &lt;h3 class="product-card__title"&gt;Продукт&lt;/h3&gt;
+        &lt;p class="product-card__description"&gt;Продукттун сүрөттөмөсү&lt;/p&gt;
+        &lt;div class="product-card__price"&gt;1000 сом&lt;/div&gt;
+        &lt;button class="product-card__button product-card__button--primary"&gt;Сатып алуу&lt;/button&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- ПРАКТИКА -->
+        <section class="practice-section">
+            <h2>💻 ПРАКТИКА</h2>
+            <div class="practice-card">
+                <h3>Өзүңүз кылыңыз:</h3>
+                <ol>
+                    <li>Блок түзүңүз (button, card, menu)</li>
+                    <li>Элемент кошуңуз (button__icon, card__title)</li>
+                    <li>Модификатор кошуңуз (button--primary, card--large)</li>
+                    <li>Блок__Элемент--Модификатор комбинациясын кылыңыз</li>
+                    <li>Именование эрежелерин сактаңыз (кичине тамга, __, --)</li>
+                    <li>Көп элементтер менен блок түзүңүз (header, form)</li>
+                    <li>Көп модификатор менен блок түзүңүз</li>
+                    <li>Grid layout менен BEM колдонуңуз</li>
+                    <li>Продукт карточкасын BEM менен кылыңыз</li>
+                    <li>Бардык касиеттерди бирге практикалаңыз</li>
+                </ol>
+            </div>
+        </section>
+
+        <!-- КЕСТЕ -->
+        <section class="table-section">
+            <h2>📊 BEM Синтаксиси</h2>
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Синтаксис</th>
+                            <th>Түшүндүрмө</th>
+                            <th>Мисал</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><code>.block</code></td>
+                            <td>Блок</td>
+                            <td><code>.button</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>.block__element</code></td>
+                            <td>Элемент</td>
+                            <td><code>.button__icon</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>.block--modifier</code></td>
+                            <td>Модификатор</td>
+                            <td><code>.button--primary</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>.block__element--modifier</code></td>
+                            <td>Элемент + Модификатор</td>
+                            <td><code>.button__icon--large</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>__</code></td>
+                            <td>Элементти бөлүү</td>
+                            <td>Эки underscore</td>
+                        </tr>
+                        <tr>
+                            <td><code>--</code></td>
+                            <td>Модификаторду бөлүү</td>
+                            <td>Эки тире</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section class="table-section">
+            <h2>📊 Именование эрежелери</h2>
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Эреже</th>
+                            <th>Туура</th>
+                            <th>Туура эмес</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Кичине тамга</td>
+                            <td><code>.button</code></td>
+                            <td><code>.Button</code> ❌</td>
+                        </tr>
+                        <tr>
+                            <td>Тире (-) сөздөрдү бөлүү</td>
+                            <td><code>.product-card</code></td>
+                            <td><code>.productcard</code> ❌</td>
+                        </tr>
+                        <tr>
+                            <td>__ элементти бөлүү</td>
+                            <td><code>.button__icon</code></td>
+                            <td><code>.button_icon</code> ❌</td>
+                        </tr>
+                        <tr>
+                            <td>-- модификаторду бөлүү</td>
+                            <td><code>.button--primary</code></td>
+                            <td><code>.button-primary</code> ❌</td>
+                        </tr>
+                        <tr>
+                            <td>Бир аталыш</td>
+                            <td><code>.card</code></td>
+                            <td><code>.card .card-item</code> ❌</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section class="table-section">
+            <h2>📊 BEM касиеттери</h2>
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Касиет</th>
+                            <th>Түшүндүрмө</th>
+                            <th>Артыкчылыгы</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Block</td>
+                            <td>Көз карандысыз компонент</td>
+                            <td>Кайра колдонуу</td>
+                        </tr>
+                        <tr>
+                            <td>Element</td>
+                            <td>Блоктун бөлүгү</td>
+                            <td>Түшүнүктүүлүк</td>
+                        </tr>
+                        <tr>
+                            <td>Modifier</td>
+                            <td>Вариант</td>
+                            <td>Флексибилдүүлүк</td>
+                        </tr>
+                        <tr>
+                            <td>Именование</td>
+                            <td>Аталыш эрежелери</td>
+                            <td>Стандартташтыруу</td>
+                        </tr>
+                        <tr>
+                            <td>Масштабдалуу</td>
+                            <td>Чоң проекттер</td>
+                            <td>Колдоо оңой</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <footer>
+            <p>Бактылуу окуу! 🎓</p>
+        </footer>
+    </div>
+</body>
+</html>
+
