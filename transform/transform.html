@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="ky">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Transform - Сабак</title>
+    <link rel="stylesheet" href="transform-styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>CSS Transform</h1>
+            <p class="subtitle">Баштап жаткандар үчүн толук сабак</p>
+        </header>
+
+        <!-- ТЕОРИЯ БӨЛҮМҮ -->
+        <section class="theory-section">
+            <h2>📚 Теория</h2>
+            
+            <div class="theory-card">
+                <h3>1. Transform деген эмне?</h3>
+                <p><strong>Transform</strong> - бул элементтерди 2D же 3D кеңдикте өзгөртүү үчүн колдонулат. Элементтин позициясын өзгөртпөстөн, анын формасын, багытын, көлөмүн өзгөртөт.</p>
+                <ul>
+                    <li><strong>translate()</strong> - элементти жылдыруу (x, y)</li>
+                    <li><strong>rotate()</strong> - элементти айлантуу (градус менен)</li>
+                    <li><strong>scale()</strong> - элементтин көлөмүн өзгөртүү</li>
+                    <li><strong>skew()</strong> - элементти эңкейтүү</li>
+                    <li><strong>matrix()</strong> - бардык трансформацияларды биргелештирүү</li>
+                </ul>
+            </div>
+
+            <div class="theory-card">
+                <h3>2. Transform маанилери</h3>
+                <ul>
+                    <li><strong>translateX(n)</strong> - горизонталдык жылдыруу</li>
+                    <li><strong>translateY(n)</strong> - вертикалдык жылдыруу</li>
+                    <li><strong>translate(x, y)</strong> - эки багытта жылдыруу</li>
+                    <li><strong>rotate(deg)</strong> - айлануу (0deg - 360deg)</li>
+                    <li><strong>scaleX(n)</strong> - туурасын кеңейтүү/кичирейтүү</li>
+                    <li><strong>scaleY(n)</strong> - бийиктигин кеңейтүү/кичирейтүү</li>
+                    <li><strong>scale(x, y)</strong> - эки багытта масштабдоо</li>
+                    <li><strong>skewX(deg)</strong> - горизонталдык эңкейтүү</li>
+                    <li><strong>skewY(deg)</strong> - вертикалдык эңкейтүү</li>
+                    <li><strong>skew(x, y)</strong> - эки багытта эңкейтүү</li>
+                </ul>
+            </div>
+
+            <div class="theory-card">
+                <h3>3. Transform-origin</h3>
+                <p><strong>transform-origin</strong> - трансформациянын башталган чекитин аныктайт.</p>
+                <ul>
+                    <li><strong>center</strong> - борбор (дефолт)</li>
+                    <li><strong>top, bottom, left, right</strong> - багыттар</li>
+                    <li><strong>50% 50%</strong> - пайыз менен</li>
+                    <li><strong>20px 30px</strong> - пиксел менен</li>
+                </ul>
+            </div>
+
+            <div class="theory-card">
+                <h3>4. Көп трансформацияларды бириктирүү</h3>
+                <p>Бир нече трансформацияларды биргелештире аласыз:</p>
+                <pre><code>transform: translateX(50px) rotate(45deg) scale(1.2);</code></pre>
+                <p class="note">⚠️ Эскертүү: Трансформациялар оңдон солго окулат!</p>
+            </div>
+        </section>
+
+        <!-- ЖЕНИЛ МИСАЛДАР -->
+        <section class="examples-section">
+            <h2>🟢 ЖЕНИЛ МИСАЛДАР</h2>
+
+            <div class="example-group">
+                <h3>Мисал 1: translate() - Жылдыруу</h3>
+                <div class="demo-box">
+                    <div class="box-original">Баштапкы</div>
+                    <div class="box-translate-x">translateX(50px)</div>
+                    <div class="box-translate-y">translateY(30px)</div>
+                    <div class="box-translate-xy">translate(50px, 30px)</div>
+                </div>
+                <div class="code-example">
+                    <pre><code>.box-translate-x {
+    transform: translateX(50px);
+}
+
+.box-translate-y {
+    transform: translateY(30px);
+}
+
+.box-translate-xy {
+    transform: translate(50px, 30px);
+}</code></pre>
+                </div>
+            </div>
+
+            <div class="example-group">
+                <h3>Мисал 2: rotate() - Айлануу</h3>
+                <div class="demo-box">
+                    <div class="box-rotate-45">45°</div>
+                    <div class="box-rotate-90">90°</div>
+                    <div class="box-rotate-180">180°</div>
+                    <div class="box-rotate-neg">-45°</div>
+                </div>
+                <div class="code-example">
+                    <pre><code>.box-rotate-45 {
+    transform: rotate(45deg);
+}
+
+.box-rotate-90 {
+    transform: rotate(90deg);
+}
+
+.box-rotate-180 {
+    transform: rotate(180deg);
+}
+
+.box-rotate-neg {
+    transform: rotate(-45deg);
+}</code></pre>
+                </div>
+            </div>
+
+            <div class="example-group">
+                <h3>Мисал 3: scale() - Масштабдоо</h3>
+                <div class="demo-box">
+                    <div class="box-original">1x</div>
+                    <div class="box-scale-15">1.5x</div>
+                    <div class="box-scale-2">2x</div>
+                    <div class="box-scale-05">0.5x</div>
+                </div>
+                <div class="code-example">
+                    <pre><code>.box-scale-15 {
+    transform: scale(1.5);
+}
+
+.box-scale-2 {
+    transform: scale(2);
+}
+
+.box-scale-05 {
+    transform: scale(0.5);
+}
+
+/* X жана Y бөлүк бөлүк */
+.box-scale-x {
+    transform: scaleX(1.5);
+}
+
+.box-scale-y {
+    transform: scaleY(1.5);
+}</code></pre>
+                </div>
+            </div>
+
+            <div class="example-group">
+                <h3>Мисал 4: skew() - Эңкейтүү</h3>
+                <div class="demo-box">
+                    <div class="box-original">Баштапкы</div>
+                    <div class="box-skew-x">skewX(20deg)</div>
+                    <div class="box-skew-y">skewY(20deg)</div>
+                    <div class="box-skew-xy">skew(20deg, 10deg)</div>
+                </div>
+                <div class="code-example">
+                    <pre><code>.box-skew-x {
+    transform: skewX(20deg);
+}
+
+.box-skew-y {
+    transform: skewY(20deg);
+}
+
+.box-skew-xy {
+    transform: skew(20deg, 10deg);
+}</code></pre>
+                </div>
+            </div>
+
+            <div class="example-group">
+                <h3>Мисал 5: transform-origin - Башталган чекит</h3>
+                <div class="demo-box">
+                    <div class="box-origin-center">center</div>
+                    <div class="box-origin-top-left">top left</div>
+                    <div class="box-origin-bottom-right">bottom right</div>
+                    <div class="box-origin-custom">50px 30px</div>
+                </div>
+                <div class="code-example">
+                    <pre><code>.box-origin-center {
+    transform-origin: center;
+    transform: rotate(45deg);
+}
+
+.box-origin-top-left {
+    transform-origin: top left;
+    transform: rotate(45deg);
+}
+
+.box-origin-bottom-right {
+    transform-origin: bottom right;
+    transform: rotate(45deg);
+}
+
+.box-origin-custom {
+    transform-origin: 50px 30px;
+    transform: rotate(45deg);
+}</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- ООР МИСАЛДАР -->
+        <section class="examples-section">
+            <h2>🔴 ООР МИСАЛДАР</h2>
+
+            <div class="example-group">
+                <h3>Мисал 6: Көп трансформацияларды бириктирүү</h3>
+                <div class="demo-box">
+                    <div class="box-combined-1">translate + rotate</div>
+                    <div class="box-combined-2">rotate + scale</div>
+                    <div class="box-combined-3">translate + rotate + scale</div>
+                </div>
+                <div class="code-example">
+                    <pre><code>.box-combined-1 {
+    transform: translateX(50px) rotate(45deg);
+}
+
+.box-combined-2 {
+    transform: rotate(30deg) scale(1.2);
+}
+
+.box-combined-3 {
+    transform: translate(30px, 20px) rotate(45deg) scale(1.3);
+}</code></pre>
+                </div>
+            </div>
+
+            <div class="example-group">
+                <h3>Мисал 7: Hover менен трансформация</h3>
+                <div class="demo-box">
+                    <div class="box-hover-transform">Hover кылыңыз</div>
+                    <button class="btn-hover-transform">Кнопка</button>
+                </div>
+                <div class="code-example">
+                    <pre><code>.box-hover-transform {
+    transition: transform 0.3s ease;
+}
+
+.box-hover-transform:hover {
+    transform: translateY(-10px) scale(1.1) rotate(5deg);
+}
+
+.btn-hover-transform {
+    transition: transform 0.2s ease;
+}
+
+.btn-hover-transform:hover {
+    transform: scale(1.1);
+}
+
+.btn-hover-transform:active {
+    transform: scale(0.95);
+}</code></pre>
+                </div>
+            </div>
+
+            <div class="example-group">
+                <h3>Мисал 8: 3D Transform</h3>
+                <div class="demo-box-3d">
+                    <div class="box-3d-rotate-x">rotateX(45deg)</div>
+                    <div class="box-3d-rotate-y">rotateY(45deg)</div>
+                    <div class="box-3d-rotate-z">rotateZ(45deg)</div>
+                    <div class="box-3d-perspective">perspective</div>
+                </div>
+                <div class="code-example">
+                    <pre><code>.demo-box-3d {
+    perspective: 1000px;
+}
+
+.box-3d-rotate-x {
+    transform: rotateX(45deg);
+}
+
+.box-3d-rotate-y {
+    transform: rotateY(45deg);
+}
+
+.box-3d-rotate-z {
+    transform: rotateZ(45deg);
+}
+
+.box-3d-perspective {
+    transform: perspective(500px) rotateY(45deg);
+}</code></pre>
+                </div>
+            </div>
+
+            <div class="example-group">
+                <h3>Мисал 9: Карточканын flip эффекти</h3>
+                <div class="demo-box">
+                    <div class="card-flip">
+                        <div class="card-front">Front</div>
+                        <div class="card-back">Back</div>
+                    </div>
+                </div>
+                <div class="code-example">
+                    <pre><code>.card-flip {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    transform-style: preserve-3d;
+    transition: transform 0.6s;
+}
+
+.card-flip:hover {
+    transform: rotateY(180deg);
+}
+
+.card-front, .card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+}
+
+.card-back {
+    transform: rotateY(180deg);
+}</code></pre>
+                </div>
+            </div>
+
+            <div class="example-group">
+                <h3>Мисал 10: Matrix() - Матрицалык трансформация</h3>
+                <div class="demo-box">
+                    <div class="box-matrix-1">matrix(1, 0, 0, 1, 50, 30)</div>
+                    <div class="box-matrix-2">matrix(1.5, 0.5, -0.5, 1.5, 0, 0)</div>
+                </div>
+                <div class="code-example">
+                    <pre><code>/* matrix(scaleX, skewY, skewX, scaleY, translateX, translateY) */
+.box-matrix-1 {
+    transform: matrix(1, 0, 0, 1, 50, 30);
+    /* Бул translate(50px, 30px) менен бирдей */
+}
+
+.box-matrix-2 {
+    transform: matrix(1.5, 0.5, -0.5, 1.5, 0, 0);
+    /* Көп трансформацияларды бириктирет */
+}</code></pre>
+                </div>
+            </div>
+
+            <div class="example-group">
+                <h3>Мисал 11: Анимация менен трансформация</h3>
+                <div class="demo-box">
+                    <div class="box-animated-1">Айлануу</div>
+                    <div class="box-animated-2">Жылышуу</div>
+                    <div class="box-animated-3">Масштаб</div>
+                </div>
+                <div class="code-example">
+                    <pre><code>@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes slide {
+    0%, 100% {
+        transform: translateX(0);
+    }
+    50% {
+        transform: translateX(100px);
+    }
+}
+
+@keyframes scale {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.5);
+    }
+}
+
+.box-animated-1 {
+    animation: rotate 2s linear infinite;
+}
+
+.box-animated-2 {
+    animation: slide 2s ease-in-out infinite;
+}
+
+.box-animated-3 {
+    animation: scale 1.5s ease-in-out infinite;
+}</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- ПРАКТИКА -->
+        <section class="practice-section">
+            <h2>💻 ПРАКТИКА</h2>
+            <div class="practice-card">
+                <h3>Өзүңүз кылыңыз:</h3>
+                <ol>
+                    <li>Кнопка жасаңыз, ал hover кылынганында масштабданып, бир аз жогору көтөрүлсүн</li>
+                    <li>Квадратты 45 градуска айлантып, анын башталган чекитин өзгөртүңүз</li>
+                    <li>Элементти translateX менен жылдырып, rotate менен айлантыңыз</li>
+                    <li>Карточканын flip эффектин жасаңыз (3D transform колдонуңуз)</li>
+                    <li>Элементти skew менен эңкейтип, scale менен масштабдаңыз</li>
+                    <li>Анимация менен элементтин айлануу, жылышуу жана масштабдоо эффектин бириктириңиз</li>
+                </ol>
+            </div>
+        </section>
+
+        <!-- КЕСТЕ -->
+        <section class="table-section">
+            <h2>📊 Transform маанилеринин кестеси</h2>
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Функция</th>
+                            <th>Маанилери</th>
+                            <th>Мисал</th>
+                            <th>Натыйжа</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><code>translateX()</code></td>
+                            <td>px, %, em</td>
+                            <td><code>translateX(50px)</code></td>
+                            <td>Оңго 50px жылдырат</td>
+                        </tr>
+                        <tr>
+                            <td><code>translateY()</code></td>
+                            <td>px, %, em</td>
+                            <td><code>translateY(-30px)</code></td>
+                            <td>Жогору 30px жылдырат</td>
+                        </tr>
+                        <tr>
+                            <td><code>translate()</code></td>
+                            <td>px, %, em</td>
+                            <td><code>translate(50px, 30px)</code></td>
+                            <td>X жана Y багытта жылдырат</td>
+                        </tr>
+                        <tr>
+                            <td><code>rotate()</code></td>
+                            <td>deg, rad, turn</td>
+                            <td><code>rotate(45deg)</code></td>
+                            <td>45 градуска айлантат</td>
+                        </tr>
+                        <tr>
+                            <td><code>scale()</code></td>
+                            <td>сан (1 = 100%)</td>
+                            <td><code>scale(1.5)</code></td>
+                            <td>1.5 эсе чоңойтот</td>
+                        </tr>
+                        <tr>
+                            <td><code>scaleX()</code></td>
+                            <td>сан</td>
+                            <td><code>scaleX(2)</code></td>
+                            <td>Туурасын 2 эсе чоңойтот</td>
+                        </tr>
+                        <tr>
+                            <td><code>scaleY()</code></td>
+                            <td>сан</td>
+                            <td><code>scaleY(0.5)</code></td>
+                            <td>Бийиктигин 2 эсе кичирейтет</td>
+                        </tr>
+                        <tr>
+                            <td><code>skewX()</code></td>
+                            <td>deg</td>
+                            <td><code>skewX(20deg)</code></td>
+                            <td>Горизонталдык эңкейтет</td>
+                        </tr>
+                        <tr>
+                            <td><code>skewY()</code></td>
+                            <td>deg</td>
+                            <td><code>skewY(20deg)</code></td>
+                            <td>Вертикалдык эңкейтет</td>
+                        </tr>
+                        <tr>
+                            <td><code>skew()</code></td>
+                            <td>deg</td>
+                            <td><code>skew(20deg, 10deg)</code></td>
+                            <td>Эки багытта эңкейтет</td>
+                        </tr>
+                        <tr>
+                            <td><code>matrix()</code></td>
+                            <td>6 сан</td>
+                            <td><code>matrix(1,0,0,1,50,30)</code></td>
+                            <td>Бардык трансформацияларды бириктирет</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <footer>
+            <p>Бактылуу окуу! 🎓</p>
+        </footer>
+    </div>
+</body>
+</html>
+

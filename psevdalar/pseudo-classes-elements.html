@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="ky">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Псевдокласстар жана Псевдоэлементтер - Сабак</title>
+    <link rel="stylesheet" href="pseudo-styles.css">
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>Псевдокласстар жана Псевдоэлементтер</h1>
+            <p class="subtitle">Баштап жаткандар үчүн толук сабак</p>
+        </header>
+
+        <!-- ТЕОРИЯ БӨЛҮМҮ -->
+        <section class="theory-section">
+            <h2>📚 Теория</h2>
+
+            <div class="theory-card">
+                <h3>1. Псевдокласстар деген эмне?</h3>
+                <p><strong>Псевдокласстар</strong> - бул элементтин белгилүү бир абалын же кылымын тандап алуу үчүн
+                    колдонулат.</p>
+                <ul>
+                    <li><strong>:hover</strong> - мышынын курсору элементтин үстүнө келгенде</li>
+                    <li><strong>:active</strong> - элемент басылганда (клик кылынганда)</li>
+                    <li><strong>:focus</strong> - элемент фокус алганда (input, button ж.б.)</li>
+                    <li><strong>:first-child</strong> - биринчи бала элемент</li>
+                    <li><strong>:last-child</strong> - акыркы бала элемент</li>
+                    <li><strong>:nth-child(n)</strong> - n-чи бала элемент (2, 3, even, odd ж.б.)</li>
+                </ul>
+            </div>
+
+            <div class="theory-card">
+                <h3>2. Псевдоэлементтер деген эмне?</h3>
+                <p><strong>Псевдоэлементтер</strong> - бул элементтин белгилүү бир бөлүгүн стилдөө үчүн колдонулат.</p>
+                <ul>
+                    <li><strong>::before</strong> - элементтин алдына мазмун кошуу</li>
+                    <li><strong>::after</strong> - элементтин артына мазмун кошуу</li>
+                    <li><strong>::selection</strong> - тандалган тексттин стили</li>
+                </ul>
+                <p class="note">⚠️ Эскертүү: ::before жана ::after үчүн content касиети милдеттүү!</p>
+            </div>
+        </section>
+
+        <!-- ПСЕВДОКЛАССТАР БӨЛҮМҮ -->
+        <section class="examples-section">
+            <h2>🎯 ПСЕВДОКЛАССТАР</h2>
+
+            <div class="example-group">
+                <h3>Мисал 1: :hover - Курсордун үстүнө келгенде</h3>
+                <div class="demo-box">
+                    <button class="btn-hover">Мени басыңыз</button>
+                    <div class="box-hover">Hover кылыңыз</div>
+                </div>
+                <div class="code-example">
+                    <pre><code>.btn-hover {
+    background-color: #4CAF50;
+    transition: all 0.3s;
+}
+
+.btn-hover:hover {
+    background-color: #45a049;
+    transform: scale(1.1);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}</code></pre>
+                </div>
+            </div>
+
+            <div class="example-group">
+                <h3>Мисал 2: :active - Басылганда</h3>
+                <div class="demo-box">
+                    <button class="btn-active">Мени басыңыз</button>
+                    <div class="box-active">Басып кармаңыз</div>
+                </div>
+                <div class="code-example">
+                    <pre><code>.btn-active:active {
+    transform: scale(0.95);
+    background-color: #ff6b6b;
+}
+
+.box-active:active {
+    transform: rotate(5deg);
+    background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+}</code></pre>
+                </div>
+            </div>
+
+            <div class="example-group">
+                <h3>Мисал 3: :focus - Фокус алганда</h3>
+                <div class="demo-box">
+                    <input type="text" class="input-focus" placeholder="Бул жерге басыңыз">
+                    <button class="btn-focus">Tab баскычын басыңыз</button>
+                </div>
+                <div class="code-example">
+                    <pre><code>
+                        .input-focus:focus {
+                            outline: none;
+                            border: 3px solid #667eea;
+                            box-shadow: 0 0 10px rgba(102, 126, 234, 0.5);
+                        }
+
+                        .btn-focus:focus {
+                            outline: 3px solid #667eea;
+                            outline-offset: 3px;
+                        }
+                    </code></pre>
+                </div>
+            </div>
+
+            <div class="example-group">
+                <h3>Мисал 4: :first-child - Биринчи элемент</h3>
+                <div class="demo-box">
+                    <ul class="list-first">
+                        <li>Биринчи элемент</li>
+                        <li>Экинчи элемент</li>
+                        <li>Үчүнчү элемент</li>
+                        <li>Төртүнчү элемент</li>
+                    </ul>
+                </div>
+                <div class="code-example">
+                    <pre><code>.list-first li:first-child {
+    background-color: #667eea;
+    color: white;
+    font-weight: bold;
+    border-radius: 5px 5px 0 0;
+}</code></pre>
+                </div>
+            </div>
+
+            <div class="example-group">
+                <h3>Мисал 5: :last-child - Акыркы элемент</h3>
+                <div class="demo-box">
+                    <ul class="list-last">
+                        <li>Биринчи элемент</li>
+                        <li>Экинчи элемент</li>
+                        <li>Үчүнчү элемент</li>
+                        <li>Акыркы элемент</li>
+                    </ul>
+                </div>
+                <div class="code-example">
+                    <pre><code>.list-last li:last-child {
+    background-color: #764ba2;
+    color: white;
+    font-weight: bold;
+    border-radius: 0 0 5px 5px;
+}</code></pre>
+                </div>
+            </div>
+
+            <div class="example-group">
+                <h3>Мисал 6: :nth-child() - n-чи элемент</h3>
+                <div class="demo-box">
+                    <ul class="list-nth">
+                        <li>1-чи элемент</li>
+                        <li>2-чи элемент</li>
+                        <li>3-чү элемент</li>
+                        <li>4-чү элемент</li>
+                        <li>5-чи элемент</li>
+                        <li>6-чы элемент</li>
+                    </ul>
+                </div>
+                <div class="code-example">
+                    <pre><code>/* 2-чи элемент */
+.list-nth li:nth-child(2) {
+    background-color: #4CAF50;
+    color: white;
+}
+
+/* Жуп элементтер (even) */
+.list-nth li:nth-child(even) {
+    background-color: #f0f0f0;
+}
+
+/* Так элементтер (odd) */
+.list-nth li:nth-child(odd) {
+    background-color: #fff;
+}
+
+/* 3-чү элементтен баштап */
+.list-nth li:nth-child(n+3) {
+    border-left: 3px solid #667eea;
+}</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- ПСЕВДОЭЛЕМЕНТТЕР БӨЛҮМҮ -->
+        <section class="examples-section">
+            <h2>✨ ПСЕВДОЭЛЕМЕНТТЕР</h2>
+
+            <div class="example-group">
+                <h3>Мисал 7: ::before - Элементтин алдына мазмун</h3>
+                <div class="demo-box">
+                    <div class="box-before">Менде ::before бар</div>
+                    <button class="btn-before">Кнопка</button>
+                </div>
+                <div class="code-example">
+                    <pre><code>.box-before::before {
+    content: "⭐ ";
+    color: #f9ca24;
+    font-size: 1.2em;
+}
+
+.btn-before::before {
+    content: "→ ";
+    margin-right: 5px;
+    transition: transform 0.3s;
+}
+
+.btn-before:hover::before {
+    transform: translateX(5px);
+}</code></pre>
+                </div>
+            </div>
+
+            <div class="example-group">
+                <h3>Мисал 8: ::after - Элементтин артына мазмун</h3>
+                <div class="demo-box">
+                    <div class="box-after">Менде ::after бар</div>
+                    <a href="#" class="link-after">Сылка</a>
+                </div>
+                <div class="code-example">
+                    <pre><code>.box-after::after {
+    content: " ⭐";
+    color: #f9ca24;
+    font-size: 1.2em;
+}
+
+.link-after::after {
+    content: " →";
+    transition: transform 0.3s;
+    display: inline-block;
+}
+
+.link-after:hover::after {
+    transform: translateX(5px);
+}</code></pre>
+                </div>
+            </div>
+
+            <div class="example-group">
+                <h3>Мисал 9: ::before жана ::after бирге</h3>
+                <div class="demo-box">
+                    <div class="box-both">Декорация</div>
+                    <h3 class="title-both">Стилдүү баштык</h3>
+                </div>
+                <div class="code-example">
+                    <pre><code>.box-both {
+    position: relative;
+}
+
+.box-both::before {
+    content: "";
+    position: absolute;
+    left: -20px;
+    top: 50%;
+    width: 10px;
+    height: 10px;
+    background: #667eea;
+    border-radius: 50%;
+}
+
+.box-both::after {
+    content: "";
+    position: absolute;
+    right: -20px;
+    top: 50%;
+    width: 10px;
+    height: 10px;
+    background: #764ba2;
+    border-radius: 50%;
+}</code></pre>
+                </div>
+            </div>
+
+            <div class="example-group">
+                <h3>Мисал 10: ::selection - Текстти тандаганда</h3>
+                <div class="demo-box">
+                    <p class="text-selection">
+                        Бул текстти тандап көрүңүз. Тексттин түсү жана фону өзгөрөт!
+                    </p>
+                </div>
+                <div class="code-example">
+                    <pre><code>.text-selection::selection {
+    background-color: #667eea;
+    color: white;
+}
+
+/* Бардык текст үчүн */
+::selection {
+    background-color: #764ba2;
+    color: white;
+}</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- ООР МИСАЛДАР -->
+        <section class="examples-section">
+            <h2>🔴 ООР МИСАЛДАР</h2>
+
+            <div class="example-group">
+                <h3>Мисал 11: Көп псевдокласстарды бириктирүү</h3>
+                <div class="demo-box">
+                    <div class="card-advanced">
+                        <div class="card-header">Карточка</div>
+                        <div class="card-body">
+                            <ul class="advanced-list">
+                                <li>Элемент 1</li>
+                                <li>Элемент 2</li>
+                                <li>Элемент 3</li>
+                                <li>Элемент 4</li>
+                                <li>Элемент 5</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="code-example">
+                    <pre><code>.advanced-list li {
+    padding: 10px;
+    transition: all 0.3s;
+}
+
+.advanced-list li:first-child {
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+.advanced-list li:last-child {
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+.advanced-list li:nth-child(even) {
+    background-color: #f8f9fa;
+}
+
+.advanced-list li:hover {
+    background-color: #667eea;
+    color: white;
+    transform: translateX(10px);
+}
+
+.advanced-list li:active {
+    transform: translateX(5px) scale(0.98);
+}</code></pre>
+                </div>
+            </div>
+
+            <div class="example-group">
+                <h3>Мисал 12: ::before менен декорациялык элемент</h3>
+                <div class="demo-box">
+                    <div class="fancy-box">Стилдүү блок</div>
+                    <div class="quote-box">
+                        Бул кооз цитата блогу
+                    </div>
+                </div>
+                <div class="code-example">
+                    <pre><code>.fancy-box {
+    position: relative;
+    padding: 20px;
+    background: white;
+    border-left: 4px solid #667eea;
+}
+
+.fancy-box::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background: linear-gradient(180deg, #667eea, #764ba2);
+    transform: scaleY(0);
+    transition: transform 0.3s;
+}
+
+.fancy-box:hover::before {
+    transform: scaleY(1);
+}
+
+.quote-box {
+    position: relative;
+    padding: 20px 20px 20px 50px;
+    background: #f8f9fa;
+    border-radius: 5px;
+}
+
+.quote-box::before {
+    content: """;
+    position: absolute;
+    left: 10px;
+    top: 10px;
+    font-size: 60px;
+    color: #667eea;
+    line-height: 1;
+}</code></pre>
+                </div>
+            </div>
+
+            <div class="example-group">
+                <h3>Мисал 13: ::after менен tooltip</h3>
+                <div class="demo-box">
+                    <button class="btn-tooltip">Мени басыңыз
+                        <span class="tooltip">Бул tooltip!</span>
+                    </button>
+                    <div class="info-box">
+                        Маалымат
+                        <span class="tooltip-info">Бул маалымат блогу</span>
+                    </div>
+                </div>
+                <div class="code-example">
+                    <pre><code>.btn-tooltip {
+    position: relative;
+}
+
+.tooltip {
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #333;
+    color: white;
+    padding: 8px 12px;
+    border-radius: 5px;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s;
+}
+
+.tooltip::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 5px solid transparent;
+    border-top-color: #333;
+}
+
+.btn-tooltip:hover .tooltip {
+    opacity: 1;
+}</code></pre>
+                </div>
+            </div>
+
+            <div class="example-group">
+                <h3>Мисал 14: Татаал ::before жана ::after комбинациясы</h3>
+                <div class="demo-box">
+                    <div class="complex-box">Көп катмардуу блок</div>
+                    <button class="btn-complex">Кнопка</button>
+                </div>
+                <div class="code-example">
+                    <pre><code>.complex-box {
+    position: relative;
+    padding: 30px;
+    background: white;
+    border: 2px solid #667eea;
+}
+
+.complex-box::before {
+    content: "";
+    position: absolute;
+    top: -5px;
+    left: -5px;
+    right: -5px;
+    bottom: -5px;
+    background: linear-gradient(45deg, #667eea, #764ba2, #f093fb);
+    z-index: -1;
+    border-radius: 5px;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.complex-box::after {
+    content: "✨";
+    position: absolute;
+    top: -15px;
+    right: -15px;
+    font-size: 30px;
+    opacity: 0;
+    transition: opacity 0.3s, transform 0.3s;
+    transform: rotate(0deg) scale(0);
+}
+
+.complex-box:hover::before {
+    opacity: 1;
+}
+
+.complex-box:hover::after {
+    opacity: 1;
+    transform: rotate(360deg) scale(1);
+}</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- ПРАКТИКА -->
+        <section class="practice-section">
+            <h2>💻 ПРАКТИКА</h2>
+            <div class="practice-card">
+                <h3>Өзүңүз кылыңыз:</h3>
+                <ol>
+                    <li>Кнопка жасаңыз, ал hover кылынганында ::before менен иконка пайда болсун</li>
+                    <li>Тизме жасаңыз, биринчи жана акыркы элементтердин стили ар башка болсун</li>
+                    <li>Жуп элементтердин фонунун түсүн өзгөртүңүз (nth-child(even))</li>
+                    <li>Текстти тандаганда, анын түсү өзгөрсүн (::selection)</li>
+                    <li>Блоктун алдына жана артына декорациялык элементтер кошуңуз (::before, ::after)</li>
+                    <li>Input элементке focus кылынганында, анын айланасына glow эффекти кошуңуз</li>
+                </ol>
+            </div>
+        </section>
+
+        <footer>
+            <p>Ийгиликту окуу! 🎓</p>
+        </footer>
+    </div>
+</body>
+
+</html>

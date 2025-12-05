@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="ky">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Сабактар - Башкы бет</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .container {
+            max-width: 900px;
+            background: white;
+            border-radius: 20px;
+            padding: 50px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        h1 {
+            color: #667eea;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+        .subtitle {
+            color: #666;
+            font-size: 1.2em;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .lessons-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .lesson-card {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+            text-decoration: none;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .lesson-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+        }
+
+        .lesson-card h2 {
+            color: white;
+            font-size: 1.8em;
+            margin-bottom: 10px;
+        }
+
+        .lesson-card p {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 1em;
+            line-height: 1.6;
+        }
+
+        .lesson-card .icon {
+            font-size: 3em;
+            margin-bottom: 15px;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 30px;
+            border-top: 2px solid #eee;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>CSS Сабактар</h1>
+            <p class="subtitle">Баштап жаткандар үчүн толук сабактар</p>
+        </header>
+
+        <div class="lessons-grid">
+            <a href="animation/index.html" class="lesson-card">
+                <div class="icon">🎬</div>
+                <h2>Transition & Animation</h2>
+                <p>CSS transition жана @keyframes анимацияларын үйрөнүү</p>
+            </a>
+
+            <a href="psevdalar/pseudo-classes-elements.html" class="lesson-card">
+                <div class="icon">🎯</div>
+                <h2>Псевдокласстар & Псевдоэлементтер</h2>
+                <p>:hover, :active, :focus, ::before, ::after жана башкалар</p>
+            </a>
+
+            <a href="transform/transform.html" class="lesson-card">
+                <div class="icon">🔄</div>
+                <h2>Transform</h2>
+                <p>translate, rotate, scale, skew жана башка трансформациялар</p>
+            </a>
+        </div>
+
+        <footer>
+            <p>Бактылуу окуу! 🎓</p>
+        </footer>
+    </div>
+</body>
+</html>
+

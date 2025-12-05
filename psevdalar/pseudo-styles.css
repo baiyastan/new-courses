@@ -1,0 +1,856 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    padding: 20px;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    background: white;
+    border-radius: 20px;
+    padding: 40px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+}
+
+header {
+    text-align: center;
+    margin-bottom: 40px;
+    padding-bottom: 20px;
+    border-bottom: 3px solid #667eea;
+}
+
+h1 {
+    color: #667eea;
+    font-size: 2.5em;
+    margin-bottom: 10px;
+}
+
+.subtitle {
+    color: #666;
+    font-size: 1.2em;
+}
+
+section {
+    margin-bottom: 50px;
+}
+
+h2 {
+    color: #333;
+    font-size: 2em;
+    margin-bottom: 30px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #eee;
+}
+
+h3 {
+    color: #667eea;
+    font-size: 1.5em;
+    margin-bottom: 15px;
+}
+
+/* ТЕОРИЯ БӨЛҮМҮ */
+.theory-section {
+    background: #f8f9fa;
+    padding: 30px;
+    border-radius: 15px;
+    margin-bottom: 40px;
+}
+
+.theory-card {
+    background: white;
+    padding: 25px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.theory-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15);
+}
+
+.theory-card ul {
+    margin-left: 20px;
+    margin-top: 15px;
+}
+
+.theory-card li {
+    margin-bottom: 10px;
+    color: #555;
+}
+
+.theory-card .note {
+    background: #fff3cd;
+    padding: 15px;
+    border-radius: 5px;
+    border-left: 4px solid #ffc107;
+    margin-top: 15px;
+    color: #856404;
+}
+
+/* МИСАЛДАР БӨЛҮМҮ */
+.example-group {
+    background: #f8f9fa;
+    padding: 25px;
+    border-radius: 15px;
+    margin-bottom: 30px;
+    border-left: 5px solid #667eea;
+}
+
+.demo-box {
+    background: white;
+    padding: 40px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    min-height: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.code-example {
+    background: #2d2d2d;
+    color: #f8f8f2;
+    padding: 20px;
+    border-radius: 8px;
+    overflow-x: auto;
+}
+
+.code-example pre {
+    margin: 0;
+    font-family: 'Courier New', monospace;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.code-example code {
+    color: #f8f8f2;
+}
+
+/* ПСЕВДОКЛАССТАР МИСАЛДАРЫ */
+
+/* :hover */
+.btn-hover {
+    padding: 15px 30px;
+    font-size: 18px;
+    color: white;
+    background-color: #4CAF50;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-hover:hover {
+    background-color: #45a049;
+    transform: scale(1.1);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.box-hover {
+    width: 120px;
+    height: 120px;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.box-hover:hover {
+    transform: rotate(5deg) scale(1.1);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    border-radius: 50%;
+}
+
+/* :active */
+.btn-active {
+    padding: 15px 30px;
+    font-size: 18px;
+    color: white;
+    background-color: #4CAF50;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.1s ease;
+}
+
+.btn-active:active {
+    transform: scale(0.95);
+    background-color: #ff6b6b;
+}
+
+.box-active {
+    width: 120px;
+    height: 120px;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: bold;
+    transition: all 0.1s ease;
+    cursor: pointer;
+}
+
+.box-active:active {
+    transform: rotate(5deg);
+    background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+}
+
+/* :focus */
+.input-focus {
+    padding: 12px 20px;
+    font-size: 16px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    width: 300px;
+    transition: all 0.3s ease;
+}
+
+.input-focus:focus {
+    outline: none;
+    border: 3px solid #667eea;
+    box-shadow: 0 0 10px rgba(102, 126, 234, 0.5);
+}
+
+.btn-focus {
+    padding: 12px 24px;
+    font-size: 16px;
+    color: white;
+    background-color: #667eea;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-focus:focus {
+    outline: 3px solid #667eea;
+    outline-offset: 3px;
+    background-color: #764ba2;
+}
+
+/* :first-child */
+.list-first {
+    list-style: none;
+    width: 100%;
+    max-width: 400px;
+}
+
+.list-first li {
+    padding: 12px 20px;
+    background-color: #f0f0f0;
+    margin-bottom: 5px;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+.list-first li:first-child {
+    background-color: #667eea;
+    color: white;
+    font-weight: bold;
+    border-radius: 5px 5px 0 0;
+}
+
+/* :last-child */
+.list-last {
+    list-style: none;
+    width: 100%;
+    max-width: 400px;
+}
+
+.list-last li {
+    padding: 12px 20px;
+    background-color: #f0f0f0;
+    margin-bottom: 5px;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+.list-last li:last-child {
+    background-color: #764ba2;
+    color: white;
+    font-weight: bold;
+    border-radius: 0 0 5px 5px;
+}
+
+/* :nth-child() */
+.list-nth {
+    list-style: none;
+    width: 100%;
+    max-width: 400px;
+}
+
+.list-nth li {
+    padding: 12px 20px;
+    margin-bottom: 5px;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+.list-nth li:nth-child(2) {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.list-nth li:nth-child(even) {
+    background-color: #f0f0f0;
+}
+
+.list-nth li:nth-child(odd) {
+    background-color: #fff;
+}
+
+.list-nth li:nth-child(n+3) {
+    border-left: 3px solid #667eea;
+}
+
+/* ПСЕВДОЭЛЕМЕНТТЕР МИСАЛДАРЫ */
+
+/* ::before */
+.box-before {
+    padding: 15px 25px;
+    background: #f8f9fa;
+    border-radius: 8px;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.box-before::before {
+    content: "⭐ ";
+    color: #f9ca24;
+    font-size: 1.2em;
+}
+
+.btn-before {
+    padding: 12px 24px;
+    font-size: 16px;
+    color: white;
+    background-color: #667eea;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-before::before {
+    content: "→ ";
+    margin-right: 5px;
+    transition: transform 0.3s;
+    display: inline-block;
+}
+
+.btn-before:hover::before {
+    transform: translateX(5px);
+}
+
+.btn-before:hover {
+    background-color: #764ba2;
+}
+
+/* ::after */
+.box-after {
+    padding: 15px 25px;
+    background: #f8f9fa;
+    border-radius: 8px;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.box-after::after {
+    content: " ⭐";
+    color: #f9ca24;
+    font-size: 1.2em;
+}
+
+.link-after {
+    color: #667eea;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.link-after::after {
+    content: " →";
+    transition: transform 0.3s;
+    display: inline-block;
+}
+
+.link-after:hover {
+    color: #764ba2;
+}
+
+.link-after:hover::after {
+    transform: translateX(5px);
+}
+
+/* ::before жана ::after бирге */
+.box-both {
+    position: relative;
+    padding: 20px 40px;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+    border-radius: 10px;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.box-both::before {
+    content: "";
+    position: absolute;
+    left: -20px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 15px;
+    height: 15px;
+    background: #f9ca24;
+    border-radius: 50%;
+    box-shadow: 0 0 10px rgba(249, 202, 36, 0.5);
+}
+
+.box-both::after {
+    content: "";
+    position: absolute;
+    right: -20px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 15px;
+    height: 15px;
+    background: #f9ca24;
+    border-radius: 50%;
+    box-shadow: 0 0 10px rgba(249, 202, 36, 0.5);
+}
+
+.title-both {
+    position: relative;
+    padding: 15px 30px;
+    background: white;
+    border-radius: 8px;
+    color: #667eea;
+}
+
+.title-both::before {
+    content: "«";
+    position: absolute;
+    left: 10px;
+    color: #667eea;
+    font-size: 1.5em;
+}
+
+.title-both::after {
+    content: "»";
+    position: absolute;
+    right: 10px;
+    color: #667eea;
+    font-size: 1.5em;
+}
+
+/* ::selection */
+.text-selection {
+    font-size: 18px;
+    line-height: 1.8;
+    padding: 20px;
+    background: #f8f9fa;
+    border-radius: 8px;
+    user-select: text;
+}
+
+.text-selection::selection {
+    background-color: #667eea;
+    color: white;
+}
+
+/* Бардык текст үчүн */
+::selection {
+    background-color: #764ba2;
+    color: white;
+}
+
+/* ООР МИСАЛДАР */
+
+/* Көп псевдокласстарды бириктирүү */
+.card-advanced {
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+}
+
+.card-header {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+    padding: 15px 20px;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.advanced-list {
+    list-style: none;
+}
+
+.advanced-list li {
+    padding: 12px 20px;
+    transition: all 0.3s ease;
+    border-bottom: 1px solid #eee;
+}
+
+.advanced-list li:first-child {
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+}
+
+.advanced-list li:last-child {
+    border-bottom: none;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+.advanced-list li:nth-child(even) {
+    background-color: #f8f9fa;
+}
+
+.advanced-list li:hover {
+    background-color: #667eea;
+    color: white;
+    transform: translateX(10px);
+}
+
+.advanced-list li:active {
+    transform: translateX(5px) scale(0.98);
+}
+
+/* ::before менен декорациялык элемент */
+.fancy-box {
+    position: relative;
+    padding: 20px;
+    background: white;
+    border-left: 4px solid #667eea;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.fancy-box::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background: linear-gradient(180deg, #667eea, #764ba2);
+    transform: scaleY(0);
+    transform-origin: top;
+    transition: transform 0.3s ease;
+}
+
+.fancy-box:hover::before {
+    transform: scaleY(1);
+}
+
+.fancy-box:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.quote-box {
+    position: relative;
+    padding: 20px 20px 20px 60px;
+    background: #f8f9fa;
+    border-radius: 5px;
+    font-style: italic;
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+.quote-box::before {
+    content: "";
+    position: absolute;
+    left: 15px;
+    top: 10px;
+    font-size: 60px;
+    color: #667eea;
+    line-height: 1;
+    font-family: Georgia, serif;
+}
+
+/* ::after менен tooltip */
+.btn-tooltip {
+    position: relative;
+    padding: 12px 24px;
+    font-size: 16px;
+    color: white;
+    background-color: #667eea;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-tooltip:hover {
+    background-color: #764ba2;
+}
+
+.tooltip {
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #333;
+    color: white;
+    padding: 8px 12px;
+    border-radius: 5px;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    margin-bottom: 10px;
+    font-size: 14px;
+}
+
+.tooltip::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 5px solid transparent;
+    border-top-color: #333;
+}
+
+.btn-tooltip:hover .tooltip {
+    opacity: 1;
+}
+
+.info-box {
+    position: relative;
+    padding: 15px 20px;
+    background: #e3f2fd;
+    border-radius: 8px;
+    color: #1976d2;
+    font-weight: bold;
+    cursor: help;
+}
+
+.tooltip-info {
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #333;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 5px;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    margin-bottom: 10px;
+    font-size: 14px;
+    font-weight: normal;
+    max-width: 200px;
+    white-space: normal;
+}
+
+.tooltip-info::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 5px solid transparent;
+    border-top-color: #333;
+}
+
+.info-box:hover .tooltip-info {
+    opacity: 1;
+}
+
+/* Татаал ::before жана ::after комбинациясы */
+.complex-box {
+    position: relative;
+    padding: 30px;
+    background: white;
+    border: 2px solid #667eea;
+    border-radius: 10px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #667eea;
+    z-index: 1;
+    transition: all 0.3s ease;
+}
+
+.complex-box::before {
+    content: "";
+    position: absolute;
+    top: -5px;
+    left: -5px;
+    right: -5px;
+    bottom: -5px;
+    background: linear-gradient(45deg, #667eea, #764ba2, #f093fb);
+    z-index: -1;
+    border-radius: 10px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.complex-box::after {
+    content: "✨";
+    position: absolute;
+    top: -15px;
+    right: -15px;
+    font-size: 30px;
+    opacity: 0;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    transform: rotate(0deg) scale(0);
+    z-index: 2;
+}
+
+.complex-box:hover::before {
+    opacity: 1;
+}
+
+.complex-box:hover::after {
+    opacity: 1;
+    transform: rotate(360deg) scale(1);
+}
+
+.complex-box:hover {
+    color: white;
+    transform: scale(1.05);
+}
+
+.btn-complex {
+    position: relative;
+    padding: 15px 30px;
+    font-size: 16px;
+    color: white;
+    background-color: #667eea;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.btn-complex::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s ease, height 0.6s ease;
+}
+
+.btn-complex:hover::before {
+    width: 300px;
+    height: 300px;
+}
+
+.btn-complex::after {
+    content: "✓";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    font-size: 24px;
+    transition: transform 0.3s ease;
+    z-index: 1;
+}
+
+.btn-complex:hover::after {
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.btn-complex span {
+    position: relative;
+    z-index: 1;
+}
+
+/* ПРАКТИКА БӨЛҮМҮ */
+.practice-section {
+    background: #fff3cd;
+    padding: 30px;
+    border-radius: 15px;
+    border-left: 5px solid #ffc107;
+}
+
+.practice-card {
+    background: white;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.practice-card ol {
+    margin-left: 20px;
+    margin-top: 15px;
+}
+
+.practice-card li {
+    margin-bottom: 15px;
+    color: #555;
+    font-size: 1.1em;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding-top: 30px;
+    margin-top: 40px;
+    border-top: 2px solid #eee;
+    color: #666;
+    font-size: 1.2em;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .container {
+        padding: 20px;
+    }
+
+    h1 {
+        font-size: 2em;
+    }
+
+    h2 {
+        font-size: 1.5em;
+    }
+
+    .demo-box {
+        padding: 20px;
+    }
+
+    .code-example {
+        font-size: 12px;
+    }
+
+    .input-focus {
+        width: 100%;
+    }
+}
+

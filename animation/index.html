@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="ky">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Transition жана Animation - Сабак</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>CSS Transition жана Animation</h1>
+            <p class="subtitle">Баштап жаткандар үчүн толук сабак</p>
+        </header>
+
+        <!-- ТЕОРИЯ БӨЛҮМҮ -->
+        <section class="theory-section">
+            <h2>📚 Теория</h2>
+            
+            <div class="theory-card">
+                <h3>1. CSS Transition деген эмне?</h3>
+                <p><strong>Transition</strong> - бул CSS касиеттеринин маанилеринин бирден экинчисине жумшак өтүшүн камсыз кылуучу механизм.</p>
+                <ul>
+                    <li><strong>transition-property:</strong> кайсы касиет өзгөрөт (width, color, opacity, ж.б.)</li>
+                    <li><strong>transition-duration:</strong> канча убакытка созулат (секунда менен)</li>
+                    <li><strong>transition-timing-function:</strong> кандай ылдамдыкта (ease, linear, ease-in-out, ж.б.)</li>
+                    <li><strong>transition-delay:</strong> канча кечиктирилгенден кийин башталат</li>
+                </ul>
+            </div>
+
+            <div class="theory-card">
+                <h3>2. CSS Animation деген эмне?</h3>
+                <p><strong>Animation</strong> - бул @keyframes менен аныкталган татаал анимацияларды жасоо механизми.</p>
+                <ul>
+                    <li><strong>@keyframes:</strong> анимациянын кадамдарын аныктайт (0% - башталышы, 100% - аягы)</li>
+                    <li><strong>animation-name:</strong> @keyframes аты</li>
+                    <li><strong>animation-duration:</strong> анимациянын узактыгы</li>
+                    <li><strong>animation-iteration-count:</strong> канча жолу кайталанат (infinite - чексиз)</li>
+                    <li><strong>animation-direction:</strong> багыт (normal, reverse, alternate)</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- ЖЕНИЛ МИСАЛДАР -->
+        <section class="examples-section">
+            <h2>🟢 ЖЕНИЛ МИСАЛДАР</h2>
+
+            <div class="example-group">
+                <h3>Мисал 1: Кнопканын түсүн өзгөртүү (Transition)</h3>
+                <div class="demo-box">
+                    <button class="btn-easy-1">Мени басыңыз</button>
+                </div>
+                <div class="code-example">
+                    <pre><code>.btn-easy-1 {
+    background-color: #4CAF50;
+    transition: background-color 0.3s ease;
+}
+
+.btn-easy-1:hover {
+    background-color: #45a049;
+}</code></pre>
+                </div>
+            </div>
+
+            <div class="example-group">
+                <h3>Мисал 2: Блоктун кеңейиши (Transition)</h3>
+                <div class="demo-box">
+                    <div class="box-easy-2"></div>
+                </div>
+                <div class="code-example">
+                    <pre><code>.box-easy-2 {
+    width: 100px;
+    height: 100px;
+    background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+    transition: width 0.5s ease-in-out;
+}
+
+.box-easy-2:hover {
+    width: 300px;
+}</code></pre>
+                </div>
+            </div>
+
+            <div class="example-group">
+                <h3>Мисал 3: Жөнөкөй анимация (@keyframes)</h3>
+                <div class="demo-box">
+                    <div class="box-easy-3"></div>
+                </div>
+                <div class="code-example">
+                    <pre><code>@keyframes slide {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(200px);
+    }
+}
+
+.box-easy-3 {
+    animation: slide 2s infinite alternate;
+}</code></pre>
+                </div>
+            </div>
+
+            <div class="example-group">
+                <h3>Мисал 4: Айлануу анимациясы</h3>
+                <div class="demo-box">
+                    <div class="box-easy-4"></div>
+                </div>
+                <div class="code-example">
+                    <pre><code>@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.box-easy-4 {
+    animation: rotate 3s linear infinite;
+}</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- ООР МИСАЛДАР -->
+        <section class="examples-section">
+            <h2>🔴 ООР МИСАЛДАР</h2>
+
+            <div class="example-group">
+                <h3>Мисал 5: Көп касиеттердин бир убакта өзгөрүшү</h3>
+                <div class="demo-box">
+                    <div class="box-hard-1">
+                        <span>Hover</span>
+                    </div>
+                </div>
+                <div class="code-example">
+                    <pre><code>.box-hard-1 {
+    width: 150px;
+    height: 150px;
+    background: #667eea;
+    border-radius: 10px;
+    transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    transform: scale(1) rotate(0deg);
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.box-hard-1:hover {
+    transform: scale(1.2) rotate(5deg);
+    background: #764ba2;
+    border-radius: 50%;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+}</code></pre>
+                </div>
+            </div>
+
+            <div class="example-group">
+                <h3>Мисал 6: Татаал @keyframes анимациясы</h3>
+                <div class="demo-box">
+                    <div class="box-hard-2"></div>
+                </div>
+                <div class="code-example">
+                    <pre><code>@keyframes complex {
+    0% {
+        transform: translateX(0) translateY(0) rotate(0deg);
+        background-color: #ff6b6b;
+        border-radius: 0%;
+    }
+    25% {
+        transform: translateX(200px) translateY(0) rotate(90deg);
+        background-color: #4ecdc4;
+        border-radius: 25%;
+    }
+    50% {
+        transform: translateX(200px) translateY(100px) rotate(180deg);
+        background-color: #45b7d1;
+        border-radius: 50%;
+    }
+    75% {
+        transform: translateX(0) translateY(100px) rotate(270deg);
+        background-color: #f9ca24;
+        border-radius: 25%;
+    }
+    100% {
+        transform: translateX(0) translateY(0) rotate(360deg);
+        background-color: #ff6b6b;
+        border-radius: 0%;
+    }
+}
+
+.box-hard-2 {
+    animation: complex 4s ease-in-out infinite;
+}</code></pre>
+                </div>
+            </div>
+
+            <div class="example-group">
+                <h3>Мисал 7: Көп элементтердин катарлаш анимациясы</h3>
+                <div class="demo-box">
+                    <div class="loader">
+                        <div class="dot"></div>
+                        <div class="dot"></div>
+                        <div class="dot"></div>
+                        <div class="dot"></div>
+                    </div>
+                </div>
+                <div class="code-example">
+                    <pre><code>@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+        opacity: 0.7;
+    }
+    50% {
+        transform: translateY(-30px);
+        opacity: 1;
+    }
+}
+
+.loader .dot {
+    animation: bounce 1.4s ease-in-out infinite;
+}
+
+.loader .dot:nth-child(1) { animation-delay: 0s; }
+.loader .dot:nth-child(2) { animation-delay: 0.2s; }
+.loader .dot:nth-child(3) { animation-delay: 0.4s; }
+.loader .dot:nth-child(4) { animation-delay: 0.6s; }</code></pre>
+                </div>
+            </div>
+
+            <div class="example-group">
+                <h3>Мисал 8: Карточканын 3D эффекти</h3>
+                <div class="demo-box">
+                    <div class="card-3d">
+                        <div class="card-inner">
+                            <div class="card-front">Front</div>
+                            <div class="card-back">Back</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="code-example">
+                    <pre><code>@keyframes flip {
+    0% {
+        transform: rotateY(0deg);
+    }
+    100% {
+        transform: rotateY(180deg);
+    }
+}
+
+.card-3d {
+    perspective: 1000px;
+}
+
+.card-inner {
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+}
+
+.card-3d:hover .card-inner {
+    transform: rotateY(180deg);
+}
+
+.card-front, .card-back {
+    backface-visibility: hidden;
+}
+
+.card-back {
+    transform: rotateY(180deg);
+}</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- ПРАКТИКА -->
+        <section class="practice-section">
+            <h2>💻 ПРАКТИКА</h2>
+            <div class="practice-card">
+                <h3>Өзүңүз кылыңыз:</h3>
+                <ol>
+                    <li>Кнопка жасаңыз, ал hover кылынганында масштабданып, түсү өзгөрсүн</li>
+                    <li>Квадраттын айлануу анимациясын жасаңыз</li>
+                    <li>Эки элементтин бири-бирине жумшак өтүшүн көрсөтүңүз</li>
+                    <li>Loading анимациясын жасаңыз (spinner же dots)</li>
+                </ol>
+            </div>
+        </section>
+
+        <footer>
+            <p>Бактылуу окуу! 🎓</p>
+        </footer>
+    </div>
+</body>
+</html>
+

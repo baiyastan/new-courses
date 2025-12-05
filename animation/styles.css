@@ -1,0 +1,419 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    padding: 20px;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    background: white;
+    border-radius: 20px;
+    padding: 40px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+}
+
+header {
+    text-align: center;
+    margin-bottom: 40px;
+    padding-bottom: 20px;
+    border-bottom: 3px solid #667eea;
+}
+
+h1 {
+    color: #667eea;
+    font-size: 2.5em;
+    margin-bottom: 10px;
+}
+
+.subtitle {
+    color: #666;
+    font-size: 1.2em;
+}
+
+section {
+    margin-bottom: 50px;
+}
+
+h2 {
+    color: #333;
+    font-size: 2em;
+    margin-bottom: 30px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #eee;
+}
+
+h3 {
+    color: #667eea;
+    font-size: 1.5em;
+    margin-bottom: 15px;
+}
+
+/* ТЕОРИЯ БӨЛҮМҮ */
+.theory-section {
+    background: #f8f9fa;
+    padding: 30px;
+    border-radius: 15px;
+    margin-bottom: 40px;
+}
+
+.theory-card {
+    background: white;
+    padding: 25px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.theory-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15);
+}
+
+.theory-card ul {
+    margin-left: 20px;
+    margin-top: 15px;
+}
+
+.theory-card li {
+    margin-bottom: 10px;
+    color: #555;
+}
+
+/* МИСАЛДАР БӨЛҮМҮ */
+.example-group {
+    background: #f8f9fa;
+    padding: 25px;
+    border-radius: 15px;
+    margin-bottom: 30px;
+    border-left: 5px solid #667eea;
+}
+
+.demo-box {
+    background: white;
+    padding: 40px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    min-height: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.code-example {
+    background: #2d2d2d;
+    color: #f8f8f2;
+    padding: 20px;
+    border-radius: 8px;
+    overflow-x: auto;
+}
+
+.code-example pre {
+    margin: 0;
+    font-family: 'Courier New', monospace;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.code-example code {
+    color: #f8f8f2;
+}
+
+/* ЖЕНИЛ МИСАЛДАР */
+
+/* Мисал 1: Кнопка */
+.btn-easy-1 {
+    padding: 15px 30px;
+    font-size: 18px;
+    color: white;
+    background-color: #4CAF50;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn-easy-1:hover {
+    background-color: #45a049;
+    transform: scale(1.05);
+}
+
+.btn-easy-1:active {
+    transform: scale(0.98);
+}
+
+/* Мисал 2: Кеңейүүчү блок */
+.box-easy-2 {
+    width: 100px;
+    height: 100px;
+    background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+    border-radius: 10px;
+    transition: width 0.5s ease-in-out, height 0.5s ease-in-out;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.box-easy-2:hover {
+    width: 300px;
+    height: 150px;
+}
+
+/* Мисал 3: Жөнөкөй анимация */
+@keyframes slide {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(200px);
+    }
+}
+
+.box-easy-3 {
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    border-radius: 10px;
+    animation: slide 2s infinite alternate;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Мисал 4: Айлануу */
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.box-easy-4 {
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(45deg, #f093fb 0%, #f5576c 100%);
+    border-radius: 10px;
+    animation: rotate 3s linear infinite;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* ООР МИСАЛДАР */
+
+/* Мисал 5: Көп касиеттер */
+.box-hard-1 {
+    width: 150px;
+    height: 150px;
+    background: #667eea;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    transform: scale(1) rotate(0deg);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+}
+
+.box-hard-1:hover {
+    transform: scale(1.2) rotate(5deg);
+    background: #764ba2;
+    border-radius: 50%;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Мисал 6: Татаал анимация */
+@keyframes complex {
+    0% {
+        transform: translateX(0) translateY(0) rotate(0deg);
+        background-color: #ff6b6b;
+        border-radius: 0%;
+    }
+    25% {
+        transform: translateX(200px) translateY(0) rotate(90deg);
+        background-color: #4ecdc4;
+        border-radius: 25%;
+    }
+    50% {
+        transform: translateX(200px) translateY(100px) rotate(180deg);
+        background-color: #45b7d1;
+        border-radius: 50%;
+    }
+    75% {
+        transform: translateX(0) translateY(100px) rotate(270deg);
+        background-color: #f9ca24;
+        border-radius: 25%;
+    }
+    100% {
+        transform: translateX(0) translateY(0) rotate(360deg);
+        background-color: #ff6b6b;
+        border-radius: 0%;
+    }
+}
+
+.box-hard-2 {
+    width: 80px;
+    height: 80px;
+    background-color: #ff6b6b;
+    border-radius: 0%;
+    animation: complex 4s ease-in-out infinite;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Мисал 7: Көп элементтер */
+.loader {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    justify-content: center;
+}
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+        opacity: 0.7;
+    }
+    50% {
+        transform: translateY(-30px);
+        opacity: 1;
+    }
+}
+
+.loader .dot {
+    width: 20px;
+    height: 20px;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    border-radius: 50%;
+    animation: bounce 1.4s ease-in-out infinite;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.loader .dot:nth-child(1) {
+    animation-delay: 0s;
+}
+
+.loader .dot:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.loader .dot:nth-child(3) {
+    animation-delay: 0.4s;
+}
+
+.loader .dot:nth-child(4) {
+    animation-delay: 0.6s;
+}
+
+/* Мисал 8: 3D карточка */
+.card-3d {
+    perspective: 1000px;
+    width: 200px;
+    height: 200px;
+}
+
+.card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+}
+
+.card-3d:hover .card-inner {
+    transform: rotateY(180deg);
+}
+
+.card-front,
+.card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    font-weight: bold;
+    color: white;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.card-front {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+}
+
+.card-back {
+    background: linear-gradient(135deg, #f093fb, #f5576c);
+    transform: rotateY(180deg);
+}
+
+/* ПРАКТИКА БӨЛҮМҮ */
+.practice-section {
+    background: #fff3cd;
+    padding: 30px;
+    border-radius: 15px;
+    border-left: 5px solid #ffc107;
+}
+
+.practice-card {
+    background: white;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.practice-card ol {
+    margin-left: 20px;
+    margin-top: 15px;
+}
+
+.practice-card li {
+    margin-bottom: 15px;
+    color: #555;
+    font-size: 1.1em;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding-top: 30px;
+    margin-top: 40px;
+    border-top: 2px solid #eee;
+    color: #666;
+    font-size: 1.2em;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .container {
+        padding: 20px;
+    }
+
+    h1 {
+        font-size: 2em;
+    }
+
+    h2 {
+        font-size: 1.5em;
+    }
+
+    .demo-box {
+        padding: 20px;
+    }
+
+    .code-example {
+        font-size: 12px;
+    }
+}
+
