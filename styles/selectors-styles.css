@@ -1,0 +1,576 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    padding: 20px;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    background: white;
+    border-radius: 20px;
+    padding: 40px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+}
+
+header {
+    text-align: center;
+    margin-bottom: 40px;
+    padding-bottom: 20px;
+    border-bottom: 3px solid #667eea;
+}
+
+h1 {
+    color: #667eea;
+    font-size: 2.5em;
+    margin-bottom: 10px;
+}
+
+.subtitle {
+    color: #666;
+    font-size: 1.2em;
+}
+
+section {
+    margin-bottom: 50px;
+}
+
+h2 {
+    color: #333;
+    font-size: 2em;
+    margin-bottom: 30px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #eee;
+}
+
+h3 {
+    color: #667eea;
+    font-size: 1.5em;
+    margin-bottom: 15px;
+}
+
+h4 {
+    color: #555;
+    font-size: 1.2em;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+h5 {
+    color: #333;
+    font-size: 1.3em;
+    margin-bottom: 10px;
+}
+
+h6 {
+    color: #333;
+    font-size: 1.2em;
+    margin-bottom: 10px;
+}
+
+/* ТЕОРИЯ БӨЛҮМҮ */
+.theory-section {
+    background: #f8f9fa;
+    padding: 30px;
+    border-radius: 15px;
+    margin-bottom: 40px;
+}
+
+.theory-card {
+    background: white;
+    padding: 25px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.theory-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15);
+}
+
+.theory-card ul, .theory-card ol {
+    margin-left: 20px;
+    margin-top: 15px;
+}
+
+.theory-card li {
+    margin-bottom: 10px;
+    color: #555;
+}
+
+.theory-card .note {
+    background: #e3f2fd;
+    padding: 15px;
+    border-radius: 5px;
+    border-left: 4px solid #2196F3;
+    margin-top: 15px;
+    color: #1565C0;
+}
+
+/* МИСАЛДАР БӨЛҮМҮ */
+.example-group {
+    background: #f8f9fa;
+    padding: 25px;
+    border-radius: 15px;
+    margin-bottom: 30px;
+    border-left: 5px solid #667eea;
+}
+
+.demo-box {
+    background: white;
+    padding: 40px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    min-height: 150px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.code-example {
+    background: #2d2d2d;
+    color: #f8f8f2 !important;
+    padding: 20px;
+    border-radius: 8px;
+    overflow-x: auto;
+    border: 1px solid #444;
+}
+
+.code-example pre {
+    margin: 0;
+    font-family: 'Courier New', monospace;
+    font-size: 14px;
+    line-height: 1.5;
+    color: #f8f8f2 !important;
+    background: transparent !important;
+}
+
+.code-example code {
+    color: #f8f8f2 !important;
+    background: transparent !important;
+    font-family: 'Courier New', monospace;
+}
+
+/* ДЕМО ЭЛЕМЕНТТЕР */
+
+/* Элемент селектор демо */
+.element-selector-demo h4 {
+    color: #667eea;
+    font-size: 1.5em;
+    margin-bottom: 15px;
+}
+
+.element-selector-demo p {
+    color: #555;
+    line-height: 1.8;
+    margin-bottom: 10px;
+}
+
+.element-selector-demo div {
+    background: #f8f9fa;
+    padding: 15px;
+    border-radius: 5px;
+    border-left: 4px solid #667eea;
+}
+
+/* Класс селектор демо */
+.class-selector-demo .box {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.class-selector-demo .highlight {
+    background: #f9ca24;
+    color: #333;
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.class-selector-demo .text {
+    color: #555;
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+/* ID селектор демо */
+.id-selector-demo #unique-header {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+    padding: 20px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.id-selector-demo #unique-content {
+    background: linear-gradient(135deg, #4CAF50, #45a049);
+    color: white;
+    padding: 20px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.id-selector-demo #unique-footer {
+    background: linear-gradient(135deg, #f093fb, #f5576c);
+    color: white;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+    font-weight: bold;
+}
+
+/* Бала селектор демо */
+.child-selector-demo .parent {
+    background: #f8f9fa;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.child-selector-demo .parent > p {
+    color: #e74c3c;
+    font-weight: bold;
+    background: #ffe5e5;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+}
+
+.child-selector-demo .parent p {
+    color: #3498db;
+    padding: 5px;
+}
+
+/* Кошумча селектор демо */
+.adjacent-selector-demo h5 {
+    color: #667eea;
+    font-size: 1.3em;
+    margin-bottom: 15px;
+}
+
+.adjacent-selector-demo h5 + p {
+    color: #2ecc71;
+    font-weight: bold;
+    background: #e8f8f5;
+    padding: 10px;
+    border-left: 4px solid #2ecc71;
+    border-radius: 5px;
+}
+
+.adjacent-selector-demo p {
+    color: #999;
+    padding: 5px;
+}
+
+/* Бир тууган селектор демо */
+.sibling-selector-demo h5 {
+    color: #667eea;
+    font-size: 1.3em;
+    margin-bottom: 15px;
+}
+
+.sibling-selector-demo h5 ~ p {
+    color: #9b59b6;
+    background: #f4ecf7;
+    padding: 10px;
+    margin-top: 5px;
+    border-left: 4px solid #9b59b6;
+    border-radius: 5px;
+}
+
+.sibling-selector-demo div {
+    background: #f8f9fa;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+}
+
+/* Туу чон селектор демо */
+.descendant-selector-demo .ancestor {
+    background: #f8f9fa;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.descendant-selector-demo .ancestor p {
+    color: #e67e22;
+    background: #fef5e7;
+    padding: 10px;
+    margin: 5px 0;
+    border-left: 4px solid #e67e22;
+    border-radius: 5px;
+}
+
+/* Бардык комбинаторлор демо */
+.all-combinators-demo .wrapper {
+    background: #f8f9fa;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.all-combinators-demo .wrapper > h6 {
+    color: #667eea;
+    font-size: 1.3em;
+    margin-bottom: 15px;
+}
+
+.all-combinators-demo .wrapper > h6 + p {
+    color: #2ecc71;
+    font-weight: bold;
+    background: #e8f8f5;
+    padding: 8px;
+    border-radius: 5px;
+}
+
+.all-combinators-demo .wrapper p {
+    color: #555;
+    margin: 5px 0;
+    padding: 5px;
+}
+
+.all-combinators-demo .wrapper > h6 ~ p {
+    background: #f0f0f0;
+    padding: 8px;
+    border-radius: 5px;
+}
+
+.all-combinators-demo .inner {
+    background: white;
+    padding: 15px;
+    margin: 10px 0;
+    border-radius: 5px;
+}
+
+.all-combinators-demo .inner > p {
+    color: #e74c3c;
+    font-weight: bold;
+}
+
+/* Priority demo */
+.priority-demo {
+    padding: 20px;
+}
+
+.priority-demo p {
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    background: #f8f9fa;
+}
+
+.priority-demo .text {
+    color: blue;
+}
+
+.priority-demo #priority-id-2 {
+    color: green;
+    font-weight: bold;
+}
+
+/* Complex practical demo */
+.complex-practical-demo {
+    padding: 20px;
+}
+
+.complex-practical-demo .menu {
+    background: #f8f9fa;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.complex-practical-demo .menu > ul {
+    list-style: none;
+    padding: 0;
+}
+
+.complex-practical-demo .menu > ul > li {
+    display: inline-block;
+    margin-right: 20px;
+}
+
+.complex-practical-demo .menu a {
+    color: #667eea;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+.complex-practical-demo .menu a:hover {
+    color: #764ba2;
+}
+
+.complex-practical-demo .content {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px solid #eee;
+}
+
+.complex-practical-demo .content > h2 {
+    color: #333;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #667eea;
+    padding-bottom: 10px;
+}
+
+.complex-practical-demo .content > h2 + p {
+    font-size: 1.1em;
+    color: #555;
+    font-weight: bold;
+}
+
+.complex-practical-demo .content p {
+    line-height: 1.8;
+    margin-bottom: 15px;
+    color: #666;
+}
+
+.complex-practical-demo .content .sidebar {
+    background: #f8f9fa;
+    padding: 20px;
+    border-radius: 8px;
+    margin-top: 20px;
+    border-left: 4px solid #667eea;
+}
+
+/* ПРАКТИКА БӨЛҮМҮ */
+.practice-section {
+    background: #fff3cd;
+    padding: 30px;
+    border-radius: 15px;
+    border-left: 5px solid #ffc107;
+}
+
+.practice-card {
+    background: white;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.practice-card ol {
+    margin-left: 20px;
+    margin-top: 15px;
+}
+
+.practice-card li {
+    margin-bottom: 15px;
+    color: #555;
+    font-size: 1.1em;
+}
+
+/* КЕСТЕ БӨЛҮМҮ */
+.table-section {
+    background: #f8f9fa;
+    padding: 30px;
+    border-radius: 15px;
+    margin-bottom: 30px;
+}
+
+.table-wrapper {
+    overflow-x: auto;
+    background: white;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+}
+
+thead {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+}
+
+th {
+    padding: 15px;
+    text-align: left;
+    font-weight: bold;
+}
+
+td {
+    padding: 12px 15px;
+    border-bottom: 1px solid #eee;
+}
+
+tbody tr:hover {
+    background-color: #f8f9fa;
+}
+
+tbody tr:last-child td {
+    border-bottom: none;
+}
+
+code {
+    background: #f4f4f4;
+    padding: 2px 6px;
+    border-radius: 3px;
+    font-family: 'Courier New', monospace;
+    font-size: 13px;
+    color: #e83e8c;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding-top: 30px;
+    margin-top: 40px;
+    border-top: 2px solid #eee;
+    color: #666;
+    font-size: 1.2em;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .container {
+        padding: 20px;
+    }
+
+    h1 {
+        font-size: 2em;
+    }
+
+    h2 {
+        font-size: 1.5em;
+    }
+
+    .demo-box {
+        padding: 20px;
+    }
+
+    .code-example {
+        font-size: 12px;
+    }
+
+    table {
+        font-size: 12px;
+    }
+
+    th, td {
+        padding: 8px;
+    }
+}
+

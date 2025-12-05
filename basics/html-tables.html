@@ -1,0 +1,776 @@
+<!DOCTYPE html>
+<html lang="ky">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Таблицалар - Сабак</title>
+    <link rel="stylesheet" href="html-tables-styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Таблицалар</h1>
+            <p class="subtitle">Баштап жаткандар үчүн толук сабак</p>
+        </header>
+
+        <!-- ТЕОРИЯ БӨЛҮМҮ -->
+        <section class="theory-section">
+            <h2>📚 Теория</h2>
+            
+            <div class="theory-card">
+                <h3>1. Негизги таблица тегдер</h3>
+                <p><strong>Таблица</strong> - маалыматтарды сап жана тилке түрүндө көрсөтүү үчүн колдонулат.</p>
+                <ul>
+                    <li><strong>&lt;table&gt;</strong> - таблицанын контейнери</li>
+                    <li><strong>&lt;tr&gt;</strong> - сап (table row)</li>
+                    <li><strong>&lt;td&gt;</strong> - уяча (table data)</li>
+                    <li><strong>&lt;th&gt;</strong> - баштык уячасы (table header)</li>
+                </ul>
+                <div class="code-example">
+                    <pre><code>&lt;table&gt;
+    &lt;tr&gt;
+        &lt;th&gt;Баштык 1&lt;/th&gt;
+        &lt;th&gt;Баштык 2&lt;/th&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;Мазмун 1&lt;/td&gt;
+        &lt;td&gt;Мазмун 2&lt;/td&gt;
+    &lt;/tr&gt;
+&lt;/table&gt;</code></pre>
+                </div>
+            </div>
+
+            <div class="theory-card">
+                <h3>2. Таблицанын бөлүктөрү: &lt;thead&gt;, &lt;tbody&gt;</h3>
+                <p>Таблицаны семантикалык бөлүктөргө бөлүү үчүн:</p>
+                <ul>
+                    <li><strong>&lt;thead&gt;</strong> - баштык бөлүгү (header)</li>
+                    <li><strong>&lt;tbody&gt;</strong> - негизги мазмун (body)</li>
+                    <li><strong>&lt;tfoot&gt;</strong> - аяк бөлүгү (footer, опционалдык)</li>
+                </ul>
+                <div class="code-example">
+                    <pre><code>&lt;table&gt;
+    &lt;thead&gt;
+        &lt;tr&gt;
+            &lt;th&gt;Баштык 1&lt;/th&gt;
+            &lt;th&gt;Баштык 2&lt;/th&gt;
+        &lt;/tr&gt;
+    &lt;/thead&gt;
+    &lt;tbody&gt;
+        &lt;tr&gt;
+            &lt;td&gt;Мазмун 1&lt;/td&gt;
+            &lt;td&gt;Мазмун 2&lt;/td&gt;
+        &lt;/tr&gt;
+    &lt;/tbody&gt;
+&lt;/table&gt;</code></pre>
+                </div>
+                <p class="note">💡 thead, tbody, tfoot SEO жана доступность үчүн жакшы!</p>
+            </div>
+
+            <div class="theory-card">
+                <h3>3. colspan - Уячаларды бириктирүү (горизонталдык)</h3>
+                <p><strong>colspan</strong> - бир нече тилкени бириктирүү үчүн колдонулат.</p>
+                <ul>
+                    <li>Уяча канча тилкеге созулат</li>
+                    <li>Мааниси: 2, 3, 4... (тилкелердин саны)</li>
+                </ul>
+                <div class="code-example">
+                    <pre><code>&lt;table&gt;
+    &lt;tr&gt;
+        &lt;th colspan="2"&gt;Бириктирилген баштык&lt;/th&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;Уяча 1&lt;/td&gt;
+        &lt;td&gt;Уяча 2&lt;/td&gt;
+    &lt;/tr&gt;
+&lt;/table&gt;</code></pre>
+                </div>
+            </div>
+
+            <div class="theory-card">
+                <h3>4. rowspan - Уячаларды бириктирүү (вертикалдык)</h3>
+                <p><strong>rowspan</strong> - бир нече сапты бириктирүү үчүн колдонулат.</p>
+                <ul>
+                    <li>Уяча канча сапка созулат</li>
+                    <li>Мааниси: 2, 3, 4... (саптардын саны)</li>
+                </ul>
+                <div class="code-example">
+                    <pre><code>&lt;table&gt;
+    &lt;tr&gt;
+        &lt;td rowspan="2"&gt;Бириктирилген уяча&lt;/td&gt;
+        &lt;td&gt;Уяча 1&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;Уяча 2&lt;/td&gt;
+    &lt;/tr&gt;
+&lt;/table&gt;</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- ЖЕНИЛ МИСАЛДАР -->
+        <section class="examples-section">
+            <h2>🟢 ЖЕНИЛ МИСАЛДАР</h2>
+
+            <div class="example-group">
+                <h3>Мисал 1: Жөнөкөй таблица</h3>
+                <div class="demo-box">
+                    <table class="demo-table">
+                        <tr>
+                            <th>Аты</th>
+                            <th>Жашы</th>
+                            <th>Шаар</th>
+                        </tr>
+                        <tr>
+                            <td>Айбек</td>
+                            <td>25</td>
+                            <td>Бишкек</td>
+                        </tr>
+                        <tr>
+                            <td>Нурбек</td>
+                            <td>30</td>
+                            <td>Ош</td>
+                        </tr>
+                        <tr>
+                            <td>Айгерим</td>
+                            <td>22</td>
+                            <td>Бишкек</td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="code-example">
+                    <pre><code>&lt;table&gt;
+    &lt;tr&gt;
+        &lt;th&gt;Аты&lt;/th&gt;
+        &lt;th&gt;Жашы&lt;/th&gt;
+        &lt;th&gt;Шаар&lt;/th&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;Айбек&lt;/td&gt;
+        &lt;td&gt;25&lt;/td&gt;
+        &lt;td&gt;Бишкек&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;Нурбек&lt;/td&gt;
+        &lt;td&gt;30&lt;/td&gt;
+        &lt;td&gt;Ош&lt;/td&gt;
+    &lt;/tr&gt;
+&lt;/table&gt;</code></pre>
+                </div>
+            </div>
+
+            <div class="example-group">
+                <h3>Мисал 2: thead жана tbody</h3>
+                <div class="demo-box">
+                    <table class="demo-table">
+                        <thead>
+                            <tr>
+                                <th>Продукт</th>
+                                <th>Баасы</th>
+                                <th>Сан</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Алма</td>
+                                <td>100 сом</td>
+                                <td>5 кг</td>
+                            </tr>
+                            <tr>
+                                <td>Банан</td>
+                                <td>150 сом</td>
+                                <td>3 кг</td>
+                            </tr>
+                            <tr>
+                                <td>Апельсин</td>
+                                <td>120 сом</td>
+                                <td>4 кг</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="code-example">
+                    <pre><code>&lt;table&gt;
+    &lt;thead&gt;
+        &lt;tr&gt;
+            &lt;th&gt;Продукт&lt;/th&gt;
+            &lt;th&gt;Баасы&lt;/th&gt;
+            &lt;th&gt;Сан&lt;/th&gt;
+        &lt;/tr&gt;
+    &lt;/thead&gt;
+    &lt;tbody&gt;
+        &lt;tr&gt;
+            &lt;td&gt;Алма&lt;/td&gt;
+            &lt;td&gt;100 сом&lt;/td&gt;
+            &lt;td&gt;5 кг&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td&gt;Банан&lt;/td&gt;
+            &lt;td&gt;150 сом&lt;/td&gt;
+            &lt;td&gt;3 кг&lt;/td&gt;
+        &lt;/tr&gt;
+    &lt;/tbody&gt;
+&lt;/table&gt;</code></pre>
+                </div>
+            </div>
+
+            <div class="example-group">
+                <h3>Мисал 3: colspan - Горизонталдык бириктирүү</h3>
+                <div class="demo-box">
+                    <table class="demo-table">
+                        <tr>
+                            <th colspan="2">Бириктирилген баштык</th>
+                        </tr>
+                        <tr>
+                            <td>Уяча 1</td>
+                            <td>Уяча 2</td>
+                        </tr>
+                        <tr>
+                            <td>Уяча 3</td>
+                            <td>Уяча 4</td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="code-example">
+                    <pre><code>&lt;table&gt;
+    &lt;tr&gt;
+        &lt;th colspan="2"&gt;Бириктирилген баштык&lt;/th&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;Уяча 1&lt;/td&gt;
+        &lt;td&gt;Уяча 2&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;Уяча 3&lt;/td&gt;
+        &lt;td&gt;Уяча 4&lt;/td&gt;
+    &lt;/tr&gt;
+&lt;/table&gt;</code></pre>
+                </div>
+            </div>
+
+            <div class="example-group">
+                <h3>Мисал 4: rowspan - Вертикалдык бириктирүү</h3>
+                <div class="demo-box">
+                    <table class="demo-table">
+                        <tr>
+                            <th rowspan="2">Бириктирилген</th>
+                            <th>Баштык 1</th>
+                            <th>Баштык 2</th>
+                        </tr>
+                        <tr>
+                            <td>Уяча 1</td>
+                            <td>Уяча 2</td>
+                        </tr>
+                        <tr>
+                            <td>Уяча 3</td>
+                            <td>Уяча 4</td>
+                            <td>Уяча 5</td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="code-example">
+                    <pre><code>&lt;table&gt;
+    &lt;tr&gt;
+        &lt;th rowspan="2"&gt;Бириктирилген&lt;/th&gt;
+        &lt;th&gt;Баштык 1&lt;/th&gt;
+        &lt;th&gt;Баштык 2&lt;/th&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;Уяча 1&lt;/td&gt;
+        &lt;td&gt;Уяча 2&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;Уяча 3&lt;/td&gt;
+        &lt;td&gt;Уяча 4&lt;/td&gt;
+        &lt;td&gt;Уяча 5&lt;/td&gt;
+    &lt;/tr&gt;
+&lt;/table&gt;</code></pre>
+                </div>
+            </div>
+
+            <div class="example-group">
+                <h3>Мисал 5: colspan жана rowspan бирге</h3>
+                <div class="demo-box">
+                    <table class="demo-table">
+                        <tr>
+                            <th rowspan="2">Бириктирилген (rowspan)</th>
+                            <th colspan="2">Бириктирилген (colspan)</th>
+                        </tr>
+                        <tr>
+                            <th>Баштык 1</th>
+                            <th>Баштык 2</th>
+                        </tr>
+                        <tr>
+                            <td>Уяча 1</td>
+                            <td>Уяча 2</td>
+                            <td>Уяча 3</td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="code-example">
+                    <pre><code>&lt;table&gt;
+    &lt;tr&gt;
+        &lt;th rowspan="2"&gt;Бириктирилген (rowspan)&lt;/th&gt;
+        &lt;th colspan="2"&gt;Бириктирилген (colspan)&lt;/th&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;th&gt;Баштык 1&lt;/th&gt;
+        &lt;th&gt;Баштык 2&lt;/th&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;Уяча 1&lt;/td&gt;
+        &lt;td&gt;Уяча 2&lt;/td&gt;
+        &lt;td&gt;Уяча 3&lt;/td&gt;
+    &lt;/tr&gt;
+&lt;/table&gt;</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- ООР МИСАЛДАР -->
+        <section class="examples-section">
+            <h2>🔴 ООР МИСАЛДАР</h2>
+
+            <div class="example-group">
+                <h3>Мисал 6: Реалдуу таблица - Студенттердин тизмеси</h3>
+                <div class="demo-box">
+                    <table class="demo-table advanced-table">
+                        <thead>
+                            <tr>
+                                <th>№</th>
+                                <th>Аты-жөнү</th>
+                                <th>Курс</th>
+                                <th>Балл</th>
+                                <th>Статус</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>Айбек Алиев</td>
+                                <td>1-курс</td>
+                                <td>95</td>
+                                <td>Өттү</td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>Нурбек Беков</td>
+                                <td>2-курс</td>
+                                <td>88</td>
+                                <td>Өттү</td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td>Айгерим Сманова</td>
+                                <td>1-курс</td>
+                                <td>92</td>
+                                <td>Өттү</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="code-example">
+                    <pre><code>&lt;table&gt;
+    &lt;thead&gt;
+        &lt;tr&gt;
+            &lt;th&gt;№&lt;/th&gt;
+            &lt;th&gt;Аты-жөнү&lt;/th&gt;
+            &lt;th&gt;Курс&lt;/th&gt;
+            &lt;th&gt;Балл&lt;/th&gt;
+            &lt;th&gt;Статус&lt;/th&gt;
+        &lt;/tr&gt;
+    &lt;/thead&gt;
+    &lt;tbody&gt;
+        &lt;tr&gt;
+            &lt;td&gt;1&lt;/td&gt;
+            &lt;td&gt;Айбек Алиев&lt;/td&gt;
+            &lt;td&gt;1-курс&lt;/td&gt;
+            &lt;td&gt;95&lt;/td&gt;
+            &lt;td&gt;Өттү&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td&gt;2&lt;/td&gt;
+            &lt;td&gt;Нурбек Беков&lt;/td&gt;
+            &lt;td&gt;2-курс&lt;/td&gt;
+            &lt;td&gt;88&lt;/td&gt;
+            &lt;td&gt;Өттү&lt;/td&gt;
+        &lt;/tr&gt;
+    &lt;/tbody&gt;
+&lt;/table&gt;</code></pre>
+                </div>
+            </div>
+
+            <div class="example-group">
+                <h3>Мисал 7: Татаал таблица - colspan менен</h3>
+                <div class="demo-box">
+                    <table class="demo-table advanced-table">
+                        <thead>
+                            <tr>
+                                <th rowspan="2">Аты</th>
+                                <th colspan="3">Баллдар</th>
+                            </tr>
+                            <tr>
+                                <th>Математика</th>
+                                <th>Физика</th>
+                                <th>Орточо</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Айбек</td>
+                                <td>95</td>
+                                <td>90</td>
+                                <td>92.5</td>
+                            </tr>
+                            <tr>
+                                <td>Нурбек</td>
+                                <td>88</td>
+                                <td>85</td>
+                                <td>86.5</td>
+                            </tr>
+                            <tr>
+                                <td>Айгерим</td>
+                                <td>92</td>
+                                <td>94</td>
+                                <td>93</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="code-example">
+                    <pre><code>&lt;table&gt;
+    &lt;thead&gt;
+        &lt;tr&gt;
+            &lt;th rowspan="2"&gt;Аты&lt;/th&gt;
+            &lt;th colspan="3"&gt;Баллдар&lt;/th&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;th&gt;Математика&lt;/th&gt;
+            &lt;th&gt;Физика&lt;/th&gt;
+            &lt;th&gt;Орточо&lt;/th&gt;
+        &lt;/tr&gt;
+    &lt;/thead&gt;
+    &lt;tbody&gt;
+        &lt;tr&gt;
+            &lt;td&gt;Айбек&lt;/td&gt;
+            &lt;td&gt;95&lt;/td&gt;
+            &lt;td&gt;90&lt;/td&gt;
+            &lt;td&gt;92.5&lt;/td&gt;
+        &lt;/tr&gt;
+    &lt;/tbody&gt;
+&lt;/table&gt;</code></pre>
+                </div>
+            </div>
+
+            <div class="example-group">
+                <h3>Мисал 8: Календарь таблицасы</h3>
+                <div class="demo-box">
+                    <table class="demo-table calendar-table">
+                        <thead>
+                            <tr>
+                                <th colspan="7">Январь 2024</th>
+                            </tr>
+                            <tr>
+                                <th>Дүй</th>
+                                <th>Шей</th>
+                                <th>Шар</th>
+                                <th>Бей</th>
+                                <th>Жум</th>
+                                <th>Ишм</th>
+                                <th>Жек</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td>1</td>
+                                <td>2</td>
+                                <td>3</td>
+                                <td>4</td>
+                                <td>5</td>
+                            </tr>
+                            <tr>
+                                <td>6</td>
+                                <td>7</td>
+                                <td>8</td>
+                                <td>9</td>
+                                <td>10</td>
+                                <td>11</td>
+                                <td>12</td>
+                            </tr>
+                            <tr>
+                                <td>13</td>
+                                <td>14</td>
+                                <td>15</td>
+                                <td>16</td>
+                                <td>17</td>
+                                <td>18</td>
+                                <td>19</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="code-example">
+                    <pre><code>&lt;table&gt;
+    &lt;thead&gt;
+        &lt;tr&gt;
+            &lt;th colspan="7"&gt;Январь 2024&lt;/th&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;th&gt;Дүй&lt;/th&gt;
+            &lt;th&gt;Шей&lt;/th&gt;
+            &lt;th&gt;Шар&lt;/th&gt;
+            &lt;th&gt;Бей&lt;/th&gt;
+            &lt;th&gt;Жум&lt;/th&gt;
+            &lt;th&gt;Ишм&lt;/th&gt;
+            &lt;th&gt;Жек&lt;/th&gt;
+        &lt;/tr&gt;
+    &lt;/thead&gt;
+    &lt;tbody&gt;
+        &lt;tr&gt;
+            &lt;td&gt;1&lt;/td&gt;
+            &lt;td&gt;2&lt;/td&gt;
+            &lt;td&gt;3&lt;/td&gt;
+            &lt;td&gt;4&lt;/td&gt;
+            &lt;td&gt;5&lt;/td&gt;
+            &lt;td&gt;6&lt;/td&gt;
+            &lt;td&gt;7&lt;/td&gt;
+        &lt;/tr&gt;
+    &lt;/tbody&gt;
+&lt;/table&gt;</code></pre>
+                </div>
+            </div>
+
+            <div class="example-group">
+                <h3>Мисал 9: Татаал таблица - rowspan менен</h3>
+                <div class="demo-box">
+                    <table class="demo-table advanced-table">
+                        <thead>
+                            <tr>
+                                <th>Бөлүм</th>
+                                <th>Кызматкер</th>
+                                <th>Кызмат</th>
+                                <th>Жалакы</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td rowspan="2">IT</td>
+                                <td>Айбек</td>
+                                <td>Программист</td>
+                                <td>50000</td>
+                            </tr>
+                            <tr>
+                                <td>Нурбек</td>
+                                <td>Дизайнер</td>
+                                <td>40000</td>
+                            </tr>
+                            <tr>
+                                <td rowspan="2">Маркетинг</td>
+                                <td>Айгерим</td>
+                                <td>Менеджер</td>
+                                <td>35000</td>
+                            </tr>
+                            <tr>
+                                <td>Бектур</td>
+                                <td>Аналитик</td>
+                                <td>38000</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="code-example">
+                    <pre><code>&lt;table&gt;
+    &lt;thead&gt;
+        &lt;tr&gt;
+            &lt;th&gt;Бөлүм&lt;/th&gt;
+            &lt;th&gt;Кызматкер&lt;/th&gt;
+            &lt;th&gt;Кызмат&lt;/th&gt;
+            &lt;th&gt;Жалакы&lt;/th&gt;
+        &lt;/tr&gt;
+    &lt;/thead&gt;
+    &lt;tbody&gt;
+        &lt;tr&gt;
+            &lt;td rowspan="2"&gt;IT&lt;/td&gt;
+            &lt;td&gt;Айбек&lt;/td&gt;
+            &lt;td&gt;Программист&lt;/td&gt;
+            &lt;td&gt;50000&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td&gt;Нурбек&lt;/td&gt;
+            &lt;td&gt;Дизайнер&lt;/td&gt;
+            &lt;td&gt;40000&lt;/td&gt;
+        &lt;/tr&gt;
+    &lt;/tbody&gt;
+&lt;/table&gt;</code></pre>
+                </div>
+            </div>
+
+            <div class="example-group">
+                <h3>Мисал 10: tfoot менен таблица</h3>
+                <div class="demo-box">
+                    <table class="demo-table advanced-table">
+                        <thead>
+                            <tr>
+                                <th>Продукт</th>
+                                <th>Баасы</th>
+                                <th>Сан</th>
+                                <th>Жалпы</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Алма</td>
+                                <td>100 сом</td>
+                                <td>5</td>
+                                <td>500 сом</td>
+                            </tr>
+                            <tr>
+                                <td>Банан</td>
+                                <td>150 сом</td>
+                                <td>3</td>
+                                <td>450 сом</td>
+                            </tr>
+                            <tr>
+                                <td>Апельсин</td>
+                                <td>120 сом</td>
+                                <td>4</td>
+                                <td>480 сом</td>
+                            </tr>
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <th colspan="3">Жалпы сумма</th>
+                                <th>1430 сом</th>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+                <div class="code-example">
+                    <pre><code>&lt;table&gt;
+    &lt;thead&gt;
+        &lt;tr&gt;
+            &lt;th&gt;Продукт&lt;/th&gt;
+            &lt;th&gt;Баасы&lt;/th&gt;
+            &lt;th&gt;Сан&lt;/th&gt;
+            &lt;th&gt;Жалпы&lt;/th&gt;
+        &lt;/tr&gt;
+    &lt;/thead&gt;
+    &lt;tbody&gt;
+        &lt;tr&gt;
+            &lt;td&gt;Алма&lt;/td&gt;
+            &lt;td&gt;100 сом&lt;/td&gt;
+            &lt;td&gt;5&lt;/td&gt;
+            &lt;td&gt;500 сом&lt;/td&gt;
+        &lt;/tr&gt;
+    &lt;/tbody&gt;
+    &lt;tfoot&gt;
+        &lt;tr&gt;
+            &lt;th colspan="3"&gt;Жалпы сумма&lt;/th&gt;
+            &lt;th&gt;1430 сом&lt;/th&gt;
+        &lt;/tr&gt;
+    &lt;/tfoot&gt;
+&lt;/table&gt;</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- ПРАКТИКА -->
+        <section class="practice-section">
+            <h2>💻 ПРАКТИКА</h2>
+            <div class="practice-card">
+                <h3>Өзүңүз кылыңыз:</h3>
+                <ol>
+                    <li>Жөнөкөй таблица түзүңүз (3 сап, 3 тилке)</li>
+                    <li>thead жана tbody менен таблица түзүңүз</li>
+                    <li>colspan менен баштыкты бириктириңиз</li>
+                    <li>rowspan менен уячаны бириктириңиз</li>
+                    <li>Студенттердин тизмесин таблицада көрсөтүңүз</li>
+                    <li>Продукттардын тизмесин таблицада көрсөтүңүз (thead, tbody, tfoot менен)</li>
+                    <li>Календарь таблицасын түзүңүз (colspan менен)</li>
+                    <li>Татаал таблица түзүңүз (colspan жана rowspan бирге)</li>
+                </ol>
+            </div>
+        </section>
+
+        <!-- КЕСТЕ -->
+        <section class="table-section">
+            <h2>📊 Таблица тегдердин салыштырмасы</h2>
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Тег</th>
+                            <th>Аты</th>
+                            <th>Колдонулушу</th>
+                            <th>Мисал</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><code>&lt;table&gt;</code></td>
+                            <td>Table</td>
+                            <td>Таблицанын контейнери</td>
+                            <td><code>&lt;table&gt;...&lt;/table&gt;</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>&lt;tr&gt;</code></td>
+                            <td>Table Row</td>
+                            <td>Сап</td>
+                            <td><code>&lt;tr&gt;...&lt;/tr&gt;</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>&lt;td&gt;</code></td>
+                            <td>Table Data</td>
+                            <td>Уяча (мазмун)</td>
+                            <td><code>&lt;td&gt;Мазмун&lt;/td&gt;</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>&lt;th&gt;</code></td>
+                            <td>Table Header</td>
+                            <td>Баштык уячасы</td>
+                            <td><code>&lt;th&gt;Баштык&lt;/th&gt;</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>&lt;thead&gt;</code></td>
+                            <td>Table Head</td>
+                            <td>Баштык бөлүгү</td>
+                            <td><code>&lt;thead&gt;...&lt;/thead&gt;</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>&lt;tbody&gt;</code></td>
+                            <td>Table Body</td>
+                            <td>Негизги мазмун</td>
+                            <td><code>&lt;tbody&gt;...&lt;/tbody&gt;</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>&lt;tfoot&gt;</code></td>
+                            <td>Table Foot</td>
+                            <td>Аяк бөлүгү</td>
+                            <td><code>&lt;tfoot&gt;...&lt;/tfoot&gt;</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>colspan</code></td>
+                            <td>Column Span</td>
+                            <td>Тилкелерди бириктирүү</td>
+                            <td><code>colspan="2"</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>rowspan</code></td>
+                            <td>Row Span</td>
+                            <td>Саптарды бириктирүү</td>
+                            <td><code>rowspan="2"</code></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <footer>
+            <p>Бактылуу окуу! 🎓</p>
+        </footer>
+    </div>
+</body>
+</html>
+

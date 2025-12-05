@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="ky">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Текстти форматтоо - Сабак</title>
+    <link rel="stylesheet" href="html-text-formatting-styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Текстти форматтоо</h1>
+            <p class="subtitle">Баштап жаткандар үчүн толук сабак</p>
+        </header>
+
+        <!-- ТЕОРИЯ БӨЛҮМҮ -->
+        <section class="theory-section">
+            <h2>📚 Теория</h2>
+            
+            <div class="theory-card">
+                <h3>1. Калың текст: &lt;b&gt; жана &lt;strong&gt;</h3>
+                <p><strong>&lt;b&gt;</strong> жана <strong>&lt;strong&gt;</strong> - текстти калың кылуу үчүн колдонулат.</p>
+                <ul>
+                    <li><strong>&lt;b&gt;</strong> - визуалдык калың (стиль үчүн)</li>
+                    <li><strong>&lt;strong&gt;</strong> - маанилүү калың (семантикалык, SEO үчүн жакшы)</li>
+                </ul>
+                <div class="code-example">
+                    <pre><code>&lt;p&gt;Бул &lt;b&gt;калың&lt;/b&gt; текст.&lt;/p&gt;
+&lt;p&gt;Бул &lt;strong&gt;маанилүү&lt;/strong&gt; текст.&lt;/p&gt;</code></pre>
+                </div>
+                <p class="note">💡 &lt;strong&gt; SEO жана доступность үчүн жакшы!</p>
+            </div>
+
+            <div class="theory-card">
+                <h3>2. Курсив текст: &lt;i&gt; жана &lt;em&gt;</h3>
+                <p><strong>&lt;i&gt;</strong> жана <strong>&lt;em&gt;</strong> - текстти курсив кылуу үчүн колдонулат.</p>
+                <ul>
+                    <li><strong>&lt;i&gt;</strong> - визуалдык курсив (стиль үчүн)</li>
+                    <li><strong>&lt;em&gt;</strong> - басым курсив (семантикалык, маанилүү)</li>
+                </ul>
+                <div class="code-example">
+                    <pre><code>&lt;p&gt;Бул &lt;i&gt;курсив&lt;/i&gt; текст.&lt;/p&gt;
+&lt;p&gt;Бул &lt;em&gt;басым&lt;/em&gt; текст.&lt;/p&gt;</code></pre>
+                </div>
+                <p class="note">💡 &lt;em&gt; семантикалык мааниге ээ!</p>
+            </div>
+
+            <div class="theory-card">
+                <h3>3. Астын сызуу: &lt;u&gt;</h3>
+                <p><strong>&lt;u&gt;</strong> - тексттин астын сызуу үчүн колдонулат.</p>
+                <ul>
+                    <li>Тексттин астына сызык чыгарат</li>
+                    <li>Көбүнчө каттары же маанилүү маалыматтар үчүн</li>
+                </ul>
+                <div class="code-example">
+                    <pre><code>&lt;p&gt;Бул &lt;u&gt;асты сызылган&lt;/u&gt; текст.&lt;/p&gt;</code></pre>
+                </div>
+            </div>
+
+            <div class="theory-card">
+                <h3>4. Белгилөө: &lt;mark&gt;</h3>
+                <p><strong>&lt;mark&gt;</strong> - текстти белгилөө үчүн колдонулат (желтый фон менен).</p>
+                <ul>
+                    <li>Маанилүү маалыматты белгилөө үчүн</li>
+                    <li>Желтый фон менен көрсөтөт</li>
+                </ul>
+                <div class="code-example">
+                    <pre><code>&lt;p&gt;Бул &lt;mark&gt;белгиленген&lt;/mark&gt; текст.&lt;/p&gt;</code></pre>
+                </div>
+            </div>
+
+            <div class="theory-card">
+                <h3>5. Кичине, үстү/асты: &lt;small&gt;, &lt;sup&gt;, &lt;sub&gt;</h3>
+                
+                <h4>&lt;small&gt; - Кичине текст</h4>
+                <ul>
+                    <li>Текстти кичине кылат</li>
+                    <li>Көбүнчө кошумча маалыматтар үчүн</li>
+                </ul>
+                
+                <h4>&lt;sup&gt; - Үстүнкү индекс</h4>
+                <ul>
+                    <li>Текстти үстүнө көтөрөт</li>
+                    <li>Математикалык формулалар, даталар үчүн</li>
+                </ul>
+                
+                <h4>&lt;sub&gt; - Астынкы индекс</h4>
+                <ul>
+                    <li>Текстти ылдый түшүрөт</li>
+                    <li>Химиялык формулалар, сандар үчүн</li>
+                </ul>
+                
+                <div class="code-example">
+                    <pre><code>&lt;p&gt;Бул &lt;small&gt;кичине&lt;/small&gt; текст.&lt;/p&gt;
+&lt;p&gt;2&lt;sup&gt;3&lt;/sup&gt; = 8&lt;/p&gt;
+&lt;p&gt;H&lt;sub&gt;2&lt;/sub&gt;O - суу&lt;/p&gt;</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- ЖЕНИЛ МИСАЛДАР -->
+        <section class="examples-section">
+            <h2>🟢 ЖЕНИЛ МИСАЛДАР</h2>
+
+            <div class="example-group">
+                <h3>Мисал 1: &lt;b&gt; жана &lt;strong&gt; - Калың текст</h3>
+                <div class="demo-box">
+                    <p>Бул жөнөкөй текст, бирок <b>бул калың (b)</b> жана <strong>бул маанилүү калың (strong)</strong>.</p>
+                    <p><strong>Эскертүү:</strong> Бул маанилүү маалымат!</p>
+                    <p>Бул <b>визуалдык</b> калың, ал эми <strong>бул семантикалык</strong> калың.</p>
+                </div>
+                <div class="code-example">
+                    <pre><code>&lt;p&gt;Бул жөнөкөй текст, бирок &lt;b&gt;бул калың&lt;/b&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Эскертүү:&lt;/strong&gt; Бул маанилүү маалымат!&lt;/p&gt;
+
+&lt;p&gt;Бул &lt;b&gt;визуалдык&lt;/b&gt; калың, 
+ал эми &lt;strong&gt;бул семантикалык&lt;/strong&gt; калың.&lt;/p&gt;</code></pre>
+                </div>
+            </div>
+
+            <div class="example-group">
+                <h3>Мисал 2: &lt;i&gt; жана &lt;em&gt; - Курсив</h3>
+                <div class="demo-box">
+                    <p>Бул жөнөкөй текст, бирок <i>бул курсив (i)</i> жана <em>бул басым курсив (em)</em>.</p>
+                    <p><em>Маанилүү:</em> Бул басым менен айтылган текст.</p>
+                    <p>Бул <i>визуалдык</i> курсив, ал эми <em>бул семантикалык</em> курсив.</p>
+                </div>
+                <div class="code-example">
+                    <pre><code>&lt;p&gt;Бул жөнөкөй текст, бирок &lt;i&gt;бул курсив&lt;/i&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Маанилүү:&lt;/em&gt; Бул басым менен айтылган текст.&lt;/p&gt;
+
+&lt;p&gt;Бул &lt;i&gt;визуалдык&lt;/i&gt; курсив, 
+ал эми &lt;em&gt;бул семантикалык&lt;/em&gt; курсив.&lt;/p&gt;</code></pre>
+                </div>
+            </div>
+
+            <div class="example-group">
+                <h3>Мисал 3: &lt;u&gt; - Астын сызуу</h3>
+                <div class="demo-box">
+                    <p>Бул жөнөкөй текст, бирок <u>бул асты сызылган текст</u>.</p>
+                    <p>Катта: <u>Маанилүү маалымат</u> бул жерде.</p>
+                    <p>Эскертүү: <u>Окууну унутпаңыз!</u></p>
+                </div>
+                <div class="code-example">
+                    <pre><code>&lt;p&gt;Бул жөнөкөй текст, бирок &lt;u&gt;бул асты сызылган&lt;/u&gt;.&lt;/p&gt;
+
+&lt;p&gt;Катта: &lt;u&gt;Маанилүү маалымат&lt;/u&gt; бул жерде.&lt;/p&gt;
+
+&lt;p&gt;Эскертүү: &lt;u&gt;Окууну унутпаңыз!&lt;/u&gt;&lt;/p&gt;</code></pre>
+                </div>
+            </div>
+
+            <div class="example-group">
+                <h3>Мисал 4: &lt;mark&gt; - Белгилөө</h3>
+                <div class="demo-box">
+                    <p>Бул жөнөкөй текст, бирок <mark>бул белгиленген текст</mark>.</p>
+                    <p>Маанилүү маалымат: <mark>Бул сабакты окуңуз!</mark></p>
+                    <p>Кайталаңыз: <mark>HTML тегдерди</mark> жакшы үйрөнүңүз.</p>
+                </div>
+                <div class="code-example">
+                    <pre><code>&lt;p&gt;Бул жөнөкөй текст, бирок &lt;mark&gt;бул белгиленген&lt;/mark&gt;.&lt;/p&gt;
+
+&lt;p&gt;Маанилүү маалымат: &lt;mark&gt;Бул сабакты окуңуз!&lt;/mark&gt;&lt;/p&gt;
+
+&lt;p&gt;Кайталаңыз: &lt;mark&gt;HTML тегдерди&lt;/mark&gt; жакшы үйрөнүңүз.&lt;/p&gt;</code></pre>
+                </div>
+            </div>
+
+            <div class="example-group">
+                <h3>Мисал 5: &lt;small&gt; - Кичине текст</h3>
+                <div class="demo-box">
+                    <p>Бул жөнөкөй текст, бирок <small>бул кичине текст</small>.</p>
+                    <p>Баасы: 1000 сом <small>(салык кошулган)</small></p>
+                    <p>Кошумча маалымат: <small>Бул кичине текст менен жазылган.</small></p>
+                </div>
+                <div class="code-example">
+                    <pre><code>&lt;p&gt;Бул жөнөкөй текст, бирок &lt;small&gt;бул кичине&lt;/small&gt;.&lt;/p&gt;
+
+&lt;p&gt;Баасы: 1000 сом &lt;small&gt;(салык кошулган)&lt;/small&gt;&lt;/p&gt;
+
+&lt;p&gt;Кошумча маалымат: &lt;small&gt;Бул кичине текст.&lt;/small&gt;&lt;/p&gt;</code></pre>
+                </div>
+            </div>
+
+            <div class="example-group">
+                <h3>Мисал 6: &lt;sup&gt; - Үстүнкү индекс</h3>
+                <div class="demo-box">
+                    <p>Математика: 2<sup>3</sup> = 8</p>
+                    <p>Формула: x<sup>2</sup> + y<sup>2</sup> = z<sup>2</sup></p>
+                    <p>Дата: 21<sup>st</sup> күн, 3<sup>rd</sup> ай</p>
+                    <p>Даража: 10<sup>6</sup> = 1,000,000</p>
+                </div>
+                <div class="code-example">
+                    <pre><code>&lt;p&gt;Математика: 2&lt;sup&gt;3&lt;/sup&gt; = 8&lt;/p&gt;
+
+&lt;p&gt;Формула: x&lt;sup&gt;2&lt;/sup&gt; + y&lt;sup&gt;2&lt;/sup&gt; = z&lt;sup&gt;2&lt;/sup&gt;&lt;/p&gt;
+
+&lt;p&gt;Дата: 21&lt;sup&gt;st&lt;/sup&gt; күн, 3&lt;sup&gt;rd&lt;/sup&gt; ай&lt;/p&gt;
+
+&lt;p&gt;Даража: 10&lt;sup&gt;6&lt;/sup&gt; = 1,000,000&lt;/p&gt;</code></pre>
+                </div>
+            </div>
+
+            <div class="example-group">
+                <h3>Мисал 7: &lt;sub&gt; - Астынкы индекс</h3>
+                <div class="demo-box">
+                    <p>Химия: H<sub>2</sub>O - суу</p>
+                    <p>Формула: CO<sub>2</sub> - көмүр кычкыл газы</p>
+                    <p>Математика: log<sub>10</sub>(100) = 2</p>
+                    <p>Химия: C<sub>6</sub>H<sub>12</sub>O<sub>6</sub> - глюкоза</p>
+                </div>
+                <div class="code-example">
+                    <pre><code>&lt;p&gt;Химия: H&lt;sub&gt;2&lt;/sub&gt;O - суу&lt;/p&gt;
+
+&lt;p&gt;Формула: CO&lt;sub&gt;2&lt;/sub&gt; - көмүр кычкыл газы&lt;/p&gt;
+
+&lt;p&gt;Математика: log&lt;sub&gt;10&lt;/sub&gt;(100) = 2&lt;/p&gt;
+
+&lt;p&gt;Химия: C&lt;sub&gt;6&lt;/sub&gt;H&lt;sub&gt;12&lt;/sub&gt;O&lt;sub&gt;6&lt;/sub&gt; - глюкоза&lt;/p&gt;</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- ООР МИСАЛДАР -->
+        <section class="examples-section">
+            <h2>🔴 ООР МИСАЛДАР</h2>
+
+            <div class="example-group">
+                <h3>Мисал 8: Бардык форматтоолорду бириктирүү</h3>
+                <div class="demo-box">
+                    <div class="combined-formatting">
+                        <h3>Макаланын баштыгы</h3>
+                        <p>Бул <strong>маанилүү</strong> макала, анда <em>басым</em> менен айтылган маалыматтар бар.</p>
+                        <p>Кайталаңыз: <mark>HTML тегдерди</mark> жакшы үйрөнүңүз жана <u>практика кылыңыз</u>.</p>
+                        <p>Математикалык формула: x<sup>2</sup> + y<sup>2</sup> = z<sup>2</sup></p>
+                        <p>Химиялык формула: H<sub>2</sub>SO<sub>4</sub> - кычкыл</p>
+                        <p>Баасы: <b>1000 сом</b> <small>(салык кошулган)</small></p>
+                    </div>
+                </div>
+                <div class="code-example">
+                    <pre><code>&lt;h3&gt;Макаланын баштыгы&lt;/h3&gt;
+&lt;p&gt;Бул &lt;strong&gt;маанилүү&lt;/strong&gt; макала, 
+анда &lt;em&gt;басым&lt;/em&gt; менен айтылган маалыматтар бар.&lt;/p&gt;
+
+&lt;p&gt;Кайталаңыз: &lt;mark&gt;HTML тегдерди&lt;/mark&gt; 
+жакшы үйрөнүңүз жана &lt;u&gt;практика кылыңыз&lt;/u&gt;.&lt;/p&gt;
+
+&lt;p&gt;Математикалык формула: 
+x&lt;sup&gt;2&lt;/sup&gt; + y&lt;sup&gt;2&lt;/sup&gt; = z&lt;sup&gt;2&lt;/sup&gt;&lt;/p&gt;
+
+&lt;p&gt;Химиялык формула: 
+H&lt;sub&gt;2&lt;/sub&gt;SO&lt;sub&gt;4&lt;/sub&gt; - кычкыл&lt;/p&gt;
+
+&lt;p&gt;Баасы: &lt;b&gt;1000 сом&lt;/b&gt; 
+&lt;small&gt;(салык кошулган)&lt;/small&gt;&lt;/p&gt;</code></pre>
+                </div>
+            </div>
+
+            <div class="example-group">
+                <h3>Мисал 9: Реалдуу мисал - Макала</h3>
+                <div class="demo-box">
+                    <article class="article-demo">
+                        <h2>HTML форматтоо тегдери</h2>
+                        <p><strong>HTML</strong> - бул веб-барактарды түзүү үчүн колдонулуучу <em>белгилөө тили</em>.</p>
+                        <p>Бул сабакта биз <mark>текстти форматтоо</mark> тегдерин үйрөнөбүз:</p>
+                        <ul>
+                            <li><strong>&lt;strong&gt;</strong> - маанилүү текст</li>
+                            <li><em>&lt;em&gt;</em> - басым менен</li>
+                            <li><u>&lt;u&gt;</u> - асты сызылган</li>
+                            <li><mark>&lt;mark&gt;</mark> - белгиленген</li>
+                        </ul>
+                        <p>Математикалык мисал: (a + b)<sup>2</sup> = a<sup>2</sup> + 2ab + b<sup>2</sup></p>
+                        <p>Химиялык мисал: H<sub>2</sub>O + CO<sub>2</sub> → H<sub>2</sub>CO<sub>3</sub></p>
+                        <p><small>Кошумча маалымат: Бул макала 2024-жылдын 1<sup>st</sup> күнү жазылган.</small></p>
+                    </article>
+                </div>
+                <div class="code-example">
+                    <pre><code>&lt;article&gt;
+    &lt;h2&gt;HTML форматтоо тегдери&lt;/h2&gt;
+    &lt;p&gt;&lt;strong&gt;HTML&lt;/strong&gt; - бул веб-барактарды түзүү үчүн 
+    колдонулуучу &lt;em&gt;белгилөө тили&lt;/em&gt;.&lt;/p&gt;
+    
+    &lt;p&gt;Бул сабакта биз &lt;mark&gt;текстти форматтоо&lt;/mark&gt; 
+    тегдерин үйрөнөбүз:&lt;/p&gt;
+    
+    &lt;ul&gt;
+        &lt;li&gt;&lt;strong&gt;&amp;lt;strong&amp;gt;&lt;/strong&gt; - маанилүү текст&lt;/li&gt;
+        &lt;li&gt;&lt;em&gt;&amp;lt;em&amp;gt;&lt;/em&gt; - басым менен&lt;/li&gt;
+    &lt;/ul&gt;
+    
+    &lt;p&gt;Математикалык мисал: 
+    (a + b)&lt;sup&gt;2&lt;/sup&gt; = a&lt;sup&gt;2&lt;/sup&gt; + 2ab + b&lt;sup&gt;2&lt;/sup&gt;&lt;/p&gt;
+    
+    &lt;p&gt;&lt;small&gt;Кошумча маалымат: Бул макала 
+    2024-жылдын 1&lt;sup&gt;st&lt;/sup&gt; күнү жазылган.&lt;/small&gt;&lt;/p&gt;
+&lt;/article&gt;</code></pre>
+                </div>
+            </div>
+
+            <div class="example-group">
+                <h3>Мисал 10: Карточка менен форматтоо</h3>
+                <div class="demo-box">
+                    <div class="card-formatting">
+                        <h3>Продукт</h3>
+                        <p class="product-name"><strong>Ноутбук</strong></p>
+                        <p class="product-price">
+                            <span class="old-price"><small>15000 сом</small></span>
+                            <strong>12000 сом</strong>
+                            <small>(20% арзандатуу)</small>
+                        </p>
+                        <p class="product-info">
+                            <mark>Жаңы продукт!</mark> Бул <em>эң мыкты</em> ноутбук.
+                        </p>
+                        <p class="product-specs">
+                            Процессор: Intel Core i7<sup>th</sup> генерация<br>
+                            RAM: 16GB DDR4<sub>L</sub>
+                        </p>
+                    </div>
+                </div>
+                <div class="code-example">
+                    <pre><code>&lt;div class="card"&gt;
+    &lt;h3&gt;Продукт&lt;/h3&gt;
+    &lt;p class="name"&gt;&lt;strong&gt;Ноутбук&lt;/strong&gt;&lt;/p&gt;
+    &lt;p class="price"&gt;
+        &lt;span class="old"&gt;&lt;small&gt;15000 сом&lt;/small&gt;&lt;/span&gt;
+        &lt;strong&gt;12000 сом&lt;/strong&gt;
+        &lt;small&gt;(20% арзандатуу)&lt;/small&gt;
+    &lt;/p&gt;
+    &lt;p class="info"&gt;
+        &lt;mark&gt;Жаңы продукт!&lt;/mark&gt; 
+        Бул &lt;em&gt;эң мыкты&lt;/em&gt; ноутбук.
+    &lt;/p&gt;
+    &lt;p class="specs"&gt;
+        Процессор: Intel Core i7&lt;sup&gt;th&lt;/sup&gt; генерация&lt;br&gt;
+        RAM: 16GB DDR4&lt;sub&gt;L&lt;/sub&gt;
+    &lt;/p&gt;
+&lt;/div&gt;</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- ПРАКТИКА -->
+        <section class="practice-section">
+            <h2>💻 ПРАКТИКА</h2>
+            <div class="practice-card">
+                <h3>Өзүңүз кылыңыз:</h3>
+                <ol>
+                    <li>Тексттин бир бөлүгүн калың кылыңыз (&lt;b&gt; же &lt;strong&gt;)</li>
+                    <li>Тексттин бир бөлүгүн курсив кылыңыз (&lt;i&gt; же &lt;em&gt;)</li>
+                    <li>Маанилүү маалыматты белгилеңиз (&lt;mark&gt;)</li>
+                    <li>Тексттин астын сызыңыз (&lt;u&gt;)</li>
+                    <li>Математикалык формула жазыңыз (&lt;sup&gt; колдонуңуз)</li>
+                    <li>Химиялык формула жазыңыз (&lt;sub&gt; колдонуңуз)</li>
+                    <li>Кошумча маалыматты кичине текст менен жазыңыз (&lt;small&gt;)</li>
+                    <li>Бардык форматтоолорду бириктирип, макала түзүңүз</li>
+                </ol>
+            </div>
+        </section>
+
+        <!-- КЕСТЕ -->
+        <section class="table-section">
+            <h2>📊 Форматтоо тегдердин салыштырмасы</h2>
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Тег</th>
+                            <th>Аты</th>
+                            <th>Колдонулушу</th>
+                            <th>Мисал</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><code>&lt;b&gt;</code></td>
+                            <td>Bold</td>
+                            <td>Визуалдык калың</td>
+                            <td><code>&lt;b&gt;Текст&lt;/b&gt;</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>&lt;strong&gt;</code></td>
+                            <td>Strong</td>
+                            <td>Маанилүү калың (семантикалык)</td>
+                            <td><code>&lt;strong&gt;Текст&lt;/strong&gt;</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>&lt;i&gt;</code></td>
+                            <td>Italic</td>
+                            <td>Визуалдык курсив</td>
+                            <td><code>&lt;i&gt;Текст&lt;/i&gt;</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>&lt;em&gt;</code></td>
+                            <td>Emphasis</td>
+                            <td>Басым курсив (семантикалык)</td>
+                            <td><code>&lt;em&gt;Текст&lt;/em&gt;</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>&lt;u&gt;</code></td>
+                            <td>Underline</td>
+                            <td>Астын сызуу</td>
+                            <td><code>&lt;u&gt;Текст&lt;/u&gt;</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>&lt;mark&gt;</code></td>
+                            <td>Mark</td>
+                            <td>Белгилөө (желтый фон)</td>
+                            <td><code>&lt;mark&gt;Текст&lt;/mark&gt;</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>&lt;small&gt;</code></td>
+                            <td>Small</td>
+                            <td>Кичине текст</td>
+                            <td><code>&lt;small&gt;Текст&lt;/small&gt;</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>&lt;sup&gt;</code></td>
+                            <td>Superscript</td>
+                            <td>Үстүнкү индекс</td>
+                            <td><code>2&lt;sup&gt;3&lt;/sup&gt;</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>&lt;sub&gt;</code></td>
+                            <td>Subscript</td>
+                            <td>Астынкы индекс</td>
+                            <td><code>H&lt;sub&gt;2&lt;/sub&gt;O</code></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <footer>
+            <p>Бактылуу окуу! 🎓</p>
+        </footer>
+    </div>
+</body>
+</html>
+

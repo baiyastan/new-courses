@@ -1,0 +1,789 @@
+<!DOCTYPE html>
+<html lang="ky">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Variables - Сабак</title>
+    <link rel="stylesheet" href="css-variables-styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>CSS Variables</h1>
+            <p class="subtitle">Баштап жаткандар үчүн толук сабак</p>
+        </header>
+
+        <!-- ТЕОРИЯ БӨЛҮМҮ -->
+        <section class="theory-section">
+            <h2>📚 Теория</h2>
+            
+            <div class="theory-card">
+                <h3>1. CSS Variables деген эмне?</h3>
+                
+                <p><strong>CSS Variables</strong> (CSS Өзгөрмөлөр) - CSS'те маанилерди сактап, кайра колдонуу үчүн.</p>
+                
+                <h4>Негизги түшүнүктөр:</h4>
+                <ul>
+                    <li><strong>Custom Properties</strong> - кастомдуу касиеттер</li>
+                    <li><strong>--variable-name</strong> - өзгөрмө аты (-- менен башталат)</li>
+                    <li><strong>var()</strong> - өзгөрмөнү колдонуу</li>
+                    <li><strong>:root</strong> - глобалдуу өзгөрмөлөр</li>
+                </ul>
+                
+                <div class="code-example">
+                    <pre><code>/* CSS Variables */
+:root {
+    --main-color: #667eea;
+    --secondary-color: #764ba2;
+}
+
+.element {
+    color: var(--main-color);
+}
+
+/* Өзгөрмөлөр -- менен башталат жана var() менен колдонулат */</code></pre>
+                </div>
+            </div>
+
+            <div class="theory-card">
+                <h3>2. --main-color - Өзгөрмө аныктоо</h3>
+                
+                <p><strong>--main-color</strong> - өзгөрмө аныктоо, ар кандай маанилерди сактайт.</p>
+                
+                <h4>Синтаксис:</h4>
+                <ul>
+                    <li><code>--variable-name: value;</code> - өзгөрмө аныктоо</li>
+                    <li><code>--main-color: #667eea;</code> - түс</li>
+                    <li><code>--font-size: 16px;</code> - шрифт өлчөмү</li>
+                    <li><code>--spacing: 20px;</code> - аралык</li>
+                </ul>
+                
+                <h4>Өзгөрмө атынын эрежелери:</h4>
+                <ul>
+                    <li>-- менен башталат</li>
+                    <li>Кичине тамга, чоң тамга, сан, тире (-) колдонулат</li>
+                    <li>Боштук болбойт</li>
+                    <li>Case-sensitive (чоң/кичине тамга маанилүү)</li>
+                </ul>
+                
+                <div class="code-example">
+                    <pre><code>/* --main-color - Өзгөрмө аныктоо */
+:root {
+    --main-color: #667eea;
+    --secondary-color: #764ba2;
+    --font-size: 16px;
+    --spacing: 20px;
+    --border-radius: 10px;
+    --font-family: 'Arial', sans-serif;
+}
+
+/* Өзгөрмөлөр :root'то глобалдуу аныкталат */</code></pre>
+                </div>
+            </div>
+
+            <div class="theory-card">
+                <h3>3. var() - Өзгөрмөнү колдонуу</h3>
+                
+                <p><strong>var()</strong> - өзгөрмөнү колдонуу үчүн функция.</p>
+                
+                <h4>Синтаксис:</h4>
+                <ul>
+                    <li><code>var(--variable-name)</code> - өзгөрмөнү колдонуу</li>
+                    <li><code>var(--variable-name, fallback)</code> - fallback маани менен</li>
+                    <li><code>color: var(--main-color);</code> - түс</li>
+                    <li><code>font-size: var(--font-size);</code> - шрифт өлчөмү</li>
+                </ul>
+                
+                <h4>Fallback маани:</h4>
+                <ul>
+                    <li>Өзгөрмө табылбаса, fallback колдонулат</li>
+                    <li><code>var(--color, #000)</code> - #000 fallback</li>
+                    <li>Кайсы учурда колдонулат: өзгөрмө жок болсо</li>
+                </ul>
+                
+                <div class="code-example">
+                    <pre><code>/* var() - Өзгөрмөнү колдонуу */
+.element {
+    color: var(--main-color);
+    background: var(--secondary-color);
+    font-size: var(--font-size);
+    padding: var(--spacing);
+    border-radius: var(--border-radius);
+}
+
+/* Fallback менен */
+.element {
+    color: var(--main-color, #000);  /* --main-color жок болсо #000 */
+    font-size: var(--font-size, 16px);  /* --font-size жок болсо 16px */
+}
+
+/* var() функциясы өзгөрмөнү колдонуу үчүн */</code></pre>
+                </div>
+            </div>
+
+            <div class="theory-card">
+                <h3>4. :root - Глобалдуу өзгөрмөлөр</h3>
+                
+                <p><strong>:root</strong> - HTML элементин тандайт, глобалдуу өзгөрмөлөрдү аныктоо үчүн.</p>
+                
+                <h4>Колдонулушу:</h4>
+                <ul>
+                    <li>Бардык элементтер үчүн жеткиликтүү</li>
+                    <li>Глобалдуу стилдер</li>
+                    <li>Темаларды башкаруу</li>
+                </ul>
+                
+                <h4>:root vs элемент:</h4>
+                <ul>
+                    <li><code>:root { }</code> - глобалдуу (бардык элементтер)</li>
+                    <li><code>.container { }</code> - локалдуу (контейнердин ичиндеги элементтер)</li>
+                </ul>
+                
+                <div class="code-example">
+                    <pre><code>/* :root - Глобалдуу өзгөрмөлөр */
+:root {
+    --primary-color: #667eea;
+    --secondary-color: #764ba2;
+    --font-size: 16px;
+    --spacing: 20px;
+}
+
+/* Бардык элементтер колдонот */
+
+/* Локалдуу өзгөрмөлөр */
+.container {
+    --container-bg: #f8f9fa;
+    --container-padding: 20px;
+}
+
+/* Контейнердин ичиндеги элементтер гана колдонот */</code></pre>
+                </div>
+            </div>
+
+            <div class="theory-card">
+                <h3>5. Өзгөрмөлөрдү кайра аныктоо</h3>
+                
+                <p>Өзгөрмөлөрдү кайра аныктоо - элементтерде өзгөрмөлөрдү кайра аныктоо.</p>
+                
+                <h4>Колдонулушу:</h4>
+                <ul>
+                    <li>Элементтерде өзгөрмөлөрдү кайра аныктоо</li>
+                    <li>Темаларды башкаруу</li>
+                    <li>Динамикалык стилдер</li>
+                </ul>
+                
+                <div class="code-example">
+                    <pre><code>/* Өзгөрмөлөрдү кайра аныктоо */
+:root {
+    --main-color: #667eea;
+}
+
+.button {
+    background: var(--main-color);  /* #667eea */
+}
+
+.button-primary {
+    --main-color: #4CAF50;  /* Кайра аныктоо */
+    background: var(--main-color);  /* #4CAF50 */
+}
+
+/* .button-primary'де --main-color кайра аныкталды */</code></pre>
+                </div>
+            </div>
+
+            <div class="theory-card">
+                <h3>6. CSS Variables менен темалар</h3>
+                
+                <p>CSS Variables менен темаларды башкаруу - күн/түн темаларын башкаруу.</p>
+                
+                <h4>Колдонулушу:</h4>
+                <ul>
+                    <li>Күн/түн темалары</li>
+                    <li>Түстөрдү башкаруу</li>
+                    <li>JavaScript менен өзгөртүү</li>
+                </ul>
+                
+                <div class="code-example">
+                    <pre><code>/* CSS Variables менен темалар */
+:root {
+    --bg-color: #ffffff;
+    --text-color: #000000;
+    --primary-color: #667eea;
+}
+
+[data-theme="dark"] {
+    --bg-color: #1a1a1a;
+    --text-color: #ffffff;
+    --primary-color: #764ba2;
+}
+
+.body {
+    background: var(--bg-color);
+    color: var(--text-color);
+}
+
+.button {
+    background: var(--primary-color);
+}
+
+/* JavaScript менен теманы өзгөртүү */
+/* document.documentElement.setAttribute('data-theme', 'dark'); */</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- ЖЕНИЛ МИСАЛДАР -->
+        <section class="examples-section">
+            <h2>🟢 ЖЕНИЛ МИСАЛДАР</h2>
+
+            <div class="example-group">
+                <h3>Мисал 1: --main-color менен түстөр</h3>
+                <div class="demo-box">
+                    <div class="color-demo">
+                        <div class="color-box box1">Бокс 1</div>
+                        <div class="color-box box2">Бокс 2</div>
+                        <div class="color-box box3">Бокс 3</div>
+                    </div>
+                </div>
+                <div class="code-example">
+                    <pre><code>/* --main-color менен түстөр */
+:root {
+    --main-color: #667eea;
+    --secondary-color: #764ba2;
+    --accent-color: #f5576c;
+}
+
+.color-box {
+    padding: 30px;
+    color: white;
+    border-radius: 10px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.box1 {
+    background: var(--main-color);
+}
+
+.box2 {
+    background: var(--secondary-color);
+}
+
+.box3 {
+    background: var(--accent-color);
+}</code></pre>
+                </div>
+            </div>
+
+            <div class="example-group">
+                <h3>Мисал 2: var() менен стилдер</h3>
+                <div class="demo-box">
+                    <div class="var-demo">
+                        <div class="var-box">var() менен стилделген элемент</div>
+                    </div>
+                </div>
+                <div class="code-example">
+                    <pre><code>/* var() менен стилдер */
+:root {
+    --main-color: #667eea;
+    --font-size: 18px;
+    --spacing: 30px;
+    --border-radius: 10px;
+}
+
+.var-box {
+    color: var(--main-color);
+    font-size: var(--font-size);
+    padding: var(--spacing);
+    border-radius: var(--border-radius);
+    background: #f8f9fa;
+    border: 2px solid var(--main-color);
+}</code></pre>
+                </div>
+            </div>
+
+            <div class="example-group">
+                <h3>Мисал 3: :root менен глобалдуу өзгөрмөлөр</h3>
+                <div class="demo-box">
+                    <div class="root-demo">
+                        <div class="root-box">Глобалдуу өзгөрмөлөр менен</div>
+                        <div class="root-box">Бардык элементтер колдонот</div>
+                    </div>
+                </div>
+                <div class="code-example">
+                    <pre><code>/* :root менен глобалдуу өзгөрмөлөр */
+:root {
+    --primary-color: #667eea;
+    --secondary-color: #764ba2;
+    --font-size: 16px;
+    --spacing: 20px;
+}
+
+.root-box {
+    background: var(--primary-color);
+    color: white;
+    padding: var(--spacing);
+    font-size: var(--font-size);
+    border-radius: 10px;
+    margin-bottom: 15px;
+    text-align: center;
+    font-weight: bold;
+}
+
+/* Бардык элементтер :root'то аныкталган өзгөрмөлөрдү колдонот */</code></pre>
+                </div>
+            </div>
+
+            <div class="example-group">
+                <h3>Мисал 4: Fallback маани</h3>
+                <div class="demo-box">
+                    <div class="fallback-demo">
+                        <div class="fallback-box">Fallback маани менен</div>
+                    </div>
+                </div>
+                <div class="code-example">
+                    <pre><code>/* Fallback маани */
+:root {
+    --main-color: #667eea;
+}
+
+.fallback-box {
+    /* Өзгөрмө бар болсо колдонулат, жок болсо fallback */
+    color: var(--main-color, #000000);
+    background: var(--bg-color, #f8f9fa);
+    padding: var(--spacing, 20px);
+    border-radius: var(--border-radius, 10px);
+    font-size: var(--font-size, 16px);
+}
+
+/* var(--variable, fallback) - fallback маани */</code></pre>
+                </div>
+            </div>
+
+            <div class="example-group">
+                <h3>Мисал 5: Өзгөрмөлөрдү кайра аныктоо</h3>
+                <div class="demo-box">
+                    <div class="override-demo">
+                        <div class="override-box default">Дефолт өзгөрмө</div>
+                        <div class="override-box custom">Кайра аныкталган өзгөрмө</div>
+                    </div>
+                </div>
+                <div class="code-example">
+                    <pre><code>/* Өзгөрмөлөрдү кайра аныктоо */
+:root {
+    --box-color: #667eea;
+}
+
+.override-box {
+    padding: 30px;
+    color: white;
+    border-radius: 10px;
+    text-align: center;
+    font-weight: bold;
+    background: var(--box-color);
+}
+
+.custom {
+    --box-color: #4CAF50;  /* Кайра аныктоо */
+    background: var(--box-color);  /* #4CAF50 */
+}
+
+/* .custom'до --box-color кайра аныкталды */</code></pre>
+                </div>
+            </div>
+
+            <div class="example-group">
+                <h3>Мисал 6: Локалдуу өзгөрмөлөр</h3>
+                <div class="demo-box">
+                    <div class="local-demo">
+                        <div class="local-container">
+                            <div class="local-box">Локалдуу өзгөрмөлөр</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="code-example">
+                    <pre><code>/* Локалдуу өзгөрмөлөр */
+.local-container {
+    --container-bg: #f8f9fa;
+    --container-padding: 30px;
+    --container-color: #667eea;
+    
+    background: var(--container-bg);
+    padding: var(--container-padding);
+    border-radius: 10px;
+}
+
+.local-box {
+    background: var(--container-color);
+    color: white;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+    font-weight: bold;
+}
+
+/* Локалдуу өзгөрмөлөр контейнердин ичиндеги элементтер гана колдонот */</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- ООР МИСАЛДАР -->
+        <section class="examples-section">
+            <h2>🔴 ООР МИСАЛДАР</h2>
+
+            <div class="example-group">
+                <h3>Мисал 7: Темалар менен күн/түн режими</h3>
+                <div class="demo-box">
+                    <div class="theme-demo">
+                        <div class="theme-container">
+                            <h4>Темалар</h4>
+                            <button class="theme-btn" onclick="toggleTheme()">Теманы өзгөртүү</button>
+                            <div class="theme-box">Тема менен стилделген элемент</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="code-example">
+                    <pre><code>/* Темалар менен күн/түн режими */
+:root {
+    --bg-color: #ffffff;
+    --text-color: #000000;
+    --primary-color: #667eea;
+    --border-color: #e0e0e0;
+}
+
+[data-theme="dark"] {
+    --bg-color: #1a1a1a;
+    --text-color: #ffffff;
+    --primary-color: #764ba2;
+    --border-color: #333333;
+}
+
+.theme-container {
+    background: var(--bg-color);
+    color: var(--text-color);
+    padding: 30px;
+    border-radius: 10px;
+    border: 2px solid var(--border-color);
+}
+
+.theme-box {
+    background: var(--primary-color);
+    color: white;
+    padding: 20px;
+    border-radius: 8px;
+    margin-top: 20px;
+    text-align: center;
+    font-weight: bold;
+}
+
+/* JavaScript */
+function toggleTheme() {
+    const root = document.documentElement;
+    const currentTheme = root.getAttribute('data-theme');
+    root.setAttribute('data-theme', currentTheme === 'dark' ? 'light' : 'dark');
+}</code></pre>
+                </div>
+            </div>
+
+            <div class="example-group">
+                <h3>Мисал 8: Көп өзгөрмөлөр менен дизайн системасы</h3>
+                <div class="demo-box">
+                    <div class="design-system-demo">
+                        <div class="ds-button ds-primary">Primary Button</div>
+                        <div class="ds-button ds-secondary">Secondary Button</div>
+                        <div class="ds-button ds-success">Success Button</div>
+                        <div class="ds-card">Карточка</div>
+                    </div>
+                </div>
+                <div class="code-example">
+                    <pre><code>/* Көп өзгөрмөлөр менен дизайн системасы */
+:root {
+    --primary-color: #667eea;
+    --secondary-color: #764ba2;
+    --success-color: #4CAF50;
+    --spacing-xs: 10px;
+    --spacing-sm: 15px;
+    --spacing-md: 20px;
+    --spacing-lg: 30px;
+    --border-radius: 8px;
+    --font-size-base: 16px;
+    --font-size-lg: 18px;
+}
+
+.ds-button {
+    padding: var(--spacing-sm) var(--spacing-md);
+    border-radius: var(--border-radius);
+    font-size: var(--font-size-base);
+    border: none;
+    cursor: pointer;
+    margin: 10px;
+    color: white;
+    font-weight: bold;
+}
+
+.ds-primary {
+    background: var(--primary-color);
+}
+
+.ds-secondary {
+    background: var(--secondary-color);
+}
+
+.ds-success {
+    background: var(--success-color);
+}
+
+.ds-card {
+    background: var(--primary-color);
+    color: white;
+    padding: var(--spacing-lg);
+    border-radius: var(--border-radius);
+    margin-top: 20px;
+    text-align: center;
+    font-weight: bold;
+}</code></pre>
+                </div>
+            </div>
+
+            <div class="example-group">
+                <h3>Мисал 9: calc() менен өзгөрмөлөр</h3>
+                <div class="demo-box">
+                    <div class="calc-demo">
+                        <div class="calc-box">calc() менен өзгөрмөлөр</div>
+                    </div>
+                </div>
+                <div class="code-example">
+                    <pre><code>/* calc() менен өзгөрмөлөр */
+:root {
+    --base-size: 16px;
+    --spacing: 20px;
+    --header-height: 60px;
+}
+
+.calc-box {
+    font-size: calc(var(--base-size) * 1.5);
+    padding: calc(var(--spacing) * 2);
+    margin-top: calc(var(--header-height) + 20px);
+    background: #667eea;
+    color: white;
+    border-radius: 10px;
+    text-align: center;
+    font-weight: bold;
+}
+
+/* calc() менен өзгөрмөлөрдү эсептөө */</code></pre>
+                </div>
+            </div>
+
+            <div class="example-group">
+                <h3>Мисал 10: Бардык касиеттер бирге</h3>
+                <div class="demo-box">
+                    <div class="all-vars-demo">
+                        <div class="all-vars-container">
+                            <div class="all-vars-box">Бардык касиеттер бирге</div>
+                            <div class="all-vars-box custom-vars">Кайра аныкталган өзгөрмөлөр</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="code-example">
+                    <pre><code>/* Бардык касиеттер бирге */
+:root {
+    --main-color: #667eea;
+    --secondary-color: #764ba2;
+    --font-size: 16px;
+    --spacing: 20px;
+    --border-radius: 10px;
+}
+
+.all-vars-container {
+    --container-bg: #f8f9fa;
+    padding: var(--spacing);
+    background: var(--container-bg);
+    border-radius: var(--border-radius);
+}
+
+.all-vars-box {
+    background: var(--main-color);
+    color: white;
+    padding: var(--spacing);
+    border-radius: var(--border-radius);
+    font-size: var(--font-size);
+    margin-bottom: 15px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.custom-vars {
+    --main-color: #4CAF50;  /* Кайра аныктоо */
+    background: var(--main-color, #667eea);  /* Fallback менен */
+}</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- ПРАКТИКА -->
+        <section class="practice-section">
+            <h2>💻 ПРАКТИКА</h2>
+            <div class="practice-card">
+                <h3>Өзүңүз кылыңыз:</h3>
+                <ol>
+                    <li>:root'то өзгөрмөлөрдү аныктаңыз (--main-color, --font-size)</li>
+                    <li>var() менен өзгөрмөлөрдү колдонуңуз</li>
+                    <li>Fallback маани менен өзгөрмөлөрдү колдонуңуз</li>
+                    <li>Локалдуу өзгөрмөлөрдү аныктаңыз</li>
+                    <li>Өзгөрмөлөрдү кайра аныктаңыз</li>
+                    <li>Темалар менен күн/түн режимин кылыңыз</li>
+                    <li>Дизайн системасын кылыңыз (көп өзгөрмөлөр менен)</li>
+                    <li>calc() менен өзгөрмөлөрдү эсептеңиз</li>
+                    <li>JavaScript менен өзгөрмөлөрдү өзгөртүңүз</li>
+                    <li>Бардык касиеттерди бирге практикалаңыз</li>
+                </ol>
+            </div>
+        </section>
+
+        <!-- КЕСТЕ -->
+        <section class="table-section">
+            <h2>📊 CSS Variables синтаксиси</h2>
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Синтаксис</th>
+                            <th>Түшүндүрмө</th>
+                            <th>Мисал</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><code>--variable-name</code></td>
+                            <td>Өзгөрмө аныктоо</td>
+                            <td><code>--main-color: #667eea;</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>var(--variable)</code></td>
+                            <td>Өзгөрмөнү колдонуу</td>
+                            <td><code>color: var(--main-color);</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>var(--var, fallback)</code></td>
+                            <td>Fallback менен</td>
+                            <td><code>color: var(--color, #000);</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>:root { }</code></td>
+                            <td>Глобалдуу өзгөрмөлөр</td>
+                            <td>Бардык элементтер колдонот</td>
+                        </tr>
+                        <tr>
+                            <td><code>.element { }</code></td>
+                            <td>Локалдуу өзгөрмөлөр</td>
+                            <td>Элементтин ичиндеги элементтер</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section class="table-section">
+            <h2>📊 Өзгөрмө атынын эрежелери</h2>
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Эреже</th>
+                            <th>Мисал</th>
+                            <th>Түшүндүрмө</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>-- менен башталат</td>
+                            <td><code>--main-color</code></td>
+                            <td>Миндеттүү</td>
+                        </tr>
+                        <tr>
+                            <td>Кичине тамга, чоң тамга</td>
+                            <td><code>--MainColor</code></td>
+                            <td>Колдонулат</td>
+                        </tr>
+                        <tr>
+                            <td>Тире (-) менен</td>
+                            <td><code>--main-color</code></td>
+                            <td>Колдонулат</td>
+                        </tr>
+                        <tr>
+                            <td>Боштук жок</td>
+                            <td><code>--main color</code> ❌</td>
+                            <td>Жараксыз</td>
+                        </tr>
+                        <tr>
+                            <td>Case-sensitive</td>
+                            <td><code>--MainColor ≠ --maincolor</code></td>
+                            <td>Чоң/кичине тамга маанилүү</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section class="table-section">
+            <h2>📊 CSS Variables касиеттери</h2>
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Касиет</th>
+                            <th>Колдонулушу</th>
+                            <th>Артыкчылыктары</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Глобалдуулук</td>
+                            <td>:root'то аныктоо</td>
+                            <td>Бардык элементтер колдонот</td>
+                        </tr>
+                        <tr>
+                            <td>Локалдуулук</td>
+                            <td>Элементте аныктоо</td>
+                            <td>Элементтин ичиндеги элементтер</td>
+                        </tr>
+                        <tr>
+                            <td>Кайра аныктоо</td>
+                            <td>Элементте кайра аныктоо</td>
+                            <td>Темаларды башкаруу</td>
+                        </tr>
+                        <tr>
+                            <td>Fallback</td>
+                            <td>var(--var, fallback)</td>
+                            <td>Өзгөрмө жок болсо fallback</td>
+                        </tr>
+                        <tr>
+                            <td>JavaScript</td>
+                            <td>setProperty()</td>
+                            <td>Динамикалык өзгөртүү</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <footer>
+            <p>Бактылуу окуу! 🎓</p>
+        </footer>
+    </div>
+
+    <script>
+        function toggleTheme() {
+            const root = document.documentElement;
+            const currentTheme = root.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            root.setAttribute('data-theme', newTheme);
+            
+            const btn = document.querySelector('.theme-btn');
+            btn.textContent = newTheme === 'dark' ? 'Күн режими' : 'Түн режими';
+        }
+    </script>
+</body>
+</html>
+

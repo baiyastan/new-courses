@@ -1,0 +1,772 @@
+<!DOCTYPE html>
+<html lang="ky">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Текст менен иштөө - Сабак</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="text-styling-styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Текст менен иштөө</h1>
+            <p class="subtitle">Баштап жаткандар үчүн толук сабак</p>
+        </header>
+
+        <!-- ТЕОРИЯ БӨЛҮМҮ -->
+        <section class="theory-section">
+            <h2>📚 Теория</h2>
+            
+            <div class="theory-card">
+                <h3>1. Тексттин түсү - color</h3>
+                
+                <p><strong>color</strong> - тексттин түсүн аныктайт.</p>
+                
+                <h4>Колдонулушу:</h4>
+                <ul>
+                    <li>RGB: <code>color: rgb(255, 0, 0);</code></li>
+                    <li>RGBA: <code>color: rgba(255, 0, 0, 0.5);</code></li>
+                    <li>Hex: <code>color: #FF0000;</code></li>
+                    <li>Аты менен: <code>color: red;</code></li>
+                </ul>
+                
+                <div class="code-example">
+                    <pre><code>/* Тексттин түсү */
+.text {
+    color: #333;              /* Каралжан */
+    color: rgb(102, 126, 234); /* Көк */
+    color: rgba(0, 0, 0, 0.7); /* Шыпыргы кара */
+}
+
+h1 {
+    color: #667eea;
+}
+
+p {
+    color: #555;
+}</code></pre>
+                </div>
+            </div>
+
+            <div class="theory-card">
+                <h3>2. Тексттин чоңдугу - font-size</h3>
+                
+                <p><strong>font-size</strong> - тексттин чоңдугун аныктайт.</p>
+                
+                <h4>Бирдиктер:</h4>
+                <ul>
+                    <li><strong>px</strong>: <code>font-size: 16px;</code> - фиксирленген</li>
+                    <li><strong>em</strong>: <code>font-size: 1.5em;</code> - ата-энеден</li>
+                    <li><strong>rem</strong>: <code>font-size: 1.5rem;</code> - root'тон (эң жакшы)</li>
+                    <li><strong>%</strong>: <code>font-size: 150%;</code> - процент</li>
+                </ul>
+                
+                <h4>Абсолюттук маанилер:</h4>
+                <ul>
+                    <li><code>xx-small</code>, <code>x-small</code>, <code>small</code></li>
+                    <li><code>medium</code> (дефолт)</li>
+                    <li><code>large</code>, <code>x-large</code>, <code>xx-large</code></li>
+                </ul>
+                
+                <div class="code-example">
+                    <pre><code>/* Тексттин чоңдугу */
+.text {
+    font-size: 16px;      /* Фиксирленген */
+    font-size: 1.5rem;    /* Root'тон (эң жакшы) */
+    font-size: 1.2em;     /* Ата-энеден */
+    font-size: 150%;       /* Процент */
+}
+
+h1 {
+    font-size: 2.5rem;    /* 40px (16px * 2.5) */
+}
+
+p {
+    font-size: 1rem;     /* 16px */
+}
+
+small {
+    font-size: 0.875rem;  /* 14px */
+}</code></pre>
+                </div>
+            </div>
+
+            <div class="theory-card">
+                <h3>3. Тексттин калыңдыгы - font-weight</h3>
+                
+                <p><strong>font-weight</strong> - тексттин калыңдыгын (жоондугун) аныктайт.</p>
+                
+                <h4>Маанилер:</h4>
+                <ul>
+                    <li><code>normal</code> (400) - кадимки</li>
+                    <li><code>bold</code> (700) - жоон</li>
+                    <li><code>bolder</code> - дагы жоон</li>
+                    <li><code>lighter</code> - жука</li>
+                    <li><code>100-900</code> - сандык маанилер (100, 200, 300, ..., 900)</li>
+                </ul>
+                
+                <div class="code-example">
+                    <pre><code>/* Тексттин калыңдыгы */
+.text {
+    font-weight: normal;  /* 400 */
+    font-weight: bold;    /* 700 */
+    font-weight: 300;     /* Жука */
+    font-weight: 600;     /* Орто жоон */
+    font-weight: 900;     /* Эң жоон */
+}
+
+h1 {
+    font-weight: 700;     /* Жоон */
+}
+
+p {
+    font-weight: 400;     /* Кадимки */
+}
+
+.light {
+    font-weight: 300;     /* Жука */
+}</code></pre>
+                </div>
+            </div>
+
+            <div class="theory-card">
+                <h3>4. Тексттин туураланышы - text-align</h3>
+                
+                <p><strong>text-align</strong> - тексттин туураланышын аныктайт.</p>
+                
+                <h4>Маанилер:</h4>
+                <ul>
+                    <li><code>left</code> - солго (дефолт)</li>
+                    <li><code>right</code> - оңго</li>
+                    <li><code>center</code> - борборго</li>
+                    <li><code>justify</code> - эки тарапка тууралаштыруу</li>
+                </ul>
+                
+                <div class="code-example">
+                    <pre><code>/* Тексттин туураланышы */
+.text-left {
+    text-align: left;     /* Солго */
+}
+
+.text-right {
+    text-align: right;    /* Оңго */
+}
+
+.text-center {
+    text-align: center;   /* Борборго */
+}
+
+.text-justify {
+    text-align: justify;  /* Эки тарапка */
+}
+
+h1 {
+    text-align: center;
+}
+
+p {
+    text-align: justify;
+}</code></pre>
+                </div>
+            </div>
+
+            <div class="theory-card">
+                <h3>5. Тамгалардын ортосундагы аралык - letter-spacing</h3>
+                
+                <p><strong>letter-spacing</strong> - тамгалардын ортосундагы аралыкты аныктайт.</p>
+                
+                <h4>Маанилер:</h4>
+                <ul>
+                    <li><code>normal</code> - кадимки (дефолт)</li>
+                    <li><code>2px</code> - 2px аралык</li>
+                    <li><code>0.1em</code> - 0.1em аралык</li>
+                    <li><code>-1px</code> - аралыкты азайтуу</li>
+                </ul>
+                
+                <div class="code-example">
+                    <pre><code>/* Тамгалардын аралыгы */
+.text {
+    letter-spacing: normal;  /* Кадимки */
+    letter-spacing: 2px;     /* 2px аралык */
+    letter-spacing: 0.1em;    /* 0.1em аралык */
+    letter-spacing: -1px;     /* Аралыкты азайтуу */
+}
+
+.heading {
+    letter-spacing: 2px;     /* Баштыктар үчүн */
+}
+
+.tight {
+    letter-spacing: -0.5px;  /* Жыгылык */
+}</code></pre>
+                </div>
+            </div>
+
+            <div class="theory-card">
+                <h3>6. Шрифттер - @font-face жана Google Fonts</h3>
+                
+                <h4>@font-face - Өз шрифтиңизди кошуу</h4>
+                <p>Өз шрифт файлыңызды (woff, woff2, ttf) колдонуу.</p>
+                
+                <h4>Google Fonts - Даяр шрифттер</h4>
+                <p>Google Fonts'тон шрифттерди кошуу.</p>
+                
+                <div class="code-example">
+                    <pre><code>/* @font-face - Өз шрифтиңиз */
+@font-face {
+    font-family: 'MyFont';
+    src: url('myfont.woff2') format('woff2'),
+         url('myfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+    font-family: 'MyFont', sans-serif;
+}
+
+/* Google Fonts - HTML'де */
+&lt;link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet"&gt;
+
+/* CSS'те */
+body {
+    font-family: 'Roboto', sans-serif;
+}
+
+h1 {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
+}</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- ЖЕНИЛ МИСАЛДАР -->
+        <section class="examples-section">
+            <h2>🟢 ЖЕНИЛ МИСАЛДАР</h2>
+
+            <div class="example-group">
+                <h3>Мисал 1: color - Тексттин түсү</h3>
+                <div class="demo-box">
+                    <div class="color-demo">
+                        <p class="color-red">Кызыл текст (color: #e74c3c)</p>
+                        <p class="color-blue">Көк текст (color: #3498db)</p>
+                        <p class="color-green">Жашыл текст (color: #2ecc71)</p>
+                        <p class="color-purple">Кызгылт текст (color: #9b59b6)</p>
+                        <p class="color-gray">Боз текст (color: #7f8c8d)</p>
+                    </div>
+                </div>
+                <div class="code-example">
+                    <pre><code>/* Тексттин түсү */
+.color-red {
+    color: #e74c3c;
+}
+
+.color-blue {
+    color: #3498db;
+}
+
+.color-green {
+    color: #2ecc71;
+}
+
+.color-purple {
+    color: #9b59b6;
+}
+
+.color-gray {
+    color: #7f8c8d;
+}</code></pre>
+                </div>
+            </div>
+
+            <div class="example-group">
+                <h3>Мисал 2: font-size - Тексттин чоңдугу</h3>
+                <div class="demo-box">
+                    <div class="font-size-demo">
+                        <p class="size-small">Кичине текст (0.875rem = 14px)</p>
+                        <p class="size-normal">Кадимки текст (1rem = 16px)</p>
+                        <p class="size-medium">Орто текст (1.25rem = 20px)</p>
+                        <p class="size-large">Чоң текст (1.5rem = 24px)</p>
+                        <p class="size-xlarge">Эң чоң текст (2rem = 32px)</p>
+                    </div>
+                </div>
+                <div class="code-example">
+                    <pre><code>/* Тексттин чоңдугу */
+.size-small {
+    font-size: 0.875rem;  /* 14px */
+}
+
+.size-normal {
+    font-size: 1rem;      /* 16px */
+}
+
+.size-medium {
+    font-size: 1.25rem;   /* 20px */
+}
+
+.size-large {
+    font-size: 1.5rem;    /* 24px */
+}
+
+.size-xlarge {
+    font-size: 2rem;       /* 32px */
+}</code></pre>
+                </div>
+            </div>
+
+            <div class="example-group">
+                <h3>Мисал 3: font-weight - Тексттин калыңдыгы</h3>
+                <div class="demo-box">
+                    <div class="font-weight-demo">
+                        <p class="weight-light">Жука текст (font-weight: 300)</p>
+                        <p class="weight-normal">Кадимки текст (font-weight: 400)</p>
+                        <p class="weight-medium">Орто текст (font-weight: 500)</p>
+                        <p class="weight-semibold">Жоон текст (font-weight: 600)</p>
+                        <p class="weight-bold">Эң жоон текст (font-weight: 700)</p>
+                    </div>
+                </div>
+                <div class="code-example">
+                    <pre><code>/* Тексттин калыңдыгы */
+.weight-light {
+    font-weight: 300;
+}
+
+.weight-normal {
+    font-weight: 400;
+}
+
+.weight-medium {
+    font-weight: 500;
+}
+
+.weight-semibold {
+    font-weight: 600;
+}
+
+.weight-bold {
+    font-weight: 700;
+}</code></pre>
+                </div>
+            </div>
+
+            <div class="example-group">
+                <h3>Мисал 4: text-align - Тексттин туураланышы</h3>
+                <div class="demo-box">
+                    <div class="text-align-demo">
+                        <p class="align-left">Солго туураланган текст. Бул текст сол тарапка туураланган.</p>
+                        <p class="align-center">Борборго туураланган текст. Бул текст борборго туураланган.</p>
+                        <p class="align-right">Оңго туураланган текст. Бул текст оң тарапка туураланган.</p>
+                        <p class="align-justify">Эки тарапка туураланган текст. Бул текст эки тарапка туураланган. Бул тексттин ар бир сабы эки тарапка туураланган болот.</p>
+                    </div>
+                </div>
+                <div class="code-example">
+                    <pre><code>/* Тексттин туураланышы */
+.align-left {
+    text-align: left;
+}
+
+.align-center {
+    text-align: center;
+}
+
+.align-right {
+    text-align: right;
+}
+
+.align-justify {
+    text-align: justify;
+}</code></pre>
+                </div>
+            </div>
+
+            <div class="example-group">
+                <h3>Мисал 5: letter-spacing - Тамгалардын аралыгы</h3>
+                <div class="demo-box">
+                    <div class="letter-spacing-demo">
+                        <p class="spacing-tight">Жыгылык аралык (letter-spacing: -0.5px)</p>
+                        <p class="spacing-normal">Кадимки аралык (letter-spacing: normal)</p>
+                        <p class="spacing-wide">Кең аралык (letter-spacing: 2px)</p>
+                        <p class="spacing-very-wide">Эң кең аралык (letter-spacing: 5px)</p>
+                    </div>
+                </div>
+                <div class="code-example">
+                    <pre><code>/* Тамгалардын аралыгы */
+.spacing-tight {
+    letter-spacing: -0.5px;
+}
+
+.spacing-normal {
+    letter-spacing: normal;
+}
+
+.spacing-wide {
+    letter-spacing: 2px;
+}
+
+.spacing-very-wide {
+    letter-spacing: 5px;
+}</code></pre>
+                </div>
+            </div>
+
+            <div class="example-group">
+                <h3>Мисал 6: Google Fonts</h3>
+                <div class="demo-box">
+                    <div class="google-fonts-demo">
+                        <h4 class="font-roboto">Roboto шрифти (Google Fonts)</h4>
+                        <p class="font-roboto">Бул текст Roboto шрифти менен жазылган. Roboto - Google тарабынан түзүлгөн заманбап шрифт.</p>
+                        <h4 class="font-poppins">Poppins шрифти (Google Fonts)</h4>
+                        <p class="font-poppins">Бул текст Poppins шрифти менен жазылган. Poppins - геометрикалык жана заманбап шрифт.</p>
+                    </div>
+                </div>
+                <div class="code-example">
+                    <pre><code>&lt;!-- HTML'де Google Fonts кошуу --&gt;
+&lt;link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet"&gt;
+
+/* CSS'те колдонуу */
+.font-roboto {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+}
+
+.font-poppins {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+}</code></pre>
+                </div>
+            </div>
+
+            <div class="example-group">
+                <h3>Мисал 7: Бардык касиеттер бирге</h3>
+                <div class="demo-box">
+                    <div class="combined-demo">
+                        <h3 class="combined-heading">Баштык (Бардык касиеттер)</h3>
+                        <p class="combined-text">Бул текст бардык касиеттер менен стилделген: түс, чоңдук, калыңдык, туураланыш жана тамгалардын аралыгы.</p>
+                    </div>
+                </div>
+                <div class="code-example">
+                    <pre><code>/* Бардык касиеттер бирге */
+.combined-heading {
+    color: #667eea;
+    font-size: 2rem;
+    font-weight: 700;
+    text-align: center;
+    letter-spacing: 2px;
+    font-family: 'Roboto', sans-serif;
+}
+
+.combined-text {
+    color: #555;
+    font-size: 1.1rem;
+    font-weight: 400;
+    text-align: justify;
+    letter-spacing: 0.5px;
+    line-height: 1.8;
+}</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- ООР МИСАЛДАР -->
+        <section class="examples-section">
+            <h2>🔴 ООР МИСАЛДАР</h2>
+
+            <div class="example-group">
+                <h3>Мисал 8: @font-face - Өз шрифтиңизди кошуу</h3>
+                <div class="demo-box">
+                    <div class="font-face-demo">
+                        <p class="custom-font">Бул текст @font-face менен кошулган шрифт менен жазылган. (Эгер шрифт файлы жок болсо, дефолт шрифт колдонулат)</p>
+                        <p class="note">💡 Эскертүү: Шрифт файлын (woff2, woff) кошуу керек!</p>
+                    </div>
+                </div>
+                <div class="code-example">
+                    <pre><code>/* @font-face - Өз шрифтиңизди кошуу */
+@font-face {
+    font-family: 'MyCustomFont';
+    src: url('fonts/mycustomfont.woff2') format('woff2'),
+         url('fonts/mycustomfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;  /* Жакшы практика */
+}
+
+.custom-font {
+    font-family: 'MyCustomFont', sans-serif;
+    font-size: 1.2rem;
+    color: #333;
+}
+
+/* Шрифт файлдарын кошуу керек:
+   - mycustomfont.woff2
+   - mycustomfont.woff
+*/</code></pre>
+                </div>
+            </div>
+
+            <div class="example-group">
+                <h3>Мисал 9: Респонсивдик типография</h3>
+                <div class="demo-box">
+                    <div class="responsive-typography-demo">
+                        <h1 class="responsive-h1">Респонсивдик Баштык</h1>
+                        <h2 class="responsive-h2">Респонсивдик Баштык 2</h2>
+                        <p class="responsive-text">Бул текст респонсивдик. Браузердин өлчөмүнө карата өзгөрөт. Кичине экранда кичине, чоң экранда чоң болот.</p>
+                    </div>
+                </div>
+                <div class="code-example">
+                    <pre><code>/* Респонсивдик типография */
+.responsive-h1 {
+    font-size: clamp(1.5rem, 5vw, 3rem);
+    font-weight: 700;
+    color: #667eea;
+    text-align: center;
+    letter-spacing: 1px;
+}
+
+.responsive-h2 {
+    font-size: clamp(1.25rem, 4vw, 2rem);
+    font-weight: 600;
+    color: #555;
+}
+
+.responsive-text {
+    font-size: clamp(0.875rem, 2vw, 1.125rem);
+    line-height: 1.8;
+    color: #666;
+    text-align: justify;
+}
+
+/* clamp(min, preferred, max) - респонсивдик чоңдук */</code></pre>
+                </div>
+            </div>
+
+            <div class="example-group">
+                <h3>Мисал 10: Практикалык типография системасы</h3>
+                <div class="demo-box">
+                    <div class="typography-system-demo">
+                        <article class="article">
+                            <h1 class="article-title">Макаланын Баштыгы</h1>
+                            <p class="article-meta">Автор: Жаныбек | Дата: 2024-01-15</p>
+                            <p class="article-intro">Бул макаланын кириш бөлүгү. Бул текст чоңураак жана жоон жазылган.</p>
+                            <p class="article-body">Бул макаланын негизги мазмуну. Бул текст кадимки чоңдукта жана кадимки калыңдыкта жазылган. Бул текст эки тарапка туураланган жана жакшы окулуштуулук үчүн оптималдуу аралык менен жазылган.</p>
+                            <h2 class="article-subtitle">Айрым Баштык</h2>
+                            <p class="article-body">Дагы бир параграф. Бул макалада көп мазмун бар жана ар кандай стилдер колдонулат.</p>
+                        </article>
+                    </div>
+                </div>
+                <div class="code-example">
+                    <pre><code>/* Практикалык типография системасы */
+.article-title {
+    font-family: 'Roboto', sans-serif;
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #333;
+    text-align: center;
+    letter-spacing: -0.5px;
+    margin-bottom: 1rem;
+}
+
+.article-meta {
+    font-size: 0.875rem;
+    color: #999;
+    text-align: center;
+    letter-spacing: 0.5px;
+    margin-bottom: 2rem;
+}
+
+.article-intro {
+    font-size: 1.25rem;
+    font-weight: 400;
+    color: #555;
+    line-height: 1.8;
+    text-align: justify;
+    margin-bottom: 1.5rem;
+}
+
+.article-body {
+    font-size: 1rem;
+    font-weight: 400;
+    color: #666;
+    line-height: 1.8;
+    text-align: justify;
+    margin-bottom: 1.5rem;
+}
+
+.article-subtitle {
+    font-size: 1.75rem;
+    font-weight: 600;
+    color: #667eea;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+}</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- ПРАКТИКА -->
+        <section class="practice-section">
+            <h2>💻 ПРАКТИКА</h2>
+            <div class="practice-card">
+                <h3>Өзүңүз кылыңыз:</h3>
+                <ol>
+                    <li>Тексттин түсүн өзгөртүңүз (color)</li>
+                    <li>Тексттин чоңдугун өзгөртүңүз (font-size)</li>
+                    <li>Тексттин калыңдыгын өзгөртүңүз (font-weight)</li>
+                    <li>Тексттин туураланышын өзгөртүңүз (text-align)</li>
+                    <li>Тамгалардын аралыгын өзгөртүңүз (letter-spacing)</li>
+                    <li>Google Fonts'тон шрифт кошуп, колдонуңуз</li>
+                    <li>@font-face менен өз шрифтиңизди кошуңуз</li>
+                    <li>Бардык касиеттерди бирге колдонуңуз</li>
+                    <li>Респонсивдик типография кылыңыз (clamp)</li>
+                    <li>Практикалык типография системасын түзүңүз</li>
+                </ol>
+            </div>
+        </section>
+
+        <!-- КЕСТЕ -->
+        <section class="table-section">
+            <h2>📊 Текст касиеттери</h2>
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Касиет</th>
+                            <th>Маанилер</th>
+                            <th>Мисал</th>
+                            <th>Түшүндүрмө</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><code>color</code></td>
+                            <td>RGB, RGBA, Hex, аты</td>
+                            <td><code>color: #333;</code></td>
+                            <td>Тексттин түсү</td>
+                        </tr>
+                        <tr>
+                            <td><code>font-size</code></td>
+                            <td>px, em, rem, %</td>
+                            <td><code>font-size: 1.5rem;</code></td>
+                            <td>Тексттин чоңдугу</td>
+                        </tr>
+                        <tr>
+                            <td><code>font-weight</code></td>
+                            <td>100-900, normal, bold</td>
+                            <td><code>font-weight: 700;</code></td>
+                            <td>Тексттин калыңдыгы</td>
+                        </tr>
+                        <tr>
+                            <td><code>text-align</code></td>
+                            <td>left, right, center, justify</td>
+                            <td><code>text-align: center;</code></td>
+                            <td>Тексттин туураланышы</td>
+                        </tr>
+                        <tr>
+                            <td><code>letter-spacing</code></td>
+                            <td>px, em, normal</td>
+                            <td><code>letter-spacing: 2px;</code></td>
+                            <td>Тамгалардын аралыгы</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section class="table-section">
+            <h2>📊 Шрифт кошуу ыкмалары</h2>
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Ыкма</th>
+                            <th>Колдонулушу</th>
+                            <th>Артыкчылыгы</th>
+                            <th>Кемчилиги</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><code>@font-face</code></td>
+                            <td>Өз шрифтиңизди кошуу</td>
+                            <td>Толук көзөмөл</td>
+                            <td>Файлды кошуу керек</td>
+                        </tr>
+                        <tr>
+                            <td>Google Fonts</td>
+                            <td>Даяр шрифттер</td>
+                            <td>Оңой, көп шрифт</td>
+                            <td>Интернет керек</td>
+                        </tr>
+                        <tr>
+                            <td>Система шрифттери</td>
+                            <td>Arial, Times, ж.б.</td>
+                            <td>Тезирээк</td>
+                            <td>Чектелген вариант</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section class="table-section">
+            <h2>📊 font-weight маанилери</h2>
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Маани</th>
+                            <th>Сандык маани</th>
+                            <th>Түшүндүрмө</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><code>100</code></td>
+                            <td>100</td>
+                            <td>Эң жука (Thin)</td>
+                        </tr>
+                        <tr>
+                            <td><code>300</code></td>
+                            <td>300</td>
+                            <td>Жука (Light)</td>
+                        </tr>
+                        <tr>
+                            <td><code>400</code></td>
+                            <td>400</td>
+                            <td>Кадимки (Normal)</td>
+                        </tr>
+                        <tr>
+                            <td><code>500</code></td>
+                            <td>500</td>
+                            <td>Орто (Medium)</td>
+                        </tr>
+                        <tr>
+                            <td><code>600</code></td>
+                            <td>600</td>
+                            <td>Жоон (Semi-bold)</td>
+                        </tr>
+                        <tr>
+                            <td><code>700</code></td>
+                            <td>700</td>
+                            <td>Эң жоон (Bold)</td>
+                        </tr>
+                        <tr>
+                            <td><code>900</code></td>
+                            <td>900</td>
+                            <td>Эң эң жоон (Black)</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <footer>
+            <p>Бактылуу окуу! 🎓</p>
+        </footer>
+    </div>
+</body>
+</html>
+

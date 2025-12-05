@@ -1,0 +1,582 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 16px;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    padding: 20px;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    background: white;
+    border-radius: 20px;
+    padding: 40px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+}
+
+header {
+    text-align: center;
+    margin-bottom: 40px;
+    padding-bottom: 20px;
+    border-bottom: 3px solid #667eea;
+}
+
+h1 {
+    color: #667eea;
+    font-size: 2.5em;
+    margin-bottom: 10px;
+}
+
+.subtitle {
+    color: #666;
+    font-size: 1.2em;
+}
+
+section {
+    margin-bottom: 50px;
+}
+
+h2 {
+    color: #333;
+    font-size: 2em;
+    margin-bottom: 30px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #eee;
+}
+
+h3 {
+    color: #667eea;
+    font-size: 1.5em;
+    margin-bottom: 15px;
+}
+
+h4 {
+    color: #555;
+    font-size: 1.2em;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+/* ТЕОРИЯ БӨЛҮМҮ */
+.theory-section {
+    background: #f8f9fa;
+    padding: 30px;
+    border-radius: 15px;
+    margin-bottom: 40px;
+}
+
+.theory-card {
+    background: white;
+    padding: 25px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.theory-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15);
+}
+
+.theory-card ul, .theory-card ol {
+    margin-left: 20px;
+    margin-top: 15px;
+}
+
+.theory-card li {
+    margin-bottom: 10px;
+    color: #555;
+}
+
+.theory-card .note {
+    background: #e3f2fd;
+    padding: 15px;
+    border-radius: 5px;
+    border-left: 4px solid #2196F3;
+    margin-top: 15px;
+    color: #1565C0;
+}
+
+/* МИСАЛДАР БӨЛҮМҮ */
+.example-group {
+    background: #f8f9fa;
+    padding: 25px;
+    border-radius: 15px;
+    margin-bottom: 30px;
+    border-left: 5px solid #667eea;
+}
+
+.demo-box {
+    background: white;
+    padding: 40px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    min-height: 150px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.code-example {
+    background: #2d2d2d;
+    color: #f8f8f2 !important;
+    padding: 20px;
+    border-radius: 8px;
+    overflow-x: auto;
+    border: 1px solid #444;
+}
+
+.code-example pre {
+    margin: 0;
+    font-family: 'Courier New', monospace;
+    font-size: 14px;
+    line-height: 1.5;
+    color: #f8f8f2 !important;
+    background: transparent !important;
+}
+
+.code-example code {
+    color: #f8f8f2 !important;
+    background: transparent !important;
+    font-family: 'Courier New', monospace;
+}
+
+.note {
+    color: #666;
+    font-size: 0.9em;
+    font-style: italic;
+    margin-top: 15px;
+    padding: 10px;
+    background: #f8f9fa;
+    border-radius: 5px;
+}
+
+/* ДЕМО ЭЛЕМЕНТТЕР */
+
+/* Color Demo */
+.color-demo p {
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    background: #f8f9fa;
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+
+.color-red {
+    color: #e74c3c;
+}
+
+.color-blue {
+    color: #3498db;
+}
+
+.color-green {
+    color: #2ecc71;
+}
+
+.color-purple {
+    color: #9b59b6;
+}
+
+.color-gray {
+    color: #7f8c8d;
+}
+
+/* Font Size Demo */
+.font-size-demo p {
+    margin-bottom: 15px;
+    color: #333;
+    font-weight: 500;
+}
+
+.size-small {
+    font-size: 0.875rem;
+}
+
+.size-normal {
+    font-size: 1rem;
+}
+
+.size-medium {
+    font-size: 1.25rem;
+}
+
+.size-large {
+    font-size: 1.5rem;
+}
+
+.size-xlarge {
+    font-size: 2rem;
+}
+
+/* Font Weight Demo */
+.font-weight-demo p {
+    margin-bottom: 15px;
+    color: #333;
+    font-size: 1.2rem;
+}
+
+.weight-light {
+    font-weight: 300;
+}
+
+.weight-normal {
+    font-weight: 400;
+}
+
+.weight-medium {
+    font-weight: 500;
+}
+
+.weight-semibold {
+    font-weight: 600;
+}
+
+.weight-bold {
+    font-weight: 700;
+}
+
+/* Text Align Demo */
+.text-align-demo p {
+    margin-bottom: 20px;
+    padding: 15px;
+    background: #f8f9fa;
+    border-radius: 5px;
+    color: #333;
+    line-height: 1.8;
+}
+
+.align-left {
+    text-align: left;
+}
+
+.align-center {
+    text-align: center;
+}
+
+.align-right {
+    text-align: right;
+}
+
+.align-justify {
+    text-align: justify;
+}
+
+/* Letter Spacing Demo */
+.letter-spacing-demo p {
+    margin-bottom: 20px;
+    padding: 15px;
+    background: #f8f9fa;
+    border-radius: 5px;
+    color: #333;
+    font-size: 1.2rem;
+    font-weight: 500;
+}
+
+.spacing-tight {
+    letter-spacing: -0.5px;
+}
+
+.spacing-normal {
+    letter-spacing: normal;
+}
+
+.spacing-wide {
+    letter-spacing: 2px;
+}
+
+.spacing-very-wide {
+    letter-spacing: 5px;
+}
+
+/* Google Fonts Demo */
+.google-fonts-demo h4 {
+    margin-top: 20px;
+    margin-bottom: 15px;
+    color: #667eea;
+}
+
+.google-fonts-demo p {
+    margin-bottom: 20px;
+    line-height: 1.8;
+    color: #555;
+}
+
+.font-roboto {
+    font-family: 'Roboto', sans-serif;
+}
+
+.font-roboto h4 {
+    font-weight: 700;
+}
+
+.font-poppins {
+    font-family: 'Poppins', sans-serif;
+}
+
+.font-poppins h4 {
+    font-weight: 700;
+}
+
+/* Combined Demo */
+.combined-demo {
+    padding: 20px;
+}
+
+.combined-heading {
+    color: #667eea;
+    font-size: 2rem;
+    font-weight: 700;
+    text-align: center;
+    letter-spacing: 2px;
+    font-family: 'Roboto', sans-serif;
+    margin-bottom: 20px;
+}
+
+.combined-text {
+    color: #555;
+    font-size: 1.1rem;
+    font-weight: 400;
+    text-align: justify;
+    letter-spacing: 0.5px;
+    line-height: 1.8;
+}
+
+/* Font Face Demo */
+.font-face-demo {
+    padding: 20px;
+}
+
+.custom-font {
+    font-size: 1.2rem;
+    color: #333;
+    line-height: 1.8;
+    padding: 20px;
+    background: #f8f9fa;
+    border-radius: 5px;
+}
+
+/* Responsive Typography Demo */
+.responsive-typography-demo {
+    padding: 20px;
+}
+
+.responsive-h1 {
+    font-size: clamp(1.5rem, 5vw, 3rem);
+    font-weight: 700;
+    color: #667eea;
+    text-align: center;
+    letter-spacing: 1px;
+    margin-bottom: 20px;
+}
+
+.responsive-h2 {
+    font-size: clamp(1.25rem, 4vw, 2rem);
+    font-weight: 600;
+    color: #555;
+    margin-bottom: 15px;
+}
+
+.responsive-text {
+    font-size: clamp(0.875rem, 2vw, 1.125rem);
+    line-height: 1.8;
+    color: #666;
+    text-align: justify;
+}
+
+/* Typography System Demo */
+.typography-system-demo {
+    padding: 20px;
+}
+
+.article {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.article-title {
+    font-family: 'Roboto', sans-serif;
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #333;
+    text-align: center;
+    letter-spacing: -0.5px;
+    margin-bottom: 1rem;
+}
+
+.article-meta {
+    font-size: 0.875rem;
+    color: #999;
+    text-align: center;
+    letter-spacing: 0.5px;
+    margin-bottom: 2rem;
+}
+
+.article-intro {
+    font-size: 1.25rem;
+    font-weight: 400;
+    color: #555;
+    line-height: 1.8;
+    text-align: justify;
+    margin-bottom: 1.5rem;
+    padding: 20px;
+    background: #f8f9fa;
+    border-left: 4px solid #667eea;
+    border-radius: 5px;
+}
+
+.article-body {
+    font-size: 1rem;
+    font-weight: 400;
+    color: #666;
+    line-height: 1.8;
+    text-align: justify;
+    margin-bottom: 1.5rem;
+}
+
+.article-subtitle {
+    font-size: 1.75rem;
+    font-weight: 600;
+    color: #667eea;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    font-family: 'Roboto', sans-serif;
+}
+
+/* ПРАКТИКА БӨЛҮМҮ */
+.practice-section {
+    background: #fff3cd;
+    padding: 30px;
+    border-radius: 15px;
+    border-left: 5px solid #ffc107;
+}
+
+.practice-card {
+    background: white;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.practice-card ol {
+    margin-left: 20px;
+    margin-top: 15px;
+}
+
+.practice-card li {
+    margin-bottom: 15px;
+    color: #555;
+    font-size: 1.1em;
+}
+
+/* КЕСТЕ БӨЛҮМҮ */
+.table-section {
+    background: #f8f9fa;
+    padding: 30px;
+    border-radius: 15px;
+    margin-bottom: 30px;
+}
+
+.table-wrapper {
+    overflow-x: auto;
+    background: white;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+}
+
+thead {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+}
+
+th {
+    padding: 15px;
+    text-align: left;
+    font-weight: bold;
+}
+
+td {
+    padding: 12px 15px;
+    border-bottom: 1px solid #eee;
+}
+
+tbody tr:hover {
+    background-color: #f8f9fa;
+}
+
+tbody tr:last-child td {
+    border-bottom: none;
+}
+
+code {
+    background: #f4f4f4;
+    padding: 2px 6px;
+    border-radius: 3px;
+    font-family: 'Courier New', monospace;
+    font-size: 13px;
+    color: #e83e8c;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding-top: 30px;
+    margin-top: 40px;
+    border-top: 2px solid #eee;
+    color: #666;
+    font-size: 1.2em;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .container {
+        padding: 20px;
+    }
+
+    h1 {
+        font-size: 2em;
+    }
+
+    h2 {
+        font-size: 1.5em;
+    }
+
+    .demo-box {
+        padding: 20px;
+    }
+
+    .code-example {
+        font-size: 12px;
+    }
+
+    table {
+        font-size: 12px;
+    }
+
+    th, td {
+        padding: 8px;
+    }
+
+    .article-title {
+        font-size: 2rem;
+    }
+}
+

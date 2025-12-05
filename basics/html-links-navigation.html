@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="ky">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Сылкалар жана Навигация - Сабак</title>
+    <link rel="stylesheet" href="html-links-navigation-styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Сылкалар жана Навигация</h1>
+            <p class="subtitle">Баштап жаткандар үчүн толук сабак</p>
+        </header>
+
+        <!-- ТЕОРИЯ БӨЛҮМҮ -->
+        <section class="theory-section">
+            <h2>📚 Теория</h2>
+            
+            <div class="theory-card">
+                <h3>1. Сылкалар &lt;a href=""&gt;</h3>
+                <p><strong>&lt;a&gt;</strong> теги - гипертекст сылкасын түзүү үчүн колдонулат.</p>
+                <ul>
+                    <li><strong>href</strong> - сылканын дареги (URL же файл)</li>
+                    <li>Сырткы сылкалар: <code>https://example.com</code></li>
+                    <li>Ички сылкалар: <code>page.html</code> же <code>#section</code></li>
+                    <li>Email сылкалар: <code>mailto:email@example.com</code></li>
+                    <li>Телефон сылкалар: <code>tel:+996555123456</code></li>
+                </ul>
+                <div class="code-example">
+                    <pre><code>&lt;!-- Сырткы сылка --&gt;
+&lt;a href="https://example.com"&gt;Сылка&lt;/a&gt;
+
+&lt;!-- Ички сылка --&gt;
+&lt;a href="page.html"&gt;Башка барак&lt;/a&gt;
+
+&lt;!-- Email --&gt;
+&lt;a href="mailto:email@example.com"&gt;Email жөнөтүү&lt;/a&gt;</code></pre>
+                </div>
+            </div>
+
+            <div class="theory-card">
+                <h3>2. Атрибуттар: target, title, download</h3>
+                
+                <h4>target - Жаңы терезеде ачуу</h4>
+                <ul>
+                    <li><strong>_blank</strong> - жаңы терезеде ачат</li>
+                    <li><strong>_self</strong> - ошол эле терезеде (дефолт)</li>
+                    <li><strong>_parent</strong> - ата-эне терезеде</li>
+                    <li><strong>_top</strong> - эң жогорку терезеде</li>
+                </ul>
+                
+                <h4>title - Tooltip</h4>
+                <ul>
+                    <li>Курсордун үстүнө келгенде көрүнүүчү текст</li>
+                    <li>Сылканын маанисин түшүндүрөт</li>
+                </ul>
+                
+                <h4>download - Жүктөп алуу</h4>
+                <ul>
+                    <li>Файлды жүктөп алуу үчүн</li>
+                    <li>Браузерде ачпайт, түздөн-түз жүктөйт</li>
+                </ul>
+                
+                <div class="code-example">
+                    <pre><code>&lt;!-- Жаңы терезеде ачуу --&gt;
+&lt;a href="https://example.com" target="_blank"&gt;Сылка&lt;/a&gt;
+
+&lt;!-- Tooltip менен --&gt;
+&lt;a href="#" title="Бул маалымат блогу"&gt;Сылка&lt;/a&gt;
+
+&lt;!-- Жүктөп алуу --&gt;
+&lt;a href="file.pdf" download&gt;PDF жүктөп алуу&lt;/a&gt;</code></pre>
+                </div>
+            </div>
+
+            <div class="theory-card">
+                <h3>3. Якорь (#id) - Ички сылкалар</h3>
+                <p><strong>Якорь</strong> - документтин ичиндеги белгилүү бөлүмгө өтүү үчүн колдонулат.</p>
+                <ul>
+                    <li>Элементке <code>id</code> атрибутун кошуңуз</li>
+                    <li>Сылкада <code>#id</code> колдонуңуз</li>
+                    <li>Бөлүмдөргө тез өтүү үчүн</li>
+                </ul>
+                <div class="code-example">
+                    <pre><code>&lt;!-- Элементке id кошуу --&gt;
+&lt;section id="about"&gt;
+    &lt;h2&gt;Жөнүндө&lt;/h2&gt;
+&lt;/section&gt;
+
+&lt;!-- Якорь сылкасы --&gt;
+&lt;a href="#about"&gt;Жөнүндө бөлүмүнө өтүү&lt;/a&gt;
+
+&lt;!-- Башкы бетке кайтуу --&gt;
+&lt;a href="#"&gt;Башкы бет&lt;/a&gt;</code></pre>
+                </div>
+                <p class="note">💡 Якорь сылкалары документтин ичинде тез навигация үчүн пайдалуу!</p>
+            </div>
+
+            <div class="theory-card">
+                <h3>4. Навигация &lt;nav&gt;</h3>
+                <p><strong>&lt;nav&gt;</strong> - навигациялык меню үчүн семантикалык тег.</p>
+                <ul>
+                    <li>Меню элементтерин топтоштуруу үчүн</li>
+                    <li>SEO үчүн жакшы</li>
+                    <li>Көбүнчө ul/ol менен колдонулат</li>
+                </ul>
+                <div class="code-example">
+                    <pre><code>&lt;nav&gt;
+    &lt;ul&gt;
+        &lt;li&gt;&lt;a href="#home"&gt;Башкы&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="#about"&gt;Жөнүндө&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="#contact"&gt;Байланыш&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/nav&gt;</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- ЖЕНИЛ МИСАЛДАР -->
+        <section class="examples-section">
+            <h2>🟢 ЖЕНИЛ МИСАЛДАР</h2>
+
+            <div class="example-group">
+                <h3>Мисал 1: Жөнөкөй сылкалар</h3>
+                <div class="demo-box">
+                    <p>Бул <a href="https://example.com" class="demo-link">сырткы сылка</a>.</p>
+                    <p>Бул <a href="page.html" class="demo-link">ички сылка</a>.</p>
+                    <p>Бул <a href="mailto:email@example.com" class="demo-link">email сылка</a>.</p>
+                    <p>Бул <a href="tel:+996555123456" class="demo-link">телефон сылка</a>.</p>
+                </div>
+                <div class="code-example">
+                    <pre><code>&lt;!-- Сырткы сылка --&gt;
+&lt;a href="https://example.com"&gt;Сырткы сылка&lt;/a&gt;
+
+&lt;!-- Ички сылка --&gt;
+&lt;a href="page.html"&gt;Ички сылка&lt;/a&gt;
+
+&lt;!-- Email сылка --&gt;
+&lt;a href="mailto:email@example.com"&gt;Email жөнөтүү&lt;/a&gt;
+
+&lt;!-- Телефон сылка --&gt;
+&lt;a href="tel:+996555123456"&gt;Телефон&lt;/a&gt;</code></pre>
+                </div>
+            </div>
+
+            <div class="example-group">
+                <h3>Мисал 2: target атрибуту</h3>
+                <div class="demo-box">
+                    <p><a href="https://example.com" target="_blank" class="demo-link">Жаңы терезеде ачуу (_blank)</a></p>
+                    <p><a href="https://example.com" target="_self" class="demo-link">Ошол эле терезеде (_self)</a></p>
+                    <p><a href="https://example.com" class="demo-link">Дефолт (target жок)</a></p>
+                </div>
+                <div class="code-example">
+                    <pre><code>&lt;!-- Жаңы терезеде ачуу --&gt;
+&lt;a href="https://example.com" target="_blank"&gt;
+    Жаңы терезеде ачуу
+&lt;/a&gt;
+
+&lt;!-- Ошол эле терезеде --&gt;
+&lt;a href="https://example.com" target="_self"&gt;
+    Ошол эле терезеде
+&lt;/a&gt;
+
+&lt;!-- Дефолт --&gt;
+&lt;a href="https://example.com"&gt;Дефолт&lt;/a&gt;</code></pre>
+                </div>
+            </div>
+
+            <div class="example-group">
+                <h3>Мисал 3: title атрибуту (Tooltip)</h3>
+                <div class="demo-box">
+                    <p>Курсорду <a href="#" title="Бул маалымат блогу - курсордун үстүнө келгенде көрүнөт" class="demo-link">бул сылканын</a> үстүнө келтириңиз.</p>
+                    <p><a href="#" title="HTML сабактары" class="demo-link">HTML сабактары</a> - курсордун үстүнө келгенде tooltip көрүнөт.</p>
+                </div>
+                <div class="code-example">
+                    <pre><code>&lt;!-- Tooltip менен --&gt;
+&lt;a href="#" title="Бул маалымат блогу"&gt;
+    Сылка
+&lt;/a&gt;
+
+&lt;!-- Көп маалымат менен --&gt;
+&lt;a href="#" title="HTML сабактары - баштап жаткандар үчүн"&gt;
+    HTML сабактары
+&lt;/a&gt;</code></pre>
+                </div>
+            </div>
+
+            <div class="example-group">
+                <h3>Мисал 4: download атрибуту</h3>
+                <div class="demo-box">
+                    <p><a href="#" download class="demo-link">📄 Файлды жүктөп алуу (download)</a></p>
+                    <p><a href="#" download="myfile.pdf" class="demo-link">📄 PDF жүктөп алуу (download="myfile.pdf")</a></p>
+                </div>
+                <div class="code-example">
+                    <pre><code>&lt;!-- Файлды жүктөп алуу --&gt;
+&lt;a href="document.pdf" download&gt;
+    PDF жүктөп алуу
+&lt;/a&gt;
+
+&lt;!-- Аты менен жүктөп алуу --&gt;
+&lt;a href="file.pdf" download="my-document.pdf"&gt;
+    Жүктөп алуу
+&lt;/a&gt;</code></pre>
+                </div>
+            </div>
+
+            <div class="example-group">
+                <h3>Мисал 5: Якорь сылкалары (#id)</h3>
+                <div class="demo-box">
+                    <div class="anchor-demo">
+                        <nav class="anchor-nav">
+                            <a href="#section1" class="demo-link">Бөлүм 1</a>
+                            <a href="#section2" class="demo-link">Бөлүм 2</a>
+                            <a href="#section3" class="demo-link">Бөлүм 3</a>
+                        </nav>
+                        <div id="section1" class="anchor-section">
+                            <h4>Бөлүм 1</h4>
+                            <p>Бул биринчи бөлүмдүн мазмуну.</p>
+                        </div>
+                        <div id="section2" class="anchor-section">
+                            <h4>Бөлүм 2</h4>
+                            <p>Бул экинчи бөлүмдүн мазмуну.</p>
+                        </div>
+                        <div id="section3" class="anchor-section">
+                            <h4>Бөлүм 3</h4>
+                            <p>Бул үчүнчү бөлүмдүн мазмуну.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="code-example">
+                    <pre><code>&lt;!-- Навигация --&gt;
+&lt;nav&gt;
+    &lt;a href="#section1"&gt;Бөлүм 1&lt;/a&gt;
+    &lt;a href="#section2"&gt;Бөлүм 2&lt;/a&gt;
+    &lt;a href="#section3"&gt;Бөлүм 3&lt;/a&gt;
+&lt;/nav&gt;
+
+&lt;!-- Бөлүмдөр --&gt;
+&lt;section id="section1"&gt;
+    &lt;h2&gt;Бөлүм 1&lt;/h2&gt;
+    &lt;p&gt;Мазмун...&lt;/p&gt;
+&lt;/section&gt;
+
+&lt;section id="section2"&gt;
+    &lt;h2&gt;Бөлүм 2&lt;/h2&gt;
+    &lt;p&gt;Мазмун...&lt;/p&gt;
+&lt;/section&gt;</code></pre>
+                </div>
+            </div>
+
+            <div class="example-group">
+                <h3>Мисал 6: &lt;nav&gt; меню</h3>
+                <div class="demo-box">
+                    <nav class="nav-demo">
+                        <ul>
+                            <li><a href="#home">Башкы</a></li>
+                            <li><a href="#about">Жөнүндө</a></li>
+                            <li><a href="#services">Кызматтар</a></li>
+                            <li><a href="#contact">Байланыш</a></li>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="code-example">
+                    <pre><code>&lt;nav&gt;
+    &lt;ul&gt;
+        &lt;li&gt;&lt;a href="#home"&gt;Башкы&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="#about"&gt;Жөнүндө&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="#services"&gt;Кызматтар&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="#contact"&gt;Байланыш&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/nav&gt;</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- ООР МИСАЛДАР -->
+        <section class="examples-section">
+            <h2>🔴 ООР МИСАЛДАР</h2>
+
+            <div class="example-group">
+                <h3>Мисал 7: Татаал навигация меню</h3>
+                <div class="demo-box">
+                    <nav class="complex-nav">
+                        <div class="nav-brand">Логотип</div>
+                        <ul class="nav-menu">
+                            <li><a href="#home">Башкы</a></li>
+                            <li><a href="#about">Жөнүндө</a></li>
+                            <li class="dropdown">
+                                <a href="#services">Кызматтар ▼</a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="#web">Веб-дизайн</a></li>
+                                    <li><a href="#seo">SEO</a></li>
+                                    <li><a href="#marketing">Маркетинг</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#contact">Байланыш</a></li>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="code-example">
+                    <pre><code>&lt;nav class="navbar"&gt;
+    &lt;div class="brand"&gt;Логотип&lt;/div&gt;
+    &lt;ul class="menu"&gt;
+        &lt;li&gt;&lt;a href="#home"&gt;Башкы&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="#about"&gt;Жөнүндө&lt;/a&gt;&lt;/li&gt;
+        &lt;li class="dropdown"&gt;
+            &lt;a href="#services"&gt;Кызматтар&lt;/a&gt;
+            &lt;ul class="dropdown-menu"&gt;
+                &lt;li&gt;&lt;a href="#web"&gt;Веб-дизайн&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a href="#seo"&gt;SEO&lt;/a&gt;&lt;/li&gt;
+            &lt;/ul&gt;
+        &lt;/li&gt;
+        &lt;li&gt;&lt;a href="#contact"&gt;Байланыш&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/nav&gt;</code></pre>
+                </div>
+            </div>
+
+            <div class="example-group">
+                <h3>Мисал 8: Бардык атрибуттарды бириктирүү</h3>
+                <div class="demo-box">
+                    <div class="combined-links">
+                        <p>
+                            <a href="https://example.com" 
+                               target="_blank" 
+                               title="Жаңы терезеде ачылат"
+                               class="demo-link">
+                                Сырткы сылка (target="_blank" + title)
+                            </a>
+                        </p>
+                        <p>
+                            <a href="document.pdf" 
+                               download="my-document.pdf"
+                               title="PDF файлды жүктөп алуу"
+                               class="demo-link">
+                                📄 Файлды жүктөп алуу (download + title)
+                            </a>
+                        </p>
+                        <p>
+                            <a href="mailto:info@example.com?subject=Сабак&body=Салам!"
+                               title="Email жөнөтүү"
+                               class="demo-link">
+                                ✉️ Email жөнөтүү (subject + body)
+                            </a>
+                        </p>
+                    </div>
+                </div>
+                <div class="code-example">
+                    <pre><code>&lt;!-- Бардык атрибуттар менен --&gt;
+&lt;a href="https://example.com" 
+   target="_blank" 
+   title="Жаңы терезеде ачылат"&gt;
+    Сырткы сылка
+&lt;/a&gt;
+
+&lt;!-- Download менен --&gt;
+&lt;a href="document.pdf" 
+   download="my-document.pdf"
+   title="PDF файлды жүктөп алуу"&gt;
+    Файлды жүктөп алуу
+&lt;/a&gt;
+
+&lt;!-- Email менен subject жана body --&gt;
+&lt;a href="mailto:email@example.com?subject=Тема&body=Текст"&gt;
+    Email жөнөтүү
+&lt;/a&gt;</code></pre>
+                </div>
+            </div>
+
+            <div class="example-group">
+                <h3>Мисал 9: Реалдуу барактын навигациясы</h3>
+                <div class="demo-box">
+                    <div class="page-layout">
+                        <header class="page-header">
+                            <nav class="page-nav">
+                                <div class="logo">МойСайт</div>
+                                <ul class="nav-links">
+                                    <li><a href="#home">Башкы</a></li>
+                                    <li><a href="#about">Жөнүндө</a></li>
+                                    <li><a href="#blog">Блог</a></li>
+                                    <li><a href="#contact">Байланыш</a></li>
+                                </ul>
+                            </nav>
+                        </header>
+                        <main class="page-content">
+                            <section id="home">
+                                <h3>Башкы бөлүм</h3>
+                                <p>Барактын негизги мазмуну.</p>
+                            </section>
+                            <section id="about">
+                                <h3>Жөнүндө бөлүм</h3>
+                                <p>Биз жөнүндө маалымат.</p>
+                            </section>
+                        </main>
+                    </div>
+                </div>
+                <div class="code-example">
+                    <pre><code>&lt;header&gt;
+    &lt;nav&gt;
+        &lt;div class="logo"&gt;МойСайт&lt;/div&gt;
+        &lt;ul&gt;
+            &lt;li&gt;&lt;a href="#home"&gt;Башкы&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href="#about"&gt;Жөнүндө&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href="#blog"&gt;Блог&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href="#contact"&gt;Байланыш&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/nav&gt;
+&lt;/header&gt;
+
+&lt;main&gt;
+    &lt;section id="home"&gt;
+        &lt;h2&gt;Башкы бөлүм&lt;/h2&gt;
+    &lt;/section&gt;
+    
+    &lt;section id="about"&gt;
+        &lt;h2&gt;Жөнүндө бөлүм&lt;/h2&gt;
+    &lt;/section&gt;
+&lt;/main&gt;</code></pre>
+                </div>
+            </div>
+
+            <div class="example-group">
+                <h3>Мисал 10: Breadcrumb навигация</h3>
+                <div class="demo-box">
+                    <nav class="breadcrumb" aria-label="Breadcrumb">
+                        <ol>
+                            <li><a href="#home">Башкы</a></li>
+                            <li><a href="#category">Категория</a></li>
+                            <li><a href="#subcategory">Кичине категория</a></li>
+                            <li aria-current="page">Азыркы барак</li>
+                        </ol>
+                    </nav>
+                </div>
+                <div class="code-example">
+                    <pre><code>&lt;nav class="breadcrumb" aria-label="Breadcrumb"&gt;
+    &lt;ol&gt;
+        &lt;li&gt;&lt;a href="#home"&gt;Башкы&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="#category"&gt;Категория&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="#subcategory"&gt;Кичине категория&lt;/a&gt;&lt;/li&gt;
+        &lt;li aria-current="page"&gt;Азыркы барак&lt;/li&gt;
+    &lt;/ol&gt;
+&lt;/nav&gt;</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- ПРАКТИКА -->
+        <section class="practice-section">
+            <h2>💻 ПРАКТИКА</h2>
+            <div class="practice-card">
+                <h3>Өзүңүз кылыңыз:</h3>
+                <ol>
+                    <li>Сырткы сылка түзүңүз (target="_blank" менен)</li>
+                    <li>Ички сылка түзүңүз (башка баракка)</li>
+                    <li>Email сылка түзүңүз (mailto: менен)</li>
+                    <li>Якорь сылка түзүңүз (#id менен)</li>
+                    <li>title атрибуту менен tooltip кошуңуз</li>
+                    <li>download атрибуту менен файл жүктөп алуу сылкасын түзүңүз</li>
+                    <li>&lt;nav&gt; менен меню түзүңүз</li>
+                    <li>Бардык атрибуттарды бириктирип, татаал навигация түзүңүз</li>
+                </ol>
+            </div>
+        </section>
+
+        <!-- КЕСТЕ -->
+        <section class="table-section">
+            <h2>📊 Сылкалардын атрибуттары</h2>
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Атрибут</th>
+                            <th>Маанилери</th>
+                            <th>Түшүндүрмө</th>
+                            <th>Мисал</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><code>href</code></td>
+                            <td>URL, #id, mailto:, tel:</td>
+                            <td>Сылканын дареги</td>
+                            <td><code>href="https://example.com"</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>target</code></td>
+                            <td>_blank, _self, _parent, _top</td>
+                            <td>Кайсы терезеде ачылат</td>
+                            <td><code>target="_blank"</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>title</code></td>
+                            <td>Текст</td>
+                            <td>Tooltip текст</td>
+                            <td><code>title="Маалымат"</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>download</code></td>
+                            <td>аты же бош</td>
+                            <td>Файлды жүктөп алуу</td>
+                            <td><code>download="file.pdf"</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>rel</code></td>
+                            <td>nofollow, noopener, noreferrer</td>
+                            <td>Сылканын мамилеси</td>
+                            <td><code>rel="noopener"</code></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <footer>
+            <p>Бактылуу окуу! 🎓</p>
+        </footer>
+    </div>
+</body>
+</html>
+

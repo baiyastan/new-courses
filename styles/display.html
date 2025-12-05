@@ -1,0 +1,756 @@
+<!DOCTYPE html>
+<html lang="ky">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Блок жана Inline Элементтер - Сабак</title>
+    <link rel="stylesheet" href="display-styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Блок жана Inline Элементтер</h1>
+            <p class="subtitle">Баштап жаткандар үчүн толук сабак</p>
+        </header>
+
+        <!-- ТЕОРИЯ БӨЛҮМҮ -->
+        <section class="theory-section">
+            <h2>📚 Теория</h2>
+            
+            <div class="theory-card">
+                <h3>1. Block Элементтер</h3>
+                
+                <p><strong>display: block</strong> - блок элементтер.</p>
+                
+                <h4>Касиеттери:</h4>
+                <ul>
+                    <li>Жаңы саптан баштайт</li>
+                    <li>Толук туурасын ээлейт (width: 100%)</li>
+                    <li>Бийиктиги мазмунга карата</li>
+                    <li>Margin, padding, width, height колдонулат</li>
+                    <li>Бир сапта бир гана элемент</li>
+                </ul>
+                
+                <h4>Мисалдар:</h4>
+                <ul>
+                    <li><code>&lt;div&gt;</code>, <code>&lt;p&gt;</code>, <code>&lt;h1&gt;</code>-<code>&lt;h6&gt;</code></li>
+                    <li><code>&lt;section&gt;</code>, <code>&lt;article&gt;</code>, <code>&lt;header&gt;</code></li>
+                    <li><code>&lt;ul&gt;</code>, <code>&lt;ol&gt;</code>, <code>&lt;li&gt;</code></li>
+                </ul>
+                
+                <div class="code-example">
+                    <pre><code>/* Block элементтер */
+.block-element {
+    display: block;
+    width: 100%;        /* Толук туурасы */
+    margin: 10px 0;     /* Үстү/асты margin */
+    padding: 20px;      /* Ички отступ */
+}
+
+/* Мисал */
+div {
+    display: block;  /* Дефолт */
+}
+
+p {
+    display: block;  /* Дефолт */
+}</code></pre>
+                </div>
+            </div>
+
+            <div class="theory-card">
+                <h3>2. Inline Элементтер</h3>
+                
+                <p><strong>display: inline</strong> - инлайн элементтер.</p>
+                
+                <h4>Касиеттери:</h4>
+                <ul>
+                    <li>Жаңы саптан баштабайт (саптын ичинде)</li>
+                    <li>Мазмунга карата туурасы</li>
+                    <li>Width жана height колдонулбайт</li>
+                    <li>Үстү/асты margin колдонулбайт</li>
+                    <li>Бир сапта бир нече элемент</li>
+                </ul>
+                
+                <h4>Мисалдар:</h4>
+                <ul>
+                    <li><code>&lt;span&gt;</code>, <code>&lt;a&gt;</code>, <code>&lt;strong&gt;</code></li>
+                    <li><code>&lt;em&gt;</code>, <code>&lt;img&gt;</code>, <code>&lt;code&gt;</code></li>
+                    <li><code>&lt;small&gt;</code>, <code>&lt;sub&gt;</code>, <code>&lt;sup&gt;</code></li>
+                </ul>
+                
+                <div class="code-example">
+                    <pre><code>/* Inline элементтер */
+.inline-element {
+    display: inline;
+    /* width жана height колдонулбайт */
+    /* үстү/асты margin колдонулбайт */
+    padding: 5px 10px;  /* Сол/оң padding колдонулат */
+}
+
+/* Мисал */
+span {
+    display: inline;  /* Дефолт */
+}
+
+a {
+    display: inline;  /* Дефолт */
+}</code></pre>
+                </div>
+            </div>
+
+            <div class="theory-card">
+                <h3>3. Inline-block Элементтер</h3>
+                
+                <p><strong>display: inline-block</strong> - инлайн-блок элементтер.</p>
+                
+                <h4>Касиеттери:</h4>
+                <ul>
+                    <li>Inline сыяктуу - бир сапта бир нече элемент</li>
+                    <li>Block сыяктуу - width, height, margin, padding колдонулат</li>
+                    <li>Эки касиеттин аралашмасы</li>
+                    <li>Кнопкалар, карточкалар үчүн жакшы</li>
+                </ul>
+                
+                <div class="code-example">
+                    <pre><code>/* Inline-block элементтер */
+.inline-block-element {
+    display: inline-block;
+    width: 200px;       /* Колдонулат */
+    height: 100px;      /* Колдонулат */
+    margin: 10px;       /* Колдонулат */
+    padding: 20px;      /* Колдонулат */
+    /* Бир сапта бир нече элемент */
+}
+
+/* Мисал */
+button {
+    display: inline-block;  /* Көп колдонулат */
+}
+
+.card {
+    display: inline-block;  /* Карточкалар үчүн */
+}</code></pre>
+                </div>
+            </div>
+
+            <div class="theory-card">
+                <h3>4. Display: none vs Visibility: hidden</h3>
+                
+                <h4>display: none</h4>
+                <ul>
+                    <li>Элементти толук жок кылат</li>
+                    <li>Экранда көрүнбөйт</li>
+                    <li>Ордун ээлебейт</li>
+                    <li>DOM'до бар, бирок көрүнбөйт</li>
+                    <li>Анимация жана transition иштейт</li>
+                </ul>
+                
+                <h4>visibility: hidden</h4>
+                <ul>
+                    <li>Элементти көрүнбөс кылат</li>
+                    <li>Экранда көрүнбөйт</li>
+                    <li>Ордун ээлейт (бош орун калат)</li>
+                    <li>DOM'до бар, бирок көрүнбөйт</li>
+                    <li>Анимация жана transition иштейт</li>
+                </ul>
+                
+                <div class="code-example">
+                    <pre><code>/* display: none */
+.hidden-display {
+    display: none;  /* Элемент жок, орду жок */
+}
+
+/* visibility: hidden */
+.hidden-visibility {
+    visibility: hidden;  /* Элемент бар, орду бар, көрүнбөйт */
+}
+
+/* Көрсөтүү */
+.visible {
+    display: block;      /* display: none'дон кийин */
+    visibility: visible;  /* visibility: hidden'ден кийин */
+}</code></pre>
+                </div>
+            </div>
+
+            <div class="theory-card">
+                <h3>5. Башка display маанилери</h3>
+                
+                <h4>display: flex</h4>
+                <ul>
+                    <li>Flexbox layout</li>
+                    <li>Элементтерди жакшы жайгаштыруу</li>
+                </ul>
+                
+                <h4>display: grid</h4>
+                <ul>
+                    <li>Grid layout</li>
+                    <li>2D grid системасы</li>
+                </ul>
+                
+                <h4>display: table</h4>
+                <ul>
+                    <li>Таблица сыяктуу</li>
+                    <li>Көп колдонулбайт</li>
+                </ul>
+                
+                <div class="code-example">
+                    <pre><code>/* Башка display маанилери */
+.flex-container {
+    display: flex;
+}
+
+.grid-container {
+    display: grid;
+}
+
+.table-container {
+    display: table;
+}</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- ЖЕНИЛ МИСАЛДАР -->
+        <section class="examples-section">
+            <h2>🟢 ЖЕНИЛ МИСАЛДАР</h2>
+
+            <div class="example-group">
+                <h3>Мисал 1: Block Элементтер</h3>
+                <div class="demo-box">
+                    <div class="block-demo">
+                        <div class="block-box">Block элемент 1</div>
+                        <div class="block-box">Block элемент 2</div>
+                        <div class="block-box">Block элемент 3</div>
+                        <p class="note">Ар бир элемент жаңы саптан баштайт</p>
+                    </div>
+                </div>
+                <div class="code-example">
+                    <pre><code>/* Block элементтер */
+.block-box {
+    display: block;
+    width: 100%;
+    padding: 15px;
+    margin-bottom: 10px;
+    background: #667eea;
+    color: white;
+    border-radius: 5px;
+    text-align: center;
+}
+
+/* Ар бир элемент жаңы саптан баштайт */</code></pre>
+                </div>
+            </div>
+
+            <div class="example-group">
+                <h3>Мисал 2: Inline Элементтер</h3>
+                <div class="demo-box">
+                    <div class="inline-demo">
+                        <span class="inline-box">Inline 1</span>
+                        <span class="inline-box">Inline 2</span>
+                        <span class="inline-box">Inline 3</span>
+                        <span class="inline-box">Inline 4</span>
+                        <p class="note">Бардык элементтер бир сапта</p>
+                    </div>
+                </div>
+                <div class="code-example">
+                    <pre><code>/* Inline элементтер */
+.inline-box {
+    display: inline;
+    padding: 5px 10px;
+    background: #4CAF50;
+    color: white;
+    border-radius: 3px;
+    margin-right: 5px;
+}
+
+/* Бардык элементтер бир сапта */</code></pre>
+                </div>
+            </div>
+
+            <div class="example-group">
+                <h3>Мисал 3: Inline-block Элементтер</h3>
+                <div class="demo-box">
+                    <div class="inline-block-demo">
+                        <div class="inline-block-box">Inline-block 1</div>
+                        <div class="inline-block-box">Inline-block 2</div>
+                        <div class="inline-block-box">Inline-block 3</div>
+                        <p class="note">Бир сапта, бирок width/height колдонулат</p>
+                    </div>
+                </div>
+                <div class="code-example">
+                    <pre><code>/* Inline-block элементтер */
+.inline-block-box {
+    display: inline-block;
+    width: 200px;
+    height: 80px;
+    padding: 15px;
+    margin: 10px;
+    background: #f5576c;
+    color: white;
+    border-radius: 5px;
+    text-align: center;
+    vertical-align: top;
+}
+
+/* Бир сапта, бирок width/height колдонулат */</code></pre>
+                </div>
+            </div>
+
+            <div class="example-group">
+                <h3>Мисал 4: Block vs Inline Салыштыруу</h3>
+                <div class="demo-box">
+                    <div class="comparison-demo">
+                        <div class="comparison-block">
+                            <h4>Block элементтер:</h4>
+                            <div class="block-item">Block 1</div>
+                            <div class="block-item">Block 2</div>
+                            <div class="block-item">Block 3</div>
+                        </div>
+                        <div class="comparison-inline">
+                            <h4>Inline элементтер:</h4>
+                            <span class="inline-item">Inline 1</span>
+                            <span class="inline-item">Inline 2</span>
+                            <span class="inline-item">Inline 3</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="code-example">
+                    <pre><code>/* Block vs Inline */
+.block-item {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 5px;
+    background: #667eea;
+    color: white;
+}
+
+.inline-item {
+    display: inline;
+    padding: 5px 10px;
+    margin-right: 5px;
+    background: #4CAF50;
+    color: white;
+}</code></pre>
+                </div>
+            </div>
+
+            <div class="example-group">
+                <h3>Мисал 5: display: none</h3>
+                <div class="demo-box">
+                    <div class="display-none-demo">
+                        <div class="visible-box">Көрүнүп турат</div>
+                        <div class="hidden-display">display: none (көрүнбөйт, орду жок)</div>
+                        <div class="visible-box">Көрүнүп турат</div>
+                        <p class="note">display: none - элемент жок, орду жок</p>
+                    </div>
+                </div>
+                <div class="code-example">
+                    <pre><code>/* display: none */
+.visible-box {
+    display: block;
+    padding: 15px;
+    margin-bottom: 10px;
+    background: #667eea;
+    color: white;
+    border-radius: 5px;
+}
+
+.hidden-display {
+    display: none;  /* Элемент жок, орду жок */
+}
+
+/* Элемент толук жок кылынат */</code></pre>
+                </div>
+            </div>
+
+            <div class="example-group">
+                <h3>Мисал 6: visibility: hidden</h3>
+                <div class="demo-box">
+                    <div class="visibility-demo">
+                        <div class="visible-box">Көрүнүп турат</div>
+                        <div class="hidden-visibility">visibility: hidden (көрүнбөйт, орду бар)</div>
+                        <div class="visible-box">Көрүнүп турат</div>
+                        <p class="note">visibility: hidden - элемент бар, орду бар, көрүнбөйт</p>
+                    </div>
+                </div>
+                <div class="code-example">
+                    <pre><code>/* visibility: hidden */
+.visible-box {
+    display: block;
+    padding: 15px;
+    margin-bottom: 10px;
+    background: #667eea;
+    color: white;
+    border-radius: 5px;
+}
+
+.hidden-visibility {
+    visibility: hidden;  /* Элемент бар, орду бар, көрүнбөйт */
+}
+
+/* Элемент бар, бирок көрүнбөйт, орду калат */</code></pre>
+                </div>
+            </div>
+
+            <div class="example-group">
+                <h3>Мисал 7: display: none vs visibility: hidden</h3>
+                <div class="demo-box">
+                    <div class="comparison-hide-demo">
+                        <div class="hide-section">
+                            <h4>display: none</h4>
+                            <div class="box">Көрүнүп турат</div>
+                            <div class="box hidden-display">display: none</div>
+                            <div class="box">Көрүнүп турат</div>
+                        </div>
+                        <div class="hide-section">
+                            <h4>visibility: hidden</h4>
+                            <div class="box">Көрүнүп турат</div>
+                            <div class="box hidden-visibility">visibility: hidden</div>
+                            <div class="box">Көрүнүп турат</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="code-example">
+                    <pre><code>/* display: none vs visibility: hidden */
+.box {
+    padding: 15px;
+    margin-bottom: 10px;
+    background: #667eea;
+    color: white;
+    border-radius: 5px;
+}
+
+.hidden-display {
+    display: none;  /* Орду жок */
+}
+
+.hidden-visibility {
+    visibility: hidden;  /* Орду бар */
+}
+
+/* display: none - орду жок */
+/* visibility: hidden - орду бар */</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- ООР МИСАЛДАР -->
+        <section class="examples-section">
+            <h2>🔴 ООР МИСАЛДАР</h2>
+
+            <div class="example-group">
+                <h3>Мисал 8: Практикалык колдонуу - Кнопкалар</h3>
+                <div class="demo-box">
+                    <div class="buttons-demo">
+                        <button class="btn-block">Block кнопка</button>
+                        <button class="btn-inline">Inline кнопка</button>
+                        <button class="btn-inline-block">Inline-block кнопка</button>
+                        <p class="note">Inline-block - кнопкалар үчүн эң жакшы</p>
+                    </div>
+                </div>
+                <div class="code-example">
+                    <pre><code>/* Практикалык колдонуу - Кнопкалар */
+.btn-block {
+    display: block;
+    width: 100%;
+    padding: 15px;
+    margin-bottom: 10px;
+    background: #667eea;
+    color: white;
+    border: none;
+    border-radius: 5px;
+}
+
+.btn-inline {
+    display: inline;
+    padding: 5px 10px;
+    background: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 3px;
+}
+
+.btn-inline-block {
+    display: inline-block;
+    width: 200px;
+    padding: 15px;
+    margin: 10px;
+    background: #f5576c;
+    color: white;
+    border: none;
+    border-radius: 5px;
+}
+
+/* Inline-block - кнопкалар үчүн эң жакшы */</code></pre>
+                </div>
+            </div>
+
+            <div class="example-group">
+                <h3>Мисал 9: Карточкалар менен иштөө</h3>
+                <div class="demo-box">
+                    <div class="cards-demo">
+                        <div class="card">Карточка 1</div>
+                        <div class="card">Карточка 2</div>
+                        <div class="card">Карточка 3</div>
+                        <div class="card hidden-display">Карточка 4 (display: none)</div>
+                        <div class="card hidden-visibility">Карточка 5 (visibility: hidden)</div>
+                        <div class="card">Карточка 6</div>
+                    </div>
+                </div>
+                <div class="code-example">
+                    <pre><code>/* Карточкалар менен иштөө */
+.cards-demo {
+    text-align: center;
+}
+
+.card {
+    display: inline-block;
+    width: 200px;
+    height: 150px;
+    padding: 20px;
+    margin: 10px;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+    border-radius: 10px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+}
+
+.card.hidden-display {
+    display: none;  /* Орду жок */
+}
+
+.card.hidden-visibility {
+    visibility: hidden;  /* Орду бар */
+}</code></pre>
+                </div>
+            </div>
+
+            <div class="example-group">
+                <h3>Мисал 10: Респонсивдик меню</h3>
+                <div class="demo-box">
+                    <div class="menu-demo">
+                        <nav class="menu">
+                            <a href="#" class="menu-item">Башкы</a>
+                            <a href="#" class="menu-item">Биз жөнүндө</a>
+                            <a href="#" class="menu-item hidden-mobile">Кызматтар</a>
+                            <a href="#" class="menu-item hidden-mobile">Байланыш</a>
+                            <a href="#" class="menu-item">Кирүү</a>
+                        </nav>
+                        <p class="note">hidden-mobile - кичине экранда display: none</p>
+                    </div>
+                </div>
+                <div class="code-example">
+                    <pre><code>/* Респонсивдик меню */
+.menu {
+    text-align: center;
+    padding: 20px;
+    background: #f8f9fa;
+    border-radius: 8px;
+}
+
+.menu-item {
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 5px;
+    background: #667eea;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background 0.3s;
+}
+
+.menu-item:hover {
+    background: #764ba2;
+}
+
+.hidden-mobile {
+    display: inline-block;  /* Чоң экранда */
+}
+
+@media (max-width: 768px) {
+    .hidden-mobile {
+        display: none;  /* Кичине экранда */
+    }
+}</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- ПРАКТИКА -->
+        <section class="practice-section">
+            <h2>💻 ПРАКТИКА</h2>
+            <div class="practice-card">
+                <h3>Өзүңүз кылыңыз:</h3>
+                <ol>
+                    <li>Block элементтерди стилдеңиз</li>
+                    <li>Inline элементтерди стилдеңиз</li>
+                    <li>Inline-block элементтерди стилдеңиз</li>
+                    <li>Block vs Inline салыштырып көрүңүз</li>
+                    <li>display: none менен элементти жок кылыңыз</li>
+                    <li>visibility: hidden менен элементти көрүнбөс кылыңыз</li>
+                    <li>display: none vs visibility: hidden салыштырып көрүңүз</li>
+                    <li>Кнопкаларды inline-block менен стилдеңиз</li>
+                    <li>Карточкаларды inline-block менен стилдеңиз</li>
+                    <li>Респонсивдик менюну display: none менен кылыңыз</li>
+                </ol>
+            </div>
+        </section>
+
+        <!-- КЕСТЕ -->
+        <section class="table-section">
+            <h2>📊 Block vs Inline vs Inline-block</h2>
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Касиет</th>
+                            <th>Block</th>
+                            <th>Inline</th>
+                            <th>Inline-block</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Жаңы сап</strong></td>
+                            <td>✅ Баштайт</td>
+                            <td>❌ Баштабайт</td>
+                            <td>❌ Баштабайт</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Width/Height</strong></td>
+                            <td>✅ Колдонулат</td>
+                            <td>❌ Колдонулбайт</td>
+                            <td>✅ Колдонулат</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Margin</strong></td>
+                            <td>✅ Бардык тарапка</td>
+                            <td>❌ Үстү/асты жок</td>
+                            <td>✅ Бардык тарапка</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Padding</strong></td>
+                            <td>✅ Бардык тарапка</td>
+                            <td>✅ Бардык тарапка</td>
+                            <td>✅ Бардык тарапка</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Бир сапта</strong></td>
+                            <td>❌ Бир гана</td>
+                            <td>✅ Бир нече</td>
+                            <td>✅ Бир нече</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Мисалдар</strong></td>
+                            <td>div, p, h1-h6</td>
+                            <td>span, a, strong</td>
+                            <td>button, img</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section class="table-section">
+            <h2>📊 display: none vs visibility: hidden</h2>
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Касиет</th>
+                            <th>display: none</th>
+                            <th>visibility: hidden</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Көрүнүшү</strong></td>
+                            <td>Көрүнбөйт</td>
+                            <td>Көрүнбөйт</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Орду</strong></td>
+                            <td>❌ Жок</td>
+                            <td>✅ Бар</td>
+                        </tr>
+                        <tr>
+                            <td><strong>DOM'до</strong></td>
+                            <td>✅ Бар</td>
+                            <td>✅ Бар</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Анимация</strong></td>
+                            <td>✅ Иштейт</td>
+                            <td>✅ Иштейт</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Колдонулушу</strong></td>
+                            <td>Элементти жок кылуу</td>
+                            <td>Элементти көрүнбөс кылуу (орду калат)</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section class="table-section">
+            <h2>📊 Display маанилери</h2>
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Маани</th>
+                            <th>Түшүндүрмө</th>
+                            <th>Колдонулушу</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><code>block</code></td>
+                            <td>Блок элемент</td>
+                            <td>div, p, h1-h6</td>
+                        </tr>
+                        <tr>
+                            <td><code>inline</code></td>
+                            <td>Инлайн элемент</td>
+                            <td>span, a, strong</td>
+                        </tr>
+                        <tr>
+                            <td><code>inline-block</code></td>
+                            <td>Инлайн-блок элемент</td>
+                            <td>button, img, карточкалар</td>
+                        </tr>
+                        <tr>
+                            <td><code>none</code></td>
+                            <td>Элементти жок кылуу</td>
+                            <td>Респонсивдик меню, модалдар</td>
+                        </tr>
+                        <tr>
+                            <td><code>flex</code></td>
+                            <td>Flexbox layout</td>
+                            <td>Элементтерди жайгаштыруу</td>
+                        </tr>
+                        <tr>
+                            <td><code>grid</code></td>
+                            <td>Grid layout</td>
+                            <td>2D grid системасы</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <footer>
+            <p>Бактылуу окуу! 🎓</p>
+        </footer>
+    </div>
+</body>
+</html>
+

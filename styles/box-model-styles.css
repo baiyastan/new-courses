@@ -1,0 +1,667 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 16px;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    padding: 20px;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    background: white;
+    border-radius: 20px;
+    padding: 40px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+}
+
+header {
+    text-align: center;
+    margin-bottom: 40px;
+    padding-bottom: 20px;
+    border-bottom: 3px solid #667eea;
+}
+
+h1 {
+    color: #667eea;
+    font-size: 2.5em;
+    margin-bottom: 10px;
+}
+
+.subtitle {
+    color: #666;
+    font-size: 1.2em;
+}
+
+section {
+    margin-bottom: 50px;
+}
+
+h2 {
+    color: #333;
+    font-size: 2em;
+    margin-bottom: 30px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #eee;
+}
+
+h3 {
+    color: #667eea;
+    font-size: 1.5em;
+    margin-bottom: 15px;
+}
+
+h4 {
+    color: #555;
+    font-size: 1.2em;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+/* ТЕОРИЯ БӨЛҮМҮ */
+.theory-section {
+    background: #f8f9fa;
+    padding: 30px;
+    border-radius: 15px;
+    margin-bottom: 40px;
+}
+
+.theory-card {
+    background: white;
+    padding: 25px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.theory-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15);
+}
+
+.theory-card ul, .theory-card ol {
+    margin-left: 20px;
+    margin-top: 15px;
+}
+
+.theory-card li {
+    margin-bottom: 10px;
+    color: #555;
+}
+
+.theory-card .note {
+    background: #e3f2fd;
+    padding: 15px;
+    border-radius: 5px;
+    border-left: 4px solid #2196F3;
+    margin-top: 15px;
+    color: #1565C0;
+}
+
+/* Box Model Visual */
+.box-model-visual {
+    margin: 30px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.visual-box {
+    position: relative;
+}
+
+.visual-margin {
+    background: rgba(255, 193, 7, 0.3);
+    padding: 30px;
+    border: 2px dashed #ffc107;
+}
+
+.visual-border {
+    background: rgba(76, 175, 80, 0.3);
+    padding: 5px;
+    border: 5px solid #4CAF50;
+}
+
+.visual-padding {
+    background: rgba(33, 150, 243, 0.3);
+    padding: 20px;
+    border: 2px dashed #2196F3;
+}
+
+.visual-content {
+    width: 200px;
+    height: 100px;
+    background: #667eea;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    border-radius: 5px;
+}
+
+.visual-labels {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    font-size: 0.9em;
+    color: #666;
+}
+
+.label-margin {
+    color: #ffc107;
+    font-weight: bold;
+}
+
+.label-border {
+    color: #4CAF50;
+    font-weight: bold;
+}
+
+.label-padding {
+    color: #2196F3;
+    font-weight: bold;
+}
+
+.label-content {
+    color: #667eea;
+    font-weight: bold;
+}
+
+/* МИСАЛДАР БӨЛҮМҮ */
+.example-group {
+    background: #f8f9fa;
+    padding: 25px;
+    border-radius: 15px;
+    margin-bottom: 30px;
+    border-left: 5px solid #667eea;
+}
+
+.demo-box {
+    background: white;
+    padding: 40px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    min-height: 150px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.code-example {
+    background: #2d2d2d;
+    color: #f8f8f2 !important;
+    padding: 20px;
+    border-radius: 8px;
+    overflow-x: auto;
+    border: 1px solid #444;
+}
+
+.code-example pre {
+    margin: 0;
+    font-family: 'Courier New', monospace;
+    font-size: 14px;
+    line-height: 1.5;
+    color: #f8f8f2 !important;
+    background: transparent !important;
+}
+
+.code-example code {
+    color: #f8f8f2 !important;
+    background: transparent !important;
+    font-family: 'Courier New', monospace;
+}
+
+.note {
+    color: #666;
+    font-size: 0.9em;
+    font-style: italic;
+    margin-top: 15px;
+    padding: 10px;
+    background: #f8f9fa;
+    border-radius: 5px;
+}
+
+/* ДЕМО ЭЛЕМЕНТТЕР */
+
+/* Box Model Demo */
+.box-model-demo {
+    background: #f0f0f0;
+    padding: 20px;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.demo-box-model {
+    width: 200px;
+    height: 100px;
+    background: #667eea;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    border: 5px solid #333;
+    margin: 30px;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.box-info {
+    margin-top: 20px;
+    padding: 15px;
+    background: #f8f9fa;
+    border-radius: 5px;
+}
+
+.box-info p {
+    margin-bottom: 8px;
+    color: #555;
+}
+
+/* Box Sizing Comparison */
+.box-sizing-comparison {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+}
+
+.comparison-item {
+    text-align: center;
+}
+
+.comparison-item h4 {
+    margin-bottom: 20px;
+    color: #667eea;
+    font-size: 1.3em;
+}
+
+.demo-content-box {
+    box-sizing: content-box;
+    width: 200px;
+    padding: 20px;
+    border: 5px solid #667eea;
+    background: #e3f2fd;
+    margin: 0 auto 20px;
+}
+
+.demo-border-box {
+    box-sizing: border-box;
+    width: 200px;
+    padding: 20px;
+    border: 5px solid #4CAF50;
+    background: #e8f5e9;
+    margin: 0 auto 20px;
+}
+
+.inner {
+    background: rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    text-align: center;
+    font-weight: bold;
+    border-radius: 5px;
+}
+
+.comparison-item p {
+    color: #666;
+    font-size: 0.9em;
+    margin-top: 10px;
+}
+
+/* Individual Sides Demo */
+.individual-sides-demo {
+    background: #f0f0f0;
+    padding: 20px;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.box-individual {
+    width: 200px;
+    height: 100px;
+    background: #667eea;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 30px;
+    padding-right: 20px;
+    padding-bottom: 10px;
+    padding-left: 40px;
+    border-top: 3px solid #e74c3c;
+    border-right: 5px solid #3498db;
+    border-bottom: 7px solid #2ecc71;
+    border-left: 2px solid #9b59b6;
+    margin-top: 20px;
+    margin-right: 15px;
+    margin-bottom: 25px;
+    margin-left: 10px;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+/* Margin Collapse Demo */
+.margin-collapse-demo {
+    background: #f0f0f0;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.collapse-box {
+    width: 200px;
+    padding: 20px;
+    background: #667eea;
+    color: white;
+    border-radius: 5px;
+    text-align: center;
+    font-weight: bold;
+    margin: 0 auto;
+}
+
+.collapse-box.box1 {
+    margin-bottom: 30px;
+}
+
+.collapse-box.box2 {
+    margin-top: 20px;
+}
+
+/* Negative Margin Demo */
+.negative-margin-demo {
+    background: #f0f0f0;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.normal-box {
+    width: 200px;
+    padding: 20px;
+    margin: 20px;
+    background: #667eea;
+    color: white;
+    border-radius: 5px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.negative-box {
+    width: 200px;
+    padding: 20px;
+    margin: -20px;
+    background: #f5576c;
+    color: white;
+    border-radius: 5px;
+    text-align: center;
+    font-weight: bold;
+}
+
+/* Practical Card Demo */
+.practical-card-demo {
+    background: #f0f0f0;
+    padding: 20px;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+}
+
+.practical-card {
+    box-sizing: border-box;
+    width: 300px;
+    background: white;
+    border-radius: 10px;
+    padding: 30px;
+    border: 2px solid #667eea;
+    margin: 20px auto;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.practical-card h4 {
+    margin-bottom: 15px;
+    color: #667eea;
+    font-size: 1.5em;
+}
+
+.practical-card p {
+    margin-bottom: 20px;
+    color: #666;
+    line-height: 1.6;
+}
+
+.practical-card button {
+    padding: 10px 20px;
+    background: #667eea;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.3s;
+}
+
+.practical-card button:hover {
+    background: #764ba2;
+}
+
+/* Grid Box Model Demo */
+.grid-box-model-demo {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.grid-item {
+    box-sizing: border-box;
+    min-height: 150px;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+    padding: 30px;
+    border: 3px solid #333;
+    margin: 0;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 1.2em;
+}
+
+/* Calculation Demo */
+.calculation-demo {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    align-items: center;
+}
+
+.calc-box {
+    box-sizing: content-box;
+    width: 200px;
+    padding: 20px;
+    border: 5px solid #667eea;
+    margin: 30px;
+    background: #e3f2fd;
+    border-radius: 5px;
+}
+
+.calc-content {
+    background: rgba(102, 126, 234, 0.3);
+    padding: 10px;
+    text-align: center;
+    font-weight: bold;
+    border-radius: 3px;
+}
+
+.calculation-info {
+    padding: 20px;
+    background: #f8f9fa;
+    border-radius: 8px;
+}
+
+.calculation-info h4 {
+    margin-bottom: 15px;
+    color: #667eea;
+}
+
+.calculation-info p {
+    margin-bottom: 10px;
+    color: #555;
+    font-size: 0.95em;
+}
+
+.calculation-info .total {
+    margin-top: 20px;
+    padding-top: 15px;
+    border-top: 2px solid #667eea;
+    font-size: 1.1em;
+    font-weight: bold;
+    color: #667eea;
+}
+
+/* ПРАКТИКА БӨЛҮМҮ */
+.practice-section {
+    background: #fff3cd;
+    padding: 30px;
+    border-radius: 15px;
+    border-left: 5px solid #ffc107;
+}
+
+.practice-card {
+    background: white;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.practice-card ol {
+    margin-left: 20px;
+    margin-top: 15px;
+}
+
+.practice-card li {
+    margin-bottom: 15px;
+    color: #555;
+    font-size: 1.1em;
+}
+
+/* КЕСТЕ БӨЛҮМҮ */
+.table-section {
+    background: #f8f9fa;
+    padding: 30px;
+    border-radius: 15px;
+    margin-bottom: 30px;
+}
+
+.table-wrapper {
+    overflow-x: auto;
+    background: white;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+}
+
+thead {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+}
+
+th {
+    padding: 15px;
+    text-align: left;
+    font-weight: bold;
+}
+
+td {
+    padding: 12px 15px;
+    border-bottom: 1px solid #eee;
+}
+
+tbody tr:hover {
+    background-color: #f8f9fa;
+}
+
+tbody tr:last-child td {
+    border-bottom: none;
+}
+
+code {
+    background: #f4f4f4;
+    padding: 2px 6px;
+    border-radius: 3px;
+    font-family: 'Courier New', monospace;
+    font-size: 13px;
+    color: #e83e8c;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding-top: 30px;
+    margin-top: 40px;
+    border-top: 2px solid #eee;
+    color: #666;
+    font-size: 1.2em;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .container {
+        padding: 20px;
+    }
+
+    h1 {
+        font-size: 2em;
+    }
+
+    h2 {
+        font-size: 1.5em;
+    }
+
+    .demo-box {
+        padding: 20px;
+    }
+
+    .code-example {
+        font-size: 12px;
+    }
+
+    table {
+        font-size: 12px;
+    }
+
+    th, td {
+        padding: 8px;
+    }
+
+    .box-sizing-comparison {
+        grid-template-columns: 1fr;
+    }
+
+    .calculation-demo {
+        grid-template-columns: 1fr;
+    }
+
+    .grid-box-model-demo {
+        grid-template-columns: 1fr;
+    }
+}
+

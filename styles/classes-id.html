@@ -1,0 +1,783 @@
+<!DOCTYPE html>
+<html lang="ky">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Класстар жана ID - Сабак</title>
+    <link rel="stylesheet" href="classes-id-styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Класстар жана ID</h1>
+            <p class="subtitle">Баштап жаткандар үчүн толук сабак</p>
+        </header>
+
+        <!-- ТЕОРИЯ БӨЛҮМҮ -->
+        <section class="theory-section">
+            <h2>📚 Теория</h2>
+            
+            <div class="theory-card">
+                <h3>1. Class жана ID деген эмне?</h3>
+                
+                <h4>Class (Класс)</h4>
+                <ul>
+                    <li>Бир нече элементке бир класс берүүгө болот</li>
+                    <li>Бир элементке бир нече класс берүүгө болот</li>
+                    <li>CSS'те <code>.class-name</code> менен колдонулат</li>
+                    <li>Көп колдонулуучу элементтер үчүн</li>
+                </ul>
+                
+                <h4>ID</h4>
+                <ul>
+                    <li>Бир документте бир гана ID болушу керек</li>
+                    <li>Бир элементке бир гана ID берүүгө болот</li>
+                    <li>CSS'те <code>#id-name</code> менен колдонулат</li>
+                    <li>Уникалдуу элементтер үчүн</li>
+                </ul>
+                
+                <div class="code-example">
+                    <pre><code>&lt;!-- HTML --&gt;
+&lt;div class="container"&gt;Контейнер&lt;/div&gt;
+&lt;div class="container"&gt;Дагы бир контейнер&lt;/div&gt;
+&lt;div id="header"&gt;Баштык (бир гана)&lt;/div&gt;
+
+/* CSS */
+.container {
+    padding: 20px;
+}
+
+#header {
+    background: blue;
+}</code></pre>
+                </div>
+            </div>
+
+            <div class="theory-card">
+                <h3>2. Кайсы учурда Class колдонулат?</h3>
+                
+                <h4>✅ Class колдонуу керек:</h4>
+                <ul>
+                    <li><strong>Көп элементтер</strong> - бирдей стиль менен</li>
+                    <li><strong>Кайталануучу элементтер</strong> - карточкалар, кнопкалар, ж.б.</li>
+                    <li><strong>Компоненттер</strong> - меню, формалар, ж.б.</li>
+                    <li><strong>Бир нече класс</strong> - элементке бир нече класс берүү керек болсо</li>
+                    <li><strong>JavaScript менен</strong> - бир нече элементти тандап алуу керек болсо</li>
+                </ul>
+                
+                <div class="code-example">
+                    <pre><code>&lt;!-- Көп элементтер - Class колдонуу --&gt;
+&lt;button class="btn"&gt;Кнопка 1&lt;/button&gt;
+&lt;button class="btn"&gt;Кнопка 2&lt;/button&gt;
+&lt;button class="btn"&gt;Кнопка 3&lt;/button&gt;
+
+&lt;!-- Бир нече класс --&gt;
+&lt;div class="card primary"&gt;Карточка&lt;/div&gt;
+&lt;div class="card secondary"&gt;Карточка&lt;/div&gt;
+
+/* CSS */
+.btn {
+    padding: 10px 20px;
+    background: blue;
+}
+
+.card {
+    padding: 20px;
+}
+
+.primary {
+    background: blue;
+}
+
+.secondary {
+    background: green;
+}</code></pre>
+                </div>
+            </div>
+
+            <div class="theory-card">
+                <h3>3. Кайсы учурда ID колдонулат?</h3>
+                
+                <h4>✅ ID колдонуу керек:</h4>
+                <ul>
+                    <li><strong>Уникалдуу элементтер</strong> - header, footer, main, sidebar</li>
+                    <li><strong>Якорь сылкалар</strong> - #section1, #about</li>
+                    <li><strong>JavaScript менен</strong> - getElementById() колдонуу керек болсо</li>
+                    <li><strong>Формалар</strong> - label менен input байланыштыруу (for="id")</li>
+                    <li><strong>Бир гана элемент</strong> - документте бир гана болушу керек</li>
+                </ul>
+                
+                <div class="code-example">
+                    <pre><code>&lt;!-- Уникалдуу элементтер - ID колдонуу --&gt;
+&lt;header id="main-header"&gt;Баштык&lt;/header&gt;
+&lt;main id="main-content"&gt;Мазмун&lt;/main&gt;
+&lt;footer id="main-footer"&gt;Аяк&lt;/footer&gt;
+
+&lt;!-- Якорь сылкалар --&gt;
+&lt;a href="#section1"&gt;Бөлүмгө өтүү&lt;/a&gt;
+&lt;section id="section1"&gt;Бөлүм&lt;/section&gt;
+
+&lt;!-- Формалар --&gt;
+&lt;label for="email"&gt;Email:&lt;/label&gt;
+&lt;input type="email" id="email"&gt;
+
+/* CSS */
+#main-header {
+    background: blue;
+}
+
+#main-content {
+    padding: 20px;
+}</code></pre>
+                </div>
+            </div>
+
+            <div class="theory-card">
+                <h3>4. Class vs ID - Салыштыруу</h3>
+                
+                <div class="comparison-table">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Кайсылыгы</th>
+                                <th>Class</th>
+                                <th>ID</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Колдонуу</strong></td>
+                                <td>Көп элементтер</td>
+                                <td>Бир гана элемент</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Кайталануу</strong></td>
+                                <td>✅ Болот</td>
+                                <td>❌ Болбойт</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Бир нече</strong></td>
+                                <td>✅ Болот (class="a b c")</td>
+                                <td>❌ Болбойт</td>
+                            </tr>
+                            <tr>
+                                <td><strong>CSS селектор</strong></td>
+                                <td><code>.class</code></td>
+                                <td><code>#id</code></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Приоритет</strong></td>
+                                <td>Орто</td>
+                                <td>Жогорку</td>
+                            </tr>
+                            <tr>
+                                <td><strong>JavaScript</strong></td>
+                                <td>getElementsByClassName()</td>
+                                <td>getElementById()</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="theory-card">
+                <h3>5. Эрежелер жана эскертүүлөр</h3>
+                
+                <h4>✅ Жакшы практикалар:</h4>
+                <ul>
+                    <li><strong>Class</strong> - көп колдонуу үчүн (кнопкалар, карточкалар)</li>
+                    <li><strong>ID</strong> - уникалдуу элементтер үчүн (header, footer)</li>
+                    <li><strong>Атын так берүү</strong> - semantic болушу керек (class="btn-primary", id="main-header")</li>
+                    <li><strong>Бир нече класс</strong> - класссарды боштук менен бөлүү (class="card primary")</li>
+                </ul>
+                
+                <h4>❌ Жаман практикалар:</h4>
+                <ul>
+                    <li>ID'ни көп элементке берүү (HTML'де иштейт, бирок стандарт эмес)</li>
+                    <li>Class'ты уникалдуу элементтерге берүү (ID колдонуу керек)</li>
+                    <li>Атын так бербөө (class="a", id="x")</li>
+                    <li>Бир элементке бир нече ID берүү (болбойт!)</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- ЖЕНИЛ МИСАЛДАР -->
+        <section class="examples-section">
+            <h2>🟢 ЖЕНИЛ МИСАЛДАР</h2>
+
+            <div class="example-group">
+                <h3>Мисал 1: Class - Көп элементтер</h3>
+                <div class="demo-box">
+                    <div class="class-multiple-demo">
+                        <button class="btn">Кнопка 1</button>
+                        <button class="btn">Кнопка 2</button>
+                        <button class="btn">Кнопка 3</button>
+                        <p class="note">Бардык кнопкалар бир класс менен стилделген</p>
+                    </div>
+                </div>
+                <div class="code-example">
+                    <pre><code>&lt;!-- HTML --&gt;
+&lt;button class="btn"&gt;Кнопка 1&lt;/button&gt;
+&lt;button class="btn"&gt;Кнопка 2&lt;/button&gt;
+&lt;button class="btn"&gt;Кнопка 3&lt;/button&gt;
+
+/* CSS */
+.btn {
+    padding: 10px 20px;
+    background: #667eea;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Көп элементтер - Class колдонуу керек! */</code></pre>
+                </div>
+            </div>
+
+            <div class="example-group">
+                <h3>Мисал 2: ID - Уникалдуу элементтер</h3>
+                <div class="demo-box">
+                    <div class="id-unique-demo">
+                        <header id="demo-header">Баштык (ID: demo-header)</header>
+                        <main id="demo-main">Мазмун (ID: demo-main)</main>
+                        <footer id="demo-footer">Аяк (ID: demo-footer)</footer>
+                        <p class="note">Ар бир элемент уникалдуу ID менен</p>
+                    </div>
+                </div>
+                <div class="code-example">
+                    <pre><code>&lt;!-- HTML --&gt;
+&lt;header id="main-header"&gt;Баштык&lt;/header&gt;
+&lt;main id="main-content"&gt;Мазмун&lt;/main&gt;
+&lt;footer id="main-footer"&gt;Аяк&lt;/footer&gt;
+
+/* CSS */
+#main-header {
+    background: #667eea;
+    color: white;
+    padding: 20px;
+}
+
+#main-content {
+    padding: 30px;
+}
+
+#main-footer {
+    background: #333;
+    color: white;
+    padding: 20px;
+}
+
+/* Уникалдуу элементтер - ID колдонуу керек! */</code></pre>
+                </div>
+            </div>
+
+            <div class="example-group">
+                <h3>Мисал 3: Бир нече Class</h3>
+                <div class="demo-box">
+                    <div class="multiple-classes-demo">
+                        <div class="card primary">Карточка 1 (card + primary)</div>
+                        <div class="card secondary">Карточка 2 (card + secondary)</div>
+                        <div class="card primary large">Карточка 3 (card + primary + large)</div>
+                        <p class="note">Бир элементке бир нече класс берүүгө болот</p>
+                    </div>
+                </div>
+                <div class="code-example">
+                    <pre><code>&lt;!-- HTML --&gt;
+&lt;div class="card primary"&gt;Карточка 1&lt;/div&gt;
+&lt;div class="card secondary"&gt;Карточка 2&lt;/div&gt;
+&lt;div class="card primary large"&gt;Карточка 3&lt;/div&gt;
+
+/* CSS */
+.card {
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+.primary {
+    background: #667eea;
+    color: white;
+}
+
+.secondary {
+    background: #4CAF50;
+    color: white;
+}
+
+.large {
+    font-size: 1.2em;
+    padding: 30px;
+}
+
+/* Бир нече класс - Class колдонуу керек! */</code></pre>
+                </div>
+            </div>
+
+            <div class="example-group">
+                <h3>Мисал 4: Якорь сылкалар (ID)</h3>
+                <div class="demo-box">
+                    <div class="anchor-demo">
+                        <nav>
+                            <a href="#section1">Бөлүм 1гө өтүү</a> |
+                            <a href="#section2">Бөлүм 2гө өтүү</a> |
+                            <a href="#section3">Бөлүм 3гө өтүү</a>
+                        </nav>
+                        <section id="section1" class="section">
+                            <h4>Бөлүм 1 (ID: section1)</h4>
+                            <p>Бул бөлүмгө якорь сылка менен өтүүгө болот</p>
+                        </section>
+                        <section id="section2" class="section">
+                            <h4>Бөлүм 2 (ID: section2)</h4>
+                            <p>Бул бөлүмгө якорь сылка менен өтүүгө болот</p>
+                        </section>
+                        <section id="section3" class="section">
+                            <h4>Бөлүм 3 (ID: section3)</h4>
+                            <p>Бул бөлүмгө якорь сылка менен өтүүгө болот</p>
+                        </section>
+                    </div>
+                </div>
+                <div class="code-example">
+                    <pre><code>&lt;!-- HTML --&gt;
+&lt;nav&gt;
+    &lt;a href="#section1"&gt;Бөлүм 1гө өтүү&lt;/a&gt;
+    &lt;a href="#section2"&gt;Бөлүм 2гө өтүү&lt;/a&gt;
+&lt;/nav&gt;
+
+&lt;section id="section1"&gt;
+    &lt;h2&gt;Бөлүм 1&lt;/h2&gt;
+&lt;/section&gt;
+
+&lt;section id="section2"&gt;
+    &lt;h2&gt;Бөлүм 2&lt;/h2&gt;
+&lt;/section&gt;
+
+/* CSS */
+#section1 {
+    padding: 40px;
+    background: #f8f9fa;
+}
+
+#section2 {
+    padding: 40px;
+    background: #e3f2fd;
+}
+
+/* Якорь сылкалар - ID колдонуу керек! */</code></pre>
+                </div>
+            </div>
+
+            <div class="example-group">
+                <h3>Мисал 5: Формалар (ID)</h3>
+                <div class="demo-box">
+                    <div class="form-demo">
+                        <form>
+                            <label for="username">Колдонуучу аты:</label>
+                            <input type="text" id="username" name="username">
+                            
+                            <label for="email">Email:</label>
+                            <input type="email" id="email" name="email">
+                            
+                            <label for="message">Билдирүү:</label>
+                            <textarea id="message" name="message"></textarea>
+                            
+                            <button type="submit">Жөнөтүү</button>
+                        </form>
+                        <p class="note">label менен input байланыштыруу үчүн ID колдонулат</p>
+                    </div>
+                </div>
+                <div class="code-example">
+                    <pre><code>&lt;!-- HTML --&gt;
+&lt;form&gt;
+    &lt;label for="email"&gt;Email:&lt;/label&gt;
+    &lt;input type="email" id="email" name="email"&gt;
+    
+    &lt;label for="password"&gt;Пароль:&lt;/label&gt;
+    &lt;input type="password" id="password" name="password"&gt;
+&lt;/form&gt;
+
+/* CSS */
+#email {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+}
+
+#password {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+}
+
+/* Формалар - ID колдонуу керек! */</code></pre>
+                </div>
+            </div>
+
+            <div class="example-group">
+                <h3>Мисал 6: Карточкалар (Class)</h3>
+                <div class="demo-box">
+                    <div class="cards-demo">
+                        <div class="card">
+                            <h4>Карточка 1</h4>
+                            <p>Мазмун 1</p>
+                        </div>
+                        <div class="card">
+                            <h4>Карточка 2</h4>
+                            <p>Мазмун 2</p>
+                        </div>
+                        <div class="card">
+                            <h4>Карточка 3</h4>
+                            <p>Мазмун 3</p>
+                        </div>
+                        <p class="note">Кайталануучу элементтер - Class колдонуу керек!</p>
+                    </div>
+                </div>
+                <div class="code-example">
+                    <pre><code>&lt;!-- HTML --&gt;
+&lt;div class="card"&gt;
+    &lt;h4&gt;Карточка 1&lt;/h4&gt;
+    &lt;p&gt;Мазмун 1&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;div class="card"&gt;
+    &lt;h4&gt;Карточка 2&lt;/h4&gt;
+    &lt;p&gt;Мазмун 2&lt;/p&gt;
+&lt;/div&gt;
+
+/* CSS */
+.card {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    margin-bottom: 20px;
+}
+
+/* Көп элементтер - Class колдонуу керек! */</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- ООР МИСАЛДАР -->
+        <section class="examples-section">
+            <h2>🔴 ООР МИСАЛДАР</h2>
+
+            <div class="example-group">
+                <h3>Мисал 7: Class жана ID бирге</h3>
+                <div class="demo-box">
+                    <div class="combined-demo">
+                        <header id="site-header" class="header">
+                            <nav class="nav">
+                                <a href="#" class="nav-link">Башкы</a>
+                                <a href="#" class="nav-link">Биз жөнүндө</a>
+                                <a href="#" class="nav-link">Кызматтар</a>
+                            </nav>
+                        </header>
+                        <main id="site-main" class="main">
+                            <article class="article">
+                                <h2>Макала</h2>
+                                <p>Мазмун</p>
+                            </article>
+                            <aside class="sidebar">
+                                <div class="widget">Виджет 1</div>
+                                <div class="widget">Виджет 2</div>
+                            </aside>
+                        </main>
+                        <footer id="site-footer" class="footer">
+                            <p>© 2024 Бардык укуктар корголгон</p>
+                        </footer>
+                    </div>
+                </div>
+                <div class="code-example">
+                    <pre><code>&lt;!-- HTML --&gt;
+&lt;header id="site-header" class="header"&gt;
+    &lt;nav class="nav"&gt;
+        &lt;a href="#" class="nav-link"&gt;Башкы&lt;/a&gt;
+        &lt;a href="#" class="nav-link"&gt;Биз жөнүндө&lt;/a&gt;
+    &lt;/nav&gt;
+&lt;/header&gt;
+
+&lt;main id="site-main" class="main"&gt;
+    &lt;article class="article"&gt;...&lt;/article&gt;
+&lt;/main&gt;
+
+&lt;footer id="site-footer" class="footer"&gt;...&lt;/footer&gt;
+
+/* CSS */
+/* ID - уникалдуу элементтер */
+#site-header {
+    background: #667eea;
+}
+
+#site-main {
+    padding: 20px;
+}
+
+#site-footer {
+    background: #333;
+}
+
+/* Class - көп элементтер */
+.nav-link {
+    color: white;
+    text-decoration: none;
+    margin-right: 20px;
+}
+
+.article {
+    background: white;
+    padding: 20px;
+}
+
+/* ID жана Class бирге колдонулат! */</code></pre>
+                </div>
+            </div>
+
+            <div class="example-group">
+                <h3>Мисал 8: Жаман vs Жакшы практика</h3>
+                <div class="demo-box">
+                    <div class="good-bad-demo">
+                        <div class="bad-practice">
+                            <h4>❌ Жаман практика:</h4>
+                            <div id="card1">Карточка 1 (ID колдонуу - жаман!)</div>
+                            <div id="card2">Карточка 2 (ID колдонуу - жаман!)</div>
+                            <div id="card3">Карточка 3 (ID колдонуу - жаман!)</div>
+                            <p class="note">Кайталануучу элементтерге ID берүү - жаман!</p>
+                        </div>
+                        <div class="good-practice">
+                            <h4>✅ Жакшы практика:</h4>
+                            <div class="card">Карточка 1 (Class колдонуу - жакшы!)</div>
+                            <div class="card">Карточка 2 (Class колдонуу - жакшы!)</div>
+                            <div class="card">Карточка 3 (Class колдонуу - жакшы!)</div>
+                            <p class="note">Кайталануучу элементтерге Class берүү - жакшы!</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="code-example">
+                    <pre><code>/* ❌ ЖАМАН ПРАКТИКА */
+&lt;div id="card1"&gt;Карточка 1&lt;/div&gt;
+&lt;div id="card2"&gt;Карточка 2&lt;/div&gt;
+&lt;div id="card3"&gt;Карточка 3&lt;/div&gt;
+
+#card1 { background: blue; }
+#card2 { background: blue; }
+#card3 { background: blue; }
+
+/* ✅ ЖАКШЫ ПРАКТИКА */
+&lt;div class="card"&gt;Карточка 1&lt;/div&gt;
+&lt;div class="card"&gt;Карточка 2&lt;/div&gt;
+&lt;div class="card"&gt;Карточка 3&lt;/div&gt;
+
+.card {
+    background: blue;
+}
+
+/* Көп элементтер - Class колдонуу керек! */</code></pre>
+                </div>
+            </div>
+
+            <div class="example-group">
+                <h3>Мисал 9: Реалдуу веб-сайт структурасы</h3>
+                <div class="demo-box">
+                    <div class="real-website-demo">
+                        <header id="main-header" class="site-header">
+                            <div class="logo">Логотип</div>
+                            <nav class="main-nav">
+                                <a href="#home" class="nav-item">Башкы</a>
+                                <a href="#about" class="nav-item">Биз жөнүндө</a>
+                                <a href="#services" class="nav-item">Кызматтар</a>
+                                <a href="#contact" class="nav-item">Байланыш</a>
+                            </nav>
+                        </header>
+                        <main id="main-content" class="site-main">
+                            <section id="home" class="section">
+                                <h2>Башкы бөлүм</h2>
+                                <div class="cards">
+                                    <div class="card">Карточка 1</div>
+                                    <div class="card">Карточка 2</div>
+                                    <div class="card">Карточка 3</div>
+                                </div>
+                            </section>
+                            <section id="about" class="section">
+                                <h2>Биз жөнүндө</h2>
+                                <p>Мазмун</p>
+                            </section>
+                        </main>
+                        <footer id="main-footer" class="site-footer">
+                            <p>© 2024</p>
+                        </footer>
+                    </div>
+                </div>
+                <div class="code-example">
+                    <pre><code>&lt;!-- HTML --&gt;
+&lt;header id="main-header" class="site-header"&gt;
+    &lt;nav class="main-nav"&gt;
+        &lt;a href="#home" class="nav-item"&gt;Башкы&lt;/a&gt;
+        &lt;a href="#about" class="nav-item"&gt;Биз жөнүндө&lt;/a&gt;
+    &lt;/nav&gt;
+&lt;/header&gt;
+
+&lt;main id="main-content" class="site-main"&gt;
+    &lt;section id="home" class="section"&gt;
+        &lt;div class="cards"&gt;
+            &lt;div class="card"&gt;Карточка 1&lt;/div&gt;
+            &lt;div class="card"&gt;Карточка 2&lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/section&gt;
+&lt;/main&gt;
+
+/* CSS */
+/* ID - уникалдуу элементтер */
+#main-header { }
+#main-content { }
+#main-footer { }
+#home { }
+#about { }
+
+/* Class - көп элементтер */
+.nav-item { }
+.card { }
+.section { }
+
+/* ID жана Class бирге колдонулат! */</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- ПРАКТИКА -->
+        <section class="practice-section">
+            <h2>💻 ПРАКТИКА</h2>
+            <div class="practice-card">
+                <h3>Өзүңүз кылыңыз:</h3>
+                <ol>
+                    <li>Көп кнопкаларды Class менен стилдеңиз</li>
+                    <li>Уникалдуу header, main, footer элементтерди ID менен стилдеңиз</li>
+                    <li>Бир элементке бир нече Class берүүнү практикалаңыз</li>
+                    <li>Якорь сылкаларды ID менен кылыңыз</li>
+                    <li>Формаларды ID менен байланыштырыңыз (label for="id")</li>
+                    <li>Кайталануучу карточкаларды Class менен стилдеңиз</li>
+                    <li>ID жана Class бирге колдонууну практикалаңыз</li>
+                    <li>Жаман практиканы таап, жакшы практикага өзгөртүңүз</li>
+                    <li>Реалдуу веб-сайт структурасын ID жана Class менен түзүңүз</li>
+                    <li>JavaScript менен Class жана ID колдонууну үйрөнүңүз</li>
+                </ol>
+            </div>
+        </section>
+
+        <!-- КЕСТЕ -->
+        <section class="table-section">
+            <h2>📊 Class vs ID - Салыштыруу</h2>
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Кайсылыгы</th>
+                            <th>Class</th>
+                            <th>ID</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Колдонуу</strong></td>
+                            <td>Көп элементтер</td>
+                            <td>Бир гана элемент</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Кайталануу</strong></td>
+                            <td>✅ Болот</td>
+                            <td>❌ Болбойт</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Бир нече</strong></td>
+                            <td>✅ Болот (class="a b")</td>
+                            <td>❌ Болбойт</td>
+                        </tr>
+                        <tr>
+                            <td><strong>CSS селектор</strong></td>
+                            <td><code>.class</code></td>
+                            <td><code>#id</code></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Приоритет</strong></td>
+                            <td>Орто</td>
+                            <td>Жогорку</td>
+                        </tr>
+                        <tr>
+                            <td><strong>JavaScript</strong></td>
+                            <td>getElementsByClassName()</td>
+                            <td>getElementById()</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Мисал</strong></td>
+                            <td>Кнопкалар, карточкалар</td>
+                            <td>Header, footer, main</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section class="table-section">
+            <h2>📊 Кайсы учурда колдонуу керек?</h2>
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Сценарий</th>
+                            <th>Class</th>
+                            <th>ID</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Көп кнопкалар</td>
+                            <td>✅</td>
+                            <td>❌</td>
+                        </tr>
+                        <tr>
+                            <td>Кайталануучу карточкалар</td>
+                            <td>✅</td>
+                            <td>❌</td>
+                        </tr>
+                        <tr>
+                            <td>Бир нече класс берүү</td>
+                            <td>✅</td>
+                            <td>❌</td>
+                        </tr>
+                        <tr>
+                            <td>Header, footer, main</td>
+                            <td>❌</td>
+                            <td>✅</td>
+                        </tr>
+                        <tr>
+                            <td>Якорь сылкалар</td>
+                            <td>❌</td>
+                            <td>✅</td>
+                        </tr>
+                        <tr>
+                            <td>Формалар (label for)</td>
+                            <td>❌</td>
+                            <td>✅</td>
+                        </tr>
+                        <tr>
+                            <td>JavaScript getElementById()</td>
+                            <td>❌</td>
+                            <td>✅</td>
+                        </tr>
+                        <tr>
+                            <td>JavaScript getElementsByClassName()</td>
+                            <td>✅</td>
+                            <td>❌</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <footer>
+            <p>Бактылуу окуу! 🎓</p>
+        </footer>
+    </div>
+</body>
+</html>
+

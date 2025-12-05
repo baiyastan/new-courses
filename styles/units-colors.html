@@ -1,0 +1,810 @@
+<!DOCTYPE html>
+<html lang="ky">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Өлчөм бирдиктери жана Түстөр - Сабак</title>
+    <link rel="stylesheet" href="units-colors-styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Өлчөм бирдиктери жана Түстөр</h1>
+            <p class="subtitle">Баштап жаткандар үчүн толук сабак</p>
+        </header>
+
+        <!-- ТЕОРИЯ БӨЛҮМҮ -->
+        <section class="theory-section">
+            <h2>📚 Теория</h2>
+            
+            <div class="theory-card">
+                <h3>1. Өлчөм бирдиктери</h3>
+                
+                <h4>px (Pixels) - Пикселдер</h4>
+                <ul>
+                    <li>Эң жөнөкөй жана көп колдонулуучу бирдик</li>
+                    <li>Экрандын пикселине туура келет</li>
+                    <li>Фиксирленген өлчөм</li>
+                    <li>Мисал: <code>width: 200px;</code></li>
+                </ul>
+                
+                <h4>% (Percent) - Процент</h4>
+                <ul>
+                    <li>Ата-эне элементин өлчөмүнө карата</li>
+                    <li>Респонсивдик дизайн үчүн</li>
+                    <li>Мисал: <code>width: 50%;</code> - ата-энедин жарымы</li>
+                </ul>
+                
+                <h4>em - Эм</h4>
+                <ul>
+                    <li>Ата-эне элементин font-size'ына карата</li>
+                    <li>Кайталануучу (nested) элементтерде көбөйөт</li>
+                    <li>Мисал: <code>font-size: 1.5em;</code> - ата-энеден 1.5 эсе чоң</li>
+                </ul>
+                
+                <h4>rem (Root em) - Рем</h4>
+                <ul>
+                    <li>Root элементин (html) font-size'ына карата</li>
+                    <li>em'ден айырмасы - кайталануу жок</li>
+                    <li>Эң жакшы практика</li>
+                    <li>Мисал: <code>font-size: 1.5rem;</code> - root'тон 1.5 эсе чоң</li>
+                </ul>
+                
+                <h4>vw (Viewport Width) - Көрүнүш туурасы</h4>
+                <ul>
+                    <li>Браузердин туурасынын процент</li>
+                    <li>1vw = 1% браузердин туурасы</li>
+                    <li>Мисал: <code>width: 50vw;</code> - браузердин жарымы</li>
+                </ul>
+                
+                <h4>vh (Viewport Height) - Көрүнүш бийиктиги</h4>
+                <ul>
+                    <li>Браузердин бийиктигинин процент</li>
+                    <li>1vh = 1% браузердин бийиктиги</li>
+                    <li>Мисал: <code>height: 100vh;</code> - браузердин толук бийиктиги</li>
+                </ul>
+                
+                <div class="code-example">
+                    <pre><code>/* Өлчөм бирдиктери */
+.box {
+    width: 200px;        /* Фиксирленген */
+    width: 50%;          /* Ата-энедин жарымы */
+    font-size: 1.5em;    /* Ата-энеден 1.5 эсе */
+    font-size: 1.5rem;   /* Root'тон 1.5 эсе */
+    width: 50vw;         /* Браузердин жарымы */
+    height: 100vh;       /* Браузердин толук бийиктиги */
+}</code></pre>
+                </div>
+            </div>
+
+            <div class="theory-card">
+                <h3>2. Түстөр - RGB жана RGBA</h3>
+                
+                <h4>RGB (Red, Green, Blue)</h4>
+                <ul>
+                    <li>Үч түс: Кызыл, Жашыл, Көк</li>
+                    <li>Ар бир түс 0-255 ортосунда</li>
+                    <li>Синтаксис: <code>rgb(255, 0, 0)</code> - кызыл</li>
+                    <li>Мисал: <code>rgb(255, 255, 255)</code> - ак</li>
+                    <li>Мисал: <code>rgb(0, 0, 0)</code> - кара</li>
+                </ul>
+                
+                <h4>RGBA (Red, Green, Blue, Alpha)</h4>
+                <ul>
+                    <li>RGB + Alpha (шыпыргылык)</li>
+                    <li>Alpha 0-1 ортосунда (0 - толук шыпыргы, 1 - толук көрүнүктүү)</li>
+                    <li>Синтаксис: <code>rgba(255, 0, 0, 0.5)</code> - жарым шыпыргы кызыл</li>
+                    <li>Мисал: <code>rgba(0, 0, 0, 0.3)</code> - 30% шыпыргы кара</li>
+                </ul>
+                
+                <h4>Башка түс форматы</h4>
+                <ul>
+                    <li><strong>Hex</strong>: <code>#FF0000</code> (кызыл), <code>#00FF00</code> (жашыл)</li>
+                    <li><strong>HSL</strong>: <code>hsl(0, 100%, 50%)</code> - hue, saturation, lightness</li>
+                    <li><strong>HSLA</strong>: <code>hsla(0, 100%, 50%, 0.5)</code> - HSL + alpha</li>
+                    <li><strong>Аты менен</strong>: <code>red</code>, <code>blue</code>, <code>green</code></li>
+                </ul>
+                
+                <div class="code-example">
+                    <pre><code>/* Түстөр */
+.element {
+    color: rgb(255, 0, 0);           /* Кызыл */
+    background: rgb(0, 255, 0);      /* Жашыл */
+    border: 2px solid rgb(0, 0, 255); /* Көк */
+    
+    /* RGBA - шыпыргылык */
+    background: rgba(255, 0, 0, 0.5); /* 50% шыпыргы кызыл */
+    background: rgba(0, 0, 0, 0.3);  /* 30% шыпыргы кара */
+    
+    /* Hex */
+    color: #FF0000;      /* Кызыл */
+    color: #00FF00;      /* Жашыл */
+    color: #0000FF;      /* Көк */
+    
+    /* Аты менен */
+    color: red;
+    color: blue;
+    color: green;
+}</code></pre>
+                </div>
+            </div>
+
+            <div class="theory-card">
+                <h3>3. Кайсы бирдикти качан колдонуу керек?</h3>
+                
+                <h4>px - Качан колдонуу керек:</h4>
+                <ul>
+                    <li>Чектер (border), көлөкөлөр (shadow)</li>
+                    <li>Фиксирленген өлчөмдөр</li>
+                    <li>Кичине элементтер</li>
+                </ul>
+                
+                <h4>% - Качан колдонуу керек:</h4>
+                <ul>
+                    <li>Респонсивдик дизайн</li>
+                    <li>Ата-эне элементин өлчөмүнө карата</li>
+                    <li>Grid жана Flexbox менен</li>
+                </ul>
+                
+                <h4>rem - Качан колдонуу керек:</h4>
+                <ul>
+                    <li>Font-size (эң жакшы практика)</li>
+                    <li>Padding, margin</li>
+                    <li>Кайталанууну алдын алуу үчүн</li>
+                </ul>
+                
+                <h4>em - Качан колдонуу керек:</h4>
+                <ul>
+                    <li>Ата-эне элементин өлчөмүнө карата керек болсо</li>
+                    <li>Компоненттердин ичинде</li>
+                </ul>
+                
+                <h4>vw/vh - Качан колдонуу керек:</h4>
+                <ul>
+                    <li>Браузердин өлчөмүнө карата</li>
+                    <li>Full-screen элементтер</li>
+                    <li>Hero секциялар</li>
+                </ul>
+            </div>
+
+            <div class="theory-card">
+                <h3>4. Түстөрдү кантип тандап алуу?</h3>
+                
+                <h4>RGB/RGBA колдонуу:</h4>
+                <ul>
+                    <li>Точкалык түс керек болсо</li>
+                    <li>Шыпыргылык керек болсо (RGBA)</li>
+                    <li>JavaScript менен динамикалык түс өзгөртүү</li>
+                </ul>
+                
+                <h4>Hex колдонуу:</h4>
+                <ul>
+                    <li>Кыска жана так</li>
+                    <li>Көп колдонулуучу</li>
+                    <li>Дизайн инструменттеринен көчүрүү</li>
+                </ul>
+                
+                <h4>Аты менен колдонуу:</h4>
+                <ul>
+                    <li>Жөнөкөй түстөр (red, blue, green)</li>
+                    <li>Тест кылуу үчүн</li>
+                    <li>Прототиптер үчүн</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- ЖЕНИЛ МИСАЛДАР -->
+        <section class="examples-section">
+            <h2>🟢 ЖЕНИЛ МИСАЛДАР</h2>
+
+            <div class="example-group">
+                <h3>Мисал 1: px (Pixels)</h3>
+                <div class="demo-box">
+                    <div class="px-demo">
+                        <div class="px-box">200px туурасы</div>
+                        <div class="px-box small">100px туурасы</div>
+                        <div class="px-box large">300px туурасы</div>
+                    </div>
+                </div>
+                <div class="code-example">
+                    <pre><code>/* px - Фиксирленген өлчөм */
+.px-box {
+    width: 200px;
+    height: 100px;
+    background: #667eea;
+    color: white;
+    padding: 20px;
+    margin-bottom: 10px;
+}
+
+.px-box.small {
+    width: 100px;
+}
+
+.px-box.large {
+    width: 300px;
+}</code></pre>
+                </div>
+            </div>
+
+            <div class="example-group">
+                <h3>Мисал 2: % (Percent)</h3>
+                <div class="demo-box">
+                    <div class="percent-demo">
+                        <div class="percent-container">
+                            <div class="percent-box half">50% туурасы</div>
+                            <div class="percent-box quarter">25% туурасы</div>
+                            <div class="percent-box full">100% туурасы</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="code-example">
+                    <pre><code>/* % - Ата-эне элементин өлчөмүнө карата */
+.percent-container {
+    width: 100%;
+    background: #f8f9fa;
+    padding: 20px;
+}
+
+.percent-box {
+    height: 60px;
+    background: #667eea;
+    color: white;
+    margin-bottom: 10px;
+    padding: 15px;
+}
+
+.half {
+    width: 50%;
+}
+
+.quarter {
+    width: 25%;
+}
+
+.full {
+    width: 100%;
+}</code></pre>
+                </div>
+            </div>
+
+            <div class="example-group">
+                <h3>Мисал 3: em</h3>
+                <div class="demo-box">
+                    <div class="em-demo">
+                        <div class="em-parent">
+                            Ата-эне (font-size: 16px)
+                            <div class="em-child">
+                                Бала (font-size: 1.5em = 24px)
+                                <div class="em-child">
+                                    Небере (font-size: 1.5em = 36px)
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="code-example">
+                    <pre><code>/* em - Ата-эне элементин font-size'ына карата */
+.em-parent {
+    font-size: 16px;
+    padding: 20px;
+    background: #f8f9fa;
+}
+
+.em-child {
+    font-size: 1.5em;  /* 16px * 1.5 = 24px */
+    padding: 1em;     /* 24px (өз font-size'ына карата) */
+    margin-top: 10px;
+    background: #667eea;
+    color: white;
+}
+
+/* Кайталануу - ар бир деңгээлде көбөйөт! */</code></pre>
+                </div>
+            </div>
+
+            <div class="example-group">
+                <h3>Мисал 4: rem (Root em)</h3>
+                <div class="demo-box">
+                    <div class="rem-demo">
+                        <div class="rem-parent">
+                            Ата-эне
+                            <div class="rem-child">
+                                Бала (1.5rem)
+                                <div class="rem-child">
+                                    Небере (1.5rem - бирдей!)
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="code-example">
+                    <pre><code>/* rem - Root элементин font-size'ына карата */
+html {
+    font-size: 16px;  /* Root */
+}
+
+.rem-parent {
+    font-size: 16px;
+    padding: 20px;
+    background: #f8f9fa;
+}
+
+.rem-child {
+    font-size: 1.5rem;  /* 16px * 1.5 = 24px (root'тон) */
+    padding: 1rem;      /* 16px (root'тон) */
+    margin-top: 10px;
+    background: #667eea;
+    color: white;
+}
+
+/* Кайталануу жок - ар дайым root'тон эсептелет! */</code></pre>
+                </div>
+            </div>
+
+            <div class="example-group">
+                <h3>Мисал 5: vw жана vh</h3>
+                <div class="demo-box">
+                    <div class="viewport-demo">
+                        <div class="vw-box">50vw туурасы (браузердин жарымы)</div>
+                        <div class="vh-box">30vh бийиктиги (браузердин 30%)</div>
+                        <div class="viewport-box">50vw x 30vh</div>
+                    </div>
+                </div>
+                <div class="code-example">
+                    <pre><code>/* vw - Viewport Width */
+.vw-box {
+    width: 50vw;  /* Браузердин туурасынын 50% */
+    background: #667eea;
+    color: white;
+    padding: 20px;
+    margin-bottom: 10px;
+}
+
+/* vh - Viewport Height */
+.vh-box {
+    height: 30vh;  /* Браузердин бийиктигинин 30% */
+    background: #4CAF50;
+    color: white;
+    padding: 20px;
+    margin-bottom: 10px;
+}
+
+.viewport-box {
+    width: 50vw;
+    height: 30vh;
+    background: #f5576c;
+    color: white;
+    padding: 20px;
+}</code></pre>
+                </div>
+            </div>
+
+            <div class="example-group">
+                <h3>Мисал 6: RGB түстөр</h3>
+                <div class="demo-box">
+                    <div class="rgb-demo">
+                        <div class="rgb-box red">rgb(255, 0, 0) - Кызыл</div>
+                        <div class="rgb-box green">rgb(0, 255, 0) - Жашыл</div>
+                        <div class="rgb-box blue">rgb(0, 0, 255) - Көк</div>
+                        <div class="rgb-box yellow">rgb(255, 255, 0) - Сары</div>
+                        <div class="rgb-box purple">rgb(128, 0, 128) - Кызгылт</div>
+                    </div>
+                </div>
+                <div class="code-example">
+                    <pre><code>/* RGB түстөр */
+.rgb-box {
+    padding: 20px;
+    margin-bottom: 10px;
+    color: white;
+    font-weight: bold;
+}
+
+.red {
+    background: rgb(255, 0, 0);  /* Кызыл */
+}
+
+.green {
+    background: rgb(0, 255, 0);  /* Жашыл */
+}
+
+.blue {
+    background: rgb(0, 0, 255);  /* Көк */
+}
+
+.yellow {
+    background: rgb(255, 255, 0);  /* Сары */
+    color: #333;
+}
+
+.purple {
+    background: rgb(128, 0, 128);  /* Кызгылт */
+}</code></pre>
+                </div>
+            </div>
+
+            <div class="example-group">
+                <h3>Мисал 7: RGBA түстөр (шыпыргылык)</h3>
+                <div class="demo-box">
+                    <div class="rgba-demo">
+                        <div class="rgba-background">
+                            <div class="rgba-box solid">rgba(255, 0, 0, 1) - Толук көрүнүктүү</div>
+                            <div class="rgba-box semi">rgba(255, 0, 0, 0.5) - 50% шыпыргы</div>
+                            <div class="rgba-box light">rgba(255, 0, 0, 0.3) - 30% шыпыргы</div>
+                            <div class="rgba-box very-light">rgba(255, 0, 0, 0.1) - 10% шыпыргы</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="code-example">
+                    <pre><code>/* RGBA - Шыпыргылык менен */
+.rgba-background {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    padding: 30px;
+}
+
+.rgba-box {
+    padding: 20px;
+    margin-bottom: 10px;
+    color: white;
+    font-weight: bold;
+}
+
+.solid {
+    background: rgba(255, 0, 0, 1);    /* Толук көрүнүктүү */
+}
+
+.semi {
+    background: rgba(255, 0, 0, 0.5);  /* 50% шыпыргы */
+}
+
+.light {
+    background: rgba(255, 0, 0, 0.3);  /* 30% шыпыргы */
+}
+
+.very-light {
+    background: rgba(255, 0, 0, 0.1);   /* 10% шыпыргы */
+}</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- ООР МИСАЛДАР -->
+        <section class="examples-section">
+            <h2>🔴 ООР МИСАЛДАР</h2>
+
+            <div class="example-group">
+                <h3>Мисал 8: Бардык бирдиктер бирге</h3>
+                <div class="demo-box">
+                    <div class="all-units-demo">
+                        <div class="mixed-box">
+                            <div class="unit-item px-item">200px</div>
+                            <div class="unit-item percent-item">50%</div>
+                            <div class="unit-item rem-item">2rem</div>
+                            <div class="unit-item vw-item">30vw</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="code-example">
+                    <pre><code>/* Бардык бирдиктер бирге */
+.mixed-box {
+    width: 100%;
+    padding: 2rem;
+    background: #f8f9fa;
+}
+
+.unit-item {
+    height: 60px;
+    margin-bottom: 1rem;
+    padding: 1rem;
+    color: white;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+}
+
+.px-item {
+    width: 200px;
+    background: rgb(102, 126, 234);
+}
+
+.percent-item {
+    width: 50%;
+    background: rgb(76, 175, 80);
+}
+
+.rem-item {
+    width: 20rem;
+    background: rgb(245, 87, 108);
+}
+
+.vw-item {
+    width: 30vw;
+    background: rgb(255, 193, 7);
+    color: #333;
+}</code></pre>
+                </div>
+            </div>
+
+            <div class="example-group">
+                <h3>Мисал 9: Респонсивдик дизайн (%, vw, rem)</h3>
+                <div class="demo-box">
+                    <div class="responsive-demo">
+                        <header class="responsive-header">Header (100% туурасы)</header>
+                        <main class="responsive-main">
+                            <aside class="responsive-sidebar">Sidebar (25% туурасы)</aside>
+                            <section class="responsive-content">Content (75% туурасы)</section>
+                        </main>
+                        <footer class="responsive-footer">Footer (100vw туурасы)</footer>
+                    </div>
+                </div>
+                <div class="code-example">
+                    <pre><code>/* Респонсивдик дизайн */
+.responsive-header {
+    width: 100%;
+    padding: 1.5rem;
+    background: rgba(102, 126, 234, 0.9);
+    color: white;
+}
+
+.responsive-main {
+    width: 100%;
+    display: flex;
+    padding: 1rem;
+    background: #f8f9fa;
+}
+
+.responsive-sidebar {
+    width: 25%;
+    padding: 1rem;
+    background: rgba(76, 175, 80, 0.8);
+    color: white;
+}
+
+.responsive-content {
+    width: 75%;
+    padding: 1rem;
+    background: white;
+}
+
+.responsive-footer {
+    width: 100vw;
+    padding: 1.5rem;
+    background: rgba(51, 51, 51, 0.95);
+    color: white;
+}</code></pre>
+                </div>
+            </div>
+
+            <div class="example-group">
+                <h3>Мисал 10: Түстөрдүн практикалык колдонулушу</h3>
+                <div class="demo-box">
+                    <div class="colors-practical-demo">
+                        <div class="color-card primary">
+                            <h4>Primary</h4>
+                            <p>rgb(102, 126, 234)</p>
+                            <p>rgba(102, 126, 234, 0.9)</p>
+                        </div>
+                        <div class="color-card success">
+                            <h4>Success</h4>
+                            <p>rgb(76, 175, 80)</p>
+                            <p>rgba(76, 175, 80, 0.8)</p>
+                        </div>
+                        <div class="color-card danger">
+                            <h4>Danger</h4>
+                            <p>rgb(244, 67, 54)</p>
+                            <p>rgba(244, 67, 54, 0.7)</p>
+                        </div>
+                        <div class="color-card warning">
+                            <h4>Warning</h4>
+                            <p>rgb(255, 193, 7)</p>
+                            <p>rgba(255, 193, 7, 0.6)</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="code-example">
+                    <pre><code>/* Практикалык түстөр */
+.color-card {
+    padding: 2rem;
+    border-radius: 8px;
+    color: white;
+    margin-bottom: 1rem;
+}
+
+.primary {
+    background: rgb(102, 126, 234);
+    border: 2px solid rgba(102, 126, 234, 0.9);
+}
+
+.success {
+    background: rgb(76, 175, 80);
+    border: 2px solid rgba(76, 175, 80, 0.8);
+}
+
+.danger {
+    background: rgb(244, 67, 54);
+    border: 2px solid rgba(244, 67, 54, 0.7);
+}
+
+.warning {
+    background: rgb(255, 193, 7);
+    border: 2px solid rgba(255, 193, 7, 0.6);
+    color: #333;
+}
+
+/* RGB - негизги түс, RGBA - чектер үчүн */</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- ПРАКТИКА -->
+        <section class="practice-section">
+            <h2>💻 ПРАКТИКА</h2>
+            <div class="practice-card">
+                <h3>Өзүңүз кылыңыз:</h3>
+                <ol>
+                    <li>px менен фиксирленген өлчөмдү стилдеңиз</li>
+                    <li>% менен респонсивдик элементтерди стилдеңиз</li>
+                    <li>em менен ата-эне элементин өлчөмүнө карата стилдеңиз</li>
+                    <li>rem менен root элементин өлчөмүнө карата стилдеңиз</li>
+                    <li>vw жана vh менен браузердин өлчөмүнө карата стилдеңиз</li>
+                    <li>RGB менен түстөрдү колдонуңуз</li>
+                    <li>RGBA менен шыпыргылык түстөрдү колдонуңуз</li>
+                    <li>Бардык бирдиктерди бирге колдонууну практикалаңыз</li>
+                    <li>Респонсивдик дизайнды %, vw, rem менен кылыңыз</li>
+                    <li>Практикалык түстөрдү RGB/RGBA менен колдонуңуз</li>
+                </ol>
+            </div>
+        </section>
+
+        <!-- КЕСТЕ -->
+        <section class="table-section">
+            <h2>📊 Өлчөм бирдиктери</h2>
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Бирдик</th>
+                            <th>Аталышы</th>
+                            <th>Колдонулушу</th>
+                            <th>Мисал</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><code>px</code></td>
+                            <td>Pixels</td>
+                            <td>Фиксирленген өлчөм</td>
+                            <td><code>width: 200px;</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>%</code></td>
+                            <td>Percent</td>
+                            <td>Ата-эне элементин өлчөмүнө карата</td>
+                            <td><code>width: 50%;</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>em</code></td>
+                            <td>Em</td>
+                            <td>Ата-эне элементин font-size'ына карата</td>
+                            <td><code>font-size: 1.5em;</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>rem</code></td>
+                            <td>Root em</td>
+                            <td>Root элементин font-size'ына карата</td>
+                            <td><code>font-size: 1.5rem;</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>vw</code></td>
+                            <td>Viewport Width</td>
+                            <td>Браузердин туурасынын процент</td>
+                            <td><code>width: 50vw;</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>vh</code></td>
+                            <td>Viewport Height</td>
+                            <td>Браузердин бийиктигинин процент</td>
+                            <td><code>height: 100vh;</code></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section class="table-section">
+            <h2>📊 Түстөр</h2>
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Формат</th>
+                            <th>Синтаксис</th>
+                            <th>Мисал</th>
+                            <th>Колдонулушу</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><code>RGB</code></td>
+                            <td><code>rgb(r, g, b)</code></td>
+                            <td><code>rgb(255, 0, 0)</code></td>
+                            <td>Кызыл түс</td>
+                        </tr>
+                        <tr>
+                            <td><code>RGBA</code></td>
+                            <td><code>rgba(r, g, b, a)</code></td>
+                            <td><code>rgba(255, 0, 0, 0.5)</code></td>
+                            <td>50% шыпыргы кызыл</td>
+                        </tr>
+                        <tr>
+                            <td><code>Hex</code></td>
+                            <td><code>#RRGGBB</code></td>
+                            <td><code>#FF0000</code></td>
+                            <td>Кызыл түс</td>
+                        </tr>
+                        <tr>
+                            <td><code>HSL</code></td>
+                            <td><code>hsl(h, s%, l%)</code></td>
+                            <td><code>hsl(0, 100%, 50%)</code></td>
+                            <td>Кызыл түс</td>
+                        </tr>
+                        <tr>
+                            <td><code>Аты менен</code></td>
+                            <td><code>color-name</code></td>
+                            <td><code>red</code></td>
+                            <td>Кызыл түс</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section class="table-section">
+            <h2>📊 Кайсы бирдикти качан колдонуу?</h2>
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Бирдик</th>
+                            <th>Колдонулушу</th>
+                            <th>Мисал</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><code>px</code></td>
+                            <td>Чектер, көлөкөлөр, фиксирленген өлчөмдөр</td>
+                            <td><code>border: 2px solid;</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>%</code></td>
+                            <td>Респонсивдик дизайн, ата-эне элементин өлчөмүнө карата</td>
+                            <td><code>width: 50%;</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>rem</code></td>
+                            <td>Font-size, padding, margin (эң жакшы практика)</td>
+                            <td><code>font-size: 1.5rem;</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>em</code></td>
+                            <td>Ата-эне элементин өлчөмүнө карата керек болсо</td>
+                            <td><code>font-size: 1.2em;</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>vw/vh</code></td>
+                            <td>Браузердин өлчөмүнө карата, full-screen элементтер</td>
+                            <td><code>width: 100vw;</code></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <footer>
+            <p>Бактылуу окуу! 🎓</p>
+        </footer>
+    </div>
+</body>
+</html>
+

@@ -1,0 +1,775 @@
+<!DOCTYPE html>
+<html lang="ky">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Формалар - Сабак</title>
+    <link rel="stylesheet" href="html-forms-styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Формалар</h1>
+            <p class="subtitle">Баштап жаткандар үчүн толук сабак</p>
+        </header>
+
+        <!-- ТЕОРИЯ БӨЛҮМҮ -->
+        <section class="theory-section">
+            <h2>📚 Теория</h2>
+            
+            <div class="theory-card">
+                <h3>1. Форма &lt;form&gt;</h3>
+                <p><strong>&lt;form&gt;</strong> - форма элементтерин топтоштуруу үчүн колдонулат.</p>
+                <ul>
+                    <li><strong>action</strong> - форма жөнөтүлгөн URL</li>
+                    <li><strong>method</strong> - жөнөтүү ыкмасы (GET же POST)</li>
+                    <li><strong>enctype</strong> - маалыматтын форматы (файл жүктөө үчүн)</li>
+                </ul>
+                <div class="code-example">
+                    <pre><code>&lt;form action="/submit" method="POST"&gt;
+    &lt;!-- Форма элементтери --&gt;
+&lt;/form&gt;
+
+&lt;!-- Файл жүктөө үчүн --&gt;
+&lt;form action="/upload" method="POST" enctype="multipart/form-data"&gt;
+    &lt;!-- Форма элементтери --&gt;
+&lt;/form&gt;</code></pre>
+                </div>
+            </div>
+
+            <div class="theory-card">
+                <h3>2. Input түрлөрү</h3>
+                <p><strong>&lt;input&gt;</strong> - ар кандай түрдөгү киргизүү талаасын түзүү үчүн.</p>
+                <ul>
+                    <li><strong>text</strong> - текст киргизүү</li>
+                    <li><strong>email</strong> - email киргизүү</li>
+                    <li><strong>password</strong> - пароль киргизүү</li>
+                    <li><strong>checkbox</strong> - чекбокс (бир нече тандоо)</li>
+                    <li><strong>radio</strong> - радио кнопка (бир гана тандоо)</li>
+                    <li><strong>file</strong> - файл жүктөп алуу</li>
+                    <li><strong>number</strong> - сан киргизүү</li>
+                    <li><strong>date</strong> - дата тандоо</li>
+                    <li><strong>submit</strong> - жөнөтүү кнопкасы</li>
+                    <li><strong>button</strong> - жөнөкөй кнопка</li>
+                </ul>
+            </div>
+
+            <div class="theory-card">
+                <h3>3. Label, Textarea, Select</h3>
+                
+                <h4>&lt;label&gt; - Этикетка</h4>
+                <ul>
+                    <li>Input элементтин атын көрсөтүү</li>
+                    <li>for атрибуту менен input'ка байланыштыруу</li>
+                    <li>Label'га басылганда input фокус алат</li>
+                </ul>
+                
+                <h4>&lt;textarea&gt; - Көп саптуу текст</h4>
+                <ul>
+                    <li>Узун текст киргизүү үчүн</li>
+                    <li>rows жана cols атрибуттары</li>
+                </ul>
+                
+                <h4>&lt;select&gt; - Тандоо тизмеси</h4>
+                <ul>
+                    <li>Тизмеден тандоо үчүн</li>
+                    <li>&lt;option&gt; менен варианттар</li>
+                </ul>
+                
+                <div class="code-example">
+                    <pre><code>&lt;!-- Label --&gt;
+&lt;label for="username"&gt;Колдонуучу аты:&lt;/label&gt;
+&lt;input type="text" id="username" name="username"&gt;
+
+&lt;!-- Textarea --&gt;
+&lt;label for="message"&gt;Билдирүү:&lt;/label&gt;
+&lt;textarea id="message" name="message" rows="5"&gt;&lt;/textarea&gt;
+
+&lt;!-- Select --&gt;
+&lt;label for="country"&gt;Өлкө:&lt;/label&gt;
+&lt;select id="country" name="country"&gt;
+    &lt;option value="kg"&gt;Кыргызстан&lt;/option&gt;
+    &lt;option value="kz"&gt;Казакстан&lt;/option&gt;
+&lt;/select&gt;</code></pre>
+                </div>
+            </div>
+
+            <div class="theory-card">
+                <h3>4. Атрибуттар: required, placeholder, checked</h3>
+                
+                <h4>required - Милдеттүү талаа</h4>
+                <ul>
+                    <li>Форманы жөнөтүүдөн мурун толтуруу керек</li>
+                    <li>Браузер автоматтык валидация кылат</li>
+                </ul>
+                
+                <h4>placeholder - Жардамчы текст</h4>
+                <ul>
+                    <li>Input'тун ичинде көрүнүүчү жардамчы текст</li>
+                    <li>Колдонуучуга мисал көрсөтөт</li>
+                </ul>
+                
+                <h4>checked - Демейки тандалган</h4>
+                <ul>
+                    <li>Checkbox же radio үчүн</li>
+                    <li>Демейки тандалган кылат</li>
+                </ul>
+                
+                <div class="code-example">
+                    <pre><code>&lt;!-- Required --&gt;
+&lt;input type="text" name="name" required&gt;
+
+&lt;!-- Placeholder --&gt;
+&lt;input type="email" placeholder="email@example.com"&gt;
+
+&lt;!-- Checked --&gt;
+&lt;input type="checkbox" name="agree" checked&gt;
+&lt;input type="radio" name="gender" value="male" checked&gt;</code></pre>
+                </div>
+            </div>
+
+            <div class="theory-card">
+                <h3>5. Форма валидациясы</h3>
+                <p><strong>Валидация</strong> - маалыматтын тууралыгын текшерүү.</p>
+                <ul>
+                    <li><strong>HTML5 валидация</strong> - браузердин өз валидациясы</li>
+                    <li><strong>required</strong> - милдеттүү талаа</li>
+                    <li><strong>type="email"</strong> - email форматын текшерүү</li>
+                    <li><strong>pattern</strong> - регулярдык формула менен текшерүү</li>
+                    <li><strong>min/max</strong> - минималдык/максималдык маани</li>
+                </ul>
+                <div class="code-example">
+                    <pre><code>&lt;!-- Email валидация --&gt;
+&lt;input type="email" required&gt;
+
+&lt;!-- Pattern валидация --&gt;
+&lt;input type="text" pattern="[0-9]{10}" 
+       title="10 сандык код"&gt;
+
+&lt;!-- Min/Max валидация --&gt;
+&lt;input type="number" min="1" max="100"&gt;</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- ЖЕНИЛ МИСАЛДАР -->
+        <section class="examples-section">
+            <h2>🟢 ЖЕНИЛ МИСАЛДАР</h2>
+
+            <div class="example-group">
+                <h3>Мисал 1: Жөнөкөй форма</h3>
+                <div class="demo-box">
+                    <form class="demo-form simple-form">
+                        <label for="name1">Атыңыз:</label>
+                        <input type="text" id="name1" name="name" placeholder="Атыңызды киргизиңиз">
+                        
+                        <label for="email1">Email:</label>
+                        <input type="email" id="email1" name="email" placeholder="email@example.com">
+                        
+                        <button type="submit">Жөнөтүү</button>
+                    </form>
+                </div>
+                <div class="code-example">
+                    <pre><code>&lt;form action="/submit" method="POST"&gt;
+    &lt;label for="name"&gt;Атыңыз:&lt;/label&gt;
+    &lt;input type="text" id="name" name="name" 
+           placeholder="Атыңызды киргизиңиз"&gt;
+    
+    &lt;label for="email"&gt;Email:&lt;/label&gt;
+    &lt;input type="email" id="email" name="email" 
+           placeholder="email@example.com"&gt;
+    
+    &lt;button type="submit"&gt;Жөнөтүү&lt;/button&gt;
+&lt;/form&gt;</code></pre>
+                </div>
+            </div>
+
+            <div class="example-group">
+                <h3>Мисал 2: Input түрлөрү</h3>
+                <div class="demo-box">
+                    <form class="demo-form">
+                        <label for="text-input">Text:</label>
+                        <input type="text" id="text-input" placeholder="Текст киргизиңиз">
+                        
+                        <label for="email-input">Email:</label>
+                        <input type="email" id="email-input" placeholder="email@example.com">
+                        
+                        <label for="password-input">Password:</label>
+                        <input type="password" id="password-input" placeholder="Пароль">
+                        
+                        <label for="number-input">Number:</label>
+                        <input type="number" id="number-input" placeholder="Сан">
+                        
+                        <label for="date-input">Date:</label>
+                        <input type="date" id="date-input">
+                    </form>
+                </div>
+                <div class="code-example">
+                    <pre><code>&lt;input type="text" placeholder="Текст"&gt;
+&lt;input type="email" placeholder="email@example.com"&gt;
+&lt;input type="password" placeholder="Пароль"&gt;
+&lt;input type="number" placeholder="Сан"&gt;
+&lt;input type="date"&gt;
+&lt;input type="time"&gt;
+&lt;input type="color"&gt;
+&lt;input type="range"&gt;</code></pre>
+                </div>
+            </div>
+
+            <div class="example-group">
+                <h3>Мисал 3: Checkbox</h3>
+                <div class="demo-box">
+                    <form class="demo-form">
+                        <p><strong>Кызыккан темалар:</strong></p>
+                        <label>
+                            <input type="checkbox" name="topics" value="html"> HTML
+                        </label>
+                        <label>
+                            <input type="checkbox" name="topics" value="css"> CSS
+                        </label>
+                        <label>
+                            <input type="checkbox" name="topics" value="js" checked> JavaScript
+                        </label>
+                        <label>
+                            <input type="checkbox" name="topics" value="react"> React
+                        </label>
+                    </form>
+                </div>
+                <div class="code-example">
+                    <pre><code>&lt;form&gt;
+    &lt;p&gt;Кызыккан темалар:&lt;/p&gt;
+    &lt;label&gt;
+        &lt;input type="checkbox" name="topics" value="html"&gt; HTML
+    &lt;/label&gt;
+    &lt;label&gt;
+        &lt;input type="checkbox" name="topics" value="css"&gt; CSS
+    &lt;/label&gt;
+    &lt;label&gt;
+        &lt;input type="checkbox" name="topics" value="js" checked&gt; JavaScript
+    &lt;/label&gt;
+&lt;/form&gt;</code></pre>
+                </div>
+            </div>
+
+            <div class="example-group">
+                <h3>Мисал 4: Radio</h3>
+                <div class="demo-box">
+                    <form class="demo-form">
+                        <p><strong>Жынысыңыз:</strong></p>
+                        <label>
+                            <input type="radio" name="gender" value="male"> Эркек
+                        </label>
+                        <label>
+                            <input type="radio" name="gender" value="female"> Аял
+                        </label>
+                        <label>
+                            <input type="radio" name="gender" value="other"> Башка
+                        </label>
+                        
+                        <p style="margin-top: 20px;"><strong>Жашыңыз:</strong></p>
+                        <label>
+                            <input type="radio" name="age" value="18-25" checked> 18-25
+                        </label>
+                        <label>
+                            <input type="radio" name="age" value="26-35"> 26-35
+                        </label>
+                        <label>
+                            <input type="radio" name="age" value="36+"> 36+
+                        </label>
+                    </form>
+                </div>
+                <div class="code-example">
+                    <pre><code>&lt;form&gt;
+    &lt;p&gt;Жынысыңыз:&lt;/p&gt;
+    &lt;label&gt;
+        &lt;input type="radio" name="gender" value="male"&gt; Эркек
+    &lt;/label&gt;
+    &lt;label&gt;
+        &lt;input type="radio" name="gender" value="female"&gt; Аял
+    &lt;/label&gt;
+    
+    &lt;p&gt;Жашыңыз:&lt;/p&gt;
+    &lt;label&gt;
+        &lt;input type="radio" name="age" value="18-25" checked&gt; 18-25
+    &lt;/label&gt;
+&lt;/form&gt;</code></pre>
+                </div>
+            </div>
+
+            <div class="example-group">
+                <h3>Мисал 5: Textarea</h3>
+                <div class="demo-box">
+                    <form class="demo-form">
+                        <label for="message">Билдирүү:</label>
+                        <textarea id="message" name="message" rows="5" 
+                                  placeholder="Билдирүүңүздү жазыңыз..."></textarea>
+                        
+                        <label for="comments">Комментарийлер:</label>
+                        <textarea id="comments" name="comments" rows="3" cols="40"
+                                  placeholder="Комментарий жазыңыз..."></textarea>
+                    </form>
+                </div>
+                <div class="code-example">
+                    <pre><code>&lt;label for="message"&gt;Билдирүү:&lt;/label&gt;
+&lt;textarea id="message" name="message" rows="5" 
+          placeholder="Билдирүүңүздү жазыңыз..."&gt;&lt;/textarea&gt;
+
+&lt;label for="comments"&gt;Комментарийлер:&lt;/label&gt;
+&lt;textarea id="comments" name="comments" rows="3" cols="40"&gt;
+&lt;/textarea&gt;</code></pre>
+                </div>
+            </div>
+
+            <div class="example-group">
+                <h3>Мисал 6: Select</h3>
+                <div class="demo-box">
+                    <form class="demo-form">
+                        <label for="country">Өлкө:</label>
+                        <select id="country" name="country">
+                            <option value="">Тандаңыз...</option>
+                            <option value="kg">Кыргызстан</option>
+                            <option value="kz">Казакстан</option>
+                            <option value="uz">Өзбекстан</option>
+                            <option value="ru">Орусия</option>
+                        </select>
+                        
+                        <label for="city">Шаар:</label>
+                        <select id="city" name="city">
+                            <option value="bishkek" selected>Бишкек</option>
+                            <option value="osh">Ош</option>
+                            <option value="jalalabad">Жалал-Абад</option>
+                            <option value="karakol">Каракол</option>
+                        </select>
+                    </form>
+                </div>
+                <div class="code-example">
+                    <pre><code>&lt;label for="country"&gt;Өлкө:&lt;/label&gt;
+&lt;select id="country" name="country"&gt;
+    &lt;option value=""&gt;Тандаңыз...&lt;/option&gt;
+    &lt;option value="kg"&gt;Кыргызстан&lt;/option&gt;
+    &lt;option value="kz"&gt;Казакстан&lt;/option&gt;
+    &lt;option value="uz"&gt;Өзбекстан&lt;/option&gt;
+&lt;/select&gt;
+
+&lt;!-- Selected --&gt;
+&lt;select name="city"&gt;
+    &lt;option value="bishkek" selected&gt;Бишкек&lt;/option&gt;
+    &lt;option value="osh"&gt;Ош&lt;/option&gt;
+&lt;/select&gt;</code></pre>
+                </div>
+            </div>
+
+            <div class="example-group">
+                <h3>Мисал 7: File input</h3>
+                <div class="demo-box">
+                    <form class="demo-form">
+                        <label for="file-input">Файл жүктөп алуу:</label>
+                        <input type="file" id="file-input" name="file">
+                        
+                        <label for="file-multiple">Көп файл жүктөп алуу:</label>
+                        <input type="file" id="file-multiple" name="files" multiple>
+                        
+                        <label for="file-image">Сүрөт жүктөп алуу:</label>
+                        <input type="file" id="file-image" name="image" accept="image/*">
+                    </form>
+                </div>
+                <div class="code-example">
+                    <pre><code>&lt;!-- Жөнөкөй файл --&gt;
+&lt;label for="file"&gt;Файл:&lt;/label&gt;
+&lt;input type="file" id="file" name="file"&gt;
+
+&lt;!-- Көп файл --&gt;
+&lt;input type="file" name="files" multiple&gt;
+
+&lt;!-- Сүрөт гана --&gt;
+&lt;input type="file" name="image" accept="image/*"&gt;
+
+&lt;!-- PDF гана --&gt;
+&lt;input type="file" name="document" accept=".pdf"&gt;</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- ООР МИСАЛДАР -->
+        <section class="examples-section">
+            <h2>🔴 ООР МИСАЛДАР</h2>
+
+            <div class="example-group">
+                <h3>Мисал 8: required, placeholder, checked</h3>
+                <div class="demo-box">
+                    <form class="demo-form">
+                        <label for="name-req">Атыңыз (required):</label>
+                        <input type="text" id="name-req" name="name" required 
+                               placeholder="Атыңызды киргизиңиз">
+                        
+                        <label for="email-req">Email (required):</label>
+                        <input type="email" id="email-req" name="email" required 
+                               placeholder="email@example.com">
+                        
+                        <label>
+                            <input type="checkbox" name="agree" required checked> 
+                            Шарттар менен макулмун
+                        </label>
+                        
+                        <label>
+                            <input type="radio" name="newsletter" value="yes" checked> 
+                            Жаңылыктарды алууну каалайм
+                        </label>
+                        
+                        <button type="submit">Жөнөтүү</button>
+                    </form>
+                </div>
+                <div class="code-example">
+                    <pre><code>&lt;form&gt;
+    &lt;label for="name"&gt;Атыңыз:&lt;/label&gt;
+    &lt;input type="text" id="name" name="name" required 
+           placeholder="Атыңызды киргизиңиз"&gt;
+    
+    &lt;label for="email"&gt;Email:&lt;/label&gt;
+    &lt;input type="email" id="email" name="email" required 
+           placeholder="email@example.com"&gt;
+    
+    &lt;label&gt;
+        &lt;input type="checkbox" name="agree" required checked&gt; 
+        Шарттар менен макулмун
+    &lt;/label&gt;
+    
+    &lt;button type="submit"&gt;Жөнөтүү&lt;/button&gt;
+&lt;/form&gt;</code></pre>
+                </div>
+            </div>
+
+            <div class="example-group">
+                <h3>Мисал 9: Татаал форма - Регистрация</h3>
+                <div class="demo-box">
+                    <form class="demo-form complex-form">
+                        <h4>Регистрация</h4>
+                        
+                        <label for="reg-name">Атыңыз *</label>
+                        <input type="text" id="reg-name" name="name" required 
+                               placeholder="Атыңызды киргизиңиз">
+                        
+                        <label for="reg-email">Email *</label>
+                        <input type="email" id="reg-email" name="email" required 
+                               placeholder="email@example.com">
+                        
+                        <label for="reg-password">Пароль *</label>
+                        <input type="password" id="reg-password" name="password" required 
+                               placeholder="Парольду киргизиңиз">
+                        
+                        <label for="reg-age">Жашыңыз</label>
+                        <input type="number" id="reg-age" name="age" min="18" max="100" 
+                               placeholder="Жашыңыз">
+                        
+                        <label>Жынысыңыз:</label>
+                        <div class="radio-group">
+                            <label>
+                                <input type="radio" name="gender" value="male"> Эркек
+                            </label>
+                            <label>
+                                <input type="radio" name="gender" value="female"> Аял
+                            </label>
+                        </div>
+                        
+                        <label>Кызыккан темалар:</label>
+                        <div class="checkbox-group">
+                            <label>
+                                <input type="checkbox" name="topics" value="html"> HTML
+                            </label>
+                            <label>
+                                <input type="checkbox" name="topics" value="css"> CSS
+                            </label>
+                            <label>
+                                <input type="checkbox" name="topics" value="js"> JavaScript
+                            </label>
+                        </div>
+                        
+                        <label for="reg-country">Өлкө:</label>
+                        <select id="reg-country" name="country">
+                            <option value="">Тандаңыз...</option>
+                            <option value="kg">Кыргызстан</option>
+                            <option value="kz">Казакстан</option>
+                        </select>
+                        
+                        <label for="reg-message">Билдирүү:</label>
+                        <textarea id="reg-message" name="message" rows="4" 
+                                  placeholder="Билдирүүңүздү жазыңыз..."></textarea>
+                        
+                        <label>
+                            <input type="checkbox" name="terms" required> 
+                            Шарттар менен макулмун *
+                        </label>
+                        
+                        <button type="submit">Катталуу</button>
+                    </form>
+                </div>
+                <div class="code-example">
+                    <pre><code>&lt;form action="/register" method="POST"&gt;
+    &lt;label for="name"&gt;Атыңыз *&lt;/label&gt;
+    &lt;input type="text" id="name" name="name" required 
+           placeholder="Атыңызды киргизиңиз"&gt;
+    
+    &lt;label for="email"&gt;Email *&lt;/label&gt;
+    &lt;input type="email" id="email" name="email" required 
+           placeholder="email@example.com"&gt;
+    
+    &lt;label for="password"&gt;Пароль *&lt;/label&gt;
+    &lt;input type="password" id="password" name="password" required&gt;
+    
+    &lt;label&gt;Жынысыңыз:&lt;/label&gt;
+    &lt;label&gt;
+        &lt;input type="radio" name="gender" value="male"&gt; Эркек
+    &lt;/label&gt;
+    &lt;label&gt;
+        &lt;input type="radio" name="gender" value="female"&gt; Аял
+    &lt;/label&gt;
+    
+    &lt;label for="country"&gt;Өлкө:&lt;/label&gt;
+    &lt;select id="country" name="country"&gt;
+        &lt;option value="kg"&gt;Кыргызстан&lt;/option&gt;
+    &lt;/select&gt;
+    
+    &lt;label for="message"&gt;Билдирүү:&lt;/label&gt;
+    &lt;textarea id="message" name="message" rows="4"&gt;&lt;/textarea&gt;
+    
+    &lt;label&gt;
+        &lt;input type="checkbox" name="terms" required&gt; 
+        Шарттар менен макулмун
+    &lt;/label&gt;
+    
+    &lt;button type="submit"&gt;Катталуу&lt;/button&gt;
+&lt;/form&gt;</code></pre>
+                </div>
+            </div>
+
+            <div class="example-group">
+                <h3>Мисал 10: Форма валидациясы</h3>
+                <div class="demo-box">
+                    <form class="demo-form validation-form">
+                        <label for="val-email">Email (валидация):</label>
+                        <input type="email" id="val-email" name="email" required 
+                               placeholder="email@example.com">
+                        <small>Email форматын текшерилет</small>
+                        
+                        <label for="val-phone">Телефон (pattern):</label>
+                        <input type="tel" id="val-phone" name="phone" 
+                               pattern="[0-9]{10}" 
+                               placeholder="0555123456"
+                               title="10 сандык номер">
+                        <small>10 сандык номер (0555123456)</small>
+                        
+                        <label for="val-age">Жаш (min/max):</label>
+                        <input type="number" id="val-age" name="age" 
+                               min="18" max="100" 
+                               placeholder="18-100">
+                        <small>18-100 аралыгында</small>
+                        
+                        <label for="val-password">Пароль (minlength):</label>
+                        <input type="password" id="val-password" name="password" 
+                               minlength="8" required
+                               placeholder="Кеминде 8 символ">
+                        <small>Кеминде 8 символ</small>
+                        
+                        <button type="submit">Жөнөтүү</button>
+                    </form>
+                </div>
+                <div class="code-example">
+                    <pre><code>&lt;form&gt;
+    &lt;!-- Email валидация --&gt;
+    &lt;input type="email" required 
+           placeholder="email@example.com"&gt;
+    
+    &lt;!-- Pattern валидация --&gt;
+    &lt;input type="tel" 
+           pattern="[0-9]{10}" 
+           title="10 сандык номер"
+           placeholder="0555123456"&gt;
+    
+    &lt;!-- Min/Max валидация --&gt;
+    &lt;input type="number" min="18" max="100"&gt;
+    
+    &lt;!-- Minlength валидация --&gt;
+    &lt;input type="password" minlength="8" required&gt;
+    
+    &lt;!-- Maxlength валидация --&gt;
+    &lt;input type="text" maxlength="50"&gt;
+    
+    &lt;button type="submit"&gt;Жөнөтүү&lt;/button&gt;
+&lt;/form&gt;</code></pre>
+                </div>
+            </div>
+
+            <div class="example-group">
+                <h3>Мисал 11: Бардык элементтерди бириктирүү</h3>
+                <div class="demo-box">
+                    <form class="demo-form all-elements-form">
+                        <h4>Толук форма</h4>
+                        
+                        <label for="all-text">Text:</label>
+                        <input type="text" id="all-text" placeholder="Текст">
+                        
+                        <label for="all-email">Email:</label>
+                        <input type="email" id="all-email" required placeholder="email@example.com">
+                        
+                        <label for="all-password">Password:</label>
+                        <input type="password" id="all-password" required>
+                        
+                        <label>Checkbox:</label>
+                        <label><input type="checkbox" checked> Тандоо 1</label>
+                        <label><input type="checkbox"> Тандоо 2</label>
+                        
+                        <label>Radio:</label>
+                        <label><input type="radio" name="option" checked> Вариант 1</label>
+                        <label><input type="radio" name="option"> Вариант 2</label>
+                        
+                        <label for="all-select">Select:</label>
+                        <select id="all-select">
+                            <option>Вариант 1</option>
+                            <option selected>Вариант 2</option>
+                        </select>
+                        
+                        <label for="all-textarea">Textarea:</label>
+                        <textarea id="all-textarea" rows="3"></textarea>
+                        
+                        <label for="all-file">File:</label>
+                        <input type="file" id="all-file">
+                        
+                        <button type="submit">Жөнөтүү</button>
+                    </form>
+                </div>
+                <div class="code-example">
+                    <pre><code>&lt;form action="/submit" method="POST"&gt;
+    &lt;label for="text"&gt;Text:&lt;/label&gt;
+    &lt;input type="text" id="text" name="text"&gt;
+    
+    &lt;label for="email"&gt;Email:&lt;/label&gt;
+    &lt;input type="email" id="email" name="email" required&gt;
+    
+    &lt;label&gt;Checkbox:&lt;/label&gt;
+    &lt;label&gt;&lt;input type="checkbox" checked&gt; Тандоо&lt;/label&gt;
+    
+    &lt;label&gt;Radio:&lt;/label&gt;
+    &lt;label&gt;&lt;input type="radio" name="option" checked&gt; Вариант&lt;/label&gt;
+    
+    &lt;label for="select"&gt;Select:&lt;/label&gt;
+    &lt;select id="select"&gt;
+        &lt;option&gt;Вариант 1&lt;/option&gt;
+    &lt;/select&gt;
+    
+    &lt;label for="textarea"&gt;Textarea:&lt;/label&gt;
+    &lt;textarea id="textarea" rows="3"&gt;&lt;/textarea&gt;
+    
+    &lt;label for="file"&gt;File:&lt;/label&gt;
+    &lt;input type="file" id="file"&gt;
+    
+    &lt;button type="submit"&gt;Жөнөтүү&lt;/button&gt;
+&lt;/form&gt;</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- ПРАКТИКА -->
+        <section class="practice-section">
+            <h2>💻 ПРАКТИКА</h2>
+            <div class="practice-card">
+                <h3>Өзүңүз кылыңыз:</h3>
+                <ol>
+                    <li>Жөнөкөй форма түзүңүз (text, email, submit)</li>
+                    <li>Label менен input'тарды байланыштырыңыз (for атрибуту)</li>
+                    <li>Checkbox менен радио кнопкаларды кошуңыз</li>
+                    <li>Textarea менен узун текст киргизүү талаасын түзүңүз</li>
+                    <li>Select менен тандоо тизмесин түзүңүз</li>
+                    <li>required атрибуту менен милдеттүү талааларды белгилеңиз</li>
+                    <li>placeholder атрибуту менен жардамчы тексттерди кошуңуз</li>
+                    <li>Форма валидациясын кошуңуз (email, pattern, min/max)</li>
+                    <li>Регистрация формасын түзүңүз (бардык элементтер менен)</li>
+                </ol>
+            </div>
+        </section>
+
+        <!-- КЕСТЕ -->
+        <section class="table-section">
+            <h2>📊 Input түрлөрү</h2>
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Type</th>
+                            <th>Аты</th>
+                            <th>Колдонулушу</th>
+                            <th>Мисал</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><code>text</code></td>
+                            <td>Текст</td>
+                            <td>Текст киргизүү</td>
+                            <td><code>type="text"</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>email</code></td>
+                            <td>Email</td>
+                            <td>Email киргизүү (валидация)</td>
+                            <td><code>type="email"</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>password</code></td>
+                            <td>Пароль</td>
+                            <td>Пароль киргизүү (жашырылган)</td>
+                            <td><code>type="password"</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>checkbox</code></td>
+                            <td>Чекбокс</td>
+                            <td>Бир нече тандоо</td>
+                            <td><code>type="checkbox"</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>radio</code></td>
+                            <td>Радио</td>
+                            <td>Бир гана тандоо</td>
+                            <td><code>type="radio"</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>file</code></td>
+                            <td>Файл</td>
+                            <td>Файл жүктөп алуу</td>
+                            <td><code>type="file"</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>number</code></td>
+                            <td>Сан</td>
+                            <td>Сан киргизүү</td>
+                            <td><code>type="number"</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>date</code></td>
+                            <td>Дата</td>
+                            <td>Дата тандоо</td>
+                            <td><code>type="date"</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>submit</code></td>
+                            <td>Жөнөтүү</td>
+                            <td>Форманы жөнөтүү</td>
+                            <td><code>type="submit"</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>button</code></td>
+                            <td>Кнопка</td>
+                            <td>Жөнөкөй кнопка</td>
+                            <td><code>type="button"</code></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <footer>
+            <p>Бактылуу окуу! 🎓</p>
+        </footer>
+    </div>
+</body>
+</html>
+

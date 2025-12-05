@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html lang="ky">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Селекторлор - Сабак</title>
+    <link rel="stylesheet" href="selectors-styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Селекторлор</h1>
+            <p class="subtitle">Баштап жаткандар үчүн толук сабак</p>
+        </header>
+
+        <!-- ТЕОРИЯ БӨЛҮМҮ -->
+        <section class="theory-section">
+            <h2>📚 Теория</h2>
+            
+            <div class="theory-card">
+                <h3>1. Негизги селекторлор</h3>
+                
+                <h4>Элемент селектор (p, div, h1, ж.б.)</h4>
+                <p>HTML тегдин аты менен элементтерди тандайт.</p>
+                <ul>
+                    <li>Бардык ушундай тегдерге стиль колдонулат</li>
+                    <li>Эң жөнөкөй селектор</li>
+                </ul>
+                
+                <h4>Класс селектор (.class)</h4>
+                <p>class атрибуту менен элементтерди тандайт.</p>
+                <ul>
+                    <li>Бир нече элементке бир класс берүүгө болот</li>
+                    <li>Эң көп колдонулуучу селектор</li>
+                </ul>
+                
+                <h4>ID селектор (#id)</h4>
+                <p>id атрибуту менен элементти тандайт.</p>
+                <ul>
+                    <li>Бир документте бир гана ID болушу керек</li>
+                    <li>Жогорку приоритет</li>
+                </ul>
+                
+                <div class="code-example">
+                    <pre><code>/* Элемент селектор */
+p {
+    color: blue;
+}
+
+/* Класс селектор */
+.container {
+    padding: 20px;
+}
+
+/* ID селектор */
+#header {
+    background: red;
+}</code></pre>
+                </div>
+            </div>
+
+            <div class="theory-card">
+                <h3>2. Комбинаторлор</h3>
+                <p>Комбинаторлор - селекторлорду бириктирип, татаал тандап алуу үчүн колдонулат.</p>
+                
+                <h4>1. Бала селектор (>)</h4>
+                <p>Түз бала элементтерди тандайт.</p>
+                <ul>
+                    <li>Ата-энеден түз бала элементтер</li>
+                    <li>Туу чон элементтерди тандабайт</li>
+                </ul>
+                
+                <h4>2. Кошумча селектор (+)</h4>
+                <p>Биринчи элементтен кийинки кошумча элементти тандайт.</p>
+                <ul>
+                    <li>Бир тууган элементтер</li>
+                    <li>Биринчи кошумча элемент гана</li>
+                </ul>
+                
+                <h4>3. Бир тууган селектор (~)</h4>
+                <p>Биринчи элементтен кийинки бардык бир тууган элементтерди тандайт.</p>
+                <ul>
+                    <li>Бардык бир тууган элементтер</li>
+                    <li>Кошумча селектордун кеңири версиясы</li>
+                </ul>
+                
+                <h4>4. Туу чон селектор (пробел)</h4>
+                <p>Ата-энедин ичиндеги бардык туу чон элементтерди тандайт.</p>
+                <ul>
+                    <li>Бала, небере, ж.б. бардык туу чон элементтер</li>
+                    <li>Эң кеңири тандап алуу</li>
+                </ul>
+                
+                <div class="code-example">
+                    <pre><code>/* Бала селектор (>) */
+.parent > p {
+    color: red;
+}
+
+/* Кошумча селектор (+) */
+h1 + p {
+    margin-top: 10px;
+}
+
+/* Бир тууган селектор (~) */
+h1 ~ p {
+    color: blue;
+}
+
+/* Туу чон селектор (пробел) */
+.container p {
+    color: green;
+}</code></pre>
+                </div>
+            </div>
+
+            <div class="theory-card">
+                <h3>3. Селекторлорду бириктирүү</h3>
+                <p>Бир нече селекторду бириктирип, бир стильди колдонууга болот.</p>
+                
+                <div class="code-example">
+                    <pre><code>/* Бир нече селектор (үтүр менен) */
+h1, h2, h3 {
+    color: blue;
+    font-weight: bold;
+}
+
+/* Класс менен элемент */
+p.text {
+    color: red;
+}
+
+/* ID менен класс */
+#header .logo {
+    font-size: 24px;
+}
+
+/* Көп комбинаторлор */
+.container > .item + .item {
+    margin-top: 10px;
+}</code></pre>
+                </div>
+            </div>
+
+            <div class="theory-card">
+                <h3>4. Приоритеттер (Specificity)</h3>
+                <p>Эгер бир элементке бир нече стиль колдонулса, приоритет жогору болгон стиль колдонулат.</p>
+                <ol>
+                    <li><strong>Inline стиль</strong> (style="...") - эң жогорку</li>
+                    <li><strong>ID селектор</strong> (#id) - жогорку</li>
+                    <li><strong>Класс селектор</strong> (.class) - орто</li>
+                    <li><strong>Элемент селектор</strong> (p, div) - төмөнкү</li>
+                </ol>
+                <p class="note">💡 Эске сактаңыз: Inline > ID > Class > Element</p>
+            </div>
+        </section>
+
+        <!-- ЖЕНИЛ МИСАЛДАР -->
+        <section class="examples-section">
+            <h2>🟢 ЖЕНИЛ МИСАЛДАР</h2>
+
+            <div class="example-group">
+                <h3>Мисал 1: Элемент селектор (p, div, h1)</h3>
+                <div class="demo-box">
+                    <div class="element-selector-demo">
+                        <h4>Баштык (h4 селектор)</h4>
+                        <p>Параграф (p селектор)</p>
+                        <p>Дагы бир параграф</p>
+                        <div>Блок (div селектор)</div>
+                    </div>
+                </div>
+                <div class="code-example">
+                    <pre><code>/* Элемент селектор */
+h4 {
+    color: #667eea;
+    font-size: 1.5em;
+}
+
+p {
+    color: #555;
+    line-height: 1.6;
+}
+
+div {
+    background: #f8f9fa;
+    padding: 15px;
+}</code></pre>
+                </div>
+            </div>
+
+            <div class="example-group">
+                <h3>Мисал 2: Класс селектор (.class)</h3>
+                <div class="demo-box">
+                    <div class="class-selector-demo">
+                        <div class="box">Класс селектор (.box)</div>
+                        <div class="box">Дагы бир .box элемент</div>
+                        <div class="highlight">Класс селектор (.highlight)</div>
+                        <p class="text">Параграф класс менен (.text)</p>
+                    </div>
+                </div>
+                <div class="code-example">
+                    <pre><code>/* Класс селектор */
+.box {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+}
+
+.highlight {
+    background: #f9ca24;
+    color: #333;
+    padding: 15px;
+}
+
+.text {
+    color: #555;
+    font-size: 16px;
+}</code></pre>
+                </div>
+            </div>
+
+            <div class="example-group">
+                <h3>Мисал 3: ID селектор (#id)</h3>
+                <div class="demo-box">
+                    <div class="id-selector-demo">
+                        <div id="unique-header">ID селектор (#unique-header)</div>
+                        <div id="unique-content">ID селектор (#unique-content)</div>
+                        <div id="unique-footer">ID селектор (#unique-footer)</div>
+                    </div>
+                </div>
+                <div class="code-example">
+                    <pre><code>/* ID селектор */
+#unique-header {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+    padding: 20px;
+}
+
+#unique-content {
+    background: linear-gradient(135deg, #4CAF50, #45a049);
+    color: white;
+    padding: 20px;
+}
+
+#unique-footer {
+    background: linear-gradient(135deg, #f093fb, #f5576c);
+    color: white;
+    padding: 20px;
+}</code></pre>
+                </div>
+            </div>
+
+            <div class="example-group">
+                <h3>Мисал 4: Бала селектор (>)</h3>
+                <div class="demo-box">
+                    <div class="child-selector-demo">
+                        <div class="parent">
+                            <p>Түз бала элемент (parent > p)</p>
+                            <div>
+                                <p>Туу чон элемент (parent > div > p)</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="code-example">
+                    <pre><code>/* Бала селектор (>) */
+.parent > p {
+    color: #e74c3c;
+    font-weight: bold;
+    background: #ffe5e5;
+    padding: 10px;
+}
+
+/* Туу чон селектор (пробел) */
+.parent p {
+    color: #3498db;
+    padding: 5px;
+}
+
+/* Түздөн-түз бала гана тандалат (>) */</code></pre>
+                </div>
+            </div>
+
+            <div class="example-group">
+                <h3>Мисал 5: Кошумча селектор (+)</h3>
+                <div class="demo-box">
+                    <div class="adjacent-selector-demo">
+                        <h5>Баштык</h5>
+                        <p>Биринчи кошумча параграф (h5 + p)</p>
+                        <p>Экинчи параграф (тандалбайт)</p>
+                        <p>Үчүнчү параграф (тандалбайт)</p>
+                    </div>
+                </div>
+                <div class="code-example">
+                    <pre><code>/* Кошумча селектор (+) */
+h5 + p {
+    color: #2ecc71;
+    font-weight: bold;
+    background: #e8f8f5;
+    padding: 10px;
+    border-left: 4px solid #2ecc71;
+}
+
+/* Биринчи кошумча элемент гана тандалат */</code></pre>
+                </div>
+            </div>
+
+            <div class="example-group">
+                <h3>Мисал 6: Бир тууган селектор (~)</h3>
+                <div class="demo-box">
+                    <div class="sibling-selector-demo">
+                        <h5>Баштык</h5>
+                        <p>Биринчи бир тууган (h5 ~ p)</p>
+                        <div>Блок (тандалбайт)</div>
+                        <p>Экинчи бир тууган (h5 ~ p)</p>
+                        <p>Үчүнчү бир тууган (h5 ~ p)</p>
+                    </div>
+                </div>
+                <div class="code-example">
+                    <pre><code>/* Бир тууган селектор (~) */
+h5 ~ p {
+    color: #9b59b6;
+    background: #f4ecf7;
+    padding: 10px;
+    margin-top: 5px;
+    border-left: 4px solid #9b59b6;
+}
+
+/* Бардык бир тууган элементтер тандалат */</code></pre>
+                </div>
+            </div>
+
+            <div class="example-group">
+                <h3>Мисал 7: Туу чон селектор (пробел)</h3>
+                <div class="demo-box">
+                    <div class="descendant-selector-demo">
+                        <div class="ancestor">
+                            <p>Бала элемент (ancestor p)</p>
+                            <div>
+                                <p>Небере элемент (ancestor p)</p>
+                                <div>
+                                    <p>Чон небере элемент (ancestor p)</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="code-example">
+                    <pre><code>/* Туу чон селектор (пробел) */
+.ancestor p {
+    color: #e67e22;
+    background: #fef5e7;
+    padding: 10px;
+    margin: 5px 0;
+    border-left: 4px solid #e67e22;
+}
+
+/* Бардык туу чон элементтер тандалат */</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- ООР МИСАЛДАР -->
+        <section class="examples-section">
+            <h2>🔴 ООР МИСАЛДАР</h2>
+
+            <div class="example-group">
+                <h3>Мисал 8: Бардык комбинаторлор бирге</h3>
+                <div class="demo-box">
+                    <div class="all-combinators-demo">
+                        <div class="wrapper">
+                            <h6>Баштык</h6>
+                            <p>Кошумча параграф (h6 + p)</p>
+                            <div class="inner">
+                                <p>Туу чон параграф (wrapper p)</p>
+                                <span>Span элемент</span>
+                            </div>
+                            <p>Бир тууган параграф (h6 ~ p)</p>
+                            <p>Дагы бир бир тууган (h6 ~ p)</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="code-example">
+                    <pre><code>/* Бардык комбинаторлор */
+.wrapper > h6 {
+    color: #667eea;
+    font-size: 1.3em;
+}
+
+.wrapper > h6 + p {
+    color: #2ecc71;
+    font-weight: bold;
+}
+
+.wrapper p {
+    color: #555;
+    margin: 5px 0;
+}
+
+.wrapper > h6 ~ p {
+    background: #f8f9fa;
+    padding: 8px;
+}
+
+.inner > p {
+    color: #e74c3c;
+}</code></pre>
+                </div>
+            </div>
+
+            <div class="example-group">
+                <h3>Мисал 9: Приоритеттер менен селекторлор</h3>
+                <div class="demo-box">
+                    <div class="priority-demo">
+                        <p class="text" id="priority-id" style="color: red !important;">
+                            Inline стиль (эң жогорку приоритет)
+                        </p>
+                        <p class="text" id="priority-id-2">
+                            ID селектор (#priority-id-2)
+                        </p>
+                        <p class="text">
+                            Класс селектор (.text)
+                        </p>
+                        <p>
+                            Элемент селектор (p)
+                        </p>
+                    </div>
+                </div>
+                <div class="code-example">
+                    <pre><code>/* Элемент селектор (төмөнкү приоритет) */
+p {
+    color: black;
+}
+
+/* Класс селектор (орто приоритет) */
+.text {
+    color: blue;
+}
+
+/* ID селектор (жогорку приоритет) */
+#priority-id-2 {
+    color: green;
+    font-weight: bold;
+}
+
+/* Inline стиль (эң жогорку) */
+&lt;p style="color: red;"&gt;Текст&lt;/p&gt;
+
+/* Приоритеттер: Inline > ID > Class > Element */</code></pre>
+                </div>
+            </div>
+
+            <div class="example-group">
+                <h3>Мисал 10: Татаал селекторлордун практикалык колдонулушу</h3>
+                <div class="demo-box">
+                    <div class="complex-practical-demo">
+                        <nav class="menu">
+                            <ul>
+                                <li><a href="#">Башкы</a></li>
+                                <li><a href="#">Биз жөнүндө</a></li>
+                                <li><a href="#">Кызматтар</a></li>
+                            </ul>
+                        </nav>
+                        <article class="content">
+                            <h2>Макала</h2>
+                            <p>Биринчи параграф</p>
+                            <p>Экинчи параграф</p>
+                            <div class="sidebar">
+                                <p>Сайдбар мазмуну</p>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+                <div class="code-example">
+                    <pre><code>/* Навигация меню */
+.menu > ul > li {
+    display: inline-block;
+    margin-right: 20px;
+}
+
+.menu a {
+    color: #667eea;
+    text-decoration: none;
+}
+
+.menu a:hover {
+    color: #764ba2;
+}
+
+/* Макала мазмуну */
+.content > h2 {
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.content > h2 + p {
+    font-size: 1.1em;
+    color: #555;
+}
+
+.content p {
+    line-height: 1.8;
+    margin-bottom: 15px;
+}
+
+.content .sidebar {
+    background: #f8f9fa;
+    padding: 20px;
+    border-radius: 8px;
+}</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- ПРАКТИКА -->
+        <section class="practice-section">
+            <h2>💻 ПРАКТИКА</h2>
+            <div class="practice-card">
+                <h3>Өзүңүз кылыңыз:</h3>
+                <ol>
+                    <li>Элемент селектор менен бардык параграфтарды стилдеңиз</li>
+                    <li>Класс селектор менен бир нече элементти стилдеңиз</li>
+                    <li>ID селектор менен элементти стилдеңиз</li>
+                    <li>Бала селектор (>) менен түз бала элементтерди стилдеңиз</li>
+                    <li>Кошумча селектор (+) менен биринчи кошумча элементти стилдеңиз</li>
+                    <li>Бир тууган селектор (~) менен бардык бир тууган элементтерди стилдеңиз</li>
+                    <li>Туу чон селектор (пробел) менен бардык туу чон элементтерди стилдеңиз</li>
+                    <li>Бир нече селекторду бириктирип (үтүр менен) колдонуңуз</li>
+                    <li>Приоритеттерди текшерип көрүңүз (inline, ID, class, element)</li>
+                    <li>Татаал комбинаторлорду бириктирип практикалык мисал кылыңыз</li>
+                </ol>
+            </div>
+        </section>
+
+        <!-- КЕСТЕ -->
+        <section class="table-section">
+            <h2>📊 Негизги селекторлор</h2>
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Селектор</th>
+                            <th>Синтаксис</th>
+                            <th>Мисал</th>
+                            <th>Түшүндүрмө</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Элемент</td>
+                            <td><code>тег</code></td>
+                            <td><code>p { }</code></td>
+                            <td>Бардык &lt;p&gt; элементтер</td>
+                        </tr>
+                        <tr>
+                            <td>Класс</td>
+                            <td><code>.class</code></td>
+                            <td><code>.container { }</code></td>
+                            <td>class="container" элементтер</td>
+                        </tr>
+                        <tr>
+                            <td>ID</td>
+                            <td><code>#id</code></td>
+                            <td><code>#header { }</code></td>
+                            <td>id="header" элементи</td>
+                        </tr>
+                        <tr>
+                            <td>Көп селектор</td>
+                            <td><code>sel1, sel2</code></td>
+                            <td><code>h1, h2 { }</code></td>
+                            <td>h1 жана h2 элементтер</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section class="table-section">
+            <h2>📊 Комбинаторлор</h2>
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Комбинатор</th>
+                            <th>Синтаксис</th>
+                            <th>Мисал</th>
+                            <th>Түшүндүрмө</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Бала</td>
+                            <td><code>parent > child</code></td>
+                            <td><code>div > p { }</code></td>
+                            <td>div'дин түз баласы p</td>
+                        </tr>
+                        <tr>
+                            <td>Кошумча</td>
+                            <td><code>element + adjacent</code></td>
+                            <td><code>h1 + p { }</code></td>
+                            <td>h1'ден кийинки биринчи p</td>
+                        </tr>
+                        <tr>
+                            <td>Бир тууган</td>
+                            <td><code>element ~ sibling</code></td>
+                            <td><code>h1 ~ p { }</code></td>
+                            <td>h1'ден кийинки бардык p</td>
+                        </tr>
+                        <tr>
+                            <td>Туу чон</td>
+                            <td><code>ancestor descendant</code></td>
+                            <td><code>div p { }</code></td>
+                            <td>div'дин ичиндеги бардык p</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section class="table-section">
+            <h2>📊 Приоритеттер (Specificity)</h2>
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Селектор</th>
+                            <th>Приоритет</th>
+                            <th>Мисал</th>
+                            <th>Эскертүү</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Inline</td>
+                            <td>Эң жогорку</td>
+                            <td><code>style="color: red;"</code></td>
+                            <td>Элементтин ичинде</td>
+                        </tr>
+                        <tr>
+                            <td>ID</td>
+                            <td>Жогорку</td>
+                            <td><code>#header { }</code></td>
+                            <td>Бир документте бир гана</td>
+                        </tr>
+                        <tr>
+                            <td>Класс</td>
+                            <td>Орто</td>
+                            <td><code>.container { }</code></td>
+                            <td>Көп элементке колдонулат</td>
+                        </tr>
+                        <tr>
+                            <td>Элемент</td>
+                            <td>Төмөнкү</td>
+                            <td><code>p { }</code></td>
+                            <td>Бардык ушундай тегдер</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <footer>
+            <p>Бактылуу окуу! 🎓</p>
+        </footer>
+    </div>
+</body>
+</html>
+

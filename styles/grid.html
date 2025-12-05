@@ -1,0 +1,839 @@
+<!DOCTYPE html>
+<html lang="ky">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grid Layout - Сабак</title>
+    <link rel="stylesheet" href="grid-styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Grid Layout</h1>
+            <p class="subtitle">Баштап жаткандар үчүн толук сабак</p>
+        </header>
+
+        <!-- ТЕОРИЯ БӨЛҮМҮ -->
+        <section class="theory-section">
+            <h2>📚 Теория</h2>
+            
+            <div class="theory-card">
+                <h3>1. CSS Grid деген эмне?</h3>
+                
+                <p><strong>CSS Grid</strong> - 2D (эки өлчөмдүү) grid системасы, элементтерди саптарга жана колонкаларга жайгаштыруу үчүн.</p>
+                
+                <h4>Негизги түшүнүктөр:</h4>
+                <ul>
+                    <li><strong>Grid Container</strong> - <code>display: grid;</code> менен элемент</li>
+                    <li><strong>Grid Items</strong> - контейнердин ичиндеги элементтер</li>
+                    <li><strong>Grid Lines</strong> - саптарды жана колонкаларды бөлүүчү сызыктар</li>
+                    <li><strong>Grid Tracks</strong> - саптар же колонкалар</li>
+                    <li><strong>Grid Cells</strong> - сап менен колонканын кесилиши</li>
+                </ul>
+                
+                <div class="code-example">
+                    <pre><code>/* CSS Grid */
+.grid-container {
+    display: grid;  /* Grid контейнер */
+}
+
+.grid-item {
+    /* Grid элемент */
+}
+
+/* Grid - 2D системасы (саптар жана колонкалар) */</code></pre>
+                </div>
+            </div>
+
+            <div class="theory-card">
+                <h3>2. grid-template-columns - Колонкаларды аныктоо</h3>
+                
+                <p><strong>grid-template-columns</strong> - grid'дин колонкаларын аныктайт.</p>
+                
+                <h4>Маанилер:</h4>
+                <ul>
+                    <li><code>grid-template-columns: 200px 200px 200px;</code> - 3 колонка, ар бири 200px</li>
+                    <li><code>grid-template-columns: 1fr 2fr 1fr;</code> - 3 колонка, пропорция менен</li>
+                    <li><code>grid-template-columns: repeat(3, 1fr);</code> - 3 колонка, бирдей өлчөм</li>
+                    <li><code>grid-template-columns: 1fr 2fr;</code> - 2 колонка</li>
+                    <li><code>grid-template-columns: auto 1fr auto;</code> - auto, 1fr, auto</li>
+                </ul>
+                
+                <div class="code-example">
+                    <pre><code>/* grid-template-columns */
+.grid-container {
+    display: grid;
+    grid-template-columns: 200px 200px 200px;  /* 3 колонка */
+    grid-template-columns: 1fr 2fr 1fr;        /* Пропорция менен */
+    grid-template-columns: repeat(3, 1fr);      /* 3 колонка, бирдей */
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));  /* Респонсивдик */
+}
+
+/* fr (fraction) - бош орунду бөлүшүү */</code></pre>
+                </div>
+            </div>
+
+            <div class="theory-card">
+                <h3>3. grid-template-rows - Саптарды аныктоо</h3>
+                
+                <p><strong>grid-template-rows</strong> - grid'дин саптарын аныктайт.</p>
+                
+                <h4>Маанилер:</h4>
+                <ul>
+                    <li><code>grid-template-rows: 100px 200px 100px;</code> - 3 сап, ар биринин бийиктиги</li>
+                    <li><code>grid-template-rows: 1fr 2fr 1fr;</code> - 3 сап, пропорция менен</li>
+                    <li><code>grid-template-rows: repeat(3, 1fr);</code> - 3 сап, бирдей бийиктик</li>
+                    <li><code>grid-template-rows: auto;</code> - автоматтык бийиктик</li>
+                </ul>
+                
+                <div class="code-example">
+                    <pre><code>/* grid-template-rows */
+.grid-container {
+    display: grid;
+    grid-template-rows: 100px 200px 100px;  /* 3 сап */
+    grid-template-rows: 1fr 2fr 1fr;        /* Пропорция менен */
+    grid-template-rows: repeat(3, 1fr);     /* 3 сап, бирдей */
+    grid-template-rows: auto;               /* Автоматтык */
+}
+
+/* Саптардын бийиктигин аныктайт */</code></pre>
+                </div>
+            </div>
+
+            <div class="theory-card">
+                <h3>4. gap - Элементтердин ортосундагы аралык</h3>
+                
+                <p><strong>gap</strong> - grid элементтердин ортосундагы аралыкты аныктайт.</p>
+                
+                <h4>Синтаксис:</h4>
+                <ul>
+                    <li><code>gap: 20px;</code> - бардык тарапка (row-gap жана column-gap)</li>
+                    <li><code>gap: 20px 30px;</code> - саптардын аралыгы, колонкалардын аралыгы</li>
+                    <li><code>row-gap: 20px;</code> - саптардын ортосундагы аралык</li>
+                    <li><code>column-gap: 30px;</code> - колонкалардын ортосундагы аралык</li>
+                </ul>
+                
+                <div class="code-example">
+                    <pre><code>/* gap */
+.grid-container {
+    display: grid;
+    gap: 20px;              /* Бардык тарапка 20px */
+    gap: 20px 30px;         /* Сап: 20px, Колонка: 30px */
+    
+    row-gap: 20px;          /* Саптардын ортосундагы аралык */
+    column-gap: 30px;       /* Колонкалардын ортосундагы аралык */
+}
+
+/* gap - margin'дан жакшы, анткени бир гана касиет */</code></pre>
+                </div>
+            </div>
+
+            <div class="theory-card">
+                <h3>5. grid-area - Элементтин аймагын аныктоо</h3>
+                
+                <p><strong>grid-area</strong> - элементтин grid'де кайсы аймакты ээлеэрин аныктайт.</p>
+                
+                <h4>Ыкмалар:</h4>
+                <ul>
+                    <li><code>grid-area: 1 / 1 / 2 / 2;</code> - row-start / col-start / row-end / col-end</li>
+                    <li><code>grid-area: 1 / 1 / span 2 / span 3;</code> - span менен</li>
+                    <li><code>grid-area: header;</code> - аты менен (grid-template-areas менен)</li>
+                </ul>
+                
+                <h4>Айрым касиеттер:</h4>
+                <ul>
+                    <li><code>grid-row-start</code>, <code>grid-row-end</code></li>
+                    <li><code>grid-column-start</code>, <code>grid-column-end</code></li>
+                    <li><code>grid-row</code>, <code>grid-column</code></li>
+                </ul>
+                
+                <div class="code-example">
+                    <pre><code>/* grid-area */
+.grid-item {
+    grid-area: 1 / 1 / 2 / 2;  /* row-start / col-start / row-end / col-end */
+    grid-area: 1 / 1 / span 2 / span 3;  /* span менен */
+}
+
+/* Айрым касиеттер */
+.grid-item {
+    grid-row-start: 1;
+    grid-row-end: 3;
+    grid-column-start: 1;
+    grid-column-end: 3;
+    
+    /* Кыскача */
+    grid-row: 1 / 3;
+    grid-column: 1 / 3;
+}
+
+/* grid-template-areas менен */
+.grid-container {
+    grid-template-areas: 
+        "header header"
+        "sidebar content"
+        "footer footer";
+}
+
+.header {
+    grid-area: header;
+}</code></pre>
+                </div>
+            </div>
+
+            <div class="theory-card">
+                <h3>6. Grid менен макет</h3>
+                
+                <h4>grid-template-areas - Аймактарды аныктоо</h4>
+                <ul>
+                    <li>Аймактарды аты менен аныктоо</li>
+                    <li>Элементтерди аты менен жайгаштыруу</li>
+                    <li>Макетти оңой кылуу</li>
+                </ul>
+                
+                <h4>Респонсивдик Grid</h4>
+                <ul>
+                    <li><code>repeat(auto-fit, minmax(200px, 1fr))</code> - автоматтык капталуу</li>
+                    <li><code>repeat(auto-fill, minmax(200px, 1fr))</code> - автоматтык толтуруу</li>
+                </ul>
+                
+                <div class="code-example">
+                    <pre><code>/* Grid менен макет */
+.grid-container {
+    display: grid;
+    grid-template-columns: 200px 1fr 200px;
+    grid-template-rows: auto 1fr auto;
+    grid-template-areas: 
+        "header header header"
+        "sidebar content aside"
+        "footer footer footer";
+    gap: 20px;
+}
+
+.header {
+    grid-area: header;
+}
+
+.sidebar {
+    grid-area: sidebar;
+}
+
+.content {
+    grid-area: content;
+}
+
+/* Респонсивдик */
+.grid-responsive {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- ЖЕНИЛ МИСАЛДАР -->
+        <section class="examples-section">
+            <h2>🟢 ЖЕНИЛ МИСАЛДАР</h2>
+
+            <div class="example-group">
+                <h3>Мисал 1: grid-template-columns</h3>
+                <div class="demo-box">
+                    <div class="columns-demo">
+                        <div class="grid-container cols-3">
+                            <div class="grid-item">1</div>
+                            <div class="grid-item">2</div>
+                            <div class="grid-item">3</div>
+                        </div>
+                        <p class="label">3 колонка (200px ар бири)</p>
+                        
+                        <div class="grid-container cols-fr">
+                            <div class="grid-item">1fr</div>
+                            <div class="grid-item">2fr</div>
+                            <div class="grid-item">1fr</div>
+                        </div>
+                        <p class="label">3 колонка (1fr 2fr 1fr)</p>
+                        
+                        <div class="grid-container cols-repeat">
+                            <div class="grid-item">1</div>
+                            <div class="grid-item">2</div>
+                            <div class="grid-item">3</div>
+                            <div class="grid-item">4</div>
+                        </div>
+                        <p class="label">4 колонка (repeat(4, 1fr))</p>
+                    </div>
+                </div>
+                <div class="code-example">
+                    <pre><code>/* grid-template-columns */
+.grid-container {
+    display: grid;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.cols-3 {
+    grid-template-columns: 200px 200px 200px;
+}
+
+.cols-fr {
+    grid-template-columns: 1fr 2fr 1fr;
+}
+
+.cols-repeat {
+    grid-template-columns: repeat(4, 1fr);
+}</code></pre>
+                </div>
+            </div>
+
+            <div class="example-group">
+                <h3>Мисал 2: grid-template-rows</h3>
+                <div class="demo-box">
+                    <div class="rows-demo">
+                        <div class="grid-container rows-3">
+                            <div class="grid-item">Сап 1 (100px)</div>
+                            <div class="grid-item">Сап 2 (200px)</div>
+                            <div class="grid-item">Сап 3 (100px)</div>
+                        </div>
+                        <p class="label">3 сап (100px, 200px, 100px)</p>
+                        
+                        <div class="grid-container rows-fr">
+                            <div class="grid-item">Сап 1 (1fr)</div>
+                            <div class="grid-item">Сап 2 (2fr)</div>
+                            <div class="grid-item">Сап 3 (1fr)</div>
+                        </div>
+                        <p class="label">3 сап (1fr 2fr 1fr)</p>
+                    </div>
+                </div>
+                <div class="code-example">
+                    <pre><code>/* grid-template-rows */
+.grid-container {
+    display: grid;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.rows-3 {
+    grid-template-columns: 1fr;
+    grid-template-rows: 100px 200px 100px;
+}
+
+.rows-fr {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 2fr 1fr;
+    height: 300px;
+}</code></pre>
+                </div>
+            </div>
+
+            <div class="example-group">
+                <h3>Мисал 3: gap</h3>
+                <div class="demo-box">
+                    <div class="gap-demo">
+                        <div class="grid-container no-gap">
+                            <div class="grid-item">1</div>
+                            <div class="grid-item">2</div>
+                            <div class="grid-item">3</div>
+                            <div class="grid-item">4</div>
+                        </div>
+                        <p class="label">gap жок</p>
+                        
+                        <div class="grid-container with-gap">
+                            <div class="grid-item">1</div>
+                            <div class="grid-item">2</div>
+                            <div class="grid-item">3</div>
+                            <div class="grid-item">4</div>
+                        </div>
+                        <p class="label">gap: 20px</p>
+                        
+                        <div class="grid-container gap-different">
+                            <div class="grid-item">1</div>
+                            <div class="grid-item">2</div>
+                            <div class="grid-item">3</div>
+                            <div class="grid-item">4</div>
+                        </div>
+                        <p class="label">gap: 10px 30px (row: 10px, column: 30px)</p>
+                    </div>
+                </div>
+                <div class="code-example">
+                    <pre><code>/* gap */
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    margin-bottom: 20px;
+}
+
+.no-gap {
+    /* gap жок */
+}
+
+.with-gap {
+    gap: 20px;  /* Бардык тарапка 20px */
+}
+
+.gap-different {
+    gap: 10px 30px;  /* Сап: 10px, Колонка: 30px */
+}</code></pre>
+                </div>
+            </div>
+
+            <div class="example-group">
+                <h3>Мисал 4: grid-area - Айрым касиеттер менен</h3>
+                <div class="demo-box">
+                    <div class="area-demo">
+                        <div class="grid-container area-basic">
+                            <div class="grid-item item1">1 (grid-area: 1/1/2/3)</div>
+                            <div class="grid-item item2">2</div>
+                            <div class="grid-item item3">3</div>
+                            <div class="grid-item item4">4</div>
+                        </div>
+                        <p class="label">grid-area менен элементтерди жайгаштыруу</p>
+                    </div>
+                </div>
+                <div class="code-example">
+                    <pre><code>/* grid-area */
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 100px);
+    gap: 10px;
+}
+
+.item1 {
+    grid-area: 1 / 1 / 2 / 3;  /* 1-сап, 1-колонкадан 2-колонкага */
+    background: #f5576c;
+}
+
+.item2 {
+    grid-area: 1 / 3 / 3 / 4;  /* 1-саптан 3-сапка, 3-колонка */
+    background: #4CAF50;
+}
+
+/* grid-area: row-start / col-start / row-end / col-end */</code></pre>
+                </div>
+            </div>
+
+            <div class="example-group">
+                <h3>Мисал 5: grid-row жана grid-column</h3>
+                <div class="demo-box">
+                    <div class="row-col-demo">
+                        <div class="grid-container row-col-basic">
+                            <div class="grid-item item1">1 (grid-row: 1/3)</div>
+                            <div class="grid-item item2">2</div>
+                            <div class="grid-item item3">3 (grid-column: 2/4)</div>
+                            <div class="grid-item item4">4</div>
+                        </div>
+                        <p class="label">grid-row жана grid-column менен</p>
+                    </div>
+                </div>
+                <div class="code-example">
+                    <pre><code>/* grid-row жана grid-column */
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 100px);
+    gap: 10px;
+}
+
+.item1 {
+    grid-row: 1 / 3;  /* 1-саптан 3-сапка */
+    background: #667eea;
+}
+
+.item3 {
+    grid-column: 2 / 4;  /* 2-колонкадан 4-колонкага */
+    background: #f5576c;
+}
+
+/* grid-row: start / end */
+/* grid-column: start / end */</code></pre>
+                </div>
+            </div>
+
+            <div class="example-group">
+                <h3>Мисал 6: grid-template-areas</h3>
+                <div class="demo-box">
+                    <div class="areas-demo">
+                        <div class="grid-container areas-basic">
+                            <div class="grid-item header">Header</div>
+                            <div class="grid-item sidebar">Sidebar</div>
+                            <div class="grid-item content">Content</div>
+                            <div class="grid-item footer">Footer</div>
+                        </div>
+                        <p class="label">grid-template-areas менен макет</p>
+                    </div>
+                </div>
+                <div class="code-example">
+                    <pre><code>/* grid-template-areas */
+.grid-container {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    grid-template-rows: auto 1fr auto;
+    grid-template-areas: 
+        "header header"
+        "sidebar content"
+        "footer footer";
+    gap: 20px;
+    min-height: 400px;
+}
+
+.header {
+    grid-area: header;
+    background: #667eea;
+}
+
+.sidebar {
+    grid-area: sidebar;
+    background: #4CAF50;
+}
+
+.content {
+    grid-area: content;
+    background: #f5576c;
+}
+
+.footer {
+    grid-area: footer;
+    background: #9b59b6;
+}</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- ООР МИСАЛДАР -->
+        <section class="examples-section">
+            <h2>🔴 ООР МИСАЛДАР</h2>
+
+            <div class="example-group">
+                <h3>Мисал 7: Практикалык Grid макет</h3>
+                <div class="demo-box">
+                    <div class="practical-grid-demo">
+                        <div class="grid-layout">
+                            <header class="grid-header">Header</header>
+                            <aside class="grid-sidebar">Sidebar</aside>
+                            <main class="grid-main">Main Content</main>
+                            <aside class="grid-aside">Aside</aside>
+                            <footer class="grid-footer">Footer</footer>
+                        </div>
+                    </div>
+                </div>
+                <div class="code-example">
+                    <pre><code>/* Практикалык Grid макет */
+.grid-layout {
+    display: grid;
+    grid-template-columns: 200px 1fr 200px;
+    grid-template-rows: auto 1fr auto;
+    grid-template-areas: 
+        "header header header"
+        "sidebar main aside"
+        "footer footer footer";
+    gap: 20px;
+    min-height: 500px;
+}
+
+.grid-header {
+    grid-area: header;
+    background: #667eea;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+.grid-sidebar {
+    grid-area: sidebar;
+    background: #f8f9fa;
+    padding: 20px;
+}
+
+.grid-main {
+    grid-area: main;
+    background: white;
+    padding: 20px;
+}
+
+.grid-aside {
+    grid-area: aside;
+    background: #f8f9fa;
+    padding: 20px;
+}
+
+.grid-footer {
+    grid-area: footer;
+    background: #333;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}</code></pre>
+                </div>
+            </div>
+
+            <div class="example-group">
+                <h3>Мисал 8: Респонсивдик Grid карточкалар</h3>
+                <div class="demo-box">
+                    <div class="responsive-grid-demo">
+                        <div class="cards-grid">
+                            <div class="card">Карточка 1</div>
+                            <div class="card">Карточка 2</div>
+                            <div class="card">Карточка 3</div>
+                            <div class="card">Карточка 4</div>
+                            <div class="card">Карточка 5</div>
+                            <div class="card">Карточка 6</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="code-example">
+                    <pre><code>/* Респонсивдик Grid карточкалар */
+.cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.card {
+    padding: 30px;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+    border-radius: 10px;
+    text-align: center;
+    font-weight: bold;
+    min-height: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* repeat(auto-fit, minmax(200px, 1fr)) - респонсивдик */</code></pre>
+                </div>
+            </div>
+
+            <div class="example-group">
+                <h3>Мисал 9: Татаал grid-area макет</h3>
+                <div class="demo-box">
+                    <div class="complex-area-demo">
+                        <div class="complex-grid">
+                            <div class="grid-item item1">1 (span 2x2)</div>
+                            <div class="grid-item item2">2</div>
+                            <div class="grid-item item3">3</div>
+                            <div class="grid-item item4">4</div>
+                            <div class="grid-item item5">5 (span 2x1)</div>
+                            <div class="grid-item item6">6</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="code-example">
+                    <pre><code>/* Татаал grid-area макет */
+.complex-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(3, 100px);
+    gap: 10px;
+}
+
+.item1 {
+    grid-area: 1 / 1 / 3 / 3;  /* 2x2 аймак */
+    background: #667eea;
+}
+
+.item5 {
+    grid-area: 2 / 3 / 3 / 5;  /* 2x1 аймак */
+    background: #f5576c;
+}
+
+/* grid-area менен элементтерди кеңири жайгаштыруу */</code></pre>
+                </div>
+            </div>
+
+            <div class="example-group">
+                <h3>Мисал 10: Бардык Grid касиеттер бирге</h3>
+                <div class="demo-box">
+                    <div class="all-grid-demo">
+                        <div class="all-grid">
+                            <div class="grid-item">1</div>
+                            <div class="grid-item">2</div>
+                            <div class="grid-item">3</div>
+                            <div class="grid-item">4</div>
+                            <div class="grid-item">5</div>
+                            <div class="grid-item">6</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="code-example">
+                    <pre><code>/* Бардык Grid касиеттер бирге */
+.all-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 100px);
+    gap: 20px;
+    padding: 20px;
+    background: #f8f9fa;
+    border-radius: 8px;
+}
+
+.grid-item {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+}</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- ПРАКТИКА -->
+        <section class="practice-section">
+            <h2>💻 ПРАКТИКА</h2>
+            <div class="practice-card">
+                <h3>Өзүңүз кылыңыз:</h3>
+                <ol>
+                    <li>grid-template-columns менен колонкаларды аныктаңыз</li>
+                    <li>grid-template-rows менен саптарды аныктаңыз</li>
+                    <li>gap менен элементтердин ортосундагы аралыкты коюңуз</li>
+                    <li>grid-area менен элементтерди жайгаштырыңыз</li>
+                    <li>grid-row жана grid-column менен элементтерди жайгаштырыңыз</li>
+                    <li>grid-template-areas менен макет кылыңыз</li>
+                    <li>Практикалык Grid макет кылыңыз (header, sidebar, content, footer)</li>
+                    <li>Респонсивдик Grid карточкаларды кылыңыз (auto-fit, minmax)</li>
+                    <li>Татаал grid-area макет кылыңыз</li>
+                    <li>Бардык Grid касиеттерди бирге практикалаңыз</li>
+                </ol>
+            </div>
+        </section>
+
+        <!-- КЕСТЕ -->
+        <section class="table-section">
+            <h2>📊 grid-template-columns маанилери</h2>
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Маани</th>
+                            <th>Түшүндүрмө</th>
+                            <th>Мисал</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><code>200px 200px</code></td>
+                            <td>Так өлчөмдөр</td>
+                            <td>2 колонка, ар бири 200px</td>
+                        </tr>
+                        <tr>
+                            <td><code>1fr 2fr</code></td>
+                            <td>Пропорция менен</td>
+                            <td>2 колонка, 1:2 катыш</td>
+                        </tr>
+                        <tr>
+                            <td><code>repeat(3, 1fr)</code></td>
+                            <td>Кайталануу</td>
+                            <td>3 колонка, бирдей өлчөм</td>
+                        </tr>
+                        <tr>
+                            <td><code>auto-fit</code></td>
+                            <td>Автоматтык капталуу</td>
+                            <td>Респонсивдик</td>
+                        </tr>
+                        <tr>
+                            <td><code>minmax(200px, 1fr)</code></td>
+                            <td>Минималдуу жана максималдуу</td>
+                            <td>200px минималдуу, 1fr максималдуу</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section class="table-section">
+            <h2>📊 grid-area синтаксиси</h2>
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Синтаксис</th>
+                            <th>Түшүндүрмө</th>
+                            <th>Мисал</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><code>1 / 1 / 2 / 2</code></td>
+                            <td>row-start / col-start / row-end / col-end</td>
+                            <td>1-сап, 1-колонка</td>
+                        </tr>
+                        <tr>
+                            <td><code>1 / 1 / span 2 / span 3</code></td>
+                            <td>span менен</td>
+                            <td>2 сап, 3 колонка</td>
+                        </tr>
+                        <tr>
+                            <td><code>header</code></td>
+                            <td>Аты менен</td>
+                            <td>grid-template-areas менен</td>
+                        </tr>
+                        <tr>
+                            <td><code>grid-row: 1/3</code></td>
+                            <td>Саптарды аныктоо</td>
+                            <td>1-саптан 3-сапка</td>
+                        </tr>
+                        <tr>
+                            <td><code>grid-column: 1/3</code></td>
+                            <td>Колонкаларды аныктоо</td>
+                            <td>1-колонкадан 3-колонкага</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section class="table-section">
+            <h2>📊 Grid касиеттери</h2>
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Касиет</th>
+                            <th>Маанилер</th>
+                            <th>Колдонулушу</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><code>display</code></td>
+                            <td>grid, inline-grid</td>
+                            <td>Grid контейнер кылуу</td>
+                        </tr>
+                        <tr>
+                            <td><code>grid-template-columns</code></td>
+                            <td>px, fr, repeat(), auto-fit</td>
+                            <td>Колонкаларды аныктоо</td>
+                        </tr>
+                        <tr>
+                            <td><code>grid-template-rows</code></td>
+                            <td>px, fr, repeat(), auto</td>
+                            <td>Саптарды аныктоо</td>
+                        </tr>
+                        <tr>
+                            <td><code>gap</code></td>
+                            <td>px, rem</td>
+                            <td>Элементтердин ортосундагы аралык</td>
+                        </tr>
+                        <tr>
+                            <td><code>grid-area</code></td>
+                            <td>1/1/2/2, span, аты</td>
+                            <td>Элементтин аймагын аныктоо</td>
+                        </tr>
+                        <tr>
+                            <td><code>grid-template-areas</code></td>
+                            <td>Аймактардын аты</td>
+                            <td>Аймактарды аныктоо</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <footer>
+            <p>Бактылуу окуу! 🎓</p>
+        </footer>
+    </div>
+</body>
+</html>
+

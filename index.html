@@ -22,7 +22,7 @@
         }
 
         .container {
-            max-width: 900px;
+            max-width: 1000px;
             background: white;
             border-radius: 20px;
             padding: 50px;
@@ -94,11 +94,143 @@
 <body>
     <div class="container">
         <header>
-            <h1>CSS Сабактар</h1>
+            <h1>HTML & CSS Сабактар</h1>
             <p class="subtitle">Баштап жаткандар үчүн толук сабактар</p>
         </header>
 
         <div class="lessons-grid">
+            <a href="/basics/html-basics.html" class="lesson-card">
+                <div class="icon">📝</div>
+                <h2>HTML менен таанышуу</h2>
+                <p>HTML документтин түзүлүшү, тегдер, атрибуттар</p>
+            </a>
+
+            <a href="/basics/html-basic-tags.html" class="lesson-card">
+                <div class="icon">🏷️</div>
+                <h2>Негизги HTML тегдер</h2>
+                <p>h1-h6, p, div, span, br, hr тегдери</p>
+            </a>
+
+            <a href="/basics/html-text-formatting.html" class="lesson-card">
+                <div class="icon">✏️</div>
+                <h2>Текстти форматтоо</h2>
+                <p>b, strong, i, em, u, mark, small, sup, sub</p>
+            </a>
+
+            <a href="/basics/html-links-navigation.html" class="lesson-card">
+                <div class="icon">🔗</div>
+                <h2>Сылкалар жана Навигация</h2>
+                <p>a href, target, title, download, якорь, nav</p>
+            </a>
+
+            <a href="/basics/html-images-media.html" class="lesson-card">
+                <div class="icon">🖼️</div>
+                <h2>Сүрөт жана Медиа</h2>
+                <p>img, video, audio, iframe - YouTube, карталар</p>
+            </a>
+
+            <a href="/basics/html-tables.html" class="lesson-card">
+                <div class="icon">📊</div>
+                <h2>Таблицалар</h2>
+                <p>table, tr, td, th, thead, tbody, colspan, rowspan</p>
+            </a>
+
+            <a href="/basics/html-forms.html" class="lesson-card">
+                <div class="icon">📝</div>
+                <h2>Формалар</h2>
+                <p>form, input, label, textarea, select, валидация</p>
+            </a>
+
+            <a href="/basics/html-semantic.html" class="lesson-card">
+                <div class="icon">🏗️</div>
+                <h2>Семантикалык HTML5</h2>
+                <p>header, main, footer, section, article, aside</p>
+            </a>
+            
+            <a href="styles/css-intro.html" class="lesson-card">
+                <div class="icon">🎨</div>
+                <h2>CSSке киришүү</h2>
+                <p>CSS деген эмне, байланыштыруу ыкмалары, селекторлор</p>
+            </a>
+
+            <a href="styles/selectors.html" class="lesson-card">
+                <div class="icon">🎯</div>
+                <h2>Селекторлор</h2>
+                <p>p, .class, #id, комбинаторлор: >, +, ~</p>
+            </a>
+
+            <a href="styles/classes-id.html" class="lesson-card">
+                <div class="icon">🏷️</div>
+                <h2>Класстар жана ID</h2>
+                <p>Кайсы учурда class, кайсы учурда id колдонулат</p>
+            </a>
+
+            <a href="styles/units-colors.html" class="lesson-card">
+                <div class="icon">📏</div>
+                <h2>Өлчөм бирдиктери жана Түстөр</h2>
+                <p>px, %, em, rem, vw, vh, RGB, RGBA</p>
+            </a>
+
+            <a href="styles/text-styling.html" class="lesson-card">
+                <div class="icon">✍️</div>
+                <h2>Текст менен иштөө</h2>
+                <p>color, font-size, font-weight, text-align, letter-spacing, @font-face, Google Fonts</p>
+            </a>
+
+            <a href="styles/spacing-sizing.html" class="lesson-card">
+                <div class="icon">📐</div>
+                <h2>Отступтар жана Өлчөмдөр</h2>
+                <p>margin, padding, width/height, border, border-radius, box-sizing</p>
+            </a>
+
+            <a href="styles/background.html" class="lesson-card">
+                <div class="icon">🎨</div>
+                <h2>Фон</h2>
+                <p>background-color, background-image, background-size, градиенттер</p>
+            </a>
+
+            <a href="styles/display.html" class="lesson-card">
+                <div class="icon">📦</div>
+                <h2>Блок жана Inline Элементтер</h2>
+                <p>block vs inline vs inline-block, display: none vs visibility: hidden</p>
+            </a>
+
+            <a href="styles/box-model.html" class="lesson-card">
+                <div class="icon">📦</div>
+                <h2>Box Model</h2>
+                <p>Контент → Padding → Border → Margin, box-sizing</p>
+            </a>
+
+            <a href="styles/position.html" class="lesson-card">
+                <div class="icon">📍</div>
+                <h2>Позиция</h2>
+                <p>relative, absolute, fixed, sticky, static, z-index</p>
+            </a>
+
+            <a href="styles/flexbox.html" class="lesson-card">
+                <div class="icon">📐</div>
+                <h2>Flexbox</h2>
+                <p>justify-content, align-items, flex-wrap, gap, Flex менен макет</p>
+            </a>
+
+            <a href="styles/grid.html" class="lesson-card">
+                <div class="icon">🔲</div>
+                <h2>Grid Layout</h2>
+                <p>grid-template-columns, grid-template-rows, gap, grid-area</p>
+            </a>
+
+            <a href="styles/media-queries.html" class="lesson-card">
+                <div class="icon">📱</div>
+                <h2>Медиа-запрос</h2>
+                <p>max-width, min-width, Телефон/Планшет/Десктоп адаптив, Mobile-first</p>
+            </a>
+
+            <a href="styles/css-variables.html" class="lesson-card">
+                <div class="icon">🎨</div>
+                <h2>CSS Variables</h2>
+                <p>--main-color, var(), :root, өзгөрмөлөрдү башкаруу</p>
+            </a>
+
             <a href="animation/index.html" class="lesson-card">
                 <div class="icon">🎬</div>
                 <h2>Transition & Animation</h2>
@@ -116,6 +248,8 @@
                 <h2>Transform</h2>
                 <p>translate, rotate, scale, skew жана башка трансформациялар</p>
             </a>
+
+            
         </div>
 
         <footer>

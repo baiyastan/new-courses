@@ -1,0 +1,864 @@
+<!DOCTYPE html>
+<html lang="ky">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flexbox - Сабак</title>
+    <link rel="stylesheet" href="flexbox-styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Flexbox</h1>
+            <p class="subtitle">Баштап жаткандар үчүн толук сабак</p>
+        </header>
+
+        <!-- ТЕОРИЯ БӨЛҮМҮ -->
+        <section class="theory-section">
+            <h2>📚 Теория</h2>
+            
+            <div class="theory-card">
+                <h3>1. Flexbox деген эмне?</h3>
+                
+                <p><strong>Flexbox</strong> - элементтерди жакшы жайгаштыруу үчүн колдонулуучу CSS системасы.</p>
+                
+                <h4>Негизги түшүнүктөр:</h4>
+                <ul>
+                    <li><strong>Flex Container</strong> - <code>display: flex;</code> менен элемент</li>
+                    <li><strong>Flex Items</strong> - контейнердин ичиндеги элементтер</li>
+                    <li><strong>Main Axis</strong> - негизги огу (горизонталдык же вертикалдык)</li>
+                    <li><strong>Cross Axis</strong> - кесилген огу (негизги огуна перпендикуляр)</li>
+                </ul>
+                
+                <div class="code-example">
+                    <pre><code>/* Flexbox */
+.flex-container {
+    display: flex;  /* Flex контейнер */
+}
+
+.flex-item {
+    /* Flex элемент */
+}
+
+/* Flexbox элементтерди жакшы жайгаштыруу үчүн */</code></pre>
+                </div>
+            </div>
+
+            <div class="theory-card">
+                <h3>2. justify-content - Негизги огу боюнча жайгаштыруу</h3>
+                
+                <p><strong>justify-content</strong> - элементтерди негизги огу боюнча (горизонталдык) жайгаштырат.</p>
+                
+                <h4>Маанилер:</h4>
+                <ul>
+                    <li><code>flex-start</code> - башынан (солго)</li>
+                    <li><code>flex-end</code> - аягынан (оңго)</li>
+                    <li><code>center</code> - борборго</li>
+                    <li><code>space-between</code> - ортосунда аралык (эки тарапка)</li>
+                    <li><code>space-around</code> - тегерегинде аралык</li>
+                    <li><code>space-evenly</code> - бирдей аралык</li>
+                </ul>
+                
+                <div class="code-example">
+                    <pre><code>/* justify-content */
+.flex-container {
+    display: flex;
+    justify-content: flex-start;    /* Башынан */
+    justify-content: flex-end;       /* Аягынан */
+    justify-content: center;          /* Борборго */
+    justify-content: space-between;   /* Ортосунда аралык */
+    justify-content: space-around;    /* Тегерегинде аралык */
+    justify-content: space-evenly;    /* Бирдей аралык */
+}</code></pre>
+                </div>
+            </div>
+
+            <div class="theory-card">
+                <h3>3. align-items - Кесилген огу боюнча жайгаштыруу</h3>
+                
+                <p><strong>align-items</strong> - элементтерди кесилген огу боюнча (вертикалдык) жайгаштырат.</p>
+                
+                <h4>Маанилер:</h4>
+                <ul>
+                    <li><code>flex-start</code> - башынан (үстүнөн)</li>
+                    <li><code>flex-end</code> - аягынан (астынан)</li>
+                    <li><code>center</code> - борборго</li>
+                    <li><code>stretch</code> - созулуп (дефолт)</li>
+                    <li><code>baseline</code> - базалык сызыкка</li>
+                </ul>
+                
+                <div class="code-example">
+                    <pre><code>/* align-items */
+.flex-container {
+    display: flex;
+    align-items: flex-start;    /* Үстүнөн */
+    align-items: flex-end;       /* Астынан */
+    align-items: center;         /* Борборго */
+    align-items: stretch;        /* Созулуп (дефолт) */
+    align-items: baseline;       /* Базалык сызыкка */
+}</code></pre>
+                </div>
+            </div>
+
+            <div class="theory-card">
+                <h3>4. flex-wrap - Капталуу</h3>
+                
+                <p><strong>flex-wrap</strong> - элементтердин капталуусун (wrapping) аныктайт.</p>
+                
+                <h4>Маанилер:</h4>
+                <ul>
+                    <li><code>nowrap</code> - капталбайт (дефолт)</li>
+                    <li><code>wrap</code> - капталат (жаңы сапка)</li>
+                    <li><code>wrap-reverse</code> - капталат (тескери тартипте)</li>
+                </ul>
+                
+                <div class="code-example">
+                    <pre><code>/* flex-wrap */
+.flex-container {
+    display: flex;
+    flex-wrap: nowrap;        /* Капталбайт */
+    flex-wrap: wrap;          /* Капталат */
+    flex-wrap: wrap-reverse;  /* Капталат (тескери) */
+}
+
+/* Кыскача */
+.flex-container {
+    display: flex;
+    flex-flow: row wrap;  /* flex-direction + flex-wrap */
+}</code></pre>
+                </div>
+            </div>
+
+            <div class="theory-card">
+                <h3>5. gap - Элементтердин ортосундагы аралык</h3>
+                
+                <p><strong>gap</strong> - flex элементтердин ортосундагы аралыкты аныктайт.</p>
+                
+                <h4>Синтаксис:</h4>
+                <ul>
+                    <li><code>gap: 20px;</code> - бардык тарапка</li>
+                    <li><code>gap: 20px 30px;</code> - сап, колонка</li>
+                    <li><code>row-gap: 20px;</code> - саптардын ортосундагы аралык</li>
+                    <li><code>column-gap: 30px;</code> - колонкалардын ортосундагы аралык</li>
+                </ul>
+                
+                <div class="code-example">
+                    <pre><code>/* gap */
+.flex-container {
+    display: flex;
+    gap: 20px;              /* Бардык тарапка 20px */
+    gap: 20px 30px;         /* Сап: 20px, Колонка: 30px */
+    
+    row-gap: 20px;          /* Саптардын ортосундагы аралык */
+    column-gap: 30px;       /* Колонкалардын ортосундагы аралык */
+}
+
+/* gap - margin'дан жакшы, анткени бир гана касиет */</code></pre>
+                </div>
+            </div>
+
+            <div class="theory-card">
+                <h3>6. Flex менен макет</h3>
+                
+                <h4>flex-direction - Багыт</h4>
+                <ul>
+                    <li><code>row</code> - катар (дефолт, солдон оңго)</li>
+                    <li><code>row-reverse</code> - катар (тескери, оңдон солго)</li>
+                    <li><code>column</code> - колонка (үстүнөн астына)</li>
+                    <li><code>column-reverse</code> - колонка (тескери, астынан үстүнө)</li>
+                </ul>
+                
+                <h4>flex - Элементтин өлчөмү</h4>
+                <ul>
+                    <li><code>flex: 1;</code> - бардык бош орунду ээлейт</li>
+                    <li><code>flex: 0 1 auto;</code> - дефолт</li>
+                    <li><code>flex-grow</code> - өсүү коэффициенти</li>
+                    <li><code>flex-shrink</code> - кичирейүү коэффициенти</li>
+                    <li><code>flex-basis</code> - баштапкы өлчөм</li>
+                </ul>
+                
+                <div class="code-example">
+                    <pre><code>/* Flex менен макет */
+.flex-container {
+    display: flex;
+    flex-direction: row;         /* Катар */
+    flex-direction: column;      /* Колонка */
+}
+
+.flex-item {
+    flex: 1;  /* Бардык бош орунду ээлейт */
+    flex: 0 1 auto;  /* Дефолт */
+    flex-grow: 1;     /* Өсүү */
+    flex-shrink: 1;   /* Кичирейүү */
+    flex-basis: 200px; /* Баштапкы өлчөм */
+}</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- ЖЕНИЛ МИСАЛДАР -->
+        <section class="examples-section">
+            <h2>🟢 ЖЕНИЛ МИСАЛДАР</h2>
+
+            <div class="example-group">
+                <h3>Мисал 1: justify-content</h3>
+                <div class="demo-box">
+                    <div class="justify-demo">
+                        <div class="justify-container start">
+                            <div class="flex-item">1</div>
+                            <div class="flex-item">2</div>
+                            <div class="flex-item">3</div>
+                        </div>
+                        <p class="label">flex-start</p>
+                        
+                        <div class="justify-container end">
+                            <div class="flex-item">1</div>
+                            <div class="flex-item">2</div>
+                            <div class="flex-item">3</div>
+                        </div>
+                        <p class="label">flex-end</p>
+                        
+                        <div class="justify-container center">
+                            <div class="flex-item">1</div>
+                            <div class="flex-item">2</div>
+                            <div class="flex-item">3</div>
+                        </div>
+                        <p class="label">center</p>
+                        
+                        <div class="justify-container between">
+                            <div class="flex-item">1</div>
+                            <div class="flex-item">2</div>
+                            <div class="flex-item">3</div>
+                        </div>
+                        <p class="label">space-between</p>
+                        
+                        <div class="justify-container around">
+                            <div class="flex-item">1</div>
+                            <div class="flex-item">2</div>
+                            <div class="flex-item">3</div>
+                        </div>
+                        <p class="label">space-around</p>
+                    </div>
+                </div>
+                <div class="code-example">
+                    <pre><code>/* justify-content */
+.justify-container {
+    display: flex;
+    padding: 10px;
+    background: #f8f9fa;
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+
+.start {
+    justify-content: flex-start;
+}
+
+.end {
+    justify-content: flex-end;
+}
+
+.center {
+    justify-content: center;
+}
+
+.between {
+    justify-content: space-between;
+}
+
+.around {
+    justify-content: space-around;
+}</code></pre>
+                </div>
+            </div>
+
+            <div class="example-group">
+                <h3>Мисал 2: align-items</h3>
+                <div class="demo-box">
+                    <div class="align-demo">
+                        <div class="align-container start">
+                            <div class="flex-item">1</div>
+                            <div class="flex-item tall">2</div>
+                            <div class="flex-item">3</div>
+                        </div>
+                        <p class="label">flex-start</p>
+                        
+                        <div class="align-container end">
+                            <div class="flex-item">1</div>
+                            <div class="flex-item tall">2</div>
+                            <div class="flex-item">3</div>
+                        </div>
+                        <p class="label">flex-end</p>
+                        
+                        <div class="align-container center">
+                            <div class="flex-item">1</div>
+                            <div class="flex-item tall">2</div>
+                            <div class="flex-item">3</div>
+                        </div>
+                        <p class="label">center</p>
+                        
+                        <div class="align-container stretch">
+                            <div class="flex-item">1</div>
+                            <div class="flex-item tall">2</div>
+                            <div class="flex-item">3</div>
+                        </div>
+                        <p class="label">stretch</p>
+                    </div>
+                </div>
+                <div class="code-example">
+                    <pre><code>/* align-items */
+.align-container {
+    display: flex;
+    height: 150px;
+    padding: 10px;
+    background: #f8f9fa;
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+
+.start {
+    align-items: flex-start;
+}
+
+.end {
+    align-items: flex-end;
+}
+
+.center {
+    align-items: center;
+}
+
+.stretch {
+    align-items: stretch;
+}
+
+.flex-item.tall {
+    height: 100px;
+}</code></pre>
+                </div>
+            </div>
+
+            <div class="example-group">
+                <h3>Мисал 3: flex-wrap</h3>
+                <div class="demo-box">
+                    <div class="wrap-demo">
+                        <div class="wrap-container nowrap">
+                            <div class="flex-item">1</div>
+                            <div class="flex-item">2</div>
+                            <div class="flex-item">3</div>
+                            <div class="flex-item">4</div>
+                            <div class="flex-item">5</div>
+                        </div>
+                        <p class="label">nowrap (капталбайт)</p>
+                        
+                        <div class="wrap-container wrap">
+                            <div class="flex-item">1</div>
+                            <div class="flex-item">2</div>
+                            <div class="flex-item">3</div>
+                            <div class="flex-item">4</div>
+                            <div class="flex-item">5</div>
+                        </div>
+                        <p class="label">wrap (капталат)</p>
+                    </div>
+                </div>
+                <div class="code-example">
+                    <pre><code>/* flex-wrap */
+.wrap-container {
+    display: flex;
+    padding: 10px;
+    background: #f8f9fa;
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+
+.nowrap {
+    flex-wrap: nowrap;  /* Капталбайт */
+}
+
+.wrap {
+    flex-wrap: wrap;    /* Капталат */
+}
+
+.flex-item {
+    min-width: 150px;
+}</code></pre>
+                </div>
+            </div>
+
+            <div class="example-group">
+                <h3>Мисал 4: gap</h3>
+                <div class="demo-box">
+                    <div class="gap-demo">
+                        <div class="gap-container no-gap">
+                            <div class="flex-item">1</div>
+                            <div class="flex-item">2</div>
+                            <div class="flex-item">3</div>
+                        </div>
+                        <p class="label">gap жок</p>
+                        
+                        <div class="gap-container with-gap">
+                            <div class="flex-item">1</div>
+                            <div class="flex-item">2</div>
+                            <div class="flex-item">3</div>
+                        </div>
+                        <p class="label">gap: 20px</p>
+                        
+                        <div class="gap-container wrap-gap">
+                            <div class="flex-item">1</div>
+                            <div class="flex-item">2</div>
+                            <div class="flex-item">3</div>
+                            <div class="flex-item">4</div>
+                            <div class="flex-item">5</div>
+                        </div>
+                        <p class="label">gap: 20px (wrap менен)</p>
+                    </div>
+                </div>
+                <div class="code-example">
+                    <pre><code>/* gap */
+.gap-container {
+    display: flex;
+    padding: 10px;
+    background: #f8f9fa;
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+
+.no-gap {
+    /* gap жок */
+}
+
+.with-gap {
+    gap: 20px;  /* Бардык тарапка 20px */
+}
+
+.wrap-gap {
+    flex-wrap: wrap;
+    gap: 20px;  /* Саптардын жана колонкалардын ортосунда */
+}</code></pre>
+                </div>
+            </div>
+
+            <div class="example-group">
+                <h3>Мисал 5: justify-content + align-items</h3>
+                <div class="demo-box">
+                    <div class="combined-demo">
+                        <div class="combined-container">
+                            <div class="flex-item">Борборго</div>
+                        </div>
+                        <p class="label">center + center</p>
+                    </div>
+                </div>
+                <div class="code-example">
+                    <pre><code>/* justify-content + align-items */
+.combined-container {
+    display: flex;
+    height: 200px;
+    justify-content: center;  /* Горизонталдык борборго */
+    align-items: center;      /* Вертикалдык борборго */
+    background: #f8f9fa;
+    border-radius: 5px;
+}
+
+/* Элемент борборго жайгашат */</code></pre>
+                </div>
+            </div>
+
+            <div class="example-group">
+                <h3>Мисал 6: flex-direction</h3>
+                <div class="demo-box">
+                    <div class="direction-demo">
+                        <div class="direction-container row">
+                            <div class="flex-item">1</div>
+                            <div class="flex-item">2</div>
+                            <div class="flex-item">3</div>
+                        </div>
+                        <p class="label">row (катар)</p>
+                        
+                        <div class="direction-container column">
+                            <div class="flex-item">1</div>
+                            <div class="flex-item">2</div>
+                            <div class="flex-item">3</div>
+                        </div>
+                        <p class="label">column (колонка)</p>
+                    </div>
+                </div>
+                <div class="code-example">
+                    <pre><code>/* flex-direction */
+.direction-container {
+    display: flex;
+    padding: 10px;
+    background: #f8f9fa;
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+
+.row {
+    flex-direction: row;  /* Катар (дефолт) */
+}
+
+.column {
+    flex-direction: column;  /* Колонка */
+}</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- ООР МИСАЛДАР -->
+        <section class="examples-section">
+            <h2>🔴 ООР МИСАЛДАР</h2>
+
+            <div class="example-group">
+                <h3>Мисал 7: Практикалык Flex макет</h3>
+                <div class="demo-box">
+                    <div class="practical-layout-demo">
+                        <header class="flex-header">Header</header>
+                        <div class="flex-main">
+                            <aside class="flex-sidebar">Sidebar</aside>
+                            <main class="flex-content">Main Content</main>
+                        </div>
+                        <footer class="flex-footer">Footer</footer>
+                    </div>
+                </div>
+                <div class="code-example">
+                    <pre><code>/* Практикалык Flex макет */
+.flex-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    background: #667eea;
+    color: white;
+}
+
+.flex-main {
+    display: flex;
+    min-height: 300px;
+}
+
+.flex-sidebar {
+    flex: 0 0 200px;
+    padding: 20px;
+    background: #f8f9fa;
+}
+
+.flex-content {
+    flex: 1;
+    padding: 20px;
+    background: white;
+}
+
+.flex-footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    background: #333;
+    color: white;
+}</code></pre>
+                </div>
+            </div>
+
+            <div class="example-group">
+                <h3>Мисал 8: Респонсивдик карточкалар (Flex + gap)</h3>
+                <div class="demo-box">
+                    <div class="responsive-cards-demo">
+                        <div class="cards-container">
+                            <div class="card">Карточка 1</div>
+                            <div class="card">Карточка 2</div>
+                            <div class="card">Карточка 3</div>
+                            <div class="card">Карточка 4</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="code-example">
+                    <pre><code>/* Респонсивдик карточкалар */
+.cards-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.card {
+    flex: 1 1 250px;  /* min-width: 250px */
+    max-width: 300px;
+    padding: 30px;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+    border-radius: 10px;
+    text-align: center;
+    font-weight: bold;
+}
+
+/* gap менен margin керек эмес */</code></pre>
+                </div>
+            </div>
+
+            <div class="example-group">
+                <h3>Мисал 9: Навигация меню (Flex)</h3>
+                <div class="demo-box">
+                    <div class="nav-demo">
+                        <nav class="flex-nav">
+                            <div class="nav-logo">Логотип</div>
+                            <div class="nav-links">
+                                <a href="#" class="nav-link">Башкы</a>
+                                <a href="#" class="nav-link">Биз жөнүндө</a>
+                                <a href="#" class="nav-link">Кызматтар</a>
+                                <a href="#" class="nav-link">Байланыш</a>
+                            </div>
+                            <div class="nav-actions">
+                                <button class="nav-btn">Кирүү</button>
+                            </div>
+                        </nav>
+                    </div>
+                </div>
+                <div class="code-example">
+                    <pre><code>/* Навигация меню */
+.flex-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background: #f8f9fa;
+    border-radius: 8px;
+    gap: 20px;
+}
+
+.nav-logo {
+    font-weight: bold;
+    font-size: 1.2em;
+    color: #667eea;
+}
+
+.nav-links {
+    display: flex;
+    gap: 20px;
+}
+
+.nav-link {
+    color: #333;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.nav-actions {
+    display: flex;
+    gap: 10px;
+}
+
+.nav-btn {
+    padding: 10px 20px;
+    background: #667eea;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}</code></pre>
+                </div>
+            </div>
+
+            <div class="example-group">
+                <h3>Мисал 10: Бардык касиеттер бирге</h3>
+                <div class="demo-box">
+                    <div class="all-properties-demo">
+                        <div class="all-container">
+                            <div class="all-item">1</div>
+                            <div class="all-item">2</div>
+                            <div class="all-item">3</div>
+                            <div class="all-item">4</div>
+                            <div class="all-item">5</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="code-example">
+                    <pre><code>/* Бардык касиеттер бирге */
+.all-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    padding: 20px;
+    background: #f8f9fa;
+    border-radius: 8px;
+    min-height: 200px;
+}
+
+.all-item {
+    flex: 1 1 150px;
+    padding: 20px;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+    border-radius: 5px;
+    text-align: center;
+    font-weight: bold;
+}</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- ПРАКТИКА -->
+        <section class="practice-section">
+            <h2>💻 ПРАКТИКА</h2>
+            <div class="practice-card">
+                <h3>Өзүңүз кылыңыз:</h3>
+                <ol>
+                    <li>justify-content менен элементтерди горизонталдык жайгаштырыңыз</li>
+                    <li>align-items менен элементтерди вертикалдык жайгаштырыңыз</li>
+                    <li>flex-wrap менен элементтердин капталуусун аныктаңыз</li>
+                    <li>gap менен элементтердин ортосундагы аралыкты коюңуз</li>
+                    <li>flex-direction менен багытты өзгөртүңүз (row, column)</li>
+                    <li>justify-content + align-items бирге колдонуңуз</li>
+                    <li>Практикалык Flex макет кылыңыз (header, sidebar, content, footer)</li>
+                    <li>Респонсивдик карточкаларды Flex + gap менен кылыңыз</li>
+                    <li>Навигация менюну Flex менен стилдеңиз</li>
+                    <li>Бардык Flex касиеттерди бирге практикалаңыз</li>
+                </ol>
+            </div>
+        </section>
+
+        <!-- КЕСТЕ -->
+        <section class="table-section">
+            <h2>📊 justify-content маанилери</h2>
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Маани</th>
+                            <th>Түшүндүрмө</th>
+                            <th>Көрүнүшү</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><code>flex-start</code></td>
+                            <td>Башынан (солго)</td>
+                            <td>Элементтер солго</td>
+                        </tr>
+                        <tr>
+                            <td><code>flex-end</code></td>
+                            <td>Аягынан (оңго)</td>
+                            <td>Элементтер оңго</td>
+                        </tr>
+                        <tr>
+                            <td><code>center</code></td>
+                            <td>Борборго</td>
+                            <td>Элементтер борбордо</td>
+                        </tr>
+                        <tr>
+                            <td><code>space-between</code></td>
+                            <td>Ортосунда аралык</td>
+                            <td>Эки тарапка туураланган</td>
+                        </tr>
+                        <tr>
+                            <td><code>space-around</code></td>
+                            <td>Тегерегинде аралык</td>
+                            <td>Ар бир элементтин тегерегинде</td>
+                        </tr>
+                        <tr>
+                            <td><code>space-evenly</code></td>
+                            <td>Бирдей аралык</td>
+                            <td>Бардык аралыктар бирдей</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section class="table-section">
+            <h2>📊 align-items маанилери</h2>
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Маани</th>
+                            <th>Түшүндүрмө</th>
+                            <th>Көрүнүшү</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><code>flex-start</code></td>
+                            <td>Башынан (үстүнөн)</td>
+                            <td>Элементтер үстүнөн</td>
+                        </tr>
+                        <tr>
+                            <td><code>flex-end</code></td>
+                            <td>Аягынан (астынан)</td>
+                            <td>Элементтер астынан</td>
+                        </tr>
+                        <tr>
+                            <td><code>center</code></td>
+                            <td>Борборго</td>
+                            <td>Элементтер борбордо</td>
+                        </tr>
+                        <tr>
+                            <td><code>stretch</code></td>
+                            <td>Созулуп</td>
+                            <td>Контейнердин бийиктигине созулат</td>
+                        </tr>
+                        <tr>
+                            <td><code>baseline</code></td>
+                            <td>Базалык сызыкка</td>
+                            <td>Тексттин базалык сызыгына</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section class="table-section">
+            <h2>📊 Flex касиеттери</h2>
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Касиет</th>
+                            <th>Маанилер</th>
+                            <th>Колдонулушу</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><code>display</code></td>
+                            <td>flex, inline-flex</td>
+                            <td>Flex контейнер кылуу</td>
+                        </tr>
+                        <tr>
+                            <td><code>flex-direction</code></td>
+                            <td>row, column, row-reverse, column-reverse</td>
+                            <td>Багытты аныктайт</td>
+                        </tr>
+                        <tr>
+                            <td><code>flex-wrap</code></td>
+                            <td>nowrap, wrap, wrap-reverse</td>
+                            <td>Капталууну аныктайт</td>
+                        </tr>
+                        <tr>
+                            <td><code>justify-content</code></td>
+                            <td>flex-start, center, space-between, ж.б.</td>
+                            <td>Негизги огу боюнча</td>
+                        </tr>
+                        <tr>
+                            <td><code>align-items</code></td>
+                            <td>flex-start, center, stretch, ж.б.</td>
+                            <td>Кесилген огу боюнча</td>
+                        </tr>
+                        <tr>
+                            <td><code>gap</code></td>
+                            <td>px, rem, %</td>
+                            <td>Элементтердин ортосундагы аралык</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <footer>
+            <p>Бактылуу окуу! 🎓</p>
+        </footer>
+    </div>
+</body>
+</html>
+

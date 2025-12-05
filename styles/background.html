@@ -1,0 +1,819 @@
+<!DOCTYPE html>
+<html lang="ky">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Фон - Сабак</title>
+    <link rel="stylesheet" href="background-styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Фон</h1>
+            <p class="subtitle">Баштап жаткандар үчүн толук сабак</p>
+        </header>
+
+        <!-- ТЕОРИЯ БӨЛҮМҮ -->
+        <section class="theory-section">
+            <h2>📚 Теория</h2>
+            
+            <div class="theory-card">
+                <h3>1. background-color - Фондун түсү</h3>
+                
+                <p><strong>background-color</strong> - элементтин фондунун түсүн аныктайт.</p>
+                
+                <h4>Колдонулушу:</h4>
+                <ul>
+                    <li>RGB: <code>background-color: rgb(255, 0, 0);</code></li>
+                    <li>RGBA: <code>background-color: rgba(255, 0, 0, 0.5);</code></li>
+                    <li>Hex: <code>background-color: #FF0000;</code></li>
+                    <li>Аты менен: <code>background-color: red;</code></li>
+                    <li>Transparent: <code>background-color: transparent;</code></li>
+                </ul>
+                
+                <div class="code-example">
+                    <pre><code>/* Фондун түсү */
+.box {
+    background-color: #667eea;              /* Көк */
+    background-color: rgb(102, 126, 234);   /* Көк */
+    background-color: rgba(102, 126, 234, 0.8); /* Шыпыргы көк */
+    background-color: transparent;           /* Шыпыргы */
+}
+
+/* Кыскача */
+.box {
+    background: #667eea;  /* background-color менен бирдей */
+}</code></pre>
+                </div>
+            </div>
+
+            <div class="theory-card">
+                <h3>2. background-image - Фондун сүрөтү</h3>
+                
+                <p><strong>background-image</strong> - элементтин фондуна сүрөт кошуу.</p>
+                
+                <h4>Синтаксис:</h4>
+                <ul>
+                    <li><code>background-image: url('path/to/image.jpg');</code></li>
+                    <li><code>background-image: url('image.png');</code></li>
+                    <li><code>background-image: linear-gradient(...);</code> - градиент</li>
+                    <li><code>background-image: none;</code> - сүрөт жок</li>
+                </ul>
+                
+                <h4>Көп сүрөт:</h4>
+                <ul>
+                    <li><code>background-image: url('image1.jpg'), url('image2.jpg');</code></li>
+                </ul>
+                
+                <div class="code-example">
+                    <pre><code>/* Фондун сүрөтү */
+.box {
+    background-image: url('image.jpg');
+    background-image: url('images/background.png');
+    background-image: linear-gradient(135deg, #667eea, #764ba2);
+    background-image: none;  /* Сүрөт жок */
+}
+
+/* Көп сүрөт */
+.box {
+    background-image: url('image1.jpg'), url('image2.jpg');
+}
+
+/* Градиент */
+.box {
+    background-image: linear-gradient(to right, #667eea, #764ba2);
+    background-image: linear-gradient(135deg, #667eea, #764ba2);
+}</code></pre>
+                </div>
+            </div>
+
+            <div class="theory-card">
+                <h3>3. background-size - Фондун өлчөмү</h3>
+                
+                <p><strong>background-size</strong> - фондун сүрөтүнүн өлчөмүн аныктайт.</p>
+                
+                <h4>Маанилер:</h4>
+                <ul>
+                    <li><code>auto</code> - автоматтык (дефолт)</li>
+                    <li><code>cover</code> - элементти толук каптап, пропорцияны сактайт</li>
+                    <li><code>contain</code> - сүрөттү толук көрсөтүп, пропорцияны сактайт</li>
+                    <li><code>100% 100%</code> - туурасы жана бийиктиги</li>
+                    <li><code>200px 150px</code> - так өлчөмдөр</li>
+                </ul>
+                
+                <div class="code-example">
+                    <pre><code>/* Фондун өлчөмү */
+.box {
+    background-size: auto;              /* Автоматтык */
+    background-size: cover;             /* Элементти толук каптап */
+    background-size: contain;           /* Сүрөттү толук көрсөтүп */
+    background-size: 100% 100%;         /* Туурасы жана бийиктиги */
+    background-size: 200px 150px;       /* Так өлчөмдөр */
+    background-size: 50% auto;          /* Туурасы 50%, бийиктиги автоматтык */
+}
+
+/* Көп сүрөт */
+.box {
+    background-image: url('image1.jpg'), url('image2.jpg');
+    background-size: cover, contain;
+}</code></pre>
+                </div>
+            </div>
+
+            <div class="theory-card">
+                <h3>4. Башка фон касиеттери</h3>
+                
+                <h4>background-position - Фондун орду</h4>
+                <ul>
+                    <li><code>background-position: center;</code> - борборго</li>
+                    <li><code>background-position: top left;</code> - үстү солго</li>
+                    <li><code>background-position: 50% 50%;</code> - процент менен</li>
+                    <li><code>background-position: 20px 30px;</code> - пиксел менен</li>
+                </ul>
+                
+                <h4>background-repeat - Фондун кайталануусу</h4>
+                <ul>
+                    <li><code>no-repeat</code> - кайталанбайт</li>
+                    <li><code>repeat</code> - кайталанат (дефолт)</li>
+                    <li><code>repeat-x</code> - горизонталдык кайталанат</li>
+                    <li><code>repeat-y</code> - вертикалдык кайталанат</li>
+                </ul>
+                
+                <h4>background-attachment - Фондун бекемделиши</h4>
+                <ul>
+                    <li><code>scroll</code> - скролл менен (дефолт)</li>
+                    <li><code>fixed</code> - бекем (скролл менен кыймылдабайт)</li>
+                </ul>
+                
+                <div class="code-example">
+                    <pre><code>/* Башка фон касиеттери */
+.box {
+    /* Орду */
+    background-position: center;
+    background-position: top left;
+    background-position: 50% 50%;
+    
+    /* Кайталануусу */
+    background-repeat: no-repeat;
+    background-repeat: repeat-x;
+    background-repeat: repeat-y;
+    
+    /* Бекемделиши */
+    background-attachment: fixed;
+    
+    /* Кыскача */
+    background: #667eea url('image.jpg') center/cover no-repeat;
+}</code></pre>
+                </div>
+            </div>
+
+            <div class="theory-card">
+                <h3>5. Градиенттер</h3>
+                
+                <h4>linear-gradient - Сызыктуу градиент</h4>
+                <ul>
+                    <li><code>linear-gradient(to right, #667eea, #764ba2)</code> - оңго</li>
+                    <li><code>linear-gradient(135deg, #667eea, #764ba2)</code> - бурч менен</li>
+                    <li><code>linear-gradient(to bottom, red, blue, green)</code> - көп түстөр</li>
+                </ul>
+                
+                <h4>radial-gradient - Радиалдык градиент</h4>
+                <ul>
+                    <li><code>radial-gradient(circle, #667eea, #764ba2)</code> - тегерек</li>
+                    <li><code>radial-gradient(ellipse, #667eea, #764ba2)</code> - эллипс</li>
+                </ul>
+                
+                <div class="code-example">
+                    <pre><code>/* Градиенттер */
+.box {
+    /* Сызыктуу градиент */
+    background: linear-gradient(to right, #667eea, #764ba2);
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    background: linear-gradient(to bottom, red, blue, green);
+    
+    /* Радиалдык градиент */
+    background: radial-gradient(circle, #667eea, #764ba2);
+    background: radial-gradient(ellipse, #667eea, #764ba2);
+    
+    /* Көп градиент */
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- ЖЕНИЛ МИСАЛДАР -->
+        <section class="examples-section">
+            <h2>🟢 ЖЕНИЛ МИСАЛДАР</h2>
+
+            <div class="example-group">
+                <h3>Мисал 1: background-color - Фондун түсү</h3>
+                <div class="demo-box">
+                    <div class="bg-color-demo">
+                        <div class="color-box box1">Кызыл фон (#e74c3c)</div>
+                        <div class="color-box box2">Көк фон (#3498db)</div>
+                        <div class="color-box box3">Жашыл фон (#2ecc71)</div>
+                        <div class="color-box box4">Шыпыргы көк (rgba)</div>
+                    </div>
+                </div>
+                <div class="code-example">
+                    <pre><code>/* Фондун түсү */
+.color-box {
+    padding: 20px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    color: white;
+    font-weight: bold;
+}
+
+.box1 {
+    background-color: #e74c3c;
+}
+
+.box2 {
+    background-color: #3498db;
+}
+
+.box3 {
+    background-color: #2ecc71;
+}
+
+.box4 {
+    background-color: rgba(102, 126, 234, 0.7);
+}</code></pre>
+                </div>
+            </div>
+
+            <div class="example-group">
+                <h3>Мисал 2: background-image - Фондун сүрөтү</h3>
+                <div class="demo-box">
+                    <div class="bg-image-demo">
+                        <div class="image-box box1">Градиент фон</div>
+                        <div class="image-box box2">Градиент фон (135deg)</div>
+                        <div class="image-box box3">Көп түстүү градиент</div>
+                    </div>
+                </div>
+                <div class="code-example">
+                    <pre><code>/* Фондун сүрөтү */
+.image-box {
+    padding: 40px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+    min-height: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.box1 {
+    background-image: linear-gradient(to right, #667eea, #764ba2);
+}
+
+.box2 {
+    background-image: linear-gradient(135deg, #667eea, #764ba2);
+}
+
+.box3 {
+    background-image: linear-gradient(to bottom, #667eea, #4CAF50, #f5576c);
+}
+
+/* Сүрөт менен */
+.image-box {
+    background-image: url('image.jpg');
+}</code></pre>
+                </div>
+            </div>
+
+            <div class="example-group">
+                <h3>Мисал 3: background-size - Фондун өлчөмү</h3>
+                <div class="demo-box">
+                    <div class="bg-size-demo">
+                        <div class="size-box box1">
+                            <p>cover - Элементти толук каптап</p>
+                        </div>
+                        <div class="size-box box2">
+                            <p>contain - Сүрөттү толук көрсөтүп</p>
+                        </div>
+                        <div class="size-box box3">
+                            <p>100% 100% - Туурасы жана бийиктиги</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="code-example">
+                    <pre><code>/* Фондун өлчөмү */
+.size-box {
+    width: 100%;
+    height: 200px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    padding: 20px;
+    color: white;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: linear-gradient(135deg, #667eea, #764ba2);
+}
+
+.box1 {
+    background-size: cover;
+}
+
+.box2 {
+    background-size: contain;
+}
+
+.box3 {
+    background-size: 100% 100%;
+}</code></pre>
+                </div>
+            </div>
+
+            <div class="example-group">
+                <h3>Мисал 4: background-position - Фондун орду</h3>
+                <div class="demo-box">
+                    <div class="bg-position-demo">
+                        <div class="position-box box1">center</div>
+                        <div class="position-box box2">top left</div>
+                        <div class="position-box box3">bottom right</div>
+                        <div class="position-box box4">50% 50%</div>
+                    </div>
+                </div>
+                <div class="code-example">
+                    <pre><code>/* Фондун орду */
+.position-box {
+    width: 100%;
+    height: 150px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    padding: 20px;
+    color: white;
+    font-weight: bold;
+    background-image: linear-gradient(135deg, #667eea, #764ba2);
+    background-size: 200px 200px;
+    background-repeat: no-repeat;
+}
+
+.box1 {
+    background-position: center;
+}
+
+.box2 {
+    background-position: top left;
+}
+
+.box3 {
+    background-position: bottom right;
+}
+
+.box4 {
+    background-position: 50% 50%;
+}</code></pre>
+                </div>
+            </div>
+
+            <div class="example-group">
+                <h3>Мисал 5: background-repeat - Фондун кайталануусу</h3>
+                <div class="demo-box">
+                    <div class="bg-repeat-demo">
+                        <div class="repeat-box box1">no-repeat</div>
+                        <div class="repeat-box box2">repeat</div>
+                        <div class="repeat-box box3">repeat-x</div>
+                        <div class="repeat-box box4">repeat-y</div>
+                    </div>
+                </div>
+                <div class="code-example">
+                    <pre><code>/* Фондун кайталануусу */
+.repeat-box {
+    width: 100%;
+    height: 150px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    padding: 20px;
+    color: white;
+    font-weight: bold;
+    background-image: linear-gradient(45deg, #667eea 25%, transparent 25%);
+    background-size: 50px 50px;
+}
+
+.box1 {
+    background-repeat: no-repeat;
+}
+
+.box2 {
+    background-repeat: repeat;
+}
+
+.box3 {
+    background-repeat: repeat-x;
+}
+
+.box4 {
+    background-repeat: repeat-y;
+}</code></pre>
+                </div>
+            </div>
+
+            <div class="example-group">
+                <h3>Мисал 6: Градиенттер</h3>
+                <div class="demo-box">
+                    <div class="gradient-demo">
+                        <div class="gradient-box box1">Linear (to right)</div>
+                        <div class="gradient-box box2">Linear (135deg)</div>
+                        <div class="gradient-box box3">Radial (circle)</div>
+                        <div class="gradient-box box4">Көп түстүү</div>
+                    </div>
+                </div>
+                <div class="code-example">
+                    <pre><code>/* Градиенттер */
+.gradient-box {
+    width: 100%;
+    height: 150px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    padding: 20px;
+    color: white;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.box1 {
+    background: linear-gradient(to right, #667eea, #764ba2);
+}
+
+.box2 {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+}
+
+.box3 {
+    background: radial-gradient(circle, #667eea, #764ba2);
+}
+
+.box4 {
+    background: linear-gradient(to bottom, #667eea, #4CAF50, #f5576c);
+}</code></pre>
+                </div>
+            </div>
+
+            <div class="example-group">
+                <h3>Мисал 7: Бардык касиеттер бирге</h3>
+                <div class="demo-box">
+                    <div class="combined-bg-demo">
+                        <div class="combined-box">Бардык касиеттер бирге</div>
+                    </div>
+                </div>
+                <div class="code-example">
+                    <pre><code>/* Бардык касиеттер бирге */
+.combined-box {
+    width: 100%;
+    height: 300px;
+    padding: 40px;
+    border-radius: 15px;
+    color: white;
+    font-weight: bold;
+    font-size: 1.5rem;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    /* Фон касиеттери */
+    background-color: #667eea;
+    background-image: linear-gradient(135deg, rgba(102, 126, 234, 0.8), rgba(118, 75, 162, 0.8));
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    
+    /* Кыскача */
+    background: linear-gradient(135deg, #667eea, #764ba2) center/cover no-repeat;
+}</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- ООР МИСАЛДАР -->
+        <section class="examples-section">
+            <h2>🔴 ООР МИСАЛДАР</h2>
+
+            <div class="example-group">
+                <h3>Мисал 8: Респонсивдик Hero секция</h3>
+                <div class="demo-box">
+                    <div class="hero-demo">
+                        <div class="hero-section">
+                            <h2>Hero Секция</h2>
+                            <p>Бул респонсивдик hero секциясы градиент фон менен</p>
+                            <button>Баштал</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="code-example">
+                    <pre><code>/* Респонсивдик Hero секция */
+.hero-section {
+    width: 100%;
+    min-height: 400px;
+    padding: 60px 40px;
+    border-radius: 15px;
+    color: white;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    
+    background: linear-gradient(135deg, rgba(102, 126, 234, 0.9), rgba(118, 75, 162, 0.9));
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+.hero-section h2 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+}
+
+.hero-section p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+}
+
+.hero-section button {
+    padding: 15px 30px;
+    background: white;
+    color: #667eea;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+}</code></pre>
+                </div>
+            </div>
+
+            <div class="example-group">
+                <h3>Мисал 9: Көп фон сүрөттөр</h3>
+                <div class="demo-box">
+                    <div class="multiple-bg-demo">
+                        <div class="multiple-box">Көп фон сүрөттөр</div>
+                    </div>
+                </div>
+                <div class="code-example">
+                    <pre><code>/* Көп фон сүрөттөр */
+.multiple-box {
+    width: 100%;
+    height: 300px;
+    padding: 40px;
+    border-radius: 15px;
+    color: white;
+    font-weight: bold;
+    font-size: 1.5rem;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    /* Көп фон сүрөттөр */
+    background-image: 
+        linear-gradient(135deg, rgba(102, 126, 234, 0.8), rgba(118, 75, 162, 0.8)),
+        linear-gradient(45deg, rgba(76, 175, 80, 0.3), rgba(245, 87, 108, 0.3));
+    
+    background-size: cover, 200px 200px;
+    background-position: center, top left;
+    background-repeat: no-repeat, repeat;
+}</code></pre>
+                </div>
+            </div>
+
+            <div class="example-group">
+                <h3>Мисал 10: Практикалык карточка дизайны</h3>
+                <div class="demo-box">
+                    <div class="card-design-demo">
+                        <div class="card">
+                            <div class="card-image"></div>
+                            <div class="card-content">
+                                <h3>Карточка 1</h3>
+                                <p>Мазмун 1</p>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-image"></div>
+                            <div class="card-content">
+                                <h3>Карточка 2</h3>
+                                <p>Мазмун 2</p>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-image"></div>
+                            <div class="card-content">
+                                <h3>Карточка 3</h3>
+                                <p>Мазмун 3</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="code-example">
+                    <pre><code>/* Практикалык карточка дизайны */
+.card {
+    width: 100%;
+    max-width: 300px;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    background: white;
+}
+
+.card-image {
+    width: 100%;
+    height: 200px;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    background-size: cover;
+    background-position: center;
+}
+
+.card-content {
+    padding: 20px;
+}
+
+.card-content h3 {
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.card-content p {
+    color: #666;
+    line-height: 1.6;
+}
+
+/* Көп карточкалар */
+.card-design-demo {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- ПРАКТИКА -->
+        <section class="practice-section">
+            <h2>💻 ПРАКТИКА</h2>
+            <div class="practice-card">
+                <h3>Өзүңүз кылыңыз:</h3>
+                <ol>
+                    <li>background-color менен элементтин фондунун түсүн өзгөртүңүз</li>
+                    <li>background-image менен градиент фон кошуңуз</li>
+                    <li>background-size менен фондун өлчөмүн аныктаңыз (cover, contain)</li>
+                    <li>background-position менен фондун ордун өзгөртүңүз</li>
+                    <li>background-repeat менен фондун кайталануусун аныктаңыз</li>
+                    <li>Linear градиенттерди колдонуңуз (to right, 135deg)</li>
+                    <li>Radial градиенттерди колдонуңуз (circle, ellipse)</li>
+                    <li>Бардык касиеттерди бирге колдонуңуз</li>
+                    <li>Респонсивдик Hero секциясын түзүңүз</li>
+                    <li>Практикалык карточка дизайнын кылыңыз</li>
+                </ol>
+            </div>
+        </section>
+
+        <!-- КЕСТЕ -->
+        <section class="table-section">
+            <h2>📊 Фон касиеттери</h2>
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Касиет</th>
+                            <th>Маанилер</th>
+                            <th>Мисал</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><code>background-color</code></td>
+                            <td>RGB, RGBA, Hex, аты</td>
+                            <td><code>background-color: #667eea;</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>background-image</code></td>
+                            <td>url(), linear-gradient(), radial-gradient()</td>
+                            <td><code>background-image: url('img.jpg');</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>background-size</code></td>
+                            <td>cover, contain, 100%, px</td>
+                            <td><code>background-size: cover;</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>background-position</code></td>
+                            <td>center, top left, 50% 50%</td>
+                            <td><code>background-position: center;</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>background-repeat</code></td>
+                            <td>no-repeat, repeat, repeat-x, repeat-y</td>
+                            <td><code>background-repeat: no-repeat;</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>background-attachment</code></td>
+                            <td>scroll, fixed</td>
+                            <td><code>background-attachment: fixed;</code></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section class="table-section">
+            <h2>📊 background-size маанилери</h2>
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Маани</th>
+                            <th>Түшүндүрмө</th>
+                            <th>Колдонулушу</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><code>auto</code></td>
+                            <td>Автоматтык (дефолт)</td>
+                            <td>Сүрөттүн оригиналдуу өлчөмү</td>
+                        </tr>
+                        <tr>
+                            <td><code>cover</code></td>
+                            <td>Элементти толук каптап</td>
+                            <td>Hero секциялар, фон сүрөттөр</td>
+                        </tr>
+                        <tr>
+                            <td><code>contain</code></td>
+                            <td>Сүрөттү толук көрсөтүп</td>
+                            <td>Логотиптер, иконкалар</td>
+                        </tr>
+                        <tr>
+                            <td><code>100% 100%</code></td>
+                            <td>Туурасы жана бийиктиги</td>
+                            <td>Элементтин толук өлчөмү</td>
+                        </tr>
+                        <tr>
+                            <td><code>200px 150px</code></td>
+                            <td>Так өлчөмдөр</td>
+                            <td>Так өлчөм керек болсо</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section class="table-section">
+            <h2>📊 Градиенттер</h2>
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Градиент</th>
+                            <th>Синтаксис</th>
+                            <th>Мисал</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Linear (оңго)</td>
+                            <td><code>linear-gradient(to right, ...)</code></td>
+                            <td><code>linear-gradient(to right, #667eea, #764ba2)</code></td>
+                        </tr>
+                        <tr>
+                            <td>Linear (бурч)</td>
+                            <td><code>linear-gradient(135deg, ...)</code></td>
+                            <td><code>linear-gradient(135deg, #667eea, #764ba2)</code></td>
+                        </tr>
+                        <tr>
+                            <td>Radial (тегерек)</td>
+                            <td><code>radial-gradient(circle, ...)</code></td>
+                            <td><code>radial-gradient(circle, #667eea, #764ba2)</code></td>
+                        </tr>
+                        <tr>
+                            <td>Radial (эллипс)</td>
+                            <td><code>radial-gradient(ellipse, ...)</code></td>
+                            <td><code>radial-gradient(ellipse, #667eea, #764ba2)</code></td>
+                        </tr>
+                        <tr>
+                            <td>Көп түстүү</td>
+                            <td><code>linear-gradient(..., color1, color2, color3)</code></td>
+                            <td><code>linear-gradient(to bottom, red, blue, green)</code></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <footer>
+            <p>Бактылуу окуу! 🎓</p>
+        </footer>
+    </div>
+</body>
+</html>
+

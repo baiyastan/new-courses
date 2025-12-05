@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="ky">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML менен таанышуу - Сабак</title>
+    <link rel="stylesheet" href="html-basics-styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>HTML менен таанышуу</h1>
+            <p class="subtitle">Баштап жаткандар үчүн толук сабак</p>
+        </header>
+
+        <!-- ТЕОРИЯ БӨЛҮМҮ -->
+        <section class="theory-section">
+            <h2>📚 Теория</h2>
+            
+            <div class="theory-card">
+                <h3>1. HTML деген эмне?</h3>
+                <p><strong>HTML</strong> (HyperText Markup Language) - бул веб-барактарды түзүү үчүн колдонулуучу белгилөө тили.</p>
+                <ul>
+                    <li><strong>HyperText</strong> - гипертекст (сылтамалар менен байланышкан текст)</li>
+                    <li><strong>Markup</strong> - белгилөө (тегдер менен мазмунду структуралоо)</li>
+                    <li><strong>Language</strong> - тил (программалоо тили эмес, белгилөө тили)</li>
+                </ul>
+                <p class="note">💡 HTML программалоо тили эмес, ал мазмунду структуралоо үчүн колдонулат!</p>
+            </div>
+
+            <div class="theory-card">
+                <h3>2. HTML документтин түзүлүшү</h3>
+                <p>Ар бир HTML документ төмөнкүдөй структурага ээ:</p>
+                <div class="code-example">
+                    <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="ky"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;title&gt;Барактын аталышы&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;!-- Мазмун бул жерде --&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+                </div>
+                
+                <h4>Бөлүктөрдүн түшүндүрмөсү:</h4>
+                <ul>
+                    <li><strong>&lt;!DOCTYPE html&gt;</strong> - HTML версиясын аныктайт (HTML5)</li>
+                    <li><strong>&lt;html&gt;</strong> - документтин негизги элементи</li>
+                    <li><strong>&lt;head&gt;</strong> - мета маалыматтар (браузер үчүн)</li>
+                    <li><strong>&lt;body&gt;</strong> - көрүнүүчү мазмун (колдонуучу үчүн)</li>
+                </ul>
+            </div>
+
+            <div class="theory-card">
+                <h3>3. Тег, атрибут, мааниси</h3>
+                
+                <h4>Тег (Tag)</h4>
+                <p>Тег - бул HTML элементинин башталышы жана аягы.</p>
+                <div class="code-example">
+                    <pre><code>&lt;p&gt;Бул параграф&lt;/p&gt;
+&lt;h1&gt;Бул баштык&lt;/h1&gt;
+&lt;img src="photo.jpg"&gt;  &lt;!-- Self-closing тег --&gt;</code></pre>
+                </div>
+                
+                <h4>Атрибут (Attribute)</h4>
+                <p>Атрибут - тегдин касиети, кошумча маалымат берет.</p>
+                <div class="code-example">
+                    <pre><code>&lt;a href="https://example.com"&gt;Сылка&lt;/a&gt;
+&lt;img src="photo.jpg" alt="Сүрөт"&gt;
+&lt;div class="container" id="main"&gt;Мазмун&lt;/div&gt;</code></pre>
+                </div>
+                
+                <h4>Мааниси (Value)</h4>
+                <p>Мааниси - атрибуттун мааниси (тиркемелерде жазылат).</p>
+                <div class="code-example">
+                    <pre><code>&lt;input type="text" name="username"&gt;
+&lt;button class="btn-primary"&gt;Басыңыз&lt;/button&gt;
+&lt;div style="color: red;"&gt;Кызыл текст&lt;/div&gt;</code></pre>
+                </div>
+            </div>
+
+            <div class="theory-card">
+                <h3>4. Тегдердин түрлөрү</h3>
+                <ul>
+                    <li><strong>Жабылуучу тегдер:</strong> &lt;p&gt;&lt;/p&gt;, &lt;div&gt;&lt;/div&gt;</li>
+                    <li><strong>Жабылбаган тегдер:</strong> &lt;img&gt;, &lt;br&gt;, &lt;hr&gt;</li>
+                    <li><strong>Блок элементтер:</strong> &lt;div&gt;, &lt;p&gt;, &lt;h1&gt; (жаңы саптан башталат)</li>
+                    <li><strong>Инлайн элементтер:</strong> &lt;span&gt;, &lt;a&gt;, &lt;strong&gt; (бир сапта)</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- ЖЕНИЛ МИСАЛДАР -->
+        <section class="examples-section">
+            <h2>🟢 ЖЕНИЛ МИСАЛДАР</h2>
+
+            <div class="example-group">
+                <h3>Мисал 1: Жөнөкөй HTML документ</h3>
+                <div class="demo-box">
+                    <div class="simple-doc">
+                        <h1>Салам, дүйнө!</h1>
+                        <p>Бул менин биринчи HTML документим.</p>
+                    </div>
+                </div>
+                <div class="code-example">
+                    <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="ky"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;title&gt;Менин биринчи барактым&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h1&gt;Салам, дүйнө!&lt;/h1&gt;
+    &lt;p&gt;Бул менин биринчи HTML документим.&lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+                </div>
+            </div>
+
+            <div class="example-group">
+                <h3>Мисал 2: Баштыктар (Headings)</h3>
+                <div class="demo-box">
+                    <h1 class="demo-h1">h1 - Эң чоң баштык</h1>
+                    <h2 class="demo-h2">h2 - Чоң баштык</h2>
+                    <h3 class="demo-h3">h3 - Орто баштык</h3>
+                    <h4 class="demo-h4">h4 - Кичине баштык</h4>
+                    <h5 class="demo-h5">h5 - Эң кичине баштык</h5>
+                    <h6 class="demo-h6">h6 - Эң эң кичине баштык</h6>
+                </div>
+                <div class="code-example">
+                    <pre><code>&lt;h1&gt;Эң чоң баштык&lt;/h1&gt;
+&lt;h2&gt;Чоң баштык&lt;/h2&gt;
+&lt;h3&gt;Орто баштык&lt;/h3&gt;
+&lt;h4&gt;Кичине баштык&lt;/h4&gt;
+&lt;h5&gt;Эң кичине баштык&lt;/h5&gt;
+&lt;h6&gt;Эң эң кичине баштык&lt;/h6&gt;</code></pre>
+                </div>
+            </div>
+
+            <div class="example-group">
+                <h3>Мисал 3: Параграф жана текст</h3>
+                <div class="demo-box">
+                    <p>Бул жөнөкөй параграф. Ал мазмунду структуралоо үчүн колдонулат.</p>
+                    <p><strong>Бул калың текст</strong> жана <em>бул курсив текст</em>.</p>
+                    <p><mark>Бул белгиленген текст</mark> жана <del>бул очурулган текст</del>.</p>
+                </div>
+                <div class="code-example">
+                    <pre><code>&lt;p&gt;Бул жөнөкөй параграф.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Бул калың текст&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Бул курсив текст&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;mark&gt;Белгиленген текст&lt;/mark&gt;&lt;/p&gt;
+&lt;p&gt;&lt;del&gt;Очурулган текст&lt;/del&gt;&lt;/p&gt;</code></pre>
+                </div>
+            </div>
+
+            <div class="example-group">
+                <h3>Мисал 4: Сылкалар (Links)</h3>
+                <div class="demo-box">
+                    <a href="https://www.youtube.com/" class="demo-link">Сырткы сылка</a>
+                    <a href="#section" class="demo-link">Ички сылка</a>
+                    <a href="mailto:email@example.com" class="demo-link">Email сылка</a>
+                    <a href="https://www.youtube.com/" class="demo-link" target="_blank">Жаңы терезеде</a>
+                </div>
+                <div class="code-example">
+                    <pre><code>&lt;!-- Сырткы сылка --&gt;
+&lt;a href="https://www.youtube.com/"&gt;Сылка&lt;/a&gt;
+
+&lt;!-- Ички сылка --&gt;
+&lt;a href="#section"&gt;Бөлүмгө өтүү&lt;/a&gt;
+
+&lt;!-- Email сылка --&gt;
+&lt;a href="mailto:email@example.com"&gt;Email жөнөтүү&lt;/a&gt;
+
+&lt;!-- Жаңы терезеде ачуу --&gt;
+&lt;a href="https://www.youtube.com/" target="_blank"&gt;Жаңы терезеде&lt;/a&gt;</code></pre>
+                </div>
+            </div>
+
+            <div class="example-group">
+                <h3>Мисал 5: Сүрөттөр (Images)</h3>
+                <div class="demo-box">
+                    <div class="image-demo">
+                        <div class="placeholder-img">📷 Сүрөт</div>
+                        <p class="img-caption">alt атрибуту бар сүрөт</p>
+                    </div>
+                </div>
+                <div class="code-example">
+                    <pre><code>&lt;!-- Жөнөкөй сүрөт --&gt;
+&lt;img src="photo.jpg" alt="Сүрөттүн сүрөттөмөсү"&gt;
+
+&lt;!-- Кеңдиги менен --&gt;
+&lt;img src="photo.jpg" alt="Сүрөт" width="300" height="200"&gt;
+
+&lt;!-- Стил менен --&gt;
+&lt;img src="photo.jpg" alt="Сүрөт" style="max-width: 100%;"&gt;</code></pre>
+                </div>
+            </div>
+
+            <div class="example-group">
+                <h3>Мисал 6: Тизмелер (Lists)</h3>
+                <div class="demo-box">
+                    <div class="lists-demo">
+                        <div>
+                            <strong>Тартиптелген тизме:</strong>
+                            <ol>
+                                <li>Биринчи пункт</li>
+                                <li>Экинчи пункт</li>
+                                <li>Үчүнчү пункт</li>
+                            </ol>
+                        </div>
+                        <div>
+                            <strong>Тартиптелбеген тизме:</strong>
+                            <ul>
+                                <li>Пункт 1</li>
+                                <li>Пункт 2</li>
+                                <li>Пункт 3</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="code-example">
+                    <pre><code>&lt;!-- Тартиптелген тизме (ol) --&gt;
+&lt;ol&gt;
+    &lt;li&gt;Биринчи пункт&lt;/li&gt;
+    &lt;li&gt;Экинчи пункт&lt;/li&gt;
+    &lt;li&gt;Үчүнчү пункт&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;!-- Тартиптелбеген тизме (ul) --&gt;
+&lt;ul&gt;
+    &lt;li&gt;Пункт 1&lt;/li&gt;
+    &lt;li&gt;Пункт 2&lt;/li&gt;
+    &lt;li&gt;Пункт 3&lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- ООР МИСАЛДАР -->
+        <section class="examples-section">
+            <h2>🔴 ООР МИСАЛДАР</h2>
+
+            <div class="example-group">
+                <h3>Мисал 7: Блок жана инлайн элементтер</h3>
+                <div class="demo-box">
+                    <div class="block-demo">
+                        <div class="block-element">Блок элемент 1</div>
+                        <div class="block-element">Блок элемент 2</div>
+                        <p>Бул <span class="inline-element">инлайн элемент</span> блок элементтин ичинде.</p>
+                    </div>
+                </div>
+                <div class="code-example">
+                    <pre><code>&lt;!-- Блок элементтер (жаңы саптан башталат) --&gt;
+&lt;div&gt;Блок элемент 1&lt;/div&gt;
+&lt;div&gt;Блок элемент 2&lt;/div&gt;
+&lt;p&gt;Бул параграф&lt;/p&gt;
+
+&lt;!-- Инлайн элементтер (бир сапта) --&gt;
+&lt;p&gt;Бул &lt;span&gt;инлайн элемент&lt;/span&gt; блок элементтин ичинде.&lt;/p&gt;
+&lt;p&gt;Бул &lt;strong&gt;калың&lt;/strong&gt; жана &lt;em&gt;курсив&lt;/em&gt; текст.&lt;/p&gt;</code></pre>
+                </div>
+            </div>
+
+            <div class="example-group">
+                <h3>Мисал 8: Көп атрибуттар менен элементтер</h3>
+                <div class="demo-box">
+                    <div class="attr-demo">
+                        <input type="text" placeholder="Текст киргизиңиз" class="demo-input">
+                        <button class="demo-btn" onclick="alert('Басылды!')">Басыңыз</button>
+                        <div class="styled-div" data-info="Маалымат">data атрибуту менен</div>
+                    </div>
+                </div>
+                <div class="code-example">
+                    <pre><code>&lt;!-- Көп атрибуттар менен input --&gt;
+&lt;input 
+    type="text" 
+    name="username" 
+    id="user-input" 
+    placeholder="Атыңызды киргизиңиз"
+    required
+    maxlength="50"
+&gt;
+
+&lt;!-- Көп атрибуттар менен button --&gt;
+&lt;button 
+    type="submit" 
+    class="btn-primary" 
+    id="submit-btn"
+    onclick="handleClick()"
+    disabled
+&gt;
+    Басыңыз
+&lt;/button&gt;
+
+&lt;!-- data атрибуту --&gt;
+&lt;div 
+    class="container" 
+    id="main-content"
+    data-user="admin"
+    data-role="editor"
+&gt;
+    Мазмун
+&lt;/div&gt;</code></pre>
+                </div>
+            </div>
+
+            <div class="example-group">
+                <h3>Мисал 9: Татаал HTML структура</h3>
+                <div class="demo-box">
+                    <div class="complex-structure">
+                        <header class="demo-header">
+                            <h2>Барактын башы</h2>
+                        </header>
+                        <nav class="demo-nav">
+                            <a href="#home">Башкы</a>
+                            <a href="#about">Жөнүндө</a>
+                            <a href="#contact">Байланыш</a>
+                        </nav>
+                        <main class="demo-main">
+                            <article>
+                                <h3>Макала</h3>
+                                <p>Макаланын мазмуну...</p>
+                            </article>
+                        </main>
+                        <footer class="demo-footer">
+                            <p>&copy; 2024 Бардык укуктар корголгон</p>
+                        </footer>
+                    </div>
+                </div>
+                <div class="code-example">
+                    <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="ky"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Татаал структура&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;header&gt;
+        &lt;h1&gt;Барактын башы&lt;/h1&gt;
+    &lt;/header&gt;
+    
+    &lt;nav&gt;
+        &lt;a href="#home"&gt;Башкы&lt;/a&gt;
+        &lt;a href="#about"&gt;Жөнүндө&lt;/a&gt;
+    &lt;/nav&gt;
+    
+    &lt;main&gt;
+        &lt;article&gt;
+            &lt;h2&gt;Макала&lt;/h2&gt;
+            &lt;p&gt;Мазмун...&lt;/p&gt;
+        &lt;/article&gt;
+    &lt;/main&gt;
+    
+    &lt;footer&gt;
+        &lt;p&gt;&copy; 2024&lt;/p&gt;
+    &lt;/footer&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+                </div>
+            </div>
+
+            <div class="example-group">
+                <h3>Мисал 10: Форма элементтери</h3>
+                <div class="demo-box">
+                    <form class="demo-form">
+                        <label for="name">Атыңыз:</label>
+                        <input type="text" id="name" name="name" placeholder="Атыңызды киргизиңиз">
+                        
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" name="email" placeholder="email@example.com">
+                        
+                        <label for="message">Билдирүү:</label>
+                        <textarea id="message" name="message" rows="3" placeholder="Билдирүүңүздү жазыңыз"></textarea>
+                        
+                        <button type="submit">Жөнөтүү</button>
+                    </form>
+                </div>
+                <div class="code-example">
+                    <pre><code>&lt;form action="/submit" method="POST"&gt;
+    &lt;label for="username"&gt;Колдонуучу аты:&lt;/label&gt;
+    &lt;input 
+        type="text" 
+        id="username" 
+        name="username" 
+        required
+        placeholder="Атыңызды киргизиңиз"
+    &gt;
+    
+    &lt;label for="email"&gt;Email:&lt;/label&gt;
+    &lt;input 
+        type="email" 
+        id="email" 
+        name="email" 
+        required
+    &gt;
+    
+    &lt;label for="message"&gt;Билдирүү:&lt;/label&gt;
+    &lt;textarea 
+        id="message" 
+        name="message" 
+        rows="5"
+        required
+    &gt;&lt;/textarea&gt;
+    
+    &lt;button type="submit"&gt;Жөнөтүү&lt;/button&gt;
+&lt;/form&gt;</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- ПРАКТИКА -->
+        <section class="practice-section">
+            <h2>💻 ПРАКТИКА</h2>
+            <div class="practice-card">
+                <h3>Өзүңүз кылыңыз:</h3>
+                <ol>
+                    <li>Жөнөкөй HTML документ түзүңүз (!DOCTYPE, html, head, body)</li>
+                    <li>Баштыктарды колдонуңуз (h1, h2, h3)</li>
+                    <li>Параграфтар, калың жана курсив тексттерди жазыңыз</li>
+                    <li>Сылкаларды кошуңуз (href атрибуту менен)</li>
+                    <li>Тизмелерди жасаңыз (ul, ol, li)</li>
+                    <li>Блок жана инлайн элементтерди айырмалаңыз</li>
+                    <li>Жөнөкөй форма түзүңүз (input, textarea, button)</li>
+                </ol>
+            </div>
+        </section>
+
+        <!-- КЕСТЕ -->
+        <section class="table-section">
+            <h2>📊 Негизги HTML тегдер</h2>
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Тег</th>
+                            <th>Аты</th>
+                            <th>Мисалы</th>
+                            <th>Түшүндүрмө</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><code>&lt;h1&gt;</code></td>
+                            <td>Баштык 1</td>
+                            <td><code>&lt;h1&gt;Баштык&lt;/h1&gt;</code></td>
+                            <td>Эң чоң баштык</td>
+                        </tr>
+                        <tr>
+                            <td><code>&lt;p&gt;</code></td>
+                            <td>Параграф</td>
+                            <td><code>&lt;p&gt;Текст&lt;/p&gt;</code></td>
+                            <td>Параграф тексти</td>
+                        </tr>
+                        <tr>
+                            <td><code>&lt;a&gt;</code></td>
+                            <td>Сылка</td>
+                            <td><code>&lt;a href="#"&gt;Сылка&lt;/a&gt;</code></td>
+                            <td>Гипертекст сылкасы</td>
+                        </tr>
+                        <tr>
+                            <td><code>&lt;img&gt;</code></td>
+                            <td>Сүрөт</td>
+                            <td><code>&lt;img src="photo.jpg"&gt;</code></td>
+                            <td>Сүрөттү көрсөтүү</td>
+                        </tr>
+                        <tr>
+                            <td><code>&lt;div&gt;</code></td>
+                            <td>Блок</td>
+                            <td><code>&lt;div&gt;Мазмун&lt;/div&gt;</code></td>
+                            <td>Блок контейнер</td>
+                        </tr>
+                        <tr>
+                            <td><code>&lt;span&gt;</code></td>
+                            <td>Инлайн</td>
+                            <td><code>&lt;span&gt;Текст&lt;/span&gt;</code></td>
+                            <td>Инлайн контейнер</td>
+                        </tr>
+                        <tr>
+                            <td><code>&lt;ul&gt;</code></td>
+                            <td>Тартиптелбеген тизме</td>
+                            <td><code>&lt;ul&gt;&lt;li&gt;Пункт&lt;/li&gt;&lt;/ul&gt;</code></td>
+                            <td>Тартиптелбеген тизме</td>
+                        </tr>
+                        <tr>
+                            <td><code>&lt;ol&gt;</code></td>
+                            <td>Тартиптелген тизме</td>
+                            <td><code>&lt;ol&gt;&lt;li&gt;1&lt;/li&gt;&lt;/ol&gt;</code></td>
+                            <td>Тартиптелген тизме</td>
+                        </tr>
+                        <tr>
+                            <td><code>&lt;strong&gt;</code></td>
+                            <td>Калың</td>
+                            <td><code>&lt;strong&gt;Текст&lt;/strong&gt;</code></td>
+                            <td>Калың текст</td>
+                        </tr>
+                        <tr>
+                            <td><code>&lt;em&gt;</code></td>
+                            <td>Курсив</td>
+                            <td><code>&lt;em&gt;Текст&lt;/em&gt;</code></td>
+                            <td>Курсив текст</td>
+                        </tr>
+                        <tr>
+                            <td><code>&lt;form&gt;</code></td>
+                            <td>Форма</td>
+                            <td><code>&lt;form&gt;...&lt;/form&gt;</code></td>
+                            <td>Форма контейнери</td>
+                        </tr>
+                        <tr>
+                            <td><code>&lt;input&gt;</code></td>
+                            <td>Киргизүү</td>
+                            <td><code>&lt;input type="text"&gt;</code></td>
+                            <td>Киргизүү талаасы</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <footer>
+            <p>Бактылуу окуу! 🎓</p>
+        </footer>
+    </div>
+</body>
+</html>
+

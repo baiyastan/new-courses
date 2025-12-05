@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="ky">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Сүрөт жана Медиа - Сабак</title>
+    <link rel="stylesheet" href="html-images-media-styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Сүрөт жана Медиа</h1>
+            <p class="subtitle">Баштап жаткандар үчүн толук сабак</p>
+        </header>
+
+        <!-- ТЕОРИЯ БӨЛҮМҮ -->
+        <section class="theory-section">
+            <h2>📚 Теория</h2>
+            
+            <div class="theory-card">
+                <h3>1. Сүрөт &lt;img&gt; + alt</h3>
+                <p><strong>&lt;img&gt;</strong> теги - сүрөттү көрсөтүү үчүн колдонулат.</p>
+                <ul>
+                    <li><strong>src</strong> - сүрөттүн дареги (милдеттүү)</li>
+                    <li><strong>alt</strong> - альтернативдик текст (милдеттүү, SEO үчүн жакшы)</li>
+                    <li>Жабылбаган тег (self-closing)</li>
+                    <li>Инлайн элемент</li>
+                </ul>
+                <div class="code-example">
+                    <pre><code>&lt;!-- Жөнөкөй сүрөт --&gt;
+&lt;img src="photo.jpg" alt="Сүрөттүн сүрөттөмөсү"&gt;
+
+&lt;!-- Кеңдиги менен --&gt;
+&lt;img src="photo.jpg" alt="Сүрөт" width="300" height="200"&gt;</code></pre>
+                </div>
+                <p class="note">💡 alt атрибуту милдеттүү! Ал SEO жана доступность үчүн маанилүү.</p>
+            </div>
+
+            <div class="theory-card">
+                <h3>2. width/height атрибуттары</h3>
+                <p><strong>width</strong> жана <strong>height</strong> - сүрөттүн кеңдигин жана бийиктигин аныктайт.</p>
+                <ul>
+                    <li>Пиксел менен: <code>width="300"</code></li>
+                    <li>Пайыз менен: <code>width="100%"</code></li>
+                    <li>CSS менен да стилдөөгө болот</li>
+                    <li>Аспекттик катышты сактап калуу маанилүү</li>
+                </ul>
+                <div class="code-example">
+                    <pre><code>&lt;!-- Пиксел менен --&gt;
+&lt;img src="photo.jpg" alt="Сүрөт" width="300" height="200"&gt;
+
+&lt;!-- Пайыз менен --&gt;
+&lt;img src="photo.jpg" alt="Сүрөт" width="100%"&gt;
+
+&lt;!-- CSS менен --&gt;
+&lt;img src="photo.jpg" alt="Сүрөт" style="width: 300px; height: auto;"&gt;</code></pre>
+                </div>
+            </div>
+
+            <div class="theory-card">
+                <h3>3. Видео &lt;video&gt;</h3>
+                <p><strong>&lt;video&gt;</strong> теги - видеолорду көрсөтүү үчүн колдонулат.</p>
+                <ul>
+                    <li><strong>src</strong> - видеонун дареги</li>
+                    <li><strong>controls</strong> - кнопкаларды көрсөтүү</li>
+                    <li><strong>autoplay</strong> - автоматтык ойнотуу</li>
+                    <li><strong>loop</strong> - кайталануу</li>
+                    <li><strong>muted</strong> - үнсүз</li>
+                    <li><strong>poster</strong> - алдынкы сүрөт</li>
+                </ul>
+                <div class="code-example">
+                    <pre><code>&lt;video src="video.mp4" controls&gt;
+    Браузер видеону колдой албайт.
+&lt;/video&gt;
+
+&lt;video controls autoplay loop muted&gt;
+    &lt;source src="video.mp4" type="video/mp4"&gt;
+    &lt;source src="video.webm" type="video/webm"&gt;
+&lt;/video&gt;</code></pre>
+                </div>
+            </div>
+
+            <div class="theory-card">
+                <h3>4. Аудио &lt;audio&gt;</h3>
+                <p><strong>&lt;audio&gt;</strong> теги - аудиолорду ойнотуу үчүн колдонулат.</p>
+                <ul>
+                    <li><strong>src</strong> - аудионун дареги</li>
+                    <li><strong>controls</strong> - кнопкаларды көрсөтүү</li>
+                    <li><strong>autoplay</strong> - автоматтык ойнотуу</li>
+                    <li><strong>loop</strong> - кайталануу</li>
+                    <li><strong>preload</strong> - алдын ала жүктөө</li>
+                </ul>
+                <div class="code-example">
+                    <pre><code>&lt;audio src="audio.mp3" controls&gt;
+    Браузер аудиону колдой албайт.
+&lt;/audio&gt;
+
+&lt;audio controls loop&gt;
+    &lt;source src="audio.mp3" type="audio/mpeg"&gt;
+    &lt;source src="audio.ogg" type="audio/ogg"&gt;
+&lt;/audio&gt;</code></pre>
+                </div>
+            </div>
+
+            <div class="theory-card">
+                <h3>5. Iframe &lt;iframe&gt; — YouTube, карталар</h3>
+                <p><strong>&lt;iframe&gt;</strong> - башка документти же веб-сайтты көрсөтүү үчүн.</p>
+                <ul>
+                    <li><strong>src</strong> - документтин дареги</li>
+                    <li><strong>width</strong> жана <strong>height</strong> - кеңдик жана бийиктик</li>
+                    <li><strong>frameborder</strong> - чекти көрсөтүү/көрсөтпөө</li>
+                    <li>YouTube видеолорду кошуу үчүн</li>
+                    <li>Google карталарды кошуу үчүн</li>
+                </ul>
+                <div class="code-example">
+                    <pre><code>&lt;!-- YouTube видео --&gt;
+&lt;iframe 
+    src="https://www.youtube.com/embed/VIDEO_ID" 
+    width="560" 
+    height="315"
+    frameborder="0"
+    allowfullscreen&gt;
+&lt;/iframe&gt;
+
+&lt;!-- Google карта --&gt;
+&lt;iframe 
+    src="https://www.google.com/maps/embed?pb=..." 
+    width="600" 
+    height="450"
+    frameborder="0"&gt;
+&lt;/iframe&gt;</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- ЖЕНИЛ МИСАЛДАР -->
+        <section class="examples-section">
+            <h2>🟢 ЖЕНИЛ МИСАЛДАР</h2>
+
+            <div class="example-group">
+                <h3>Мисал 1: Жөнөкөй сүрөт &lt;img&gt;</h3>
+                <div class="demo-box">
+                    <div class="image-demo">
+                        <div class="placeholder-img">📷 Сүрөт</div>
+                        <p class="img-caption">alt="Сүрөттүн сүрөттөмөсү"</p>
+                    </div>
+                </div>
+                <div class="code-example">
+                    <pre><code>&lt;!-- Жөнөкөй сүрөт --&gt;
+&lt;img src="photo.jpg" alt="Сүрөттүн сүрөттөмөсү"&gt;
+
+&lt;!-- Кеңдиги менен --&gt;
+&lt;img src="photo.jpg" alt="Сүрөт" width="300"&gt;
+
+&lt;!-- Кеңдик жана бийиктик менен --&gt;
+&lt;img src="photo.jpg" alt="Сүрөт" width="300" height="200"&gt;</code></pre>
+                </div>
+            </div>
+
+            <div class="example-group">
+                <h3>Мисал 2: width/height атрибуттары</h3>
+                <div class="demo-box">
+                    <div class="size-demo">
+                        <div class="img-small">150x100</div>
+                        <div class="img-medium">300x200</div>
+                        <div class="img-large">450x300</div>
+                    </div>
+                </div>
+                <div class="code-example">
+                    <pre><code>&lt;!-- Кичине сүрөт --&gt;
+&lt;img src="photo.jpg" alt="Сүрөт" width="150" height="100"&gt;
+
+&lt;!-- Орто сүрөт --&gt;
+&lt;img src="photo.jpg" alt="Сүрөт" width="300" height="200"&gt;
+
+&lt;!-- Чоң сүрөт --&gt;
+&lt;img src="photo.jpg" alt="Сүрөт" width="450" height="300"&gt;
+
+&lt;!-- Пайыз менен --&gt;
+&lt;img src="photo.jpg" alt="Сүрөт" width="100%"&gt;</code></pre>
+                </div>
+            </div>
+
+            <div class="example-group">
+                <h3>Мисал 3: alt атрибуту</h3>
+                <div class="demo-box">
+                    <div class="alt-demo">
+                        <div class="img-with-alt">
+                            <div class="placeholder-img">📷</div>
+                            <p><strong>alt="Табият сүрөтү"</strong></p>
+                        </div>
+                        <div class="img-with-alt">
+                            <div class="placeholder-img">📷</div>
+                            <p><strong>alt="Кишинин портрети"</strong></p>
+                        </div>
+                        <div class="img-with-alt">
+                            <div class="placeholder-img">📷</div>
+                            <p><strong>alt="Шаардын көрүнүшү"</strong></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="code-example">
+                    <pre><code>&lt;!-- Жакшы alt текст --&gt;
+&lt;img src="nature.jpg" alt="Табият сүрөтү"&gt;
+
+&lt;img src="portrait.jpg" alt="Кишинин портрети"&gt;
+
+&lt;img src="city.jpg" alt="Шаардын көрүнүшү"&gt;
+
+&lt;!-- Натыйжасыз alt --&gt;
+&lt;img src="photo.jpg" alt="photo"&gt; &lt;!-- ЖАМАН --&gt;
+&lt;img src="photo.jpg" alt=""&gt; &lt;!-- Декоративдик сүрөт үчүн --&gt;</code></pre>
+                </div>
+            </div>
+
+            <div class="example-group">
+                <h3>Мисал 4: Видео &lt;video&gt;</h3>
+                <div class="demo-box">
+                    <div class="video-demo">
+                        <div class="video-placeholder">
+                            <div class="play-icon">▶</div>
+                            <p>Видео плеер</p>
+                            <p class="video-info">controls атрибуту менен</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="code-example">
+                    <pre><code>&lt;!-- Жөнөкөй видео --&gt;
+&lt;video src="video.mp4" controls&gt;
+    Браузер видеону колдой албайт.
+&lt;/video&gt;
+
+&lt;!-- Көп формат менен --&gt;
+&lt;video controls width="640" height="360"&gt;
+    &lt;source src="video.mp4" type="video/mp4"&gt;
+    &lt;source src="video.webm" type="video/webm"&gt;
+    Браузер видеону колдой албайт.
+&lt;/video&gt;
+
+&lt;!-- Автоматтык ойнотуу --&gt;
+&lt;video src="video.mp4" controls autoplay muted loop&gt;
+&lt;/video&gt;</code></pre>
+                </div>
+            </div>
+
+            <div class="example-group">
+                <h3>Мисал 5: Аудио &lt;audio&gt;</h3>
+                <div class="demo-box">
+                    <div class="audio-demo">
+                        <div class="audio-placeholder">
+                            <div class="audio-icon">🎵</div>
+                            <p>Аудио плеер</p>
+                            <p class="audio-info">controls атрибуту менен</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="code-example">
+                    <pre><code>&lt;!-- Жөнөкөй аудио --&gt;
+&lt;audio src="audio.mp3" controls&gt;
+    Браузер аудиону колдой албайт.
+&lt;/audio&gt;
+
+&lt;!-- Көп формат менен --&gt;
+&lt;audio controls&gt;
+    &lt;source src="audio.mp3" type="audio/mpeg"&gt;
+    &lt;source src="audio.ogg" type="audio/ogg"&gt;
+    Браузер аудиону колдой албайт.
+&lt;/audio&gt;
+
+&lt;!-- Автоматтык ойнотуу --&gt;
+&lt;audio src="audio.mp3" controls autoplay loop&gt;
+&lt;/audio&gt;</code></pre>
+                </div>
+            </div>
+
+            <div class="example-group">
+                <h3>Мисал 6: Iframe - YouTube</h3>
+                <div class="demo-box">
+                    <div class="iframe-demo">
+                        <div class="youtube-placeholder">
+                            <div class="youtube-icon">▶ YouTube</div>
+                            <p>YouTube видео</p>
+                            <p class="iframe-info">iframe менен кошулган</p>
+                            
+                        </div>
+                    </div>
+                </div>
+                <div class="code-example">
+                    <pre><code>&lt;!-- YouTube видео --&gt;
+&lt;iframe 
+    width="560" 
+    height="315" 
+    src="https://www.youtube.com/embed/VIDEO_ID" 
+    frameborder="0" 
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+    allowfullscreen&gt;
+&lt;/iframe&gt;
+
+&lt;!-- Responsive YouTube --&gt;
+&lt;div class="video-container"&gt;
+    &lt;iframe 
+        src="https://www.youtube.com/embed/VIDEO_ID" 
+        frameborder="0" 
+        allowfullscreen&gt;
+    &lt;/iframe&gt;
+&lt;/div&gt;</code></pre>
+                </div>
+            </div>
+
+            <div class="example-group">
+                <h3>Мисал 7: Iframe - Google карта</h3>
+                <div class="demo-box">
+                    <div class="iframe-demo">
+                        <div class="map-placeholder">
+                            <div class="map-icon">🗺️</div>
+                            <p>Google карта</p>
+                            <p class="iframe-info">iframe менен кошулган</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="code-example">
+                    <pre><code>&lt;!-- Google карта --&gt;
+&lt;iframe 
+    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2924.090595609!2d74.595277!3d42.8746!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDLCsDUyJzI4LjYiTiA3NMKwMzUnNDMuMCJF!5e0!3m2!1sru!2skg!4v1234567890" 
+    width="600" 
+    height="450" 
+    style="border:0;" 
+    allowfullscreen="" 
+    loading="lazy" 
+    referrerpolicy="no-referrer-when-downgrade"&gt;
+&lt;/iframe&gt;</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- ООР МИСАЛДАР -->
+        <section class="examples-section">
+            <h2>🔴 ООР МИСАЛДАР</h2>
+
+            <div class="example-group">
+                <h3>Мисал 8: Сүрөттөрдүн галереясы</h3>
+                <div class="demo-box">
+                    <div class="gallery-demo">
+                        <div class="gallery-item">
+                            <div class="gallery-img">📷 1</div>
+                            <p>Сүрөт 1</p>
+                        </div>
+                        <div class="gallery-item">
+                            <div class="gallery-img">📷 2</div>
+                            <p>Сүрөт 2</p>
+                        </div>
+                        <div class="gallery-item">
+                            <div class="gallery-img">📷 3</div>
+                            <p>Сүрөт 3</p>
+                        </div>
+                        <div class="gallery-item">
+                            <div class="gallery-img">📷 4</div>
+                            <p>Сүрөт 4</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="code-example">
+                    <pre><code>&lt;div class="gallery"&gt;
+    &lt;img src="photo1.jpg" alt="Сүрөт 1" width="200" height="150"&gt;
+    &lt;img src="photo2.jpg" alt="Сүрөт 2" width="200" height="150"&gt;
+    &lt;img src="photo3.jpg" alt="Сүрөт 3" width="200" height="150"&gt;
+    &lt;img src="photo4.jpg" alt="Сүрөт 4" width="200" height="150"&gt;
+&lt;/div&gt;
+
+&lt;!-- Responsive галерея --&gt;
+&lt;div class="gallery-responsive"&gt;
+    &lt;img src="photo1.jpg" alt="Сүрөт 1"&gt;
+    &lt;img src="photo2.jpg" alt="Сүрөт 2"&gt;
+    &lt;img src="photo3.jpg" alt="Сүрөт 3"&gt;
+&lt;/div&gt;</code></pre>
+                </div>
+            </div>
+
+            <div class="example-group">
+                <h3>Мисал 9: Видео менен аудио бирге</h3>
+                <div class="demo-box">
+                    <div class="media-combined">
+                        <div class="media-item">
+                            <h4>Видео</h4>
+                            <div class="video-placeholder-small">
+                                <div class="play-icon-small">▶</div>
+                            </div>
+                            <p>Видео маалымат</p>
+                        </div>
+                        <div class="media-item">
+                            <h4>Аудио</h4>
+                            <div class="audio-placeholder-small">
+                                <div class="audio-icon-small">🎵</div>
+                            </div>
+                            <p>Аудио маалымат</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="code-example">
+                    <pre><code>&lt;div class="media-section"&gt;
+    &lt;div class="video-block"&gt;
+        &lt;h3&gt;Видео&lt;/h3&gt;
+        &lt;video src="video.mp4" controls width="100%"&gt;
+            Браузер видеону колдой албайт.
+        &lt;/video&gt;
+    &lt;/div&gt;
+    
+    &lt;div class="audio-block"&gt;
+        &lt;h3&gt;Аудио&lt;/h3&gt;
+        &lt;audio src="audio.mp3" controls&gt;
+            Браузер аудиону колдой албайт.
+        &lt;/audio&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+                </div>
+            </div>
+
+            <div class="example-group">
+                <h3>Мисал 10: Iframe менен татаал макет</h3>
+                <div class="demo-box">
+                    <div class="iframe-layout">
+                        <div class="iframe-section">
+                            <h4>YouTube видео</h4>
+                            <div class="youtube-placeholder-small">
+                                <div class="youtube-icon-small">▶</div>
+                            </div>
+                        </div>
+                        <div class="iframe-section">
+                            <h4>Google карта</h4>
+                            <div class="map-placeholder-small">
+                                <div class="map-icon-small">🗺️</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="code-example">
+                    <pre><code>&lt;div class="iframe-layout"&gt;
+    &lt;div class="video-section"&gt;
+        &lt;h3&gt;YouTube видео&lt;/h3&gt;
+        &lt;iframe 
+            src="https://www.youtube.com/embed/VIDEO_ID" 
+            width="100%" 
+            height="315"
+            frameborder="0" 
+            allowfullscreen&gt;
+        &lt;/iframe&gt;
+    &lt;/div&gt;
+    
+    &lt;div class="map-section"&gt;
+        &lt;h3&gt;Google карта&lt;/h3&gt;
+        &lt;iframe 
+            src="https://www.google.com/maps/embed?pb=..." 
+            width="100%" 
+            height="450"
+            frameborder="0"&gt;
+        &lt;/iframe&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- ПРАКТИКА -->
+        <section class="practice-section">
+            <h2>💻 ПРАКТИКА</h2>
+            <div class="practice-card">
+                <h3>Өзүңүз кылыңыз:</h3>
+                <ol>
+                    <li>Сүрөт кошуңуз (alt атрибуту менен)</li>
+                    <li>Сүрөттүн кеңдигин жана бийиктигин аныктаңыз (width/height)</li>
+                    <li>Видео кошуңуз (controls менен)</li>
+                    <li>Аудио кошуңуз (controls менен)</li>
+                    <li>YouTube видеону iframe менен кошуңуз</li>
+                    <li>Google картаны iframe менен кошуңуз</li>
+                    <li>Сүрөттөрдүн галереясын түзүңүз</li>
+                    <li>Бардык медиа элементтерди бириктирип, татаал макет түзүңүз</li>
+                </ol>
+            </div>
+        </section>
+
+        <!-- КЕСТЕ -->
+        <section class="table-section">
+            <h2>📊 Медиа элементтердин атрибуттары</h2>
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Элемент</th>
+                            <th>Атрибут</th>
+                            <th>Түшүндүрмө</th>
+                            <th>Мисал</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td rowspan="4"><code>&lt;img&gt;</code></td>
+                            <td><code>src</code></td>
+                            <td>Сүрөттүн дареги (милдеттүү)</td>
+                            <td><code>src="photo.jpg"</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>alt</code></td>
+                            <td>Альтернативдик текст (милдеттүү)</td>
+                            <td><code>alt="Сүрөт"</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>width</code></td>
+                            <td>Кеңдик</td>
+                            <td><code>width="300"</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>height</code></td>
+                            <td>Бийиктик</td>
+                            <td><code>height="200"</code></td>
+                        </tr>
+                        <tr>
+                            <td rowspan="6"><code>&lt;video&gt;</code></td>
+                            <td><code>src</code></td>
+                            <td>Видеонун дареги</td>
+                            <td><code>src="video.mp4"</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>controls</code></td>
+                            <td>Кнопкаларды көрсөтүү</td>
+                            <td><code>controls</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>autoplay</code></td>
+                            <td>Автоматтык ойнотуу</td>
+                            <td><code>autoplay</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>loop</code></td>
+                            <td>Кайталануу</td>
+                            <td><code>loop</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>muted</code></td>
+                            <td>Үнсүз</td>
+                            <td><code>muted</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>poster</code></td>
+                            <td>Алдынкы сүрөт</td>
+                            <td><code>poster="image.jpg"</code></td>
+                        </tr>
+                        <tr>
+                            <td rowspan="5"><code>&lt;audio&gt;</code></td>
+                            <td><code>src</code></td>
+                            <td>Аудионун дареги</td>
+                            <td><code>src="audio.mp3"</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>controls</code></td>
+                            <td>Кнопкаларды көрсөтүү</td>
+                            <td><code>controls</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>autoplay</code></td>
+                            <td>Автоматтык ойнотуу</td>
+                            <td><code>autoplay</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>loop</code></td>
+                            <td>Кайталануу</td>
+                            <td><code>loop</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>preload</code></td>
+                            <td>Алдын ала жүктөө</td>
+                            <td><code>preload="auto"</code></td>
+                        </tr>
+                        <tr>
+                            <td rowspan="4"><code>&lt;iframe&gt;</code></td>
+                            <td><code>src</code></td>
+                            <td>Документтин дареги</td>
+                            <td><code>src="https://..."</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>width</code></td>
+                            <td>Кеңдик</td>
+                            <td><code>width="560"</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>height</code></td>
+                            <td>Бийиктик</td>
+                            <td><code>height="315"</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>frameborder</code></td>
+                            <td>Чекти көрсөтүү</td>
+                            <td><code>frameborder="0"</code></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <footer>
+            <p>Бактылуу окуу! 🎓</p>
+        </footer>
+    </div>
+</body>
+</html>
+

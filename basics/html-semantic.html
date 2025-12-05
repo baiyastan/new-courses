@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html lang="ky">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Семантикалык HTML5 - Сабак</title>
+    <link rel="stylesheet" href="html-semantic-styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Семантикалык HTML5</h1>
+            <p class="subtitle">Баштап жаткандар үчүн толук сабак</p>
+        </header>
+
+        <!-- ТЕОРИЯ БӨЛҮМҮ -->
+        <section class="theory-section">
+            <h2>📚 Теория</h2>
+            
+            <div class="theory-card">
+                <h3>1. Семантикалык HTML5 деген эмне?</h3>
+                <p><strong>Семантикалык HTML5</strong> - мазмундун маанисин аныктайт, жөн гана көрүнүшүн эмес.</p>
+                <ul>
+                    <li>Элементтердин маанисин аныктайт</li>
+                    <li>SEO үчүн жакшы (издөө системалары)</li>
+                    <li>Экран окугучтар үчүн жакшы (доступность)</li>
+                    <li>Кодду окууга жана түшүнүүгө оңой</li>
+                </ul>
+                <p class="note">💡 Семантикалык тегдер мазмундун маанисин аныктайт, ал эми div жана span жөн гана контейнерлер!</p>
+            </div>
+
+            <div class="theory-card">
+                <h3>2. Негизги бөлүктөр: &lt;header&gt;, &lt;main&gt;, &lt;footer&gt;</h3>
+                
+                <h4>&lt;header&gt; - Баштык бөлүгү</h4>
+                <ul>
+                    <li>Барактын же бөлүмдүн баштыгы</li>
+                    <li>Логотип, навигация, баштыктар</li>
+                    <li>Бир документте бир нече болушу мүмкүн</li>
+                </ul>
+                
+                <h4>&lt;main&gt; - Негизги мазмун</h4>
+                <ul>
+                    <li>Барактын негизги мазмуну</li>
+                    <li>Бир документте бир гана болушу керек</li>
+                    <li>Уникалдуу мазмун</li>
+                </ul>
+                
+                <h4>&lt;footer&gt; - Аяк бөлүгү</h4>
+                <ul>
+                    <li>Барактын же бөлүмдүн аягы</li>
+                    <li>Контакт маалыматтар, автордук укуктар</li>
+                    <li>Бир документте бир нече болушу мүмкүн</li>
+                </ul>
+                
+                <div class="code-example">
+                    <pre><code>&lt;header&gt;
+    &lt;h1&gt;Барактын баштыгы&lt;/h1&gt;
+    &lt;nav&gt;Навигация&lt;/nav&gt;
+&lt;/header&gt;
+
+&lt;main&gt;
+    &lt;!-- Негизги мазмун --&gt;
+&lt;/main&gt;
+
+&lt;footer&gt;
+    &lt;p&gt;Барактын аягы&lt;/p&gt;
+&lt;/footer&gt;</code></pre>
+                </div>
+            </div>
+
+            <div class="theory-card">
+                <h3>3. Мазмун бөлүктөрү: &lt;section&gt;, &lt;article&gt;, &lt;aside&gt;</h3>
+                
+                <h4>&lt;section&gt; - Бөлүм</h4>
+                <ul>
+                    <li>Темалык бөлүмдү топтоштуруу</li>
+                    <li>Бир темага байланышкан мазмун</li>
+                    <li>Баштык менен башталат</li>
+                </ul>
+                
+                <h4>&lt;article&gt; - Макала</h4>
+                <ul>
+                    <li>Көз карандысыз мазмун</li>
+                    <li>Макала, блог пост, комментарий</li>
+                    <li>Өзүнчө бөлүп алууга болот</li>
+                </ul>
+                
+                <h4>&lt;aside&gt; - Бок мазмун</h4>
+                <ul>
+                    <li>Негизги мазмунга байланыштуу бок мазмун</li>
+                    <li>Сайдбар, реклама, кошумча маалымат</li>
+                    <li>Негизги мазмундан айырмаланат</li>
+                </ul>
+                
+                <div class="code-example">
+                    <pre><code>&lt;section&gt;
+    &lt;h2&gt;Бөлүм&lt;/h2&gt;
+    &lt;p&gt;Мазмун...&lt;/p&gt;
+&lt;/section&gt;
+
+&lt;article&gt;
+    &lt;h2&gt;Макала&lt;/h2&gt;
+    &lt;p&gt;Макаланын мазмуну...&lt;/p&gt;
+&lt;/article&gt;
+
+&lt;aside&gt;
+    &lt;h3&gt;Бок мазмун&lt;/h3&gt;
+    &lt;p&gt;Кошумча маалымат...&lt;/p&gt;
+&lt;/aside&gt;</code></pre>
+                </div>
+            </div>
+
+            <div class="theory-card">
+                <h3>4. Семантика эмне үчүн керек?</h3>
+                
+                <h4>SEO (Search Engine Optimization)</h4>
+                <ul>
+                    <li>Издөө системалары мазмунду жакшы түшүнөт</li>
+                    <li>Барактын рейтинги жогорулайт</li>
+                    <li>Негизги мазмунду табат</li>
+                </ul>
+                
+                <h4>Экран окугучтар (Screen Readers)</h4>
+                <ul>
+                    <li>Көрүү кыйынчылыгы бар колдонуучулар үчүн</li>
+                    <li>Мазмунду навигациялоого оңой</li>
+                    <li>Структураны түшүнүүгө жардам берет</li>
+                </ul>
+                
+                <h4>Коддун сапаты</h4>
+                <ul>
+                    <li>Кодду окууга оңой</li>
+                    <li>Түшүнүүгө жардам берет</li>
+                    <li>Колдоо жана өзгөртүү оңой</li>
+                </ul>
+                
+                <div class="code-example">
+                    <pre><code>&lt;!-- ЖАМАН (семантика жок) --&gt;
+&lt;div class="header"&gt;...&lt;/div&gt;
+&lt;div class="content"&gt;...&lt;/div&gt;
+&lt;div class="footer"&gt;...&lt;/div&gt;
+
+&lt;!-- ЖАКШЫ (семантикалык) --&gt;
+&lt;header&gt;...&lt;/header&gt;
+&lt;main&gt;...&lt;/main&gt;
+&lt;footer&gt;...&lt;/footer&gt;</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- ЖЕНИЛ МИСАЛДАР -->
+        <section class="examples-section">
+            <h2>🟢 ЖЕНИЛ МИСАЛДАР</h2>
+
+            <div class="example-group">
+                <h3>Мисал 1: header, main, footer</h3>
+                <div class="demo-box">
+                    <div class="semantic-demo">
+                        <header class="demo-header">
+                            <h2>Header</h2>
+                            <p>Барактын баштыгы</p>
+                        </header>
+                        <main class="demo-main">
+                            <h3>Main</h3>
+                            <p>Негизги мазмун</p>
+                        </main>
+                        <footer class="demo-footer">
+                            <p>Footer - Барактын аягы</p>
+                        </footer>
+                    </div>
+                </div>
+                <div class="code-example">
+                    <pre><code>&lt;header&gt;
+    &lt;h1&gt;Барактын баштыгы&lt;/h1&gt;
+    &lt;nav&gt;Навигация&lt;/nav&gt;
+&lt;/header&gt;
+
+&lt;main&gt;
+    &lt;h2&gt;Негизги мазмун&lt;/h2&gt;
+    &lt;p&gt;Мазмун...&lt;/p&gt;
+&lt;/main&gt;
+
+&lt;footer&gt;
+    &lt;p&gt;Барактын аягы&lt;/p&gt;
+&lt;/footer&gt;</code></pre>
+                </div>
+            </div>
+
+            <div class="example-group">
+                <h3>Мисал 2: section - Бөлүм</h3>
+                <div class="demo-box">
+                    <div class="semantic-demo">
+                        <section class="demo-section">
+                            <h3>Бөлүм 1</h3>
+                            <p>Бул биринчи бөлүмдүн мазмуну.</p>
+                        </section>
+                        <section class="demo-section">
+                            <h3>Бөлүм 2</h3>
+                            <p>Бул экинчи бөлүмдүн мазмуну.</p>
+                        </section>
+                        <section class="demo-section">
+                            <h3>Бөлүм 3</h3>
+                            <p>Бул үчүнчү бөлүмдүн мазмуну.</p>
+                        </section>
+                    </div>
+                </div>
+                <div class="code-example">
+                    <pre><code>&lt;section&gt;
+    &lt;h2&gt;Бөлүм 1&lt;/h2&gt;
+    &lt;p&gt;Бул биринчи бөлүмдүн мазмуну.&lt;/p&gt;
+&lt;/section&gt;
+
+&lt;section&gt;
+    &lt;h2&gt;Бөлүм 2&lt;/h2&gt;
+    &lt;p&gt;Бул экинчи бөлүмдүн мазмуну.&lt;/p&gt;
+&lt;/section&gt;
+
+&lt;section&gt;
+    &lt;h2&gt;Бөлүм 3&lt;/h2&gt;
+    &lt;p&gt;Бул үчүнчү бөлүмдүн мазмуну.&lt;/p&gt;
+&lt;/section&gt;</code></pre>
+                </div>
+            </div>
+
+            <div class="example-group">
+                <h3>Мисал 3: article - Макала</h3>
+                <div class="demo-box">
+                    <div class="semantic-demo">
+                        <article class="demo-article">
+                            <header>
+                                <h3>HTML5 семантикасы</h3>
+                                <p class="article-meta">2024-жыл, 15-январь</p>
+                            </header>
+                            <p>Бул макала HTML5 семантикалык тегдер жөнүндө.</p>
+                            <p>Ал мазмунду структуралоо үчүн колдонулат.</p>
+                            <footer>
+                                <p>Автор: Айбек</p>
+                            </footer>
+                        </article>
+                    </div>
+                </div>
+                <div class="code-example">
+                    <pre><code>&lt;article&gt;
+    &lt;header&gt;
+        &lt;h2&gt;HTML5 семантикасы&lt;/h2&gt;
+        &lt;p&gt;2024-жыл, 15-январь&lt;/p&gt;
+    &lt;/header&gt;
+    
+    &lt;p&gt;Бул макала HTML5 семантикалык тегдер жөнүндө.&lt;/p&gt;
+    &lt;p&gt;Ал мазмунду структуралоо үчүн колдонулат.&lt;/p&gt;
+    
+    &lt;footer&gt;
+        &lt;p&gt;Автор: Айбек&lt;/p&gt;
+    &lt;/footer&gt;
+&lt;/article&gt;</code></pre>
+                </div>
+            </div>
+
+            <div class="example-group">
+                <h3>Мисал 4: aside - Бок мазмун</h3>
+                <div class="demo-box">
+                    <div class="semantic-demo">
+                        <div class="layout-with-aside">
+                            <main class="demo-main-small">
+                                <h3>Негизги мазмун</h3>
+                                <p>Бул негизги мазмун бөлүгү.</p>
+                            </main>
+                            <aside class="demo-aside">
+                                <h4>Бок мазмун</h4>
+                                <p>Кошумча маалыматтар</p>
+                                <ul>
+                                    <li>Пункт 1</li>
+                                    <li>Пункт 2</li>
+                                    <li>Пункт 3</li>
+                                </ul>
+                            </aside>
+                        </div>
+                    </div>
+                </div>
+                <div class="code-example">
+                    <pre><code>&lt;main&gt;
+    &lt;h2&gt;Негизги мазмун&lt;/h2&gt;
+    &lt;p&gt;Бул негизги мазмун бөлүгү.&lt;/p&gt;
+&lt;/main&gt;
+
+&lt;aside&gt;
+    &lt;h3&gt;Бок мазмун&lt;/h3&gt;
+    &lt;p&gt;Кошумча маалыматтар&lt;/p&gt;
+    &lt;ul&gt;
+        &lt;li&gt;Пункт 1&lt;/li&gt;
+        &lt;li&gt;Пункт 2&lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/aside&gt;</code></pre>
+                </div>
+            </div>
+
+            <div class="example-group">
+                <h3>Мисал 5: Бардык семантикалык тегдер бирге</h3>
+                <div class="demo-box">
+                    <div class="semantic-demo full-layout">
+                        <header class="demo-header-small">
+                            <h4>Header</h4>
+                        </header>
+                        <main class="demo-main-small">
+                            <section class="demo-section-small">
+                                <h5>Section</h5>
+                                <article class="demo-article-small">
+                                    <h6>Article</h6>
+                                    <p>Макала мазмуну</p>
+                                </article>
+                            </section>
+                        </main>
+                        <aside class="demo-aside-small">
+                            <h5>Aside</h5>
+                        </aside>
+                        <footer class="demo-footer-small">
+                            <p>Footer</p>
+                        </footer>
+                    </div>
+                </div>
+                <div class="code-example">
+                    <pre><code>&lt;header&gt;
+    &lt;h1&gt;Барактын баштыгы&lt;/h1&gt;
+&lt;/header&gt;
+
+&lt;main&gt;
+    &lt;section&gt;
+        &lt;h2&gt;Бөлүм&lt;/h2&gt;
+        &lt;article&gt;
+            &lt;h3&gt;Макала&lt;/h3&gt;
+            &lt;p&gt;Макаланын мазмуну...&lt;/p&gt;
+        &lt;/article&gt;
+    &lt;/section&gt;
+&lt;/main&gt;
+
+&lt;aside&gt;
+    &lt;h3&gt;Бок мазмун&lt;/h3&gt;
+&lt;/aside&gt;
+
+&lt;footer&gt;
+    &lt;p&gt;Барактын аягы&lt;/p&gt;
+&lt;/footer&gt;</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- ООР МИСАЛДАР -->
+        <section class="examples-section">
+            <h2>🔴 ООР МИСАЛДАР</h2>
+
+            <div class="example-group">
+                <h3>Мисал 6: Реалдуу барактын структурасы</h3>
+                <div class="demo-box">
+                    <div class="real-page-structure">
+                        <header class="page-header-demo">
+                            <div class="logo-demo">Логотип</div>
+                            <nav class="nav-demo-semantic">
+                                <a href="#home">Башкы</a>
+                                <a href="#about">Жөнүндө</a>
+                                <a href="#contact">Байланыш</a>
+                            </nav>
+                        </header>
+                        
+                        <main class="page-main-demo">
+                            <section class="hero-section">
+                                <h3>Башкы бөлүм</h3>
+                                <p>Барактын негизги мазмуну</p>
+                            </section>
+                            
+                            <section class="content-section">
+                                <article>
+                                    <h4>Макала 1</h4>
+                                    <p>Макаланын мазмуну...</p>
+                                </article>
+                                <article>
+                                    <h4>Макала 2</h4>
+                                    <p>Макаланын мазмуну...</p>
+                                </article>
+                            </section>
+                        </main>
+                        
+                        <aside class="page-aside-demo">
+                            <h4>Бок меню</h4>
+                            <ul>
+                                <li>Пункт 1</li>
+                                <li>Пункт 2</li>
+                                <li>Пункт 3</li>
+                            </ul>
+                        </aside>
+                        
+                        <footer class="page-footer-demo">
+                            <p>&copy; 2024 Бардык укуктар корголгон</p>
+                        </footer>
+                    </div>
+                </div>
+                <div class="code-example">
+                    <pre><code>&lt;header&gt;
+    &lt;div class="logo"&gt;Логотип&lt;/div&gt;
+    &lt;nav&gt;
+        &lt;a href="#home"&gt;Башкы&lt;/a&gt;
+        &lt;a href="#about"&gt;Жөнүндө&lt;/a&gt;
+        &lt;a href="#contact"&gt;Байланыш&lt;/a&gt;
+    &lt;/nav&gt;
+&lt;/header&gt;
+
+&lt;main&gt;
+    &lt;section class="hero"&gt;
+        &lt;h1&gt;Башкы бөлүм&lt;/h1&gt;
+    &lt;/section&gt;
+    
+    &lt;section class="content"&gt;
+        &lt;article&gt;
+            &lt;h2&gt;Макала 1&lt;/h2&gt;
+            &lt;p&gt;Мазмун...&lt;/p&gt;
+        &lt;/article&gt;
+    &lt;/section&gt;
+&lt;/main&gt;
+
+&lt;aside&gt;
+    &lt;h3&gt;Бок меню&lt;/h3&gt;
+    &lt;ul&gt;
+        &lt;li&gt;Пункт 1&lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/aside&gt;
+
+&lt;footer&gt;
+    &lt;p&gt;&copy; 2024&lt;/p&gt;
+&lt;/footer&gt;</code></pre>
+                </div>
+            </div>
+
+            <div class="example-group">
+                <h3>Мисал 7: Блог барактын структурасы</h3>
+                <div class="demo-box">
+                    <div class="blog-structure">
+                        <header class="blog-header">
+                            <h3>Менин блогу</h3>
+                        </header>
+                        <main class="blog-main">
+                            <article class="blog-post">
+                                <header>
+                                    <h4>HTML5 семантикасы</h4>
+                                    <p class="post-meta">2024-жыл, 15-январь | Автор: Айбек</p>
+                                </header>
+                                <section>
+                                    <p>Бул макала HTML5 семантикалык тегдер жөнүндө.</p>
+                                </section>
+                                <footer>
+                                    <p>Тегдер: HTML, CSS</p>
+                                </footer>
+                            </article>
+                            <article class="blog-post">
+                                <header>
+                                    <h4>CSS анимациялары</h4>
+                                    <p class="post-meta">2024-жыл, 20-январь | Автор: Нурбек</p>
+                                </header>
+                                <section>
+                                    <p>Бул макала CSS анимациялары жөнүндө.</p>
+                                </section>
+                                <footer>
+                                    <p>Тегдер: CSS, Animation</p>
+                                </footer>
+                            </article>
+                        </main>
+                        <aside class="blog-sidebar">
+                            <section>
+                                <h4>Архив</h4>
+                                <ul>
+                                    <li>Январь 2024</li>
+                                    <li>Февраль 2024</li>
+                                </ul>
+                            </section>
+                            <section>
+                                <h4>Тегдер</h4>
+                                <ul>
+                                    <li>HTML</li>
+                                    <li>CSS</li>
+                                    <li>JavaScript</li>
+                                </ul>
+                            </section>
+                        </aside>
+                        <footer class="blog-footer">
+                            <p>Блогтын аягы</p>
+                        </footer>
+                    </div>
+                </div>
+                <div class="code-example">
+                    <pre><code>&lt;header&gt;
+    &lt;h1&gt;Менин блогу&lt;/h1&gt;
+&lt;/header&gt;
+
+&lt;main&gt;
+    &lt;article&gt;
+        &lt;header&gt;
+            &lt;h2&gt;HTML5 семантикасы&lt;/h2&gt;
+            &lt;p&gt;2024-жыл, 15-январь&lt;/p&gt;
+        &lt;/header&gt;
+        &lt;section&gt;
+            &lt;p&gt;Макаланын мазмуну...&lt;/p&gt;
+        &lt;/section&gt;
+        &lt;footer&gt;
+            &lt;p&gt;Тегдер: HTML, CSS&lt;/p&gt;
+        &lt;/footer&gt;
+    &lt;/article&gt;
+&lt;/main&gt;
+
+&lt;aside&gt;
+    &lt;section&gt;
+        &lt;h3&gt;Архив&lt;/h3&gt;
+        &lt;ul&gt;
+            &lt;li&gt;Январь 2024&lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/section&gt;
+&lt;/aside&gt;
+
+&lt;footer&gt;
+    &lt;p&gt;Блогтын аягы&lt;/p&gt;
+&lt;/footer&gt;</code></pre>
+                </div>
+            </div>
+
+            <div class="example-group">
+                <h3>Мисал 8: Семантикалык vs Жөнөкөй (салыштыруу)</h3>
+                <div class="demo-box">
+                    <div class="comparison-demo">
+                        <div class="bad-example">
+                            <h4>❌ ЖАМАН (семантика жок)</h4>
+                            <div class="code-bad">
+                                <pre><code>&lt;div class="header"&gt;
+    &lt;div class="logo"&gt;Логотип&lt;/div&gt;
+    &lt;div class="nav"&gt;Навигация&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class="content"&gt;
+    &lt;div class="article"&gt;
+        &lt;div class="title"&gt;Макала&lt;/div&gt;
+        &lt;div class="text"&gt;Мазмун...&lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class="footer"&gt;
+    &lt;div class="copyright"&gt;© 2024&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+                            </div>
+                        </div>
+                        <div class="good-example">
+                            <h4>✅ ЖАКШЫ (семантикалык)</h4>
+                            <div class="code-good">
+                                <pre><code>&lt;header&gt;
+    &lt;div class="logo"&gt;Логотип&lt;/div&gt;
+    &lt;nav&gt;Навигация&lt;/nav&gt;
+&lt;/header&gt;
+
+&lt;main&gt;
+    &lt;article&gt;
+        &lt;h2&gt;Макала&lt;/h2&gt;
+        &lt;p&gt;Мазмун...&lt;/p&gt;
+    &lt;/article&gt;
+&lt;/main&gt;
+
+&lt;footer&gt;
+    &lt;p&gt;© 2024&lt;/p&gt;
+&lt;/footer&gt;</code></pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ПРАКТИКА -->
+        <section class="practice-section">
+            <h2>💻 ПРАКТИКА</h2>
+            <div class="practice-card">
+                <h3>Өзүңүз кылыңыз:</h3>
+                <ol>
+                    <li>header, main, footer менен жөнөкөй барак түзүңүз</li>
+                    <li>section менен бөлүмдөрдү топтоштуруңуз</li>
+                    <li>article менен макала түзүңүз</li>
+                    <li>aside менен бок мазмун кошуңуз</li>
+                    <li>Бардык семантикалык тегдерди бириктирип, барак түзүңүз</li>
+                    <li>Блог барактын структурасын түзүңүз (header, main, article, aside, footer)</li>
+                    <li>Реалдуу барактын макетинин семантикалык структурасын түзүңүз</li>
+                    <li>Семантикалык тегдерди div менен салыштырып, артыкчылыгын түшүндүрүңүз</li>
+                </ol>
+            </div>
+        </section>
+
+        <!-- КЕСТЕ -->
+        <section class="table-section">
+            <h2>📊 Семантикалык тегдердин салыштырмасы</h2>
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Тег</th>
+                            <th>Аты</th>
+                            <th>Колдонулушу</th>
+                            <th>Мисал</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><code>&lt;header&gt;</code></td>
+                            <td>Header</td>
+                            <td>Баштык бөлүгү</td>
+                            <td><code>&lt;header&gt;...&lt;/header&gt;</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>&lt;main&gt;</code></td>
+                            <td>Main</td>
+                            <td>Негизги мазмун (бир гана)</td>
+                            <td><code>&lt;main&gt;...&lt;/main&gt;</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>&lt;footer&gt;</code></td>
+                            <td>Footer</td>
+                            <td>Аяк бөлүгү</td>
+                            <td><code>&lt;footer&gt;...&lt;/footer&gt;</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>&lt;section&gt;</code></td>
+                            <td>Section</td>
+                            <td>Темалык бөлүм</td>
+                            <td><code>&lt;section&gt;...&lt;/section&gt;</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>&lt;article&gt;</code></td>
+                            <td>Article</td>
+                            <td>Көз карандысыз мазмун</td>
+                            <td><code>&lt;article&gt;...&lt;/article&gt;</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>&lt;aside&gt;</code></td>
+                            <td>Aside</td>
+                            <td>Бок мазмун</td>
+                            <td><code>&lt;aside&gt;...&lt;/aside&gt;</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>&lt;nav&gt;</code></td>
+                            <td>Navigation</td>
+                            <td>Навигация меню</td>
+                            <td><code>&lt;nav&gt;...&lt;/nav&gt;</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>&lt;figure&gt;</code></td>
+                            <td>Figure</td>
+                            <td>Сүрөт же диаграмма</td>
+                            <td><code>&lt;figure&gt;...&lt;/figure&gt;</code></td>
+                        </tr>
+                        <tr>
+                            <td><code>&lt;figcaption&gt;</code></td>
+                            <td>Figure Caption</td>
+                            <td>Сүрөттүн сүрөттөмөсү</td>
+                            <td><code>&lt;figcaption&gt;...&lt;/figcaption&gt;</code></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <footer>
+            <p>Бактылуу окуу! 🎓</p>
+        </footer>
+    </div>
+</body>
+</html>
+

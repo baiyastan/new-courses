@@ -1,0 +1,715 @@
+<!DOCTYPE html>
+<html lang="ky">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Box Model - Сабак</title>
+    <link rel="stylesheet" href="box-model-styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Box Model</h1>
+            <p class="subtitle">Баштап жаткандар үчүн толук сабак</p>
+        </header>
+
+        <!-- ТЕОРИЯ БӨЛҮМҮ -->
+        <section class="theory-section">
+            <h2>📚 Теория</h2>
+            
+            <div class="theory-card">
+                <h3>1. Box Model деген эмне?</h3>
+                
+                <p><strong>Box Model</strong> - CSS'те ар бир элемент төрт бөлүктөн турат:</p>
+                
+                <ol>
+                    <li><strong>Content (Контент)</strong> - элементтин мазмуну (текст, сүрөт, ж.б.)</li>
+                    <li><strong>Padding (Ички отступ)</strong> - контент менен чектин ортосундагы аралык</li>
+                    <li><strong>Border (Чек)</strong> - элементтин чеки</li>
+                    <li><strong>Margin (Сырткы отступ)</strong> - элементтердин ортосундагы аралык</li>
+                </ol>
+                
+                <div class="box-model-visual">
+                    <div class="visual-box">
+                        <div class="visual-margin">
+                            <div class="visual-border">
+                                <div class="visual-padding">
+                                    <div class="visual-content">
+                                        Контент
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="visual-labels">
+                        <div class="label-margin">Margin</div>
+                        <div class="label-border">Border</div>
+                        <div class="label-padding">Padding</div>
+                        <div class="label-content">Content</div>
+                    </div>
+                </div>
+                
+                <div class="code-example">
+                    <pre><code>/* Box Model структурасы */
+.element {
+    /* Контент */
+    width: 200px;
+    height: 100px;
+    
+    /* Padding - ички отступ */
+    padding: 20px;
+    
+    /* Border - чек */
+    border: 5px solid #333;
+    
+    /* Margin - сырткы отступ */
+    margin: 30px;
+}
+
+/* Тартип: Контент → Padding → Border → Margin */</code></pre>
+                </div>
+            </div>
+
+            <div class="theory-card">
+                <h3>2. Box Model катмарлары</h3>
+                
+                <h4>1. Content (Контент)</h4>
+                <ul>
+                    <li>Элементтин мазмуну</li>
+                    <li>width жана height контенттин өлчөмүн аныктайт</li>
+                    <li>Текст, сүрөт, башка элементтер</li>
+                </ul>
+                
+                <h4>2. Padding (Ички отступ)</h4>
+                <ul>
+                    <li>Контент менен чектин ортосундагы аралык</li>
+                    <li>Фондун түсү колдонулат</li>
+                    <li>padding: 20px; - бардык тарапка</li>
+                </ul>
+                
+                <h4>3. Border (Чек)</h4>
+                <ul>
+                    <li>Элементтин чеки</li>
+                    <li>border: 2px solid #333;</li>
+                    <li>Padding менен marginдин ортосунда</li>
+                </ul>
+                
+                <h4>4. Margin (Сырткы отступ)</h4>
+                <ul>
+                    <li>Элементтердин ортосундагы аралык</li>
+                    <li>Фондун түсү колдонулбайт (шыпыргы)</li>
+                    <li>margin: 30px; - бардык тарапка</li>
+                </ul>
+                
+                <div class="code-example">
+                    <pre><code>/* Box Model катмарлары */
+.box {
+    /* 1. Content */
+    width: 200px;
+    height: 100px;
+    background: #667eea;
+    
+    /* 2. Padding */
+    padding: 20px;
+    
+    /* 3. Border */
+    border: 5px solid #333;
+    
+    /* 4. Margin */
+    margin: 30px;
+}
+
+/* Жалпы туурасы = width + padding*2 + border*2 + margin*2 */</code></pre>
+                </div>
+            </div>
+
+            <div class="theory-card">
+                <h3>3. Box Model эсептөө</h3>
+                
+                <h4>Жалпы өлчөм:</h4>
+                <ul>
+                    <li><strong>Туурасы</strong> = width + padding-left + padding-right + border-left + border-right + margin-left + margin-right</li>
+                    <li><strong>Бийиктиги</strong> = height + padding-top + padding-bottom + border-top + border-bottom + margin-top + margin-bottom</li>
+                </ul>
+                
+                <h4>Мисал:</h4>
+                <ul>
+                    <li>width: 200px</li>
+                    <li>padding: 20px (бардык тарапка)</li>
+                    <li>border: 5px solid</li>
+                    <li>margin: 30px (бардык тарапка)</li>
+                </ul>
+                
+                <p><strong>Жалпы туурасы:</strong> 200px + 20px*2 + 5px*2 + 30px*2 = 200 + 40 + 10 + 60 = <strong>310px</strong></p>
+                
+                <div class="code-example">
+                    <pre><code>/* Box Model эсептөө */
+.box {
+    width: 200px;        /* Контенттин туурасы */
+    padding: 20px;       /* + 40px (20px*2) */
+    border: 5px solid;   /* + 10px (5px*2) */
+    margin: 30px;       /* + 60px (30px*2) */
+}
+
+/* Жалпы туурасы = 200 + 40 + 10 + 60 = 310px */
+
+/* box-sizing: border-box менен */
+.box-border-box {
+    box-sizing: border-box;
+    width: 200px;        /* Жалпы туурасы (padding жана border ичинде) */
+    padding: 20px;       /* Ичинде */
+    border: 5px solid;   /* Ичинде */
+    margin: 30px;        /* Сыртында */
+}
+
+/* Жалпы туурасы = 200px + 60px (margin*2) = 260px */</code></pre>
+                </div>
+            </div>
+
+            <div class="theory-card">
+                <h3>4. box-sizing: content-box vs border-box</h3>
+                
+                <h4>content-box (дефолт)</h4>
+                <ul>
+                    <li>width/height = контент гана</li>
+                    <li>padding жана border кошулат</li>
+                    <li>Жалпы өлчөм = width + padding + border</li>
+                </ul>
+                
+                <h4>border-box (эң жакшы практика)</h4>
+                <ul>
+                    <li>width/height = контент + padding + border</li>
+                    <li>padding жана border ичинде</li>
+                    <li>Жалпы өлчөм = width (margin кошулат)</li>
+                </ul>
+                
+                <div class="code-example">
+                    <pre><code>/* content-box (дефолт) */
+.content-box {
+    box-sizing: content-box;
+    width: 200px;
+    padding: 20px;
+    border: 5px solid;
+    /* Жалпы туурасы = 200 + 40 + 10 = 250px */
+}
+
+/* border-box (эң жакшы) */
+.border-box {
+    box-sizing: border-box;
+    width: 200px;
+    padding: 20px;
+    border: 5px solid;
+    /* Жалпы туурасы = 200px (padding жана border ичинде) */
+}
+
+/* Бардык элементтерге */
+* {
+    box-sizing: border-box;
+}</code></pre>
+                </div>
+            </div>
+
+            <div class="theory-card">
+                <h3>5. Box Model практикасы</h3>
+                
+                <h4>Жакшы практикалар:</h4>
+                <ul>
+                    <li><code>box-sizing: border-box;</code> - бардык элементтерге</li>
+                    <li>Margin collapse - эки элементтин ортосундагы margin биригип кетет</li>
+                    <li>Negative margin - элементтерди жылдыруу үчүн</li>
+                </ul>
+                
+                <h4>Эскертүүлөр:</h4>
+                <ul>
+                    <li>Padding жана border фондун түсүн колдонот</li>
+                    <li>Margin фондун түсүн колдонбойт (шыпыргы)</li>
+                    <li>Inline элементтерге width/height колдонулбайт</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- ЖЕНИЛ МИСАЛДАР -->
+        <section class="examples-section">
+            <h2>🟢 ЖЕНИЛ МИСАЛДАР</h2>
+
+            <div class="example-group">
+                <h3>Мисал 1: Box Model катмарлары</h3>
+                <div class="demo-box">
+                    <div class="box-model-demo">
+                        <div class="demo-box-model">
+                            <div class="box-content">Контент</div>
+                        </div>
+                    </div>
+                    <div class="box-info">
+                        <p><strong>Контент:</strong> 200px x 100px</p>
+                        <p><strong>Padding:</strong> 20px (бардык тарапка)</p>
+                        <p><strong>Border:</strong> 5px solid</p>
+                        <p><strong>Margin:</strong> 30px (бардык тарапка)</p>
+                    </div>
+                </div>
+                <div class="code-example">
+                    <pre><code>/* Box Model катмарлары */
+.demo-box-model {
+    /* Контент */
+    width: 200px;
+    height: 100px;
+    background: #667eea;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    /* Padding */
+    padding: 20px;
+    
+    /* Border */
+    border: 5px solid #333;
+    
+    /* Margin */
+    margin: 30px;
+}
+
+/* Тартип: Контент → Padding → Border → Margin */</code></pre>
+                </div>
+            </div>
+
+            <div class="example-group">
+                <h3>Мисал 2: content-box vs border-box</h3>
+                <div class="demo-box">
+                    <div class="box-sizing-comparison">
+                        <div class="comparison-item">
+                            <h4>content-box</h4>
+                            <div class="demo-content-box">
+                                <div class="inner">200px</div>
+                            </div>
+                            <p>Жалпы: 250px</p>
+                        </div>
+                        <div class="comparison-item">
+                            <h4>border-box</h4>
+                            <div class="demo-border-box">
+                                <div class="inner">200px</div>
+                            </div>
+                            <p>Жалпы: 200px</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="code-example">
+                    <pre><code>/* content-box */
+.demo-content-box {
+    box-sizing: content-box;
+    width: 200px;
+    padding: 20px;
+    border: 5px solid #667eea;
+    background: #e3f2fd;
+    margin: 0 auto;
+}
+
+/* Жалпы туурасы = 200 + 40 + 10 = 250px */
+
+/* border-box */
+.demo-border-box {
+    box-sizing: border-box;
+    width: 200px;
+    padding: 20px;
+    border: 5px solid #4CAF50;
+    background: #e8f5e9;
+    margin: 0 auto;
+}
+
+/* Жалпы туурасы = 200px (padding жана border ичинде) */</code></pre>
+                </div>
+            </div>
+
+            <div class="example-group">
+                <h3>Мисал 3: Айрым тараптар</h3>
+                <div class="demo-box">
+                    <div class="individual-sides-demo">
+                        <div class="box-individual">
+                            <div class="box-content">Айрым тараптар</div>
+                        </div>
+                    </div>
+                    <div class="box-info">
+                        <p><strong>Padding:</strong> top: 30px, right: 20px, bottom: 10px, left: 40px</p>
+                        <p><strong>Border:</strong> top: 3px, right: 5px, bottom: 7px, left: 2px</p>
+                        <p><strong>Margin:</strong> top: 20px, right: 15px, bottom: 25px, left: 10px</p>
+                    </div>
+                </div>
+                <div class="code-example">
+                    <pre><code>/* Айрым тараптар */
+.box-individual {
+    width: 200px;
+    height: 100px;
+    background: #667eea;
+    color: white;
+    
+    /* Padding - айрым тараптар */
+    padding-top: 30px;
+    padding-right: 20px;
+    padding-bottom: 10px;
+    padding-left: 40px;
+    
+    /* Border - айрым тараптар */
+    border-top: 3px solid red;
+    border-right: 5px solid blue;
+    border-bottom: 7px solid green;
+    border-left: 2px solid purple;
+    
+    /* Margin - айрым тараптар */
+    margin-top: 20px;
+    margin-right: 15px;
+    margin-bottom: 25px;
+    margin-left: 10px;
+}</code></pre>
+                </div>
+            </div>
+
+            <div class="example-group">
+                <h3>Мисал 4: Margin Collapse</h3>
+                <div class="demo-box">
+                    <div class="margin-collapse-demo">
+                        <div class="collapse-box box1">Box 1 (margin-bottom: 30px)</div>
+                        <div class="collapse-box box2">Box 2 (margin-top: 20px)</div>
+                        <p class="note">Эки margin биригип кетет (30px, 20px эмес, 30px гана)</p>
+                    </div>
+                </div>
+                <div class="code-example">
+                    <pre><code>/* Margin Collapse */
+.collapse-box {
+    width: 200px;
+    padding: 20px;
+    background: #667eea;
+    color: white;
+    border-radius: 5px;
+}
+
+.box1 {
+    margin-bottom: 30px;
+}
+
+.box2 {
+    margin-top: 20px;
+}
+
+/* Эки margin биригип кетет */
+/* Аралык = 30px (20px эмес!) */</code></pre>
+                </div>
+            </div>
+
+            <div class="example-group">
+                <h3>Мисал 5: Negative Margin</h3>
+                <div class="demo-box">
+                    <div class="negative-margin-demo">
+                        <div class="normal-box">Кадимки margin</div>
+                        <div class="negative-box">Negative margin (-20px)</div>
+                        <div class="normal-box">Кадимки margin</div>
+                    </div>
+                </div>
+                <div class="code-example">
+                    <pre><code>/* Negative Margin */
+.normal-box {
+    width: 200px;
+    padding: 20px;
+    margin: 20px;
+    background: #667eea;
+    color: white;
+    border-radius: 5px;
+}
+
+.negative-box {
+    width: 200px;
+    padding: 20px;
+    margin: -20px;  /* Negative margin */
+    background: #f5576c;
+    color: white;
+    border-radius: 5px;
+}
+
+/* Элементтер бири-бирине жакындайт */</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- ООР МИСАЛДАР -->
+        <section class="examples-section">
+            <h2>🔴 ООР МИСАЛДАР</h2>
+
+            <div class="example-group">
+                <h3>Мисал 6: Практикалык карточка (Box Model)</h3>
+                <div class="demo-box">
+                    <div class="practical-card-demo">
+                        <div class="practical-card">
+                            <h4>Карточка</h4>
+                            <p>Бул карточка Box Model менен стилделген</p>
+                            <button>Кнопка</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="code-example">
+                    <pre><code>/* Практикалык карточка */
+.practical-card {
+    box-sizing: border-box;
+    width: 300px;
+    
+    /* Контент */
+    background: white;
+    border-radius: 10px;
+    
+    /* Padding */
+    padding: 30px;
+    
+    /* Border */
+    border: 2px solid #667eea;
+    
+    /* Margin */
+    margin: 20px auto;
+    
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.practical-card h4 {
+    margin-bottom: 15px;
+    color: #667eea;
+}
+
+.practical-card p {
+    margin-bottom: 20px;
+    color: #666;
+}
+
+.practical-card button {
+    padding: 10px 20px;
+    background: #667eea;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}</code></pre>
+                </div>
+            </div>
+
+            <div class="example-group">
+                <h3>Мисал 7: Респонсивдик Grid (Box Model)</h3>
+                <div class="demo-box">
+                    <div class="grid-box-model-demo">
+                        <div class="grid-item">Grid 1</div>
+                        <div class="grid-item">Grid 2</div>
+                        <div class="grid-item">Grid 3</div>
+                    </div>
+                </div>
+                <div class="code-example">
+                    <pre><code>/* Респонсивдик Grid */
+.grid-box-model-demo {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.grid-item {
+    box-sizing: border-box;
+    
+    /* Контент */
+    min-height: 150px;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+    
+    /* Padding */
+    padding: 30px;
+    
+    /* Border */
+    border: 3px solid #333;
+    
+    /* Margin */
+    margin: 0;
+    
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+}</code></pre>
+                </div>
+            </div>
+
+            <div class="example-group">
+                <h3>Мисал 8: Box Model эсептөө мисалы</h3>
+                <div class="demo-box">
+                    <div class="calculation-demo">
+                        <div class="calc-box">
+                            <div class="calc-content">200px</div>
+                        </div>
+                        <div class="calculation-info">
+                            <h4>Эсептөө:</h4>
+                            <p>width: <strong>200px</strong></p>
+                            <p>padding: <strong>20px</strong> × 2 = <strong>40px</strong></p>
+                            <p>border: <strong>5px</strong> × 2 = <strong>10px</strong></p>
+                            <p>margin: <strong>30px</strong> × 2 = <strong>60px</strong></p>
+                            <p class="total">Жалпы туурасы: <strong>310px</strong></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="code-example">
+                    <pre><code>/* Box Model эсептөө */
+.calc-box {
+    box-sizing: content-box;
+    width: 200px;
+    padding: 20px;
+    border: 5px solid #667eea;
+    margin: 30px;
+    background: #e3f2fd;
+}
+
+/* Эсептөө:
+   width: 200px
+   + padding: 20px × 2 = 40px
+   + border: 5px × 2 = 10px
+   + margin: 30px × 2 = 60px
+   = Жалпы туурасы: 310px
+*/</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- ПРАКТИКА -->
+        <section class="practice-section">
+            <h2>💻 ПРАКТИКА</h2>
+            <div class="practice-card">
+                <h3>Өзүңүз кылыңыз:</h3>
+                <ol>
+                    <li>Box Model катмарларын түшүнүңүз (Контент → Padding → Border → Margin)</li>
+                    <li>content-box менен элементтин өлчөмүн эсептеңиз</li>
+                    <li>border-box менен элементтин өлчөмүн эсептеңиз</li>
+                    <li>Айрым тараптардын padding, border, margin'ын коюңуз</li>
+                    <li>Margin collapse мисалын кылыңыз</li>
+                    <li>Negative margin менен элементтерди жылдырыңыз</li>
+                    <li>Практикалык карточканы Box Model менен стилдеңиз</li>
+                    <li>Респонсивдик Grid'ди Box Model менен кылыңыз</li>
+                    <li>Box Model эсептөөнү практикалаңыз</li>
+                    <li>box-sizing: border-box'ту бардык элементтерге коюңуз</li>
+                </ol>
+            </div>
+        </section>
+
+        <!-- КЕСТЕ -->
+        <section class="table-section">
+            <h2>📊 Box Model катмарлары</h2>
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Катмар</th>
+                            <th>Түшүндүрмө</th>
+                            <th>Касиет</th>
+                            <th>Фондун түсү</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Content</strong></td>
+                            <td>Элементтин мазмуну</td>
+                            <td>width, height</td>
+                            <td>✅ Колдонулат</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Padding</strong></td>
+                            <td>Ички отступ</td>
+                            <td>padding</td>
+                            <td>✅ Колдонулат</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Border</strong></td>
+                            <td>Чек</td>
+                            <td>border</td>
+                            <td>✅ Колдонулат</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Margin</strong></td>
+                            <td>Сырткы отступ</td>
+                            <td>margin</td>
+                            <td>❌ Колдонулбайт</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section class="table-section">
+            <h2>📊 content-box vs border-box</h2>
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Касиет</th>
+                            <th>content-box</th>
+                            <th>border-box</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>width/height</strong></td>
+                            <td>Контент гана</td>
+                            <td>Контент + padding + border</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Жалпы өлчөм</strong></td>
+                            <td>width + padding + border</td>
+                            <td>width (margin кошулат)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Колдонулушу</strong></td>
+                            <td>Дефолт (көбүнчө колдонулбайт)</td>
+                            <td>Эң жакшы практика</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Мисал</strong></td>
+                            <td>width: 200px → жалпы: 250px</td>
+                            <td>width: 200px → жалпы: 200px</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section class="table-section">
+            <h2>📊 Box Model эсептөө формуласы</h2>
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Өлчөм</th>
+                            <th>Формула</th>
+                            <th>Мисал</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Туурасы (content-box)</strong></td>
+                            <td>width + padding*2 + border*2 + margin*2</td>
+                            <td>200 + 40 + 10 + 60 = 310px</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Бийиктиги (content-box)</strong></td>
+                            <td>height + padding*2 + border*2 + margin*2</td>
+                            <td>100 + 40 + 10 + 60 = 210px</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Туурасы (border-box)</strong></td>
+                            <td>width + margin*2</td>
+                            <td>200 + 60 = 260px</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Бийиктиги (border-box)</strong></td>
+                            <td>height + margin*2</td>
+                            <td>100 + 60 = 160px</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <footer>
+            <p>Бактылуу окуу! 🎓</p>
+        </footer>
+    </div>
+</body>
+</html>
+

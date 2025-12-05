@@ -1,0 +1,827 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    padding: 20px;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    background: white;
+    border-radius: 20px;
+    padding: 40px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+}
+
+header {
+    text-align: center;
+    margin-bottom: 40px;
+    padding-bottom: 20px;
+    border-bottom: 3px solid #667eea;
+}
+
+h1 {
+    color: #667eea;
+    font-size: 2.5em;
+    margin-bottom: 10px;
+}
+
+.subtitle {
+    color: #666;
+    font-size: 1.2em;
+}
+
+section {
+    margin-bottom: 50px;
+}
+
+h2 {
+    color: #333;
+    font-size: 2em;
+    margin-bottom: 30px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #eee;
+}
+
+h3 {
+    color: #667eea;
+    font-size: 1.5em;
+    margin-bottom: 15px;
+}
+
+h4 {
+    color: #555;
+    font-size: 1.2em;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+/* ТЕОРИЯ БӨЛҮМҮ */
+.theory-section {
+    background: #f8f9fa;
+    padding: 30px;
+    border-radius: 15px;
+    margin-bottom: 40px;
+}
+
+.theory-card {
+    background: white;
+    padding: 25px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.theory-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15);
+}
+
+.theory-card ul {
+    margin-left: 20px;
+    margin-top: 15px;
+}
+
+.theory-card li {
+    margin-bottom: 10px;
+    color: #555;
+}
+
+.theory-card .note {
+    background: #e3f2fd;
+    padding: 15px;
+    border-radius: 5px;
+    border-left: 4px solid #2196F3;
+    margin-top: 15px;
+    color: #1565C0;
+}
+
+/* МИСАЛДАР БӨЛҮМҮ */
+.example-group {
+    background: #f8f9fa;
+    padding: 25px;
+    border-radius: 15px;
+    margin-bottom: 30px;
+    border-left: 5px solid #667eea;
+}
+
+.demo-box {
+    background: white;
+    padding: 40px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    min-height: 150px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.code-example {
+    background: #2d2d2d;
+    color: #f8f8f2 !important;
+    padding: 20px;
+    border-radius: 8px;
+    overflow-x: auto;
+    border: 1px solid #444;
+}
+
+.code-example pre {
+    margin: 0;
+    font-family: 'Courier New', monospace;
+    font-size: 14px;
+    line-height: 1.5;
+    color: #f8f8f2 !important;
+    background: transparent !important;
+}
+
+.code-example code {
+    color: #f8f8f2 !important;
+    background: transparent !important;
+    font-family: 'Courier New', monospace;
+}
+
+/* ДЕМО ЭЛЕМЕНТТЕР */
+
+/* Мисал 1 - Header, Main, Footer */
+.semantic-demo {
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.demo-header {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+.demo-header h2 {
+    color: white;
+    border: none;
+    margin: 0 0 10px 0;
+    padding: 0;
+}
+
+.demo-main {
+    padding: 30px;
+    background: #f8f9fa;
+    min-height: 150px;
+}
+
+.demo-main h3 {
+    color: #667eea;
+    margin-bottom: 15px;
+}
+
+.demo-footer {
+    background: #333;
+    color: white;
+    padding: 15px;
+    text-align: center;
+}
+
+.demo-footer p {
+    margin: 0;
+}
+
+/* Мисал 2 - Section */
+.demo-section {
+    padding: 20px;
+    margin-bottom: 20px;
+    background: #f8f9fa;
+    border-left: 4px solid #667eea;
+    border-radius: 5px;
+}
+
+.demo-section h3 {
+    color: #667eea;
+    margin-bottom: 10px;
+}
+
+.demo-section p {
+    color: #555;
+}
+
+/* Мисал 3 - Article */
+.demo-article {
+    padding: 25px;
+    background: white;
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.demo-article header {
+    border-bottom: 2px solid #eee;
+    padding-bottom: 15px;
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+.demo-article header h3 {
+    color: #667eea;
+    margin-bottom: 5px;
+}
+
+.article-meta {
+    color: #999;
+    font-size: 0.9em;
+}
+
+.demo-article p {
+    color: #555;
+    margin-bottom: 15px;
+}
+
+.demo-article footer {
+    border-top: 2px solid #eee;
+    padding-top: 15px;
+    margin-top: 15px;
+    text-align: left;
+}
+
+.demo-article footer p {
+    color: #999;
+    font-size: 0.9em;
+    margin: 0;
+}
+
+/* Мисал 4 - Aside */
+.layout-with-aside {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.demo-main-small {
+    flex: 1;
+    min-width: 300px;
+    padding: 20px;
+    background: #f8f9fa;
+    border-radius: 8px;
+}
+
+.demo-main-small h3 {
+    color: #667eea;
+    margin-bottom: 15px;
+}
+
+.demo-aside {
+    width: 250px;
+    padding: 20px;
+    background: #e3f2fd;
+    border-radius: 8px;
+    border-left: 4px solid #2196F3;
+}
+
+.demo-aside h4 {
+    color: #1976d2;
+    margin-bottom: 15px;
+}
+
+.demo-aside ul {
+    list-style: none;
+    margin-left: 0;
+}
+
+.demo-aside li {
+    padding: 8px 0;
+    color: #555;
+    border-bottom: 1px solid #ddd;
+}
+
+.demo-aside li:last-child {
+    border-bottom: none;
+}
+
+/* Мисал 5 - Full layout */
+.full-layout {
+    display: grid;
+    grid-template-areas:
+        "header header"
+        "main aside"
+        "footer footer";
+    grid-template-columns: 1fr 200px;
+    gap: 15px;
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    padding: 15px;
+}
+
+.demo-header-small {
+    grid-area: header;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+    padding: 15px;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.demo-header-small h4 {
+    color: white;
+    margin: 0;
+}
+
+.demo-main-small {
+    grid-area: main;
+    padding: 15px;
+    background: #f8f9fa;
+    border-radius: 5px;
+}
+
+.demo-section-small {
+    padding: 10px;
+    background: white;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.demo-section-small h5 {
+    color: #667eea;
+    margin-bottom: 10px;
+    font-size: 1em;
+}
+
+.demo-article-small {
+    padding: 10px;
+    background: #e3f2fd;
+    border-radius: 5px;
+    border-left: 3px solid #2196F3;
+}
+
+.demo-article-small h6 {
+    color: #1976d2;
+    margin-bottom: 5px;
+    font-size: 0.9em;
+}
+
+.demo-article-small p {
+    font-size: 0.85em;
+    color: #555;
+    margin: 0;
+}
+
+.demo-aside-small {
+    grid-area: aside;
+    background: #fff3cd;
+    padding: 15px;
+    border-radius: 5px;
+    border-left: 4px solid #ffc107;
+}
+
+.demo-aside-small h5 {
+    color: #856404;
+    margin-bottom: 10px;
+    font-size: 1em;
+}
+
+.demo-footer-small {
+    grid-area: footer;
+    background: #333;
+    color: white;
+    padding: 15px;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.demo-footer-small p {
+    margin: 0;
+}
+
+/* Мисал 6 - Real page structure */
+.real-page-structure {
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.page-header-demo {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.logo-demo {
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+.nav-demo-semantic {
+    display: flex;
+    gap: 20px;
+}
+
+.nav-demo-semantic a {
+    color: white;
+    text-decoration: none;
+    padding: 8px 16px;
+    border-radius: 5px;
+    transition: background 0.3s ease;
+}
+
+.nav-demo-semantic a:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.page-main-demo {
+    padding: 30px;
+    background: white;
+}
+
+.hero-section {
+    background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+    padding: 30px;
+    border-radius: 10px;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.hero-section h3 {
+    color: #667eea;
+    margin-bottom: 15px;
+}
+
+.content-section {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.content-section article {
+    padding: 20px;
+    background: #f8f9fa;
+    border-radius: 8px;
+    border-left: 4px solid #667eea;
+}
+
+.content-section article h4 {
+    color: #667eea;
+    margin-bottom: 10px;
+}
+
+.page-aside-demo {
+    background: #e3f2fd;
+    padding: 20px;
+    border-left: 4px solid #2196F3;
+}
+
+.page-aside-demo h4 {
+    color: #1976d2;
+    margin-bottom: 15px;
+}
+
+.page-aside-demo ul {
+    list-style: none;
+    margin-left: 0;
+}
+
+.page-aside-demo li {
+    padding: 8px 0;
+    color: #555;
+    border-bottom: 1px solid #ddd;
+}
+
+.page-footer-demo {
+    background: #333;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+.page-footer-demo p {
+    margin: 0;
+}
+
+/* Мисал 7 - Blog structure */
+.blog-structure {
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.blog-header {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+    padding: 30px;
+    text-align: center;
+}
+
+.blog-header h3 {
+    color: white;
+    margin: 0;
+}
+
+.blog-main {
+    padding: 30px;
+    background: white;
+}
+
+.blog-post {
+    padding: 25px;
+    margin-bottom: 30px;
+    background: #f8f9fa;
+    border-radius: 10px;
+    border-left: 4px solid #667eea;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.blog-post header {
+    border-bottom: 2px solid #ddd;
+    padding-bottom: 15px;
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+.blog-post header h4 {
+    color: #667eea;
+    margin-bottom: 10px;
+}
+
+.post-meta {
+    color: #999;
+    font-size: 0.9em;
+}
+
+.blog-post section {
+    margin-bottom: 15px;
+}
+
+.blog-post section p {
+    color: #555;
+    line-height: 1.8;
+}
+
+.blog-post footer {
+    border-top: 2px solid #ddd;
+    padding-top: 15px;
+    margin-top: 15px;
+    text-align: left;
+}
+
+.blog-post footer p {
+    color: #999;
+    font-size: 0.9em;
+    margin: 0;
+}
+
+.blog-sidebar {
+    background: #e3f2fd;
+    padding: 25px;
+    border-left: 4px solid #2196F3;
+}
+
+.blog-sidebar section {
+    margin-bottom: 25px;
+}
+
+.blog-sidebar section:last-child {
+    margin-bottom: 0;
+}
+
+.blog-sidebar h4 {
+    color: #1976d2;
+    margin-bottom: 15px;
+}
+
+.blog-sidebar ul {
+    list-style: none;
+    margin-left: 0;
+}
+
+.blog-sidebar li {
+    padding: 8px 0;
+    color: #555;
+    border-bottom: 1px solid #ddd;
+}
+
+.blog-sidebar li:last-child {
+    border-bottom: none;
+}
+
+.blog-footer {
+    background: #333;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+.blog-footer p {
+    margin: 0;
+}
+
+/* Мисал 8 - Comparison */
+.comparison-demo {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.bad-example,
+.good-example {
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.bad-example {
+    background: #ffebee;
+    border: 2px solid #ef5350;
+}
+
+.bad-example h4 {
+    color: #c62828;
+    margin-bottom: 15px;
+}
+
+.good-example {
+    background: #e8f5e9;
+    border: 2px solid #4CAF50;
+}
+
+.good-example h4 {
+    color: #2e7d32;
+    margin-bottom: 15px;
+}
+
+.code-bad,
+.code-good {
+    background: #2d2d2d;
+    padding: 15px;
+    border-radius: 8px;
+    overflow-x: auto;
+}
+
+.code-bad pre,
+.code-good pre {
+    margin: 0;
+    font-family: 'Courier New', monospace;
+    font-size: 12px;
+    line-height: 1.5;
+    color: #f8f8f2;
+}
+
+/* ПРАКТИКА БӨЛҮМҮ */
+.practice-section {
+    background: #fff3cd;
+    padding: 30px;
+    border-radius: 15px;
+    border-left: 5px solid #ffc107;
+}
+
+.practice-card {
+    background: white;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.practice-card ol {
+    margin-left: 20px;
+    margin-top: 15px;
+}
+
+.practice-card li {
+    margin-bottom: 15px;
+    color: #555;
+    font-size: 1.1em;
+}
+
+/* КЕСТЕ БӨЛҮМҮ */
+.table-section {
+    background: #f8f9fa;
+    padding: 30px;
+    border-radius: 15px;
+}
+
+.table-wrapper {
+    overflow-x: auto;
+    background: white;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+}
+
+thead {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+}
+
+th {
+    padding: 15px;
+    text-align: left;
+    font-weight: bold;
+}
+
+td {
+    padding: 12px 15px;
+    border-bottom: 1px solid #eee;
+}
+
+tbody tr:hover {
+    background-color: #f8f9fa;
+}
+
+tbody tr:last-child td {
+    border-bottom: none;
+}
+
+code {
+    background: #f4f4f4;
+    padding: 2px 6px;
+    border-radius: 3px;
+    font-family: 'Courier New', monospace;
+    font-size: 13px;
+    color: #e83e8c;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding-top: 30px;
+    margin-top: 40px;
+    border-top: 2px solid #eee;
+    color: #666;
+    font-size: 1.2em;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .container {
+        padding: 20px;
+    }
+
+    h1 {
+        font-size: 2em;
+    }
+
+    h2 {
+        font-size: 1.5em;
+    }
+
+    .demo-box {
+        padding: 20px;
+    }
+
+    .code-example {
+        font-size: 12px;
+    }
+
+    .layout-with-aside {
+        flex-direction: column;
+    }
+
+    .demo-aside {
+        width: 100%;
+    }
+
+    .full-layout {
+        grid-template-areas:
+            "header"
+            "main"
+            "aside"
+            "footer";
+        grid-template-columns: 1fr;
+    }
+
+    .comparison-demo {
+        grid-template-columns: 1fr;
+    }
+
+    .page-header-demo {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .nav-demo-semantic {
+        flex-direction: column;
+        width: 100%;
+        gap: 10px;
+    }
+
+    table {
+        font-size: 12px;
+    }
+
+    th, td {
+        padding: 8px;
+    }
+}
+
