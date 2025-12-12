@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="ky">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Figma дизайнынан верстка - Колдонмо</title>
+    <link rel="stylesheet" href="figma-guide-styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Figma дизайнынан верстка</h1>
+            <p class="subtitle">Проектти баштаганда эмне кылуу керек?</p>
+        </header>
+
+        <!-- ШАГ 1 -->
+        <section class="step-section">
+            <div class="step-number">1</div>
+            <h2>Figma дизайнын талдоо</h2>
+            <div class="step-content">
+                <h3>✅ Эмнелерди текшерүү керек:</h3>
+                <ul class="checklist">
+                    <li><strong>Экран өлчөмдөрү:</strong> Desktop, Tablet, Mobile версиялары барбы?</li>
+                    <li><strong>Breakpoints:</strong> Кайсы экран өлчөмдөрүндө дизайн өзгөрөт?</li>
+                    <li><strong>Шрифттер:</strong> Кайсы шрифттер колдонулган? (Google Fonts, системалык?)</li>
+                    <li><strong>Түстөр:</strong> Бардык түстөрдүн коддорун (hex, rgb) жазып алуу</li>
+                    <li><strong>Spacing:</strong> Отступтардын өлчөмдөрү (margin, padding)</li>
+                    <li><strong>Border-radius:</strong> Бурчтардын радиусу</li>
+                    <li><strong>Shadow:</strong> Көлөкөлөрдүн параметрлери</li>
+                </ul>
+
+                <div class="code-example">
+                    <h4>📝 Түстөрдү жазуу:</h4>
+                    <pre><code>:root {
+  --primary-color: #667eea;
+  --secondary-color: #764ba2;
+  --text-color: #333333;
+  --bg-color: #ffffff;
+}</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- ШАГ 2 -->
+        <section class="step-section">
+            <div class="step-number">2</div>
+            <h2>Figma Inspector колдонуу</h2>
+            <div class="step-content">
+                <h3>🔍 Inspector панели:</h3>
+                <ul class="checklist">
+                    <li><strong>Элементти тандоо:</strong> Элементти тандап, оң жагындагы Inspector панелинде маалыматтарды көрүү</li>
+                    <li><strong>CSS кодду көчүрүү:</strong> Элементтин үстүндө оң баскыч → "Copy as CSS"</li>
+                    <li><strong>Экспорт:</strong> Сүрөттөрдү экспорттоо (PNG, SVG)</li>
+                    <li><strong>Auto Layout:</strong> Flexbox/Grid макеттерди таанып билүү</li>
+                </ul>
+
+                <div class="tip-box">
+                    <strong>💡 Кеңеш:</strong> Бардык түстөрдү, шрифттерди жана spacing'терди бир жерге жазып алууну унутпаңыз!
+                </div>
+            </div>
+        </section>
+
+        <!-- ШАГ 3 -->
+        <section class="step-section">
+            <div class="step-number">3</div>
+            <h2>HTML структурасын түзүү</h2>
+            <div class="step-content">
+                <h3>📐 Структураны пландоо:</h3>
+                <ol class="ordered-list">
+                    <li><strong>Семантикалык тегдерди колдонуу:</strong>
+                        <ul>
+                            <li><code>&lt;header&gt;</code> - башкы бөлүм</li>
+                            <li><code>&lt;nav&gt;</code> - навигация</li>
+                            <li><code>&lt;main&gt;</code> - негизги контент</li>
+                            <li><code>&lt;section&gt;</code> - бөлүмдөр</li>
+                            <li><code>&lt;footer&gt;</code> - футер</li>
+                        </ul>
+                    </li>
+                    <li><strong>БЭМ методологиясын колдонуу:</strong>
+                        <div class="code-example">
+                            <pre><code>&lt;div class="header"&gt;
+  &lt;div class="header__logo"&gt;Logo&lt;/div&gt;
+  &lt;nav class="header__nav"&gt;
+    &lt;a href="#" class="header__link"&gt;Башкы&lt;/a&gt;
+  &lt;/nav&gt;
+&lt;/div&gt;</code></pre>
+                        </div>
+                    </li>
+                    <li><strong>Класстарды маанилүү атап коюу:</strong>
+                        <ul>
+                            <li>❌ <code>class="box1"</code>, <code>class="red"</code></li>
+                            <li>✅ <code>class="card"</code>, <code>class="button-primary"</code></li>
+                        </ul>
+                    </li>
+                </ol>
+            </div>
+        </section>
+
+        <!-- ШАГ 4 -->
+        <section class="step-section">
+            <div class="step-number">4</div>
+            <h2>CSS Reset жана базалык стилдер</h2>
+            <div class="step-content">
+                <h3>🎨 Баштапкы CSS:</h3>
+                <div class="code-example">
+                    <h4>1. Reset стилдер:</h4>
+                    <pre><code>* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  line-height: 1.6;
+  color: var(--text-color);
+}</code></pre>
+                </div>
+
+                <div class="code-example">
+                    <h4>2. CSS Variables (түстөр, spacing):</h4>
+                    <pre><code>:root {
+  /* Түстөр */
+  --primary-color: #667eea;
+  --secondary-color: #764ba2;
+  --text-color: #333333;
+  --bg-color: #ffffff;
+  
+  /* Spacing */
+  --spacing-xs: 8px;
+  --spacing-sm: 16px;
+  --spacing-md: 24px;
+  --spacing-lg: 32px;
+  --spacing-xl: 48px;
+  
+  /* Border radius */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 16px;
+}</code></pre>
+                </div>
+
+                <div class="code-example">
+                    <h4>3. Container классы:</h4>
+                    <pre><code>.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-md);
+}</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <!-- ШАГ 5 -->
+        <section class="step-section">
+            <div class="step-number">5</div>
+            <h2>Верстканы баштау</h2>
+            <div class="step-content">
+                <h3>📋 Тартип:</h3>
+                <ol class="ordered-list">
+                    <li><strong>Header (башкы бөлүм):</strong>
+                        <ul>
+                            <li>Logo</li>
+                            <li>Навигация меню</li>
+                            <li>Бургер меню (мобилдик)</li>
+                        </ul>
+                    </li>
+                    <li><strong>Hero Section:</strong>
+                        <ul>
+                            <li>Башкы заголовок</li>
+                            <li>Текст</li>
+                            <li>Баскычтар</li>
+                        </ul>
+                    </li>
+                    <li><strong>Негизги бөлүмдөр:</strong>
+                        <ul>
+                            <li>Бир бөлүмдү бүтүргөндөн кийин экинчисине өтүү</li>
+                            <li>Desktop версияны биринчи кылуу</li>
+                        </ul>
+                    </li>
+                    <li><strong>Footer:</strong>
+                        <ul>
+                            <li>Акыркы бөлүм</li>
+                        </ul>
+                    </li>
+                </ol>
+
+                <div class="tip-box warning">
+                    <strong>⚠️ КАТА:</strong> Бардык бөлүмдөрдү бир эле учурда жазууну аракет кылбаңыз! Бир бөлүмдү бүтүргөндөн кийин экинчисине өтүңүз.
+                </div>
+            </div>
+        </section>
+
+        <!-- ШАГ 6 -->
+        <section class="step-section">
+            <div class="step-number">6</div>
+            <h2>Адаптивдүүлүктү кошуу</h2>
+            <div class="step-content">
+                <h3>📱 Mobile-first же Desktop-first?</h3>
+                <div class="comparison">
+                    <div class="comparison-item">
+                        <h4>Mobile-first (рекомендация):</h4>
+                        <ul>
+                            <li>Баштапкы стилдер мобилдик үчүн</li>
+                            <li><code>min-width</code> менен чоң экрандарга кошуу</li>
+                            <li>Азыраак код</li>
+                        </ul>
+                        <div class="code-example">
+                            <pre><code>/* Баштапкы (мобилдик) */
+.card {
+  width: 100%;
+}
+
+/* Планшет */
+@media (min-width: 768px) {
+  .card {
+    width: 50%;
+  }
+}
+
+/* Desktop */
+@media (min-width: 1200px) {
+  .card {
+    width: 33.33%;
+  }
+}</code></pre>
+                        </div>
+                    </div>
+                    <div class="comparison-item">
+                        <h4>Desktop-first:</h4>
+                        <ul>
+                            <li>Баштапкы стилдер desktop үчүн</li>
+                            <li><code>max-width</code> менен кичине экрандарга кошуу</li>
+                            <li>Көбүрөөк код</li>
+                        </ul>
+                        <div class="code-example">
+                            <pre><code>/* Баштапкы (desktop) */
+.card {
+  width: 33.33%;
+}
+
+/* Планшет */
+@media (max-width: 1199px) {
+  .card {
+    width: 50%;
+  }
+}
+
+/* Мобилдик */
+@media (max-width: 767px) {
+  .card {
+    width: 100%;
+  }
+}</code></pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ШАГ 7 -->
+        <section class="step-section">
+            <div class="step-number">7</div>
+            <h2>Тестирлөө</h2>
+            <div class="step-content">
+                <h3>✅ Тестирлөө чек-листи:</h3>
+                <ul class="checklist">
+                    <li>✅ Бардык бөлүмдөр көрүнүп жатабы?</li>
+                    <li>✅ Түстөр Figma дизайнына дал келеби?</li>
+                    <li>✅ Шрифттер туура колдонулганбы?</li>
+                    <li>✅ Spacing'тер туурабы?</li>
+                    <li>✅ Desktop версия туура иштейби? (1920px, 1440px, 1280px)</li>
+                    <li>✅ Tablet версия туура иштейби? (768px, 1024px)</li>
+                    <li>✅ Mobile версия туура иштейби? (375px, 414px)</li>
+                    <li>✅ Бургер меню иштейби?</li>
+                    <li>✅ Баскычтар hover эффекти барбы?</li>
+                    <li>✅ Формалар иштейби?</li>
+                    <li>✅ Ссылкалар иштейби?</li>
+                </ul>
+
+                <div class="tip-box">
+                    <strong>🔧 Кеңеш:</strong> Браузердин Developer Tools'ун колдонуңуз (F12). Responsive Design Mode'ду ачып, ар кандай экран өлчөмдөрүндө текшериңиз.
+                </div>
+            </div>
+        </section>
+
+        <!-- КЕСТЕ -->
+        <section class="table-section">
+            <h2>📊 Figma Inspector - Маанилүү параметрлер</h2>
+            <table class="info-table">
+                <thead>
+                    <tr>
+                        <th>Параметр</th>
+                        <th>Figma'да кайда</th>
+                        <th>CSS'те кантип</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Түс</strong></td>
+                        <td>Fill панели</td>
+                        <td><code>color: #667eea;</code></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Шрифт</strong></td>
+                        <td>Text панели</td>
+                        <td><code>font-family: 'Inter';</code></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Font size</strong></td>
+                        <td>Text панели</td>
+                        <td><code>font-size: 16px;</code></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Font weight</strong></td>
+                        <td>Text панели</td>
+                        <td><code>font-weight: 600;</code></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Spacing</strong></td>
+                        <td>Layout панели</td>
+                        <td><code>padding: 20px;</code></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Border radius</strong></td>
+                        <td>Design панели</td>
+                        <td><code>border-radius: 8px;</code></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Shadow</strong></td>
+                        <td>Effects панели</td>
+                        <td><code>box-shadow: 0 4px 6px rgba(0,0,0,0.1);</code></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Auto Layout</strong></td>
+                        <td>Layout панели</td>
+                        <td><code>display: flex;</code> же <code>display: grid;</code></td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- ПРАКТИКА -->
+        <section class="practice-section">
+            <h2>💻 Практикалык тапшырмалар</h2>
+            <div class="practice-tasks">
+                <div class="task-card">
+                    <h3>Тапшырма 1: Figma дизайнын талдоо</h3>
+                    <p>Figma дизайнын ачып, төмөнкүлөрдү жазып алыңыз:</p>
+                    <ul>
+                        <li>Бардык түстөрдүн hex коддорун</li>
+                        <li>Колдонулган шрифттерди</li>
+                        <li>Breakpoints'терди (экран өлчөмдөрүн)</li>
+                        <li>Spacing'терди (margin, padding)</li>
+                    </ul>
+                </div>
+
+                <div class="task-card">
+                    <h3>Тапшырма 2: HTML структурасы</h3>
+                    <p>Figma дизайнын карап, HTML структурасын пландаңыз:</p>
+                    <ul>
+                        <li>Семантикалык тегдерди колдонуу</li>
+                        <li>БЭМ методологиясы менен класстарды атоо</li>
+                        <li>Бардык бөлүмдөрдү тизмелеп чыгуу</li>
+                    </ul>
+                </div>
+
+                <div class="task-card">
+                    <h3>Тапшырма 3: Базалык CSS</h3>
+                    <p>Баштапкы CSS файлын түзүңүз:</p>
+                    <ul>
+                        <li>Reset стилдер</li>
+                        <li>CSS Variables (түстөр, spacing)</li>
+                        <li>Container классы</li>
+                        <li>Базалык типография</li>
+                    </ul>
+                </div>
+
+                <div class="task-card">
+                    <h3>Тапшырма 4: Header версткасы</h3>
+                    <p>Header бөлүмүн версткалаңыз:</p>
+                    <ul>
+                        <li>Logo</li>
+                        <li>Навигация меню</li>
+                        <li>Бургер меню (мобилдик)</li>
+                        <li>Адаптивдүүлүк</li>
+                    </ul>
+                </div>
+
+                <div class="task-card">
+                    <h3>Тапшырма 5: Бир бөлүмдү бүтүрүү</h3>
+                    <p>Figma дизайнынан бир бөлүмдү тандап, аны толук версткалаңыз:</p>
+                    <ul>
+                        <li>HTML структурасы</li>
+                        <li>CSS стилдер</li>
+                        <li>Figma дизайнына дал келтирүү</li>
+                        <li>Адаптивдүүлүк</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- КЕҢЕШТЕР -->
+        <section class="tips-section">
+            <h2>💡 Кеңештер</h2>
+            <div class="tips-grid">
+                <div class="tip-item">
+                    <h3>✅ Кылуу керек:</h3>
+                    <ul>
+                        <li>Figma дизайнын деталдуу талдоо</li>
+                        <li>Бардык параметрлерди жазып алуу</li>
+                        <li>Бир бөлүмдү бүтүргөндөн кийин экинчисине өтүү</li>
+                        <li>CSS Variables колдонуу</li>
+                        <li>Семантикалык HTML</li>
+                        <li>БЭМ методологиясы</li>
+                        <li>Тестирлөө ар кандай экрандарда</li>
+                    </ul>
+                </div>
+                <div class="tip-item">
+                    <h3>❌ Кылууга болбойт:</h3>
+                    <ul>
+                        <li>Бардык бөлүмдөрдү бир эле учурда жазуу</li>
+                        <li>Түстөрдү жана параметрлерди жазып алууну унутуу</li>
+                        <li>Адаптивдүүлүктү акыркыга калтыруу</li>
+                        <li>Маанисиз класстарды атоо (box1, red)</li>
+                        <li>Inline стилдерди колдонуу</li>
+                        <li>!important көп колдонуу</li>
+                        <li>Тестирлөөнү унутуу</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            <p>Бактылуу верстка! 🎨</p>
+        </footer>
+    </div>
+</body>
+</html>
+
