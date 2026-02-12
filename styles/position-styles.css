@@ -695,3 +695,104 @@ footer {
     display: inline-block;
   }
 }
+
+
+  .quiz-section{
+    background:#f8f9fa;
+    padding:30px;
+    border-radius:15px;
+    margin-bottom:30px;
+  }
+  .quiz-toolbar{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:12px;
+    margin-bottom:16px;
+    padding:12px 14px;
+    background:#fff;
+    border-radius:12px;
+    border:1px solid rgba(0,0,0,.06);
+    box-shadow:0 2px 6px rgba(0,0,0,.06);
+  }
+  .quiz-score{
+    font-weight:800;
+    color:#333;
+  }
+  .quiz-reset{
+    padding:10px 14px;
+    border-radius:10px;
+    border:1px solid rgba(0,0,0,.12);
+    background:#fff;
+    cursor:pointer;
+    font-weight:700;
+  }
+  .quiz{
+    display:grid;
+    gap:16px;
+  }
+  .quiz-card{
+    background:#fff;
+    border-radius:12px;
+    padding:18px;
+    box-shadow:0 4px 6px rgba(0,0,0,.08);
+    border:1px solid rgba(0,0,0,.06);
+  }
+  .quiz-q{
+    font-weight:900;
+    color:#222;
+    margin-bottom:12px;
+  }
+  .quiz-num{
+    color:#667eea;
+    margin-right:8px;
+  }
+  .quiz-options{
+    display:grid;
+    gap:10px;
+  }
+  .quiz-option{
+    text-align:left;
+    padding:12px 14px;
+    border-radius:10px;
+    border:1px solid rgba(0,0,0,.12);
+    background:#fff;
+    cursor:pointer;
+    transition:transform .15s ease, opacity .15s ease;
+    font-weight:600;
+  }
+  .quiz-option:hover{ transform:translateY(-1px); }
+  .quiz-option:disabled{
+    cursor:not-allowed;
+    opacity:.95;
+  }
+  .quiz-option.is-correct{
+    border-color:rgba(76,175,80,.6);
+    background:rgba(76,175,80,.12);
+  }
+  .quiz-option.is-wrong{
+    border-color:rgba(245,87,108,.6);
+    background:rgba(245,87,108,.12);
+  }
+  .quiz-result{
+    margin-top:12px;
+    font-weight:800;
+    padding:10px 12px;
+    border-radius:10px;
+    background:#f8f9fa;
+  }
+  .quiz-result.ok{ color:#2e7d32; }
+  .quiz-result.bad{ color:#c62828; }
+  .quiz-answer{
+    margin-top:8px;
+    color:#444;
+    font-weight:700;
+  }
+  .quiz-answer code{
+    background:#f4f4f4;
+    padding:2px 6px;
+    border-radius:6px;
+  }
+  @media (max-width:768px){
+    .quiz-toolbar{ flex-direction:column; align-items:stretch; }
+  }
