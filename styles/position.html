@@ -1,792 +1,789 @@
 <!DOCTYPE html>
 <html lang="ky">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Позиция - Сабак</title>
-    <link rel="stylesheet" href="position-styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Позиция - Сабак</title>
+  <link rel="stylesheet" href="position-styles.css" />
 </head>
 <body>
-    <div class="container">
-        <header>
-            <h1>Позиция</h1>
-            <p class="subtitle">Баштап жаткандар үчүн толук сабак</p>
-        </header>
+  <div class="container">
+    <header>
+      <h1>Позиция</h1>
+      <p class="subtitle">Баштап жаткандар үчүн толук сабак</p>
+    </header>
 
-        <!-- ТЕОРИЯ БӨЛҮМҮ -->
-        <section class="theory-section">
-            <h2>📚 Теория</h2>
-            
-            <div class="theory-card">
-                <h3>1. Position деген эмне?</h3>
-                
-                <p><strong>position</strong> - элементтин документте кантип жайгашаарын аныктайт.</p>
-                
-                <h4>Position маанилери:</h4>
-                <ul>
-                    <li><code>static</code> - дефолт (кадимки жайгашуу)</li>
-                    <li><code>relative</code> - салыштырмалуу (өз ордуна карата)</li>
-                    <li><code>absolute</code> - абсолюттук (ата-энеге карата)</li>
-                    <li><code>fixed</code> - бекем (браузерге карата)</li>
-                    <li><code>sticky</code> - жабышма (скролл менен)</li>
-                </ul>
-                
-                <div class="code-example">
-                    <pre><code>/* Position маанилери */
+    <!-- ТЕОРИЯ БӨЛҮМҮ -->
+    <section class="theory-section">
+      <h2>📚 Теория</h2>
+
+      <div class="theory-card">
+        <h3>1. Position деген эмне?</h3>
+
+        <p><strong>position</strong> — элементтин документте (layout) кантип жайгашаарын жана <code>top/right/bottom/left</code> аркылуу кандай жыларын аныктайт.</p>
+
+        <h4>Position маанилери:</h4>
+        <ul>
+          <li><code>static</code> — дефолт (кадимки документ агымы)</li>
+          <li><code>relative</code> — өзүнүн баштапкы ордуна салыштырмалуу жылат (ордун сактайт)</li>
+          <li><code>absolute</code> — документ агымынан чыгып, белгилүү контейнерге карата жайгашат</li>
+          <li><code>fixed</code> — viewport’ко (терезеге) бекем “жабышып” калат</li>
+          <li><code>sticky</code> — агымда калат, бирок скролл чекке жеткенде “жабышып” калат</li>
+        </ul>
+
+        <div class="code-example">
+<pre><code>/* Position маанилери */
 .element {
-    position: static;    /* Дефолт */
-    position: relative;  /* Салыштырмалуу */
-    position: absolute;  /* Абсолюттук */
-    position: fixed;     /* Бекем */
-    position: sticky;    /* Жабышма */
+  position: static;    /* Дефолт */
+  position: relative;  /* Салыштырмалуу */
+  position: absolute;  /* Абсолюттук */
+  position: fixed;     /* Бекем */
+  position: sticky;    /* Жабышма */
 }
 
-/* Top, right, bottom, left менен жайгаштыруу */
+/* top/right/bottom/left менен жылдыруу */
 .element {
-    position: relative;
-    top: 20px;
-    left: 30px;
+  position: relative;
+  top: 20px;
+  left: 30px;
 }</code></pre>
-                </div>
-            </div>
+        </div>
 
-            <div class="theory-card">
-                <h3>2. static - Дефолт позиция</h3>
-                
-                <p><strong>position: static</strong> - элемент кадимки документ агымында жайгашат.</p>
-                
-                <h4>Касиеттери:</h4>
-                <ul>
-                    <li>Дефолт маани</li>
-                    <li>Top, right, bottom, left иштейт эмес</li>
-                    <li>Z-index иштейт эмес</li>
-                    <li>Кадимки документ агымы</li>
-                </ul>
-                
-                <div class="code-example">
-                    <pre><code>/* static - Дефолт */
+        <p class="note">
+          <b>Кыска эреже:</b> <code>top/right/bottom/left</code> иштеши үчүн элемент <code>position: static</code> болбошу керек.
+        </p>
+      </div>
+
+      <div class="theory-card">
+        <h3>2. static — Дефолт позиция</h3>
+
+        <p><strong>position: static</strong> — элемент кадимки документ агымында жайгашат (браузердин дефолт жүрүм-туруму).</p>
+
+        <h4>Касиеттери:</h4>
+        <ul>
+          <li>Дефолт маани</li>
+          <li><code>top/right/bottom/left</code> <b>иштебейт</b></li>
+          <li><code>z-index</code> <b>иштебейт</b></li>
+          <li>Кадимки документ агымы</li>
+        </ul>
+
+        <div class="code-example">
+<pre><code>/* static - Дефолт */
 .element {
-    position: static;  /* Дефолт */
-    /* top, right, bottom, left иштейт эмес */
+  position: static; /* дефолт */
+  /* top/right/bottom/left иштебейт */
+}</code></pre>
+        </div>
+      </div>
+
+      <div class="theory-card">
+        <h3>3. relative — Салыштырмалуу позиция</h3>
+
+        <p><strong>position: relative</strong> — элемент документ агымында <b>ордун сактап</b>, өзү турган жеринен <b>визуалдуу</b> жылдырылат.</p>
+
+        <h4>Негизги түшүнүк:</h4>
+        <ul>
+          <li>Элемент агымда калат → анын <b>баштапкы орду сакталат</b> (бош орун калат).</li>
+          <li><code>top/right/bottom/left</code> — элементти <b>өзүнүн баштапкы ордуна</b> салыштырмалуу жылдырат.</li>
+          <li><b>Башка элементтер анын ордун басып кирбейт</b> (бул absolute/fixed үчүн мүнөздүү).</li>
+          <li><code>z-index</code> иштей баштайт (positioned элемент болгондуктан).</li>
+          <li>Көп колдонулат: абсолюттук элементтерге “ата-эне” (containing block) берүү үчүн.</li>
+        </ul>
+
+        <div class="code-example">
+<pre><code>/* relative - Салыштырмалуу */
+.element {
+  position: relative;
+  top: 20px;   /* 20px ылдый */
+  left: 30px;  /* 30px оңго */
 }
 
-/* Көбүнчө колдонулбайт, анткени дефолт */</code></pre>
-                </div>
-            </div>
+/* Маанилүү: элементтин баштапкы орду документ агымында калат */</code></pre>
+        </div>
+      </div>
 
-            <div class="theory-card">
-                <h3>3. relative - Салыштырмалуу позиция</h3>
-                
-                <p><strong>position: relative</strong> - элемент өз ордуна карата жайгашат.</p>
-                
-                <h4>Касиеттери:</h4>
-                <ul>
-                    <li>Элементтин баштапкы ордун ээлейт</li>
-                    <li>Top, right, bottom, left өз ордуна карата</li>
-                    <li>Башка элементтер анын ордун ээлейт</li>
-                    <li>Z-index колдонулат</li>
-                </ul>
-                
-                <div class="code-example">
-                    <pre><code>/* relative - Салыштырмалуу */
-.element {
-    position: relative;
-    top: 20px;      /* Үстүнөн 20px төмөн */
-    left: 30px;     /* Солдон 30px оңго */
-}
+      <div class="theory-card">
+        <h3>4. absolute — Абсолюттук позиция</h3>
 
-/* Элементтин баштапкы орду калат */</code></pre>
-                </div>
-            </div>
+        <p><strong>position: absolute</strong> — элемент документ агымынан чыгып, белгилүү бир контейнерге (containing block) салыштырмалуу жайгашат.</p>
 
-            <div class="theory-card">
-                <h3>4. absolute - Абсолюттук позиция</h3>
-                
-                <p><strong>position: absolute</strong> - элемент ата-эне элементинге карата жайгашат.</p>
-                
-                <h4>Касиеттери:</h4>
-                <ul>
-                    <li>Документ агымынан чыгат</li>
-                    <li>Ата-эне элементинге карата (position: relative/absolute/fixed болсо)</li>
-                    <li>Эгер ата-энеде position жок болсо, body'ге карата</li>
-                    <li>Башка элементтер анын ордун ээлейт</li>
-                    <li>Z-index колдонулат</li>
-                </ul>
-                
-                <div class="code-example">
-                    <pre><code>/* absolute - Абсолюттук */
+        <h4>Касиеттери:</h4>
+        <ul>
+          <li><b>Документ агымынан чыгат</b> → башка элементтер анын ордун ээлей алат.</li>
+          <li>
+            <b>Кайсыга карата эсептелет?</b> Эң жакын <b>positioned ancestor</b>
+            (position: <code>relative/absolute/fixed/sticky</code>) болсо — ошого карата.
+          </li>
+          <li>
+            Эгер жакынкы positioned ancestor жок болсо — эсептөө <b>initial containing block</b> логикасына өтөт
+            (көп учурда viewport/root).
+          </li>
+          <li><code>top/right/bottom/left</code> ошол containing block’ка карата иштейт.</li>
+          <li><code>z-index</code> иштейт.</li>
+        </ul>
+
+        <div class="code-example">
+<pre><code>/* absolute - Абсолюттук */
 .parent {
-    position: relative;  /* Ата-эне */
+  position: relative; /* containing block түзүп беребиз */
 }
 
 .child {
-    position: absolute;
-    top: 10px;      /* Ата-энеден үстүнөн 10px */
-    right: 20px;    /* Ата-энеден оңдон 20px */
-}
+  position: absolute;
+  top: 10px;
+  right: 20px;
+}</code></pre>
+        </div>
 
-/* Ата-эне position: relative болушу керек */</code></pre>
-                </div>
-            </div>
+        <p class="note">
+          <b>Эреже:</b> Абсолюттук элементти “кармоо” үчүн ата-энеге көп учурда <code>position: relative</code> берилет.
+        </p>
+      </div>
 
-            <div class="theory-card">
-                <h3>5. fixed - Бекем позиция</h3>
-                
-                <p><strong>position: fixed</strong> - элемент браузердин көрүнүшүнө карата бекем жайгашат.</p>
-                
-                <h4>Касиеттери:</h4>
-                <ul>
-                    <li>Браузердин көрүнүшүнө карата</li>
-                    <li>Скролл менен кыймылдабайт</li>
-                    <li>Документ агымынан чыгат</li>
-                    <li>Меню, кнопкалар үчүн</li>
-                    <li>Z-index колдонулат</li>
-                </ul>
-                
-                <div class="code-example">
-                    <pre><code>/* fixed - Бекем */
+      <div class="theory-card">
+        <h3>5. fixed — Бекем позиция</h3>
+
+        <p><strong>position: fixed</strong> — элемент <b>viewport’ко</b> (браузер терезесине) бекем байланып калат.</p>
+
+        <h4>Касиеттери:</h4>
+        <ul>
+          <li>Viewport’ко карата</li>
+          <li>Скролл менен кыймылдабайт</li>
+          <li>Документ агымынан чыгат</li>
+          <li>Навбар, “чат” кнопкасы, “to top” кнопкасы үчүн</li>
+          <li><code>z-index</code> иштейт</li>
+        </ul>
+
+        <div class="code-example">
+<pre><code>/* fixed - Бекем */
 .header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 1000;
-}
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+}</code></pre>
+        </div>
 
-/* Скролл менен кыймылдабайт */</code></pre>
-                </div>
-            </div>
+        <p class="note">
+          <b>UX эскертүү:</b> fixed header колдонсоң, контент үстүнө чыгып калбашы үчүн <code>margin-top</code>/<code>padding-top</code> менен орун калтыр.
+        </p>
+      </div>
 
-            <div class="theory-card">
-                <h3>6. sticky - Жабышма позиция</h3>
-                
-                <p><strong>position: sticky</strong> - элемент скролл менен жабышып калат.</p>
-                
-                <h4>Касиеттери:</h4>
-                <ul>
-                    <li>Кадимки документ агымында</li>
-                    <li>Белгиленген чекитке жеткенде жабышып калат</li>
-                    <li>Top, bottom, left, right менен чекит аныкталат</li>
-                    <li>Меню, таблицалар үчүн</li>
-                </ul>
-                
-                <div class="code-example">
-                    <pre><code>/* sticky - Жабышма */
+      <div class="theory-card">
+        <h3>6. sticky — Жабышма позиция</h3>
+
+        <p><strong>position: sticky</strong> — элемент агымда калат, бирок белгиленген чекке жеткенде “жабышып” калат.</p>
+
+        <h4>Касиеттери:</h4>
+        <ul>
+          <li>Кадимки документ агымында</li>
+          <li>Белгиленген чекитке жеткенде жабышып калат</li>
+          <li><code>top/bottom/left/right</code> менен “чек” аныкталат</li>
+          <li>Меню, таблицанын header’и үчүн ыңгайлуу</li>
+        </ul>
+
+        <h4>Эң көп кездешкен көйгөйлөр:</h4>
+        <ul>
+          <li><code>top</code> (же <code>bottom</code>) берилбесе sticky иштебейт.</li>
+          <li>Эгер ancestor’до <code>overflow: hidden/auto/scroll</code> болсо — sticky ошол контейнердин ичинде гана иштейт.</li>
+          <li>Sticky ата-энесинин бийиктиги бүткөндө “жабышканын токтотот”.</li>
+        </ul>
+
+        <div class="code-example">
+<pre><code>/* sticky - Жабышма */
 .menu {
-    position: sticky;
-    top: 0;
-    z-index: 100;
-}
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}</code></pre>
+        </div>
+      </div>
 
-/* Скролл менен top: 0'ге жеткенде жабышып калат */</code></pre>
-                </div>
-            </div>
+      <div class="theory-card">
+        <h3>7. z-index — Катмарлардын ирети</h3>
 
-            <div class="theory-card">
-                <h3>7. z-index - Катмарлардын ирети</h3>
-                
-                <p><strong>z-index</strong> - элементтердин катмарлардын иретин аныктайт.</p>
-                
-                <h4>Касиеттери:</h4>
-                <ul>
-                    <li>Сандык маани (0, 1, 100, 1000, ж.б.)</li>
-                    <li>Жогорку маани - үстүндө</li>
-                    <li>Төмөнкү маани - астында</li>
-                    <li>Position болсо гана иштейт (relative, absolute, fixed, sticky)</li>
-                </ul>
-                
-                <div class="code-example">
-                    <pre><code>/* z-index */
+        <p><strong>z-index</strong> — элементтердин “катмар” тартибин аныктайт (ким үстүндө, ким астында).</p>
+
+        <h4>Касиеттери:</h4>
+        <ul>
+          <li>Сандык маани: 0, 1, 10, 100, 1000…</li>
+          <li>Жогорку маани — үстүндө көрүнөт</li>
+          <li>Төмөнкү маани — астында көрүнөт</li>
+          <li><code>position</code> коюлган элементтерде иштейт (relative/absolute/fixed/sticky)</li>
+        </ul>
+
+        <div class="code-example">
+<pre><code>/* z-index */
 .element1 {
-    position: relative;
-    z-index: 1;  /* Астында */
+  position: relative;
+  z-index: 1;
 }
 
 .element2 {
-    position: relative;
-    z-index: 2;  /* Үстүндө */
-}
+  position: relative;
+  z-index: 2; /* element1'ден үстүндө */
+}</code></pre>
+        </div>
 
-.element3 {
-    position: relative;
-    z-index: 10;  /* Эң үстүндө */
-}
+        <p class="note">
+          <b>Маанилүү:</b> Кээде <code>z-index: 9999</code> койсоң да үстүнө чыкпай калат.
+          Себеби “stacking context” болушу мүмкүн (мисалы: <code>transform</code>, <code>opacity</code>, <code>filter</code> ж.б. жаңы катмар контекст түзөт).
+        </p>
+      </div>
+    </section>
 
-/* Жогорку z-index - үстүндө */</code></pre>
-                </div>
-            </div>
-        </section>
+    <!-- ЖЕНИЛ МИСАЛДАР -->
+    <section class="examples-section">
+      <h2>🟢 ЖЕНИЛ МИСАЛДАР</h2>
 
-        <!-- ЖЕНИЛ МИСАЛДАР -->
-        <section class="examples-section">
-            <h2>🟢 ЖЕНИЛ МИСАЛДАР</h2>
-
-            <div class="example-group">
-                <h3>Мисал 1: static - Дефолт позиция</h3>
-                <div class="demo-box">
-                    <div class="static-demo">
-                        <div class="static-box">Static элемент 1</div>
-                        <div class="static-box">Static элемент 2</div>
-                        <div class="static-box">Static элемент 3</div>
-                        <p class="note">Кадимки документ агымы</p>
-                    </div>
-                </div>
-                <div class="code-example">
-                    <pre><code>/* static - Дефолт */
+      <div class="example-group">
+        <h3>Мисал 1: static — Дефолт позиция</h3>
+        <div class="demo-box">
+          <div class="static-demo">
+            <div class="static-box">Static элемент 1</div>
+            <div class="static-box">Static элемент 2</div>
+            <div class="static-box">Static элемент 3</div>
+            <p class="note">Кадимки документ агымы</p>
+          </div>
+        </div>
+        <div class="code-example">
+<pre><code>/* static - Дефолт */
 .static-box {
-    position: static;  /* Дефолт */
-    padding: 15px;
-    margin-bottom: 10px;
-    background: #667eea;
-    color: white;
-    border-radius: 5px;
-}
+  position: static;
+  padding: 15px;
+  margin-bottom: 10px;
+  background: #667eea;
+  color: white;
+  border-radius: 5px;
+}</code></pre>
+        </div>
+      </div>
 
-/* Кадимки документ агымы */</code></pre>
-                </div>
-            </div>
-
-            <div class="example-group">
-                <h3>Мисал 2: relative - Салыштырмалуу позиция</h3>
-                <div class="demo-box">
-                    <div class="relative-demo">
-                        <div class="relative-box normal">Кадимки орду</div>
-                        <div class="relative-box moved">Relative (top: 20px, left: 30px)</div>
-                        <div class="relative-box normal">Кадимки орду</div>
-                        <p class="note">Элементтин баштапкы орду калат</p>
-                    </div>
-                </div>
-                <div class="code-example">
-                    <pre><code>/* relative - Салыштырмалуу */
+      <div class="example-group">
+        <h3>Мисал 2: relative — Салыштырмалуу позиция</h3>
+        <div class="demo-box">
+          <div class="relative-demo">
+            <div class="relative-box normal">Кадимки орду</div>
+            <div class="relative-box moved">Relative (top: 20px, left: 30px)</div>
+            <div class="relative-box normal">Кадимки орду</div>
+            <p class="note">Элементтин баштапкы орду сакталат (бош орун калат)</p>
+          </div>
+        </div>
+        <div class="code-example">
+<pre><code>/* relative - Салыштырмалуу */
 .relative-box {
-    padding: 15px;
-    margin-bottom: 10px;
-    background: #4CAF50;
-    color: white;
-    border-radius: 5px;
+  padding: 15px;
+  margin-bottom: 10px;
+  background: #4CAF50;
+  color: white;
+  border-radius: 5px;
 }
 
 .moved {
-    position: relative;
-    top: 20px;      /* Үстүнөн 20px төмөн */
-    left: 30px;     /* Солдон 30px оңго */
-    background: #f5576c;
-}
+  position: relative;
+  top: 20px;
+  left: 30px;
+  background: #f5576c;
+}</code></pre>
+        </div>
+      </div>
 
-/* Элементтин баштапкы орду калат */</code></pre>
-                </div>
+      <div class="example-group">
+        <h3>Мисал 3: absolute — Абсолюттук позиция</h3>
+        <div class="demo-box">
+          <div class="absolute-demo">
+            <div class="absolute-parent">
+              Ата-эне (position: relative)
+              <div class="absolute-child">Абсолюттук элемент</div>
             </div>
-
-            <div class="example-group">
-                <h3>Мисал 3: absolute - Абсолюттук позиция</h3>
-                <div class="demo-box">
-                    <div class="absolute-demo">
-                        <div class="absolute-parent">
-                            Ата-эне (position: relative)
-                            <div class="absolute-child">Абсолюттук элемент</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="code-example">
-                    <pre><code>/* absolute - Абсолюттук */
+          </div>
+        </div>
+        <div class="code-example">
+<pre><code>/* absolute - Абсолюттук */
 .absolute-parent {
-    position: relative;  /* Ата-эне */
-    width: 100%;
-    height: 200px;
-    background: #f8f9fa;
-    border: 2px solid #667eea;
-    border-radius: 8px;
-    padding: 20px;
+  position: relative;  /* containing block */
+  width: 100%;
+  height: 200px;
+  background: #f8f9fa;
+  border: 2px solid #667eea;
+  border-radius: 8px;
+  padding: 20px;
 }
 
 .absolute-child {
-    position: absolute;
-    top: 20px;      /* Ата-энеден үстүнөн 20px */
-    right: 20px;    /* Ата-энеден оңдон 20px */
-    padding: 15px;
-    background: #f5576c;
-    color: white;
-    border-radius: 5px;
-}
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  padding: 15px;
+  background: #f5576c;
+  color: white;
+  border-radius: 5px;
+}</code></pre>
+        </div>
+      </div>
 
-/* Ата-эне position: relative болушу керек */</code></pre>
-                </div>
-            </div>
-
-            <div class="example-group">
-                <h3>Мисал 4: fixed - Бекем позиция</h3>
-                <div class="demo-box">
-                    <div class="fixed-demo">
-                        <div class="fixed-box">Fixed элемент (top: 20px, right: 20px)</div>
-                        <p class="note">Браузердин көрүнүшүнө карата бекем</p>
-                        <p>Скролл менен кыймылдабайт</p>
-                    </div>
-                </div>
-                <div class="code-example">
-                    <pre><code>/* fixed - Бекем */
+      <div class="example-group">
+        <h3>Мисал 4: fixed — Бекем позиция</h3>
+        <div class="demo-box">
+          <div class="fixed-demo">
+            <div class="fixed-box">Fixed элемент (top: 20px, right: 20px)</div>
+            <p class="note">Viewport’ко карата бекем</p>
+            <p>Скролл менен кыймылдабайт</p>
+          </div>
+        </div>
+        <div class="code-example">
+<pre><code>/* fixed - Бекем */
 .fixed-box {
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    padding: 15px 25px;
-    background: #9b59b6;
-    color: white;
-    border-radius: 5px;
-    z-index: 1000;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-}
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  padding: 15px 25px;
+  background: #9b59b6;
+  color: white;
+  border-radius: 5px;
+  z-index: 1000;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}</code></pre>
+        </div>
+      </div>
 
-/* Скролл менен кыймылдабайт */</code></pre>
-                </div>
+      <div class="example-group">
+        <h3>Мисал 5: sticky — Жабышма позиция</h3>
+        <div class="demo-box">
+          <div class="sticky-demo">
+            <div class="sticky-box">Sticky элемент (top: 0)</div>
+            <div class="sticky-content">
+              <p>Мазмун 1</p>
+              <p>Мазмун 2</p>
+              <p>Мазмун 3</p>
+              <p>Мазмун 4</p>
+              <p>Мазмун 5</p>
             </div>
-
-            <div class="example-group">
-                <h3>Мисал 5: sticky - Жабышма позиция</h3>
-                <div class="demo-box">
-                    <div class="sticky-demo">
-                        <div class="sticky-box">Sticky элемент (top: 0)</div>
-                        <div class="sticky-content">
-                            <p>Мазмун 1</p>
-                            <p>Мазмун 2</p>
-                            <p>Мазмун 3</p>
-                            <p>Мазмун 4</p>
-                            <p>Мазмун 5</p>
-                        </div>
-                        <p class="note">Скролл менен top: 0'ге жеткенде жабышып калат</p>
-                    </div>
-                </div>
-                <div class="code-example">
-                    <pre><code>/* sticky - Жабышма */
+            <p class="note">Скролл менен чекке жеткенде жабышып калат</p>
+          </div>
+        </div>
+        <div class="code-example">
+<pre><code>/* sticky - Жабышма */
 .sticky-box {
-    position: sticky;
-    top: 0;
-    padding: 15px;
-    background: #e67e22;
-    color: white;
-    border-radius: 5px;
-    z-index: 100;
-    margin-bottom: 20px;
-}
+  position: sticky;
+  top: 0;
+  padding: 15px;
+  background: #e67e22;
+  color: white;
+  border-radius: 5px;
+  z-index: 100;
+  margin-bottom: 20px;
+}</code></pre>
+        </div>
+      </div>
 
-/* Скролл менен top: 0'ге жеткенде жабышып калат */</code></pre>
-                </div>
-            </div>
-
-            <div class="example-group">
-                <h3>Мисал 6: z-index - Катмарлардын ирети</h3>
-                <div class="demo-box">
-                    <div class="z-index-demo">
-                        <div class="z-box box1">z-index: 1</div>
-                        <div class="z-box box2">z-index: 2</div>
-                        <div class="z-box box3">z-index: 3</div>
-                        <p class="note">Жогорку z-index - үстүндө</p>
-                    </div>
-                </div>
-                <div class="code-example">
-                    <pre><code>/* z-index */
+      <div class="example-group">
+        <h3>Мисал 6: z-index — Катмарлардын ирети</h3>
+        <div class="demo-box">
+          <div class="z-index-demo">
+            <div class="z-box box1">z-index: 1</div>
+            <div class="z-box box2">z-index: 2</div>
+            <div class="z-box box3">z-index: 3</div>
+            <p class="note">Жогорку z-index — үстүндө</p>
+          </div>
+        </div>
+        <div class="code-example">
+<pre><code>/* z-index */
 .z-box {
-    position: relative;
-    width: 200px;
-    height: 100px;
-    padding: 20px;
-    border-radius: 5px;
-    color: white;
-    font-weight: bold;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  position: relative;
+  width: 200px;
+  height: 100px;
+  padding: 20px;
+  border-radius: 5px;
+  color: white;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.box1 {
-    background: #667eea;
-    z-index: 1;
-    margin-left: 0;
-}
+.box1 { background: #667eea; z-index: 1; margin-left: 0; }
+.box2 { background: #4CAF50; z-index: 2; margin-left: -50px; margin-top: -30px; }
+.box3 { background: #f5576c; z-index: 3; margin-left: -50px; margin-top: -30px; }</code></pre>
+        </div>
+      </div>
+    </section>
 
-.box2 {
-    background: #4CAF50;
-    z-index: 2;
-    margin-left: -50px;
-    margin-top: -30px;
-}
+    <!-- ООР МИСАЛДАР -->
+    <section class="examples-section">
+      <h2>🔴 ООР МИСАЛДАР</h2>
 
-.box3 {
-    background: #f5576c;
-    z-index: 3;
-    margin-left: -50px;
-    margin-top: -30px;
-}
-
-/* Жогорку z-index - үстүндө */</code></pre>
-                </div>
+      <div class="example-group">
+        <h3>Мисал 7: Fixed Header меню</h3>
+        <div class="demo-box">
+          <div class="fixed-header-demo">
+            <header class="fixed-header">
+              <nav class="fixed-nav">
+                <a href="#" class="nav-link">Башкы</a>
+                <a href="#" class="nav-link">Биз жөнүндө</a>
+                <a href="#" class="nav-link">Кызматтар</a>
+                <a href="#" class="nav-link">Байланыш</a>
+              </nav>
+            </header>
+            <div class="fixed-content">
+              <p>Мазмун 1</p>
+              <p>Мазмун 2</p>
+              <p>Мазмун 3</p>
+              <p>Мазмун 4</p>
             </div>
-        </section>
-
-        <!-- ООР МИСАЛДАР -->
-        <section class="examples-section">
-            <h2>🔴 ООР МИСАЛДАР</h2>
-
-            <div class="example-group">
-                <h3>Мисал 7: Fixed Header меню</h3>
-                <div class="demo-box">
-                    <div class="fixed-header-demo">
-                        <header class="fixed-header">
-                            <nav class="fixed-nav">
-                                <a href="#" class="nav-link">Башкы</a>
-                                <a href="#" class="nav-link">Биз жөнүндө</a>
-                                <a href="#" class="nav-link">Кызматтар</a>
-                                <a href="#" class="nav-link">Байланыш</a>
-                            </nav>
-                        </header>
-                        <div class="fixed-content">
-                            <p>Мазмун 1</p>
-                            <p>Мазмун 2</p>
-                            <p>Мазмун 3</p>
-                            <p>Мазмун 4</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="code-example">
-                    <pre><code>/* Fixed Header меню */
+          </div>
+        </div>
+        <div class="code-example">
+<pre><code>/* Fixed Header меню */
 .fixed-header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    background: linear-gradient(135deg, #667eea, #764ba2);
-    color: white;
-    z-index: 1000;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: white;
+  z-index: 1000;
+  box-shadow: 0 2px 10px rgba(0,0,0,.1);
 }
 
 .fixed-nav {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    padding: 20px;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  padding: 20px;
 }
 
 .nav-link {
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
-    transition: opacity 0.3s;
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  transition: opacity .3s;
 }
 
-.nav-link:hover {
-    opacity: 0.8;
-}
+.nav-link:hover { opacity: .8; }
 
 .fixed-content {
-    margin-top: 80px;
-    padding: 20px;
+  margin-top: 80px; /* header бийиктигине жараша */
+  padding: 20px;
 }</code></pre>
-                </div>
-            </div>
+        </div>
+      </div>
 
-            <div class="example-group">
-                <h3>Мисал 8: Absolute позиция менен карточкалар</h3>
-                <div class="demo-box">
-                    <div class="absolute-cards-demo">
-                        <div class="card-container">
-                            <div class="card-absolute">
-                                <div class="card-badge">NEW</div>
-                                <h4>Карточка 1</h4>
-                                <p>Мазмун</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="code-example">
-                    <pre><code>/* Absolute позиция менен карточкалар */
+      <div class="example-group">
+        <h3>Мисал 8: Absolute позиция менен карточкалар</h3>
+        <div class="demo-box">
+          <div class="absolute-cards-demo">
+            <div class="card-container">
+              <div class="card-absolute">
+                <div class="card-badge">NEW</div>
+                <h4>Карточка 1</h4>
+                <p>Мазмун</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="code-example">
+<pre><code>/* Absolute позиция менен карточкалар */
 .card-container {
-    position: relative;
-    width: 300px;
-    height: 200px;
-    background: #f8f9fa;
-    border-radius: 10px;
-    padding: 20px;
+  position: relative;
+  width: 300px;
+  height: 200px;
+  background: #f8f9fa;
+  border-radius: 10px;
+  padding: 20px;
 }
 
 .card-absolute {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    background: white;
-    border-radius: 8px;
-    padding: 20px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  position: relative; /* badge абсолюттук болсо, ушул parent болот */
+  width: 100%;
+  height: 100%;
+  background: white;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 2px 8px rgba(0,0,0,.1);
 }
 
 .card-badge {
-    position: absolute;
-    top: -10px;
-    right: -10px;
-    background: #f5576c;
-    color: white;
-    padding: 5px 15px;
-    border-radius: 20px;
-    font-size: 0.8em;
-    font-weight: bold;
-    z-index: 10;
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  background: #f5576c;
+  color: white;
+  padding: 5px 15px;
+  border-radius: 20px;
+  font-size: .8em;
+  font-weight: bold;
+  z-index: 10;
 }</code></pre>
-                </div>
+        </div>
+
+        <p class="note">
+          <b>Синеор кеңеш:</b> `.card-absolute` атын кийин `.card` кылып өзгөртсөң жакшы — өзү relative болуп турат.
+        </p>
+      </div>
+
+      <div class="example-group">
+        <h3>Мисал 9: Sticky меню жана z-index</h3>
+        <div class="demo-box">
+          <div class="sticky-menu-demo">
+            <div class="sticky-menu">Sticky меню (top: 0)</div>
+            <div class="sticky-content">
+              <p>Мазмун 1</p>
+              <p>Мазмун 2</p>
+              <p>Мазмун 3</p>
+              <p>Мазмун 4</p>
+              <p>Мазмун 5</p>
             </div>
-
-            <div class="example-group">
-                <h3>Мисал 9: Sticky меню жана z-index</h3>
-                <div class="demo-box">
-                    <div class="sticky-menu-demo">
-                        <div class="sticky-menu">Sticky меню (top: 0)</div>
-                        <div class="sticky-content">
-                            <p>Мазмун 1</p>
-                            <p>Мазмун 2</p>
-                            <p>Мазмун 3</p>
-                            <p>Мазмун 4</p>
-                            <p>Мазмун 5</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="code-example">
-                    <pre><code>/* Sticky меню жана z-index */
+          </div>
+        </div>
+        <div class="code-example">
+<pre><code>/* Sticky меню жана z-index */
 .sticky-menu {
-    position: sticky;
-    top: 0;
-    background: linear-gradient(135deg, #667eea, #764ba2);
-    color: white;
-    padding: 20px;
-    text-align: center;
-    font-weight: bold;
-    z-index: 100;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: white;
+  padding: 20px;
+  text-align: center;
+  font-weight: bold;
+  z-index: 100;
+  box-shadow: 0 2px 10px rgba(0,0,0,.1);
 }
 
-.sticky-content {
-    padding: 20px;
-}
+.sticky-content { padding: 20px; }
 
 .sticky-content p {
-    padding: 20px;
-    margin-bottom: 15px;
-    background: #f8f9fa;
-    border-radius: 5px;
+  padding: 20px;
+  margin-bottom: 15px;
+  background: #f8f9fa;
+  border-radius: 5px;
 }</code></pre>
-                </div>
-            </div>
+        </div>
+      </div>
 
-            <div class="example-group">
-                <h3>Мисал 10: Бардык position бирге</h3>
-                <div class="demo-box">
-                    <div class="all-positions-demo">
-                        <div class="pos-static">Static</div>
-                        <div class="pos-relative">Relative</div>
-                        <div class="pos-absolute">Absolute</div>
-                        <div class="pos-fixed">Fixed</div>
-                        <div class="pos-sticky">Sticky</div>
-                    </div>
-                </div>
-                <div class="code-example">
-                    <pre><code>/* Бардык position бирге */
+      <div class="example-group">
+        <h3>Мисал 10: Бардык position бирге</h3>
+        <div class="demo-box">
+          <div class="all-positions-demo">
+            <div class="pos-static">Static</div>
+            <div class="pos-relative">Relative</div>
+            <div class="pos-absolute">Absolute</div>
+            <div class="pos-fixed">Fixed</div>
+            <div class="pos-sticky">Sticky</div>
+          </div>
+        </div>
+        <div class="code-example">
+<pre><code>/* Бардык position бирге */
 .pos-static {
-    position: static;
-    background: #667eea;
+  position: static;
+  background: #667eea;
 }
 
 .pos-relative {
-    position: relative;
-    top: 10px;
-    left: 20px;
-    background: #4CAF50;
+  position: relative;
+  top: 10px;
+  left: 20px;
+  background: #4CAF50;
 }
 
+/* Эскертүү: absolute үчүн ата-эне position берип кой */
 .pos-absolute {
-    position: absolute;
-    top: 50px;
-    right: 20px;
-    background: #f5576c;
+  position: absolute;
+  top: 50px;
+  right: 20px;
+  background: #f5576c;
 }
 
 .pos-fixed {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    background: #9b59b6;
-    z-index: 1000;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #9b59b6;
+  z-index: 1000;
 }
 
 .pos-sticky {
-    position: sticky;
-    top: 0;
-    background: #e67e22;
-    z-index: 100;
+  position: sticky;
+  top: 0;
+  background: #e67e22;
+  z-index: 100;
 }</code></pre>
-                </div>
-            </div>
-        </section>
+        </div>
 
-        <!-- ПРАКТИКА -->
-        <section class="practice-section">
-            <h2>💻 ПРАКТИКА</h2>
-            <div class="practice-card">
-                <h3>Өзүңүз кылыңыз:</h3>
-                <ol>
-                    <li>static позицияны колдонуңуз</li>
-                    <li>relative позиция менен элементти жылдырыңыз</li>
-                    <li>absolute позиция менен элементти ата-энеге карата жайгаштырыңыз</li>
-                    <li>fixed позиция менен бекем меню кылыңыз</li>
-                    <li>sticky позиция менен жабышма меню кылыңыз</li>
-                    <li>z-index менен катмарлардын иретин аныктаңыз</li>
-                    <li>Fixed header менюну кылыңыз</li>
-                    <li>Absolute позиция менен карточкаларды стилдеңиз</li>
-                    <li>Sticky меню жана z-index бирге колдонуңуз</li>
-                    <li>Бардык position маанилерин бирге практикалаңыз</li>
-                </ol>
-            </div>
-        </section>
+        <p class="note">
+          <b>Маанилүү:</b> Бул демодо <code>.pos-absolute</code> туура көрүнүшү үчүн анын контейнерине <code>position: relative</code> берүү керек.
+          Болбосо ал башка containing block’ка “качып” кетиши мүмкүн.
+        </p>
+      </div>
+    </section>
 
-        <!-- КЕСТЕ -->
-        <section class="table-section">
-            <h2>📊 Position маанилери</h2>
-            <div class="table-wrapper">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Position</th>
-                            <th>Түшүндүрмө</th>
-                            <th>Кайсыга карата</th>
-                            <th>Орду калат</th>
-                            <th>Z-index</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td><code>static</code></td>
-                            <td>Дефолт</td>
-                            <td>Документ агымы</td>
-                            <td>✅</td>
-                            <td>❌</td>
-                        </tr>
-                        <tr>
-                            <td><code>relative</code></td>
-                            <td>Салыштырмалуу</td>
-                            <td>Өз ордуна</td>
-                            <td>✅</td>
-                            <td>✅</td>
-                        </tr>
-                        <tr>
-                            <td><code>absolute</code></td>
-                            <td>Абсолюттук</td>
-                            <td>Ата-энеге</td>
-                            <td>❌</td>
-                            <td>✅</td>
-                        </tr>
-                        <tr>
-                            <td><code>fixed</code></td>
-                            <td>Бекем</td>
-                            <td>Браузерге</td>
-                            <td>❌</td>
-                            <td>✅</td>
-                        </tr>
-                        <tr>
-                            <td><code>sticky</code></td>
-                            <td>Жабышма</td>
-                            <td>Скролл менен</td>
-                            <td>✅</td>
-                            <td>✅</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </section>
+    <!-- ПРАКТИКА -->
+    <section class="practice-section">
+      <h2>💻 ПРАКТИКА</h2>
+      <div class="practice-card">
+        <h3>Өзүңүз кылыңыз:</h3>
+        <ol>
+          <li>static позицияны колдонуп, эмне үчүн <code>top/left</code> иштебей турганын текшериңиз</li>
+          <li>relative позиция менен элементти жылдырыңыз (орду сакталарына көңүл буруңуз)</li>
+          <li>absolute позиция менен элементти ата-энеге карата жайгаштырыңыз (<code>parent: relative</code>)</li>
+          <li>fixed позиция менен бекем меню/кнопка жасаңыз</li>
+          <li>sticky позиция менен жабышма меню жасаңыз (<code>top: 0</code>)</li>
+          <li>z-index менен катмарлардын иретин аныктаңыз</li>
+          <li>Fixed header менюну кылыңыз (контент үстүнө чыкпасын)</li>
+          <li>Absolute badge менен карточка стилдеңиз</li>
+          <li>Sticky меню жана z-index бирге колдонуңуз</li>
+          <li>Бардык position маанилерин бирге практикалаңыз</li>
+        </ol>
+      </div>
+    </section>
 
-        <section class="table-section">
-            <h2>📊 Top, Right, Bottom, Left</h2>
-            <div class="table-wrapper">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Касиет</th>
-                            <th>Маани</th>
-                            <th>Түшүндүрмө</th>
-                            <th>Мисал</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td><code>top</code></td>
-                            <td>px, %, em, rem</td>
-                            <td>Үстүнөн аралык</td>
-                            <td><code>top: 20px;</code></td>
-                        </tr>
-                        <tr>
-                            <td><code>right</code></td>
-                            <td>px, %, em, rem</td>
-                            <td>Оңдон аралык</td>
-                            <td><code>right: 30px;</code></td>
-                        </tr>
-                        <tr>
-                            <td><code>bottom</code></td>
-                            <td>px, %, em, rem</td>
-                            <td>Астынан аралык</td>
-                            <td><code>bottom: 40px;</code></td>
-                        </tr>
-                        <tr>
-                            <td><code>left</code></td>
-                            <td>px, %, em, rem</td>
-                            <td>Солдон аралык</td>
-                            <td><code>left: 50px;</code></td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </section>
+    <!-- КЕСТЕ -->
+    <section class="table-section">
+      <h2>📊 Position маанилери</h2>
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>Position</th>
+              <th>Түшүндүрмө</th>
+              <th>Кайсыга карата</th>
+              <th>Орду калат</th>
+              <th>Z-index</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>static</code></td>
+              <td>Дефолт, документ агымы</td>
+              <td>Документ агымы</td>
+              <td>✅</td>
+              <td>❌</td>
+            </tr>
+            <tr>
+              <td><code>relative</code></td>
+              <td>Агымда калат, визуалдуу жылат</td>
+              <td>Өзүнүн баштапкы орду</td>
+              <td>✅</td>
+              <td>✅</td>
+            </tr>
+            <tr>
+              <td><code>absolute</code></td>
+              <td>Агымдан чыгат, координата менен жайгашат</td>
+              <td>Эң жакын positioned ancestor</td>
+              <td>❌</td>
+              <td>✅</td>
+            </tr>
+            <tr>
+              <td><code>fixed</code></td>
+              <td>Терезеге бекем байланышат</td>
+              <td>Viewport (браузер терезеси)</td>
+              <td>❌</td>
+              <td>✅</td>
+            </tr>
+            <tr>
+              <td><code>sticky</code></td>
+              <td>Агымда калат, чекке жеткенде жабышат</td>
+              <td>Скролл контексти (ата-эне контейнер ичинде)</td>
+              <td>✅</td>
+              <td>✅</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
 
-        <section class="table-section">
-            <h2>📊 z-index маанилери</h2>
-            <div class="table-wrapper">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>z-index</th>
-                            <th>Түшүндүрмө</th>
-                            <th>Колдонулушу</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td><code>0</code></td>
-                            <td>Дефолт</td>
-                            <td>Кадимки катмар</td>
-                        </tr>
-                        <tr>
-                            <td><code>1-10</code></td>
-                            <td>Төмөнкү катмар</td>
-                            <td>Жөнөкөй элементтер</td>
-                        </tr>
-                        <tr>
-                            <td><code>100-999</code></td>
-                            <td>Орто катмар</td>
-                            <td>Меню, карточкалар</td>
-                        </tr>
-                        <tr>
-                            <td><code>1000+</code></td>
-                            <td>Жогорку катмар</td>
-                            <td>Модалдар, тутумдар</td>
-                        </tr>
-                        <tr>
-                            <td><code>auto</code></td>
-                            <td>Автоматтык</td>
-                            <td>Дефолт (0 менен бирдей)</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </section>
+    <section class="table-section">
+      <h2>📊 Top, Right, Bottom, Left</h2>
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>Касиет</th>
+              <th>Маани</th>
+              <th>Түшүндүрмө</th>
+              <th>Мисал</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>top</code></td>
+              <td>px, %, em, rem</td>
+              <td>Үстүнөн аралык (координата/жылдыруу)</td>
+              <td><code>top: 20px;</code></td>
+            </tr>
+            <tr>
+              <td><code>right</code></td>
+              <td>px, %, em, rem</td>
+              <td>Оңдон аралык</td>
+              <td><code>right: 30px;</code></td>
+            </tr>
+            <tr>
+              <td><code>bottom</code></td>
+              <td>px, %, em, rem</td>
+              <td>Астынан аралык</td>
+              <td><code>bottom: 40px;</code></td>
+            </tr>
+            <tr>
+              <td><code>left</code></td>
+              <td>px, %, em, rem</td>
+              <td>Солдон аралык</td>
+              <td><code>left: 50px;</code></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
 
-        <footer>
-            <p>Бактылуу окуу! 🎓</p>
-        </footer>
-    </div>
+    <section class="table-section">
+      <h2>📊 z-index маанилери</h2>
+      <div class="table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th>z-index</th>
+              <th>Түшүндүрмө</th>
+              <th>Колдонулушу</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>auto</code></td>
+              <td>Дефолт катмар тартиби</td>
+              <td>Stacking order боюнча жайгашат</td>
+            </tr>
+            <tr>
+              <td><code>0</code></td>
+              <td>Негизги катмар</td>
+              <td>Кадимки overlay эмес элементтер</td>
+            </tr>
+            <tr>
+              <td><code>1–10</code></td>
+              <td>Төмөн/орточо катмар</td>
+              <td>Жөнөкөй элементтер, майда overlay</td>
+            </tr>
+            <tr>
+              <td><code>100–999</code></td>
+              <td>Орто/жогорку катмар</td>
+              <td>Меню, dropdown, sticky header</td>
+            </tr>
+            <tr>
+              <td><code>1000+</code></td>
+              <td>Эң жогорку катмар</td>
+              <td>Modal, toast, глобал overlay</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p class="note">
+        <b>Маанилүү:</b> z-index “саны” эле эмес, кайсы элемент кайсы “stacking context” ичинде турганы да чоң роль ойнойт.
+      </p>
+    </section>
+
+    <footer>
+      <p>Бактылуу окуу! 🎓</p>
+    </footer>
+  </div>
 </body>
 </html>
-

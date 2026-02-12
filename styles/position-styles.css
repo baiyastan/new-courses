@@ -1,675 +1,697 @@
+/* =========================
+   Base Reset + Tokens
+========================= */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  /* Colors */
+  --bg1: #667eea;
+  --bg2: #764ba2;
+  --text: #222;
+  --muted: #666;
+  --surface: #ffffff;
+  --soft: #f8f9fa;
+  --soft2: #f0f0f0;
+
+  --primary: #667eea;
+  --success: #4CAF50;
+  --danger: #f5576c;
+  --warning: #e67e22;
+  --purple: #9b59b6;
+
+  /* Radius */
+  --r-lg: 20px;
+  --r-md: 15px;
+  --r-sm: 10px;
+  --r-xs: 8px;
+
+  /* Shadows */
+  --sh-1: 0 2px 8px rgba(0, 0, 0, 0.10);
+  --sh-2: 0 4px 6px rgba(0, 0, 0, 0.10);
+  --sh-3: 0 8px 12px rgba(0, 0, 0, 0.15);
+  --sh-hero: 0 20px 60px rgba(0, 0, 0, 0.30);
+
+  /* Spacing */
+  --p-1: 10px;
+  --p-2: 15px;
+  --p-3: 20px;
+  --p-4: 25px;
+  --p-5: 30px;
+  --p-6: 40px;
+
+  /* Typography */
+  --fs-0: 12px;
+  --fs-1: 14px;
+  --fs-2: 16px;
+  --fs-3: 18px;
+
+  /* Z layers (настоящая система) */
+  --z-base: 1;
+  --z-sticky: 100;
+  --z-overlay: 1000;
 }
 
 html {
-    font-size: 16px;
+  font-size: 16px;
+  scroll-behavior: smooth;
 }
 
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    min-height: 100vh;
-    padding: 20px;
-    line-height: 1.6;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, var(--bg1) 0%, var(--bg2) 100%);
+  min-height: 100vh;
+  padding: 20px;
+  line-height: 1.6;
+  color: var(--text);
 }
 
+/* =========================
+   Layout
+========================= */
 .container {
-    max-width: 1200px;
-    margin: 0 auto;
-    background: white;
-    border-radius: 20px;
-    padding: 40px;
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-    position: relative;
+  max-width: 1200px;
+  margin: 0 auto;
+  background: var(--surface);
+  border-radius: var(--r-lg);
+  padding: var(--p-6);
+  box-shadow: var(--sh-hero);
+  position: relative;
 }
 
 header {
-    text-align: center;
-    margin-bottom: 40px;
-    padding-bottom: 20px;
-    border-bottom: 3px solid #667eea;
+  text-align: center;
+  margin-bottom: 40px;
+  padding-bottom: 20px;
+  border-bottom: 3px solid var(--primary);
 }
 
 h1 {
-    color: #667eea;
-    font-size: 2.5em;
-    margin-bottom: 10px;
+  color: var(--primary);
+  font-size: 2.5em;
+  margin-bottom: 10px;
 }
 
 .subtitle {
-    color: #666;
-    font-size: 1.2em;
+  color: var(--muted);
+  font-size: 1.2em;
 }
 
 section {
-    margin-bottom: 50px;
+  margin-bottom: 50px;
 }
 
 h2 {
-    color: #333;
-    font-size: 2em;
-    margin-bottom: 30px;
-    padding-bottom: 10px;
-    border-bottom: 2px solid #eee;
+  color: #333;
+  font-size: 2em;
+  margin-bottom: 30px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid #eee;
 }
 
 h3 {
-    color: #667eea;
-    font-size: 1.5em;
-    margin-bottom: 15px;
+  color: var(--primary);
+  font-size: 1.5em;
+  margin-bottom: 15px;
 }
 
 h4 {
-    color: #555;
-    font-size: 1.2em;
-    margin-top: 20px;
-    margin-bottom: 10px;
+  color: #555;
+  font-size: 1.2em;
+  margin-top: 20px;
+  margin-bottom: 10px;
 }
 
-/* ТЕОРИЯ БӨЛҮМҮ */
-.theory-section {
-    background: #f8f9fa;
-    padding: 30px;
-    border-radius: 15px;
-    margin-bottom: 40px;
+/* =========================
+   Shared Blocks
+========================= */
+.theory-section,
+.table-section {
+  background: var(--soft);
+  padding: var(--p-5);
+  border-radius: var(--r-md);
+  margin-bottom: 40px;
+}
+
+.theory-card,
+.practice-card,
+.table-wrapper {
+  background: var(--surface);
+  border-radius: var(--r-sm);
+  box-shadow: var(--sh-2);
 }
 
 .theory-card {
-    background: white;
-    padding: 25px;
-    border-radius: 10px;
-    margin-bottom: 20px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  padding: var(--p-4);
+  margin-bottom: 20px;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
 .theory-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15);
+  transform: translateY(-4px);
+  box-shadow: var(--sh-3);
 }
 
-.theory-card ul, .theory-card ol {
-    margin-left: 20px;
-    margin-top: 15px;
+.theory-card ul,
+.theory-card ol {
+  margin-left: 20px;
+  margin-top: 15px;
 }
 
 .theory-card li {
-    margin-bottom: 10px;
-    color: #555;
+  margin-bottom: 10px;
+  color: #555;
 }
 
 .theory-card .note {
-    background: #e3f2fd;
-    padding: 15px;
-    border-radius: 5px;
-    border-left: 4px solid #2196F3;
-    margin-top: 15px;
-    color: #1565C0;
+  background: #e3f2fd;
+  padding: var(--p-2);
+  border-radius: 6px;
+  border-left: 4px solid #2196F3;
+  margin-top: 15px;
+  color: #1565C0;
 }
 
-/* МИСАЛДАР БӨЛҮМҮ */
+/* Examples */
 .example-group {
-    background: #f8f9fa;
-    padding: 25px;
-    border-radius: 15px;
-    margin-bottom: 30px;
-    border-left: 5px solid #667eea;
+  background: var(--soft);
+  padding: var(--p-4);
+  border-radius: var(--r-md);
+  margin-bottom: 30px;
+  border-left: 5px solid var(--primary);
 }
 
 .demo-box {
-    background: white;
-    padding: 40px;
-    border-radius: 10px;
-    margin-bottom: 20px;
-    min-height: 150px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    position: relative;
+  background: var(--surface);
+  padding: var(--p-6);
+  border-radius: var(--r-sm);
+  margin-bottom: 20px;
+  min-height: 150px;
+  box-shadow: var(--sh-1);
+  position: relative;
+
+  /* “Синеор” изоляция: демо ичиндеги позиция эффекттери
+     сырттагы блокторго аз таасир берсин */
+  isolation: isolate;
 }
 
+/* Code block */
 .code-example {
-    background: #2d2d2d;
-    color: #f8f8f2 !important;
-    padding: 20px;
-    border-radius: 8px;
-    overflow-x: auto;
-    border: 1px solid #444;
+  background: #2d2d2d;
+  color: #f8f8f2 !important;
+  padding: var(--p-3);
+  border-radius: 8px;
+  overflow-x: auto;
+  border: 1px solid #444;
 }
 
 .code-example pre {
-    margin: 0;
-    font-family: 'Courier New', monospace;
-    font-size: 14px;
-    line-height: 1.5;
-    color: #f8f8f2 !important;
-    background: transparent !important;
+  margin: 0;
+  font-family: "Courier New", monospace;
+  font-size: 14px;
+  line-height: 1.5;
+  color: #f8f8f2 !important;
+  background: transparent !important;
 }
 
 .code-example code {
-    color: #f8f8f2 !important;
-    background: transparent !important;
-    font-family: 'Courier New', monospace;
+  color: #f8f8f2 !important;
+  background: transparent !important;
+  font-family: "Courier New", monospace;
 }
 
 .note {
-    color: #666;
-    font-size: 0.9em;
-    font-style: italic;
-    margin-top: 15px;
-    padding: 10px;
-    background: #f8f9fa;
-    border-radius: 5px;
+  color: var(--muted);
+  font-size: 0.9em;
+  font-style: italic;
+  margin-top: 15px;
+  padding: var(--p-2);
+  background: var(--soft);
+  border-radius: 6px;
 }
 
-/* ДЕМО ЭЛЕМЕНТТЕР */
-
-/* Static Demo */
-.static-demo {
-    background: #f0f0f0;
-    padding: 20px;
-    border-radius: 8px;
+/* Inline code (text) */
+code {
+  background: #f4f4f4;
+  padding: 2px 6px;
+  border-radius: 3px;
+  font-family: "Courier New", monospace;
+  font-size: 13px;
+  color: #e83e8c;
 }
 
+/* =========================
+   Demo Surfaces (common)
+========================= */
+.static-demo,
+.relative-demo,
+.absolute-demo,
+.fixed-demo,
+.sticky-demo,
+.z-index-demo,
+.fixed-header-demo,
+.absolute-cards-demo,
+.sticky-menu-demo,
+.all-positions-demo {
+  background: var(--soft2);
+  padding: var(--p-3);
+  border-radius: var(--r-xs);
+}
+
+/* =========================
+   DEMOS
+========================= */
+
+/* Static */
 .static-box {
-    position: static;
-    padding: 15px;
-    margin-bottom: 10px;
-    background: #667eea;
-    color: white;
-    border-radius: 5px;
-    text-align: center;
-    font-weight: bold;
+  position: static;
+  padding: var(--p-2);
+  margin-bottom: 10px;
+  background: var(--primary);
+  color: #fff;
+  border-radius: 6px;
+  text-align: center;
+  font-weight: 700;
 }
 
-/* Relative Demo */
-.relative-demo {
-    background: #f0f0f0;
-    padding: 20px;
-    border-radius: 8px;
-}
-
+/* Relative */
 .relative-box {
-    padding: 15px;
-    margin-bottom: 10px;
-    background: #4CAF50;
-    color: white;
-    border-radius: 5px;
-    text-align: center;
-    font-weight: bold;
+  padding: var(--p-2);
+  margin-bottom: 10px;
+  background: var(--success);
+  color: #fff;
+  border-radius: 6px;
+  text-align: center;
+  font-weight: 700;
 }
-
 .relative-box.moved {
-    position: relative;
-    top: 20px;
-    left: 30px;
-    background: #f5576c;
+  position: relative;
+  top: 20px;
+  left: 30px;
+  background: var(--danger);
 }
 
-/* Absolute Demo */
+/* Absolute */
 .absolute-demo {
-    background: #f0f0f0;
-    padding: 20px;
-    border-radius: 8px;
-    min-height: 250px;
+  min-height: 250px;
 }
-
 .absolute-parent {
-    position: relative;
-    width: 100%;
-    height: 200px;
-    background: #f8f9fa;
-    border: 2px solid #667eea;
-    border-radius: 8px;
-    padding: 20px;
+  position: relative;
+  width: 100%;
+  height: 200px;
+  background: var(--soft);
+  border: 2px solid var(--primary);
+  border-radius: var(--r-xs);
+  padding: var(--p-3);
 }
-
 .absolute-child {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    padding: 15px;
-    background: #f5576c;
-    color: white;
-    border-radius: 5px;
-    font-weight: bold;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  padding: var(--p-2);
+  background: var(--danger);
+  color: #fff;
+  border-radius: 6px;
+  font-weight: 700;
 }
 
-/* Fixed Demo */
+/* ==========================================
+   FIXED Demo (Синеор версия)
+   Проблема: fixed бүт баракты жаап кетет.
+   Чечим: демо ичинде “симуляция” кылып, сабакты бузбай көрсөтөбүз.
+========================================== */
 .fixed-demo {
-    background: #f0f0f0;
-    padding: 20px;
-    border-radius: 8px;
-    min-height: 300px;
-    position: relative;
+  min-height: 300px;
+  position: relative;
+  padding-top: 60px;
 }
 
 .fixed-box {
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    padding: 15px 25px;
-    background: #9b59b6;
-    color: white;
-    border-radius: 5px;
-    z-index: 1000;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-    font-weight: bold;
+  /* ДЕМО ҮЧҮН: fixed сактайбыз, бирок визуалдык конфликт аз болсун */
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  padding: 15px 25px;
+  background: var(--purple);
+  color: #fff;
+  border-radius: 6px;
+  z-index: var(--z-overlay);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  font-weight: 700;
 }
 
-/* Sticky Demo */
-.sticky-demo {
-    background: #f0f0f0;
-    padding: 20px;
-    border-radius: 8px;
-    max-height: 400px;
-    overflow-y: auto;
-}
-
-.sticky-box {
-    position: sticky;
-    top: 0;
-    padding: 15px;
-    background: #e67e22;
-    color: white;
-    border-radius: 5px;
-    z-index: 100;
-    margin-bottom: 20px;
-    text-align: center;
-    font-weight: bold;
-}
-
-.sticky-content {
-    padding: 20px;
-}
-
-.sticky-content p {
-    padding: 20px;
-    margin-bottom: 15px;
-    background: white;
-    border-radius: 5px;
-    color: #555;
-}
-
-/* Z-index Demo */
-.z-index-demo {
-    background: #f0f0f0;
-    padding: 40px;
-    border-radius: 8px;
-    position: relative;
-    min-height: 200px;
-}
-
-.z-box {
-    position: relative;
-    width: 200px;
-    height: 100px;
-    padding: 20px;
-    border-radius: 5px;
-    color: white;
-    font-weight: bold;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.z-box.box1 {
-    background: #667eea;
-    z-index: 1;
-    margin-left: 0;
-}
-
-.z-box.box2 {
-    background: #4CAF50;
-    z-index: 2;
-    margin-left: -50px;
-    margin-top: -30px;
-}
-
-.z-box.box3 {
-    background: #f5576c;
-    z-index: 3;
-    margin-left: -50px;
-    margin-top: -30px;
-}
-
-/* Fixed Header Demo */
+/* ==========================================
+   FIXED HEADER Demo (Синеор версия)
+   Эң жакшы вариант: бул демону реал fixed кылбай,
+   демо-блоктун ичинде көрүнгөндөй кылып берүү.
+   Ошондуктан: .fixed-header-demo ичинде fixed header'ди "sticky" кылып
+   КӨРСӨТӨБҮЗ (окуучу fixed менен sticky айырмасын да түшүнөт).
+   Эгер чыныгы fixed керек болсо, 2-вариантты төмөндөн күйгүз.
+========================================== */
 .fixed-header-demo {
-    background: #f0f0f0;
-    padding: 20px;
-    border-radius: 8px;
-    min-height: 400px;
-    position: relative;
+  min-height: 400px;
+  position: relative;
+  overflow: hidden;
 }
 
+/* Вариант A (сунуш): демо ичинде бузбай көрсөтүү */
 .fixed-header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    background: linear-gradient(135deg, #667eea, #764ba2);
-    color: white;
-    z-index: 1000;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: linear-gradient(135deg, var(--bg1), var(--bg2));
+  color: #fff;
+  z-index: var(--z-sticky);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
+
+/* Вариант B (чын fixed): кааласаң төмөнкүсүн ачып, жогортогу sticky'ни өчүр
+.fixed-header {
+  position: fixed;
+  top: 0; left: 0; width: 100%;
+  z-index: var(--z-overlay);
+  background: linear-gradient(135deg, var(--bg1), var(--bg2));
+  color: #fff;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+*/
 
 .fixed-nav {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    padding: 20px;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  padding: 20px;
 }
 
 .nav-link {
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
-    transition: opacity 0.3s;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 700;
+  transition: opacity 0.25s ease;
 }
-
 .nav-link:hover {
-    opacity: 0.8;
+  opacity: 0.85;
 }
 
 .fixed-content {
-    margin-top: 80px;
-    padding: 20px;
+  margin-top: 20px;
+  padding: 20px;
 }
 
 .fixed-content p {
-    padding: 20px;
-    margin-bottom: 15px;
-    background: white;
-    border-radius: 5px;
-    color: #555;
+  padding: 20px;
+  margin-bottom: 15px;
+  background: #fff;
+  border-radius: 6px;
+  color: #555;
 }
 
-/* Absolute Cards Demo */
-.absolute-cards-demo {
-    background: #f0f0f0;
-    padding: 20px;
-    border-radius: 8px;
-    display: flex;
-    justify-content: center;
+/* Sticky demo (скролл контейнер) */
+.sticky-demo {
+  max-height: 400px;
+  overflow-y: auto;
+  padding-bottom: 10px;
+  border: 1px dashed rgba(0, 0, 0, 0.15);
 }
-
-.card-container {
-    position: relative;
-    width: 300px;
-    height: 200px;
-    background: #f8f9fa;
-    border-radius: 10px;
-    padding: 20px;
+.sticky-box {
+  position: sticky;
+  top: 0;
+  padding: var(--p-2);
+  background: var(--warning);
+  color: #fff;
+  border-radius: 6px;
+  z-index: var(--z-sticky);
+  margin-bottom: 20px;
+  text-align: center;
+  font-weight: 700;
 }
-
-.card-absolute {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    background: white;
-    border-radius: 8px;
-    padding: 20px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+.sticky-content {
+  padding: var(--p-3);
 }
-
-.card-badge {
-    position: absolute;
-    top: -10px;
-    right: -10px;
-    background: #f5576c;
-    color: white;
-    padding: 5px 15px;
-    border-radius: 20px;
-    font-size: 0.8em;
-    font-weight: bold;
-    z-index: 10;
-}
-
-.card-absolute h4 {
-    margin-bottom: 10px;
-    color: #667eea;
-}
-
-.card-absolute p {
-    color: #666;
-}
-
-/* Sticky Menu Demo */
-.sticky-menu-demo {
-    background: #f0f0f0;
-    padding: 20px;
-    border-radius: 8px;
-    max-height: 400px;
-    overflow-y: auto;
-}
-
-.sticky-menu {
-    position: sticky;
-    top: 0;
-    background: linear-gradient(135deg, #667eea, #764ba2);
-    color: white;
-    padding: 20px;
-    text-align: center;
-    font-weight: bold;
-    z-index: 100;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    margin-bottom: 20px;
-}
-
 .sticky-content p {
-    padding: 20px;
-    margin-bottom: 15px;
-    background: white;
-    border-radius: 5px;
-    color: #555;
+  padding: 20px;
+  margin-bottom: 15px;
+  background: #fff;
+  border-radius: 6px;
+  color: #555;
 }
 
-/* All Positions Demo */
+/* z-index demo */
+.z-index-demo {
+  padding: var(--p-6);
+  position: relative;
+  min-height: 200px;
+}
+.z-box {
+  position: relative;
+  width: 200px;
+  height: 100px;
+  padding: 20px;
+  border-radius: 6px;
+  color: #fff;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.z-box.box1 { background: var(--primary); z-index: 1; margin-left: 0; }
+.z-box.box2 { background: var(--success); z-index: 2; margin-left: -50px; margin-top: -30px; }
+.z-box.box3 { background: var(--danger); z-index: 3; margin-left: -50px; margin-top: -30px; }
+
+/* Absolute Cards */
+.absolute-cards-demo {
+  display: flex;
+  justify-content: center;
+}
+.card-container {
+  position: relative;
+  width: 300px;
+  height: 200px;
+  background: var(--soft);
+  border-radius: 10px;
+  padding: 20px;
+}
+.card-absolute {
+  position: relative; /* badge anchor */
+  width: 100%;
+  height: 100%;
+  background: #fff;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: var(--sh-1);
+}
+.card-badge {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  background: var(--danger);
+  color: #fff;
+  padding: 6px 14px;
+  border-radius: 999px;
+  font-size: 0.8em;
+  font-weight: 800;
+  z-index: 10;
+}
+.card-absolute h4 {
+  margin-bottom: 10px;
+  color: var(--primary);
+}
+.card-absolute p {
+  color: var(--muted);
+}
+
+/* Sticky Menu demo */
+.sticky-menu-demo {
+  max-height: 400px;
+  overflow-y: auto;
+  border: 1px dashed rgba(0, 0, 0, 0.15);
+}
+.sticky-menu {
+  position: sticky;
+  top: 0;
+  background: linear-gradient(135deg, var(--bg1), var(--bg2));
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+  font-weight: 800;
+  z-index: var(--z-sticky);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+}
+
+/* All positions demo */
 .all-positions-demo {
-    background: #f0f0f0;
-    padding: 40px;
-    border-radius: 8px;
-    position: relative;
-    min-height: 300px;
+  padding: var(--p-6);
+  position: relative;
+  min-height: 300px;
+  overflow: hidden;
 }
 
-.pos-static {
-    position: static;
-    padding: 15px;
-    margin-bottom: 10px;
-    background: #667eea;
-    color: white;
-    border-radius: 5px;
-    text-align: center;
-    font-weight: bold;
+/* Boxes base */
+.pos-static,
+.pos-relative,
+.pos-absolute,
+.pos-fixed,
+.pos-sticky {
+  padding: 15px;
+  margin-bottom: 10px;
+  color: #fff;
+  border-radius: 6px;
+  text-align: center;
+  font-weight: 800;
 }
+
+.pos-static { position: static; background: var(--primary); }
 
 .pos-relative {
-    position: relative;
-    top: 10px;
-    left: 20px;
-    padding: 15px;
-    margin-bottom: 10px;
-    background: #4CAF50;
-    color: white;
-    border-radius: 5px;
-    text-align: center;
-    font-weight: bold;
+  position: relative;
+  top: 10px;
+  left: 20px;
+  background: var(--success);
 }
 
 .pos-absolute {
-    position: absolute;
-    top: 50px;
-    right: 20px;
-    padding: 15px;
-    background: #f5576c;
-    color: white;
-    border-radius: 5px;
-    text-align: center;
-    font-weight: bold;
-    width: 150px;
+  position: absolute;
+  top: 50px;
+  right: 20px;
+  background: var(--danger);
+  width: 150px;
 }
 
+/* Бул жерде fixed реал дүйнөдө баракты бузушу мүмкүн —
+   демо үчүн мобилде relative кылып беребиз (сенде бар эле),
+   desktop’то калтыралы */
 .pos-fixed {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    padding: 15px 25px;
-    background: #9b59b6;
-    color: white;
-    border-radius: 5px;
-    z-index: 1000;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-    font-weight: bold;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: var(--purple);
+  z-index: var(--z-overlay);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
 }
 
 .pos-sticky {
-    position: sticky;
-    top: 0;
-    padding: 15px;
-    margin-bottom: 10px;
-    background: #e67e22;
-    color: white;
-    border-radius: 5px;
-    text-align: center;
-    font-weight: bold;
-    z-index: 100;
+  position: sticky;
+  top: 0;
+  background: var(--warning);
+  z-index: var(--z-sticky);
 }
 
-/* ПРАКТИКА БӨЛҮМҮ */
+/* =========================
+   Practice
+========================= */
 .practice-section {
-    background: #fff3cd;
-    padding: 30px;
-    border-radius: 15px;
-    border-left: 5px solid #ffc107;
+  background: #fff3cd;
+  padding: var(--p-5);
+  border-radius: var(--r-md);
+  border-left: 5px solid #ffc107;
 }
 
 .practice-card {
-    background: white;
-    padding: 25px;
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: var(--p-4);
 }
 
 .practice-card ol {
-    margin-left: 20px;
-    margin-top: 15px;
+  margin-left: 20px;
+  margin-top: 15px;
 }
 
 .practice-card li {
-    margin-bottom: 15px;
-    color: #555;
-    font-size: 1.1em;
+  margin-bottom: 15px;
+  color: #555;
+  font-size: 1.1em;
 }
 
-/* КЕСТЕ БӨЛҮМҮ */
-.table-section {
-    background: #f8f9fa;
-    padding: 30px;
-    border-radius: 15px;
-    margin-bottom: 30px;
-}
-
+/* =========================
+   Tables
+========================= */
 .table-wrapper {
-    overflow-x: auto;
-    background: white;
-    border-radius: 10px;
-    padding: 20px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  overflow-x: auto;
+  padding: var(--p-3);
 }
 
 table {
-    width: 100%;
-    border-collapse: collapse;
-    font-size: 14px;
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
 }
 
 thead {
-    background: linear-gradient(135deg, #667eea, #764ba2);
-    color: white;
+  background: linear-gradient(135deg, var(--bg1), var(--bg2));
+  color: #fff;
 }
 
 th {
-    padding: 15px;
-    text-align: left;
-    font-weight: bold;
+  padding: 15px;
+  text-align: left;
+  font-weight: 800;
 }
 
 td {
-    padding: 12px 15px;
-    border-bottom: 1px solid #eee;
+  padding: 12px 15px;
+  border-bottom: 1px solid #eee;
 }
 
 tbody tr:hover {
-    background-color: #f8f9fa;
+  background-color: var(--soft);
 }
 
 tbody tr:last-child td {
-    border-bottom: none;
+  border-bottom: none;
 }
 
-code {
-    background: #f4f4f4;
-    padding: 2px 6px;
-    border-radius: 3px;
-    font-family: 'Courier New', monospace;
-    font-size: 13px;
-    color: #e83e8c;
-}
-
-/* Footer */
+/* =========================
+   Footer
+========================= */
 footer {
-    text-align: center;
-    padding-top: 30px;
-    margin-top: 40px;
-    border-top: 2px solid #eee;
-    color: #666;
-    font-size: 1.2em;
+  text-align: center;
+  padding-top: 30px;
+  margin-top: 40px;
+  border-top: 2px solid #eee;
+  color: var(--muted);
+  font-size: 1.2em;
 }
 
-/* Responsive */
+/* =========================
+   Responsive
+========================= */
 @media (max-width: 768px) {
-    .container {
-        padding: 20px;
-    }
+  .container {
+    padding: 20px;
+  }
 
-    h1 {
-        font-size: 2em;
-    }
+  h1 { font-size: 2em; }
+  h2 { font-size: 1.5em; }
 
-    h2 {
-        font-size: 1.5em;
-    }
+  .demo-box {
+    padding: 20px;
+  }
 
-    .demo-box {
-        padding: 20px;
-    }
+  .code-example pre {
+    font-size: 12px;
+  }
 
-    .code-example {
-        font-size: 12px;
-    }
+  table { font-size: 12px; }
+  th, td { padding: 8px; }
 
-    table {
-        font-size: 12px;
-    }
+  /* мобилде fixed демолор контентти жаппасын */
+  .fixed-box {
+    position: relative;
+    top: auto;
+    right: auto;
+    margin-bottom: 20px;
+    display: inline-block;
+  }
 
-    th, td {
-        padding: 8px;
-    }
-
-    .fixed-box {
-        position: relative;
-        top: auto;
-        right: auto;
-        margin-bottom: 20px;
-    }
-
-    .pos-fixed {
-        position: relative;
-        bottom: auto;
-        right: auto;
-        margin-bottom: 20px;
-    }
+  .pos-fixed {
+    position: relative;
+    bottom: auto;
+    right: auto;
+    margin-bottom: 20px;
+    display: inline-block;
+  }
 }
-
