@@ -798,3 +798,137 @@ footer {
     }
 }
 
+/* =========================
+   QUIZ (TEST) STYLES
+   Бир катар (1 колонка) — бардык экранда
+========================= */
+
+.quiz-section {
+    background: #f8f9fa;
+    padding: 30px;
+    border-radius: 15px;
+    margin-bottom: 40px;
+    border-left: 5px solid #667eea;
+}
+
+.quiz-section h2 {
+    margin-bottom: 10px;
+}
+
+.quiz-section .subtitle {
+    margin-top: 0;
+    margin-bottom: 20px;
+    color: #666;
+    font-size: 1.05em;
+}
+
+/* ✅ Тест карталары: ар дайым 1 колонка */
+.quiz-list {
+    display: grid;
+    grid-template-columns: 1fr; /* бардык размерде 1 колонка */
+    gap: 20px;
+}
+
+/* Карточка */
+.quiz-item {
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.08);
+    border: 1px solid #eee;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.quiz-item:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 18px rgba(0, 0, 0, 0.12);
+}
+
+/* Суроо тексти */
+.quiz-item p {
+    margin-bottom: 10px;
+    color: #333;
+    line-height: 1.6;
+    font-size: 1em;
+}
+
+/* Варианттар */
+.quiz-item p:last-child {
+    margin-bottom: 0;
+    color: #555;
+    font-size: 0.98em;
+    white-space: pre-line; /* эгер <br> болсо */
+    background: #f8f9fa;
+    padding: 12px;
+    border-radius: 10px;
+    border-left: 4px solid #e5e7eb;
+}
+
+/* =========================
+   QUIZ RESPONSIVE
+   Колонка өзгөрбөйт, болгону padding/шрифт өзгөрөт
+========================= */
+
+/* 481px+ */
+@media (min-width: 481px) {
+    .quiz-list {
+        grid-template-columns: 1fr; /* дагы эле 1 */
+    }
+
+    .quiz-item {
+        padding: 22px;
+    }
+}
+
+/* 768px+ */
+@media (min-width: 768px) {
+    .quiz-list {
+        grid-template-columns: 1fr; /* ✅ 1 колонка */
+    }
+
+    .quiz-item {
+        padding: 24px;
+    }
+
+    .quiz-item p {
+        font-size: 1.02em;
+    }
+}
+
+/* 1024px+ */
+@media (min-width: 1024px) {
+    .quiz-list {
+        grid-template-columns: 1fr; /* ✅ 1 колонка */
+    }
+
+    .quiz-item {
+        padding: 26px;
+    }
+}
+
+/* 1200px+ */
+@media (min-width: 1200px) {
+    .quiz-list {
+        grid-template-columns: 1fr; /* ✅ 1 колонка */
+    }
+}
+
+/* 480px жана төмөн */
+@media (max-width: 480px) {
+    .quiz-section {
+        padding: 20px;
+    }
+
+    .quiz-item {
+        padding: 16px;
+    }
+
+    .quiz-item p {
+        font-size: 0.95em;
+    }
+
+    .quiz-item p:last-child {
+        font-size: 0.93em;
+        padding: 10px;
+    }
+}

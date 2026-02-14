@@ -1,1936 +1,576 @@
 <!DOCTYPE html>
 <html lang="ky">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Медиа-запрос - Сабак</title>
-    <link rel="stylesheet" href="media-queries-styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CSS Media Queries — Кыргызча толук сабак</title>
+  <meta name="description" content="CSS media queries: max-width vs min-width, breakpoints, mobile-first, практикалык тапшырмалар." />
+  <link rel="stylesheet" href="media-queries-styles.css" />
 </head>
+
 <body>
-    <div class="container">
-        <header>
-            <h1>Медиа-запрос</h1>
-            <p class="subtitle">Баштап жаткандар үчүн толук сабак</p>
-        </header>
+  <!-- Skip link (A11y) -->
+  <a class="skip-link" href="#content">Контентке өтүү</a>
 
-        <!-- ТЕОРИЯ БӨЛҮМҮ -->
-        <section class="theory-section">
-            <h2>📚 Теория</h2>
-            
-            <div class="theory-card">
-                <h3>1. Медиа-запрос деген эмне?</h3>
-                
-                <p><strong>Медиа-запрос</strong> - экрандын өлчөмүнө карата ар кандай стилдерди колдонуу үчүн.</p>
-                
-                <h4>Негизги түшүнүктөр:</h4>
-                <ul>
-                    <li><strong>Responsive Design</strong> - респонсивдик дизайн</li>
-                    <li><strong>Breakpoints</strong> - брейкпоинттер (өлчөмдөр)</li>
-                    <li><strong>Media Query</strong> - медиа-запрос (@media)</li>
-                    <li><strong>Viewport</strong> - көрүнүш (браузердин өлчөмү)</li>
-                </ul>
-                
-                <div class="code-example">
-                    <pre><code>/* Медиа-запрос */
+  <div class="container">
+    <header class="page-header">
+      <h1>Медиа-запрос (Media Queries)</h1>
+      <p class="subtitle">Баштап жаткандар үчүн: теория + мисалдар + көп практика</p>
+
+      <!-- Responsive menu demo (A11y fixed) -->
+      <nav class="responsive-nav" aria-label="Негизги навигация">
+        <div class="nav-logo">
+          <strong>MediaQuery Lab</strong>
+        </div>
+
+        <button
+          class="menu-toggle"
+          id="menuToggle"
+          type="button"
+          aria-label="Менюну ачуу/жабуу"
+          aria-controls="navLinks"
+          aria-expanded="false"
+        >
+          ☰
+        </button>
+
+        <div class="nav-links" id="navLinks">
+          <a href="#theory" class="nav-link">Теория</a>
+          <a href="#easy" class="nav-link">Жеңил мисалдар</a>
+          <a href="#hard" class="nav-link">Оор мисалдар</a>
+          <a href="#practice" class="nav-link">Практика</a>
+          <a href="#tables" class="nav-link">Кестелер</a>
+          <a href="#extras" class="nav-link hidden-mobile">Extra</a>
+        </div>
+      </nav>
+    </header>
+
+    <main id="content">
+      <!-- ТЕОРИЯ -->
+      <section id="theory" class="theory-section" aria-labelledby="theory-title">
+        <h2 id="theory-title">📚 Теория</h2>
+
+        <article class="theory-card">
+          <h3>1) Медиа-запрос деген эмне?</h3>
+          <p>
+            <strong>Медиа-запрос</strong> — экрандын шарттарына жараша (туурасы, бийиктиги, багыты, колдонуучунун preference’тери)
+            ар башка CSS стилдерди колдонуу ыкмасы.
+          </p>
+
+          <h4>Негизги түшүнүктөр:</h4>
+          <ul>
+            <li><strong>Responsive Design</strong> — ар экранга ылайык дизайн</li>
+            <li><strong>Breakpoints</strong> — дизайн “сынган” жердеги чекиттер</li>
+            <li><strong>Media Query</strong> — <code>@media</code> шарттары</li>
+            <li><strong>Viewport</strong> — браузер/экран көрүнүшү</li>
+          </ul>
+
+          <div class="code-example">
+            <pre><code class="language-css">/* Экран 768px же кичине болсо */
 @media (max-width: 768px) {
-    .element {
-        font-size: 14px;
-    }
-}
-
-/* Экрандын туурасы 768px же кичине болсо, стиль колдонулат */</code></pre>
-                </div>
-            </div>
-
-            <div class="theory-card">
-                <h3>2. max-width - Максималдуу туурасы</h3>
-                
-                <p><strong>max-width</strong> - экрандын туурасы максималдуу мааниден кичине же барабар болсо, стиль колдонулат.</p>
-                
-                <h4>Синтаксис:</h4>
-                <ul>
-                    <li><code>@media (max-width: 768px) { }</code> - 768px же кичине</li>
-                    <li><code>@media (max-width: 480px) { }</code> - 480px же кичине</li>
-                    <li><code>@media (max-width: 1024px) { }</code> - 1024px же кичине</li>
-                </ul>
-                
-                <h4>Колдонулушу:</h4>
-                <ul>
-                    <li>Кичине экрандар үчүн стилдер</li>
-                    <li>Desktop-first подход</li>
-                    <li>Чоң экрандан кичине экранга</li>
-                </ul>
-                
-                <div class="code-example">
-                    <pre><code>/* max-width */
-.element {
-    font-size: 18px;  /* Дефолт (чоң экран) */
-}
-
-@media (max-width: 768px) {
-    .element {
-        font-size: 16px;  /* Планшет */
-    }
-}
-
-@media (max-width: 480px) {
-    .element {
-        font-size: 14px;  /* Телефон */
-    }
-}
-
-/* Чоң экрандан кичине экранга */</code></pre>
-                </div>
-            </div>
-
-            <div class="theory-card">
-                <h3>3. min-width - Минималдуу туурасы</h3>
-                
-                <p><strong>min-width</strong> - экрандын туурасы минималдуу мааниден чоң же барабар болсо, стиль колдонулат.</p>
-                
-                <h4>Синтаксис:</h4>
-                <ul>
-                    <li><code>@media (min-width: 481px) { }</code> - 481px же чоң</li>
-                    <li><code>@media (min-width: 768px) { }</code> - 768px же чоң (Tablet+)</li>
-                    <li><code>@media (min-width: 1024px) { }</code> - 1024px же чоң (Desktop+)</li>
-                    <li><code>@media (min-width: 1200px) { }</code> - 1200px же чоң (Large Desktop)</li>
-                </ul>
-                
-                <h4>Колдонулушу:</h4>
-                <ul>
-                    <li>Чоң экрандар үчүн стилдер</li>
-                    <li>Mobile-first подход</li>
-                    <li>Кичине экрандан чоң экранга</li>
-                </ul>
-                
-                <div class="code-example">
-                    <pre><code>/* min-width */
-.element {
-    font-size: 14px;  /* Дефолт (кичине экран) */
-}
-
-@media (min-width: 481px) {
-    .element {
-        font-size: 16px;  /* Планшет */
-    }
-}
-
-@media (min-width: 768px) {
-    .element {
-        font-size: 18px;  /* Десктоп */
-    }
-}
-
-/* Кичине экрандан чоң экранга (Mobile-first) */</code></pre>
-                </div>
-            </div>
-
-            <div class="theory-card">
-                <h3>4. Телефон/Планшет/Десктоп адаптив</h3>
-                
-                <h4>Стандарттуу брейкпоинттер:</h4>
-                <ul>
-                    <li><strong>Mobile (Телефон)</strong> - 480px же кичине</li>
-                    <li><strong>Small Mobile</strong> - 481px - 767px</li>
-                    <li><strong>Tablet (Планшет)</strong> - 768px - 1023px</li>
-                    <li><strong>Desktop (Десктоп)</strong> - 1024px - 1199px</li>
-                    <li><strong>Large Desktop</strong> - 1200px же чоң</li>
-                </ul>
-                
-                <h4>Колдонулушу:</h4>
-                <ul>
-                    <li>Ар кандай экрандар үчүн ар кандай стилдер</li>
-                    <li>Респонсивдик дизайн</li>
-                    <li>Оптималдуу көрүнүш</li>
-                </ul>
-                
-                <div class="code-example">
-                    <pre><code>/* Телефон/Планшет/Десктоп */
-.container {
-    padding: 20px;
-}
-
-/* Планшет */
-@media (min-width: 481px) {
-    .container {
-        padding: 30px;
-    }
-}
-
-/* Десктоп */
-@media (min-width: 768px) {
-    .container {
-        padding: 40px;
-        max-width: 1200px;
-    }
-}
-
-/* Телефон (дефолт) */
-/* Планшет (481px+) */
-/* Desktop (768px+) */</code></pre>
-                </div>
-            </div>
-
-            <div class="theory-card">
-                <h3>5. Mobile-first подход</h3>
-                
-                <p><strong>Mobile-first</strong> - кичине экрандан баштап, чоң экранга өтүү.</p>
-                
-                <h4>Артыкчылыктары:</h4>
-                <ul>
-                    <li>Тезирээк жүктөлөт (кичине стилдер биринчи)</li>
-                    <li>Прогрессивдик жакшыртуу</li>
-                    <li>Эң жакшы практика</li>
-                    <li>SEO үчүн жакшы</li>
-                </ul>
-                
-                <h4>Desktop-first vs Mobile-first:</h4>
-                <ul>
-                    <li><strong>Desktop-first</strong> - max-width колдонулат (чоң экрандан кичине экранга)</li>
-                    <li><strong>Mobile-first</strong> - min-width колдонулат (кичине экрандан чоң экранга)</li>
-                </ul>
-                
-                <div class="code-example">
-                    <pre><code>/* Mobile-first */
-.element {
-    font-size: 14px;  /* Телефон (дефолт) */
-    padding: 10px;
-}
-
-@media (min-width: 481px) {
-    .element {
-        font-size: 16px;  /* Планшет */
-        padding: 20px;
-    }
-}
-
-@media (min-width: 768px) {
-    .element {
-        font-size: 18px;  /* Десктоп */
-        padding: 30px;
-    }
-}
-
-/* Кичине экрандан чоң экранга - Mobile-first */</code></pre>
-                </div>
-            </div>
-
-            <div class="theory-card">
-                <h3>6. Башка медиа-запрос касиеттери</h3>
-                
-                <h4>orientation - Багыт</h4>
-                <ul>
-                    <li><code>@media (orientation: portrait) { }</code> - вертикалдык</li>
-                    <li><code>@media (orientation: landscape) { }</code> - горизонталдык</li>
-                </ul>
-                
-                <h4>Көп шарттар</h4>
-                <ul>
-                    <li><code>@media (min-width: 768px) and (max-width: 1023px) { }</code> - диапазон (Tablet)</li>
-                    <li><code>@media (min-width: 768px), (orientation: landscape) { }</code> - же (or)</li>
-                </ul>
-                
-                <div class="code-example">
-                    <pre><code>/* Башка медиа-запрос касиеттери */
-/* Багыт */
-@media (orientation: portrait) {
-    .element {
-        /* Вертикалдык экран */
-    }
-}
-
-@media (orientation: landscape) {
-    .element {
-        /* Горизонталдык экран */
-    }
-}
-
-/* Диапазон */
-@media (min-width: 768px) and (max-width: 1023px) {
-    .element {
-        /* Планшет */
-    }
-}
-
-/* Көп шарттар */
-@media (min-width: 768px), (orientation: landscape) {
-    .element {
-        /* 768px+ же горизонталдык */
-    }
+  .element { font-size: 14px; }
 }</code></pre>
-                </div>
-            </div>
-        </section>
+          </div>
 
-        <!-- ЖЕНИЛ МИСАЛДАР -->
-        <section class="examples-section">
-            <h2>🟢 ЖЕНИЛ МИСАЛДАР</h2>
+          <p class="note">
+            ЭСКЕРТҮҮ: “Стандарттуу брейкпоинт” так бирөө эмес. Реал жашоодо брейкпоинт — контент/макет сынган жерден алынат.
+          </p>
+        </article>
 
-            <div class="example-group">
-                <h3>Мисал 1: max-width - Кичине экрандар</h3>
-                <div class="demo-box">
-                    <div class="max-width-demo">
-                        <div class="responsive-box">
-                            <p>Бул элемент max-width менен стилделген</p>
-                            <p class="screen-size">Экрандын туурасын өзгөртүп көрүңүз!</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="code-example">
-                    <h4>📄 HTML код:</h4>
-                    <pre><code>&lt;!DOCTYPE html&gt;
-&lt;html lang="ky"&gt;
-&lt;head&gt;
-    &lt;meta charset="UTF-8"&gt;
-    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
-    &lt;title&gt;Max-width мисалы&lt;/title&gt;
-    &lt;link rel="stylesheet" href="styles.css"&gt;
-&lt;/head&gt;
-&lt;body&gt;
-    &lt;div class="container"&gt;
-        &lt;div class="responsive-box"&gt;
-            &lt;h2&gt;Респонсивдик элемент&lt;/h2&gt;
-            &lt;p&gt;Бул элемент max-width менен стилделген&lt;/p&gt;
-            &lt;p class="screen-size"&gt;Экрандын туурасын өзгөртүп көрүңүз!&lt;/p&gt;
-        &lt;/div&gt;
-    &lt;/div&gt;
-&lt;/body&gt;
-&lt;/html&gt;</code></pre>
-                    <h4>🎨 CSS код:</h4>
-                    <pre><code>/* Reset */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+        <article class="theory-card">
+          <h3>2) max-width (Desktop-first)</h3>
+          <p><strong>max-width</strong> — экрандын туурасы берилген мааниден <strong>кичине же барабар</strong> болгондо иштейт.</p>
+
+          <ul>
+            <li>Desktop-first: чоң стилдер база, анан кичинекейде override</li>
+            <li>Медиа блокторду көбүнчө “чоңдон кичинеге” логика менен жаз</li>
+          </ul>
+
+          <div class="code-example">
+            <pre><code class="language-css">.element { font-size: 18px; } /* чоң экран база */
+
+@media (max-width: 768px) {  /* tablet жана төмөн */
+  .element { font-size: 16px; }
 }
 
-body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: #f8f9fa;
-    padding: 20px;
-}
-
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-/* Баштапкы стилдер (Desktop-first) */
-.responsive-box {
-    padding: 40px;
-    background: linear-gradient(135deg, #667eea, #764ba2);
-    color: white;
-    border-radius: 10px;
-    font-size: 18px;
-    text-align: center;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-.responsive-box h2 {
-    margin-bottom: 15px;
-    font-size: 2em;
-}
-
-.responsive-box p {
-    margin-bottom: 10px;
-    line-height: 1.6;
-}
-
-.screen-size {
-    font-size: 0.9em;
-    opacity: 0.9;
-}
-
-/* Tablet (768px же кичине) */
-@media (max-width: 768px) {
-    .responsive-box {
-        padding: 25px;
-        font-size: 16px;
-    }
-    
-    .responsive-box h2 {
-        font-size: 1.5em;
-    }
-}
-
-/* Mobile (480px же кичине) */
-@media (max-width: 480px) {
-    .container {
-        padding: 0 10px;
-    }
-    
-    .responsive-box {
-        padding: 15px;
-        font-size: 14px;
-    }
-    
-    .responsive-box h2 {
-        font-size: 1.3em;
-    }
-}
-
-/* Чоң экрандан кичине экранга (Desktop-first) */</code></pre>
-                </div>
-            </div>
-
-            <div class="example-group">
-                <h3>Мисал 2: min-width - Чоң экрандар (Mobile-first)</h3>
-                <div class="demo-box">
-                    <div class="min-width-demo">
-                        <div class="mobile-first-box">
-                            <p>Бул элемент min-width менен стилделген (Mobile-first)</p>
-                            <p class="screen-size">Экрандын туурасын өзгөртүп көрүңүз!</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="code-example">
-                    <h4>📄 HTML код:</h4>
-                    <pre><code>&lt;!DOCTYPE html&gt;
-&lt;html lang="ky"&gt;
-&lt;head&gt;
-    &lt;meta charset="UTF-8"&gt;
-    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
-    &lt;title&gt;Min-width мисалы (Mobile-first)&lt;/title&gt;
-    &lt;link rel="stylesheet" href="styles.css"&gt;
-&lt;/head&gt;
-&lt;body&gt;
-    &lt;div class="container"&gt;
-        &lt;div class="mobile-first-box"&gt;
-            &lt;h2&gt;Mobile-first подход&lt;/h2&gt;
-            &lt;p&gt;Бул элемент min-width менен стилделген&lt;/p&gt;
-            &lt;p class="screen-size"&gt;Экрандын туурасын өзгөртүп көрүңүз!&lt;/p&gt;
-        &lt;/div&gt;
-    &lt;/div&gt;
-&lt;/body&gt;
-&lt;/html&gt;</code></pre>
-                    <h4>🎨 CSS код:</h4>
-                    <pre><code>/* Reset */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: #f8f9fa;
-    padding: 20px;
-}
-
-.container {
-    width: 100%;
-    margin: 0 auto;
-    padding: 0 15px;
-}
-
-/* Баштапкы стилдер (Mobile-first) - мобилдик үчүн */
-.mobile-first-box {
-    padding: 15px;
-    background: linear-gradient(135deg, #4CAF50, #45a049);
-    color: white;
-    border-radius: 10px;
-    font-size: 14px;
-    text-align: center;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-.mobile-first-box h2 {
-    margin-bottom: 10px;
-    font-size: 1.5em;
-}
-
-.mobile-first-box p {
-    margin-bottom: 8px;
-    line-height: 1.6;
-}
-
-.screen-size {
-    font-size: 0.85em;
-    opacity: 0.9;
-}
-
-/* Small Mobile (481px же чоң) */
-@media (min-width: 481px) {
-    .container {
-        padding: 0 20px;
-    }
-    
-    .mobile-first-box {
-        padding: 20px;
-        font-size: 16px;
-    }
-    
-    .mobile-first-box h2 {
-        font-size: 1.8em;
-    }
-}
-
-/* Tablet (768px же чоң) */
-@media (min-width: 768px) {
-    .container {
-        max-width: 720px;
-        padding: 0 30px;
-    }
-    
-    .mobile-first-box {
-        padding: 30px;
-        font-size: 18px;
-    }
-    
-    .mobile-first-box h2 {
-        font-size: 2.2em;
-    }
-}
-
-/* Desktop (1024px же чоң) */
-@media (min-width: 1024px) {
-    .container {
-        max-width: 960px;
-    }
-    
-    .mobile-first-box {
-        padding: 40px;
-        font-size: 20px;
-    }
-}
-
-/* Кичине экрандан чоң экранга (Mobile-first) */</code></pre>
-                </div>
-            </div>
-
-            <div class="example-group">
-                <h3>Мисал 3: Телефон/Планшет/Десктоп</h3>
-                <div class="demo-box">
-                    <div class="breakpoints-demo">
-                        <div class="breakpoint-box">
-                            <div class="device-info">
-                                <p class="device-name">Mobile</p>
-                                <p class="device-size">≤ 480px</p>
-                            </div>
-                            <div class="device-info">
-                                <p class="device-name">Small Mobile</p>
-                                <p class="device-size">481px - 767px</p>
-                            </div>
-                            <div class="device-info">
-                                <p class="device-name">Tablet</p>
-                                <p class="device-size">768px - 1023px</p>
-                            </div>
-                            <div class="device-info">
-                                <p class="device-name">Desktop</p>
-                                <p class="device-size">1024px - 1199px</p>
-                            </div>
-                            <div class="device-info">
-                                <p class="device-name">Large Desktop</p>
-                                <p class="device-size">≥ 1200px</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="code-example">
-                    <pre><code>/* Mobile-first подход */
-.container {
-    padding: 10px;  /* Mobile (дефолт) */
-    font-size: 14px;
-}
-
-/* Small Mobile */
-@media (min-width: 481px) {
-    .container {
-        padding: 15px;
-        font-size: 15px;
-    }
-}
-
-/* Tablet */
-@media (min-width: 768px) {
-    .container {
-        padding: 20px;
-        font-size: 16px;
-    }
-}
-
-/* Desktop */
-@media (min-width: 1024px) {
-    .container {
-        padding: 30px;
-        font-size: 18px;
-        max-width: 960px;
-    }
-}
-
-/* Large Desktop */
-@media (min-width: 1200px) {
-    .container {
-        max-width: 1200px;
-    }
+@media (max-width: 480px) {  /* mobile */
+  .element { font-size: 14px; }
 }</code></pre>
-                </div>
-            </div>
+          </div>
+        </article>
 
-            <div class="example-group">
-                <h3>Мисал 4: Респонсивдик карточкалар</h3>
-                <div class="demo-box">
-                    <div class="responsive-cards-demo">
-                        <div class="cards-grid">
-                            <div class="card">Карточка 1</div>
-                            <div class="card">Карточка 2</div>
-                            <div class="card">Карточка 3</div>
-                            <div class="card">Карточка 4</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="code-example">
-                    <h4>📄 HTML код:</h4>
-                    <pre><code>&lt;!DOCTYPE html&gt;
-&lt;html lang="ky"&gt;
-&lt;head&gt;
-    &lt;meta charset="UTF-8"&gt;
-    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
-    &lt;title&gt;Респонсивдик карточкалар&lt;/title&gt;
-    &lt;link rel="stylesheet" href="styles.css"&gt;
-&lt;/head&gt;
-&lt;body&gt;
-    &lt;div class="container"&gt;
-        &lt;h1&gt;Кызматтар&lt;/h1&gt;
-        &lt;div class="cards-grid"&gt;
-            &lt;div class="card"&gt;
-                &lt;div class="card-icon"&gt;🎨&lt;/div&gt;
-                &lt;h3&gt;Дизайн&lt;/h3&gt;
-                &lt;p&gt;Биз сизге эң жакшы дизайн кызматтарын сунуштайбыз&lt;/p&gt;
-            &lt;/div&gt;
-            &lt;div class="card"&gt;
-                &lt;div class="card-icon"&gt;💻&lt;/div&gt;
-                &lt;h3&gt;Веб-разработка&lt;/h3&gt;
-                &lt;p&gt;Современдуу веб-сайттарды түзүү&lt;/p&gt;
-            &lt;/div&gt;
-            &lt;div class="card"&gt;
-                &lt;div class="card-icon"&gt;📱&lt;/div&gt;
-                &lt;h3&gt;Мобилдик приложения&lt;/h3&gt;
-                &lt;p&gt;iOS жана Android үчүн приложениялар&lt;/p&gt;
-            &lt;/div&gt;
-            &lt;div class="card"&gt;
-                &lt;div class="card-icon"&gt;🚀&lt;/div&gt;
-                &lt;h3&gt;Маркетинг&lt;/h3&gt;
-                &lt;p&gt;Сиздин бизнесиңизди кеңейтүү&lt;/p&gt;
-            &lt;/div&gt;
-        &lt;/div&gt;
-    &lt;/div&gt;
-&lt;/body&gt;
-&lt;/html&gt;</code></pre>
-                    <h4>🎨 CSS код:</h4>
-                    <pre><code>/* Reset */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+        <article class="theory-card">
+          <h3>3) min-width (Mobile-first)</h3>
+          <p><strong>min-width</strong> — экрандын туурасы берилген мааниден <strong>чоң же барабар</strong> болгондо иштейт.</p>
+
+          <ul>
+            <li>Mobile-first: мобилдик база, анан чоңойгон сайын кошумчалайсың</li>
+            <li>Медиа блокторду “кичинеден чоңго” тартипте жаз</li>
+          </ul>
+
+          <div class="code-example">
+            <pre><code class="language-css">.element { font-size: 14px; } /* mobile база */
+
+@media (min-width: 768px) {  /* tablet+ */
+  .element { font-size: 16px; }
 }
 
-body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: #f8f9fa;
-    padding: 20px;
-    line-height: 1.6;
-}
-
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-.container h1 {
-    text-align: center;
-    color: #333;
-    margin-bottom: 30px;
-    font-size: 2em;
-}
-
-/* Респонсивдик карточкалар - Mobile-first */
-.cards-grid {
-    display: grid;
-    grid-template-columns: 1fr;  /* Mobile: 1 колонка */
-    gap: 15px;
-}
-
-.card {
-    padding: 20px;
-    background: linear-gradient(135deg, #667eea, #764ba2);
-    color: white;
-    border-radius: 10px;
-    text-align: center;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease;
-}
-
-.card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
-}
-
-.card-icon {
-    font-size: 3em;
-    margin-bottom: 15px;
-}
-
-.card h3 {
-    margin-bottom: 10px;
-    font-size: 1.5em;
-}
-
-.card p {
-    font-size: 1em;
-    opacity: 0.9;
-}
-
-/* Small Mobile (481px же чоң) - 2 колонка */
-@media (min-width: 481px) {
-    .cards-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 20px;
-    }
-    
-    .card {
-        padding: 25px;
-    }
-}
-
-/* Tablet (768px же чоң) - 2 колонка */
-@media (min-width: 768px) {
-    .cards-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 25px;
-    }
-    
-    .card {
-        padding: 30px;
-    }
-    
-    .card h3 {
-        font-size: 1.8em;
-    }
-}
-
-/* Desktop (1024px же чоң) - 3 колонка */
-@media (min-width: 1024px) {
-    .cards-grid {
-        grid-template-columns: repeat(3, 1fr);
-        gap: 30px;
-    }
-}
-
-/* Large Desktop (1200px же чоң) - 4 колонка */
-@media (min-width: 1200px) {
-    .cards-grid {
-        grid-template-columns: repeat(4, 1fr);
-    }
+@media (min-width: 1024px) { /* desktop+ */
+  .element { font-size: 18px; }
 }</code></pre>
-                </div>
-            </div>
+          </div>
+        </article>
 
-            <div class="example-group">
-                <h3>Мисал 5: Респонсивдик меню</h3>
-                <div class="demo-box">
-                    <div class="responsive-menu-demo">
-                        <nav class="responsive-nav">
-                            <div class="nav-logo">Логотип</div>
-                            <div class="nav-links">
-                                <a href="#" class="nav-link">Башкы</a>
-                                <a href="#" class="nav-link">Биз жөнүндө</a>
-                                <a href="#" class="nav-link hidden-mobile">Кызматтар</a>
-                                <a href="#" class="nav-link hidden-mobile">Байланыш</a>
-                            </div>
-                            <button class="menu-toggle">☰</button>
-                        </nav>
-                    </div>
-                </div>
-                <div class="code-example">
-                    <h4>📄 HTML код:</h4>
-                    <pre><code>&lt;!DOCTYPE html&gt;
-&lt;html lang="ky"&gt;
-&lt;head&gt;
-    &lt;meta charset="UTF-8"&gt;
-    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
-    &lt;title&gt;Респонсивдик меню&lt;/title&gt;
-    &lt;link rel="stylesheet" href="styles.css"&gt;
-&lt;/head&gt;
-&lt;body&gt;
-    &lt;header class="header"&gt;
-        &lt;nav class="responsive-nav"&gt;
-            &lt;div class="nav-logo"&gt;
-                &lt;h2&gt;MyCompany&lt;/h2&gt;
-            &lt;/div&gt;
-            &lt;div class="nav-links" id="navLinks"&gt;
-                &lt;a href="#home" class="nav-link"&gt;Башкы&lt;/a&gt;
-                &lt;a href="#about" class="nav-link"&gt;Биз жөнүндө&lt;/a&gt;
-                &lt;a href="#services" class="nav-link hidden-mobile"&gt;Кызматтар&lt;/a&gt;
-                &lt;a href="#contact" class="nav-link hidden-mobile"&gt;Байланыш&lt;/a&gt;
-            &lt;/div&gt;
-            &lt;button class="menu-toggle" id="menuToggle"&gt;☰&lt;/button&gt;
-        &lt;/nav&gt;
-    &lt;/header&gt;
-    
-    &lt;script&gt;
-        const menuToggle = document.getElementById('menuToggle');
-        const navLinks = document.getElementById('navLinks');
-        
-        menuToggle.addEventListener('click', () => {
-            navLinks.classList.toggle('nav-active');
-        });
-    &lt;/script&gt;
-&lt;/body&gt;
-&lt;/html&gt;</code></pre>
-                    <h4>🎨 CSS код:</h4>
-                    <pre><code>/* Reset */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+        <article class="theory-card">
+          <h3>4) Брейкпоинт шкаласы (бул сабакта колдонулган)</h3>
+          <ul>
+            <li><strong>Mobile</strong> — ≤ 480px</li>
+            <li><strong>Large Mobile</strong> — 481px – 767px</li>
+            <li><strong>Tablet</strong> — 768px – 1023px</li>
+            <li><strong>Desktop</strong> — 1024px – 1199px</li>
+            <li><strong>Large Desktop</strong> — ≥ 1200px</li>
+          </ul>
+
+          <div class="code-example">
+            <pre><code class="language-css">/* Mobile-first шкала */
+@media (min-width: 481px)  { /* large mobile */ }
+@media (min-width: 768px)  { /* tablet+ */ }
+@media (min-width: 1024px) { /* desktop+ */ }
+@media (min-width: 1200px) { /* large desktop */ }</code></pre>
+          </div>
+        </article>
+
+        <article class="theory-card">
+          <h3>5) Заманбап шарттар (Extra)</h3>
+          <p>Реал проекттерде width’ден сырткары да көп колдонулат:</p>
+
+          <div class="code-example">
+            <pre><code class="language-css">/* Анимацияны азайт (accessibility) */
+@media (prefers-reduced-motion: reduce) {
+  * { animation: none !important; transition: none !important; }
 }
 
-body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: #f8f9fa;
+/* Dark mode */
+@media (prefers-color-scheme: dark) {
+  body { background: #111; color: #eee; }
 }
 
-/* Респонсивдик меню - Mobile-first */
-.header {
-    background: white;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-}
-
-.responsive-nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px 20px;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-.nav-logo h2 {
-    color: #667eea;
-    font-size: 1.5em;
-}
-
-.nav-links {
-    display: flex;
-    flex-direction: column;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    right: 0;
-    background: white;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.3s ease;
-}
-
-.nav-links.nav-active {
-    max-height: 300px;
-}
-
-.nav-link {
-    display: block;
-    padding: 15px 20px;
-    text-decoration: none;
-    color: #333;
-    font-weight: 500;
-    border-bottom: 1px solid #e0e0e0;
-    transition: background 0.3s ease;
-}
-
-.nav-link:hover {
-    background: #f8f9fa;
-    color: #667eea;
-}
-
-.hidden-mobile {
-    display: block;  /* Mobile-first: баштапкыда көрүнөт */
-}
-
-.menu-toggle {
-    display: block;
-    background: none;
-    border: none;
-    font-size: 1.5em;
-    cursor: pointer;
-    color: #333;
-    padding: 5px;
-}
-
-/* Tablet (768px же чоң) */
-@media (min-width: 768px) {
-    .nav-links {
-        position: static;
-        flex-direction: row;
-        max-height: none;
-        box-shadow: none;
-        background: transparent;
-        gap: 20px;
-    }
-    
-    .nav-link {
-        padding: 0;
-        border-bottom: none;
-        position: relative;
-    }
-    
-    .nav-link::after {
-        content: '';
-        position: absolute;
-        bottom: -5px;
-        left: 0;
-        width: 0;
-        height: 2px;
-        background: #667eea;
-        transition: width 0.3s ease;
-    }
-    
-    .nav-link:hover::after {
-        width: 100%;
-    }
-    
-    .nav-link:hover {
-        background: transparent;
-    }
-    
-    .hidden-mobile {
-        display: block;  /* Көрүнөт */
-    }
-    
-    .menu-toggle {
-        display: none;  /* Жок */
-    }
-}
-
-/* Desktop (1024px же чоң) */
-@media (min-width: 1024px) {
-    .responsive-nav {
-        padding: 20px 30px;
-    }
-    
-    .nav-links {
-        gap: 30px;
-    }
+/* Hover колдогон түзмөктөр */
+@media (hover: hover) and (pointer: fine) {
+  .card:hover { transform: translateY(-4px); }
 }</code></pre>
-                </div>
-            </div>
+          </div>
+        </article>
+      </section>
 
-            <div class="example-group">
-                <h3>Мисал 6: orientation - Багыт</h3>
-                <div class="demo-box">
-                    <div class="orientation-demo">
-                        <div class="orientation-box">
-                            <p>Экрандын багытын өзгөртүп көрүңүз!</p>
-                            <p class="orientation-info">Вертикалдык экран</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="code-example">
-                    <pre><code>/* orientation */
-.orientation-box {
-    padding: 20px;
-    background: #667eea;
-    color: white;
-    border-radius: 10px;
-}
+      <!-- ЖЕНИЛ МИСАЛДАР -->
+      <section id="easy" class="examples-section" aria-labelledby="easy-title">
+        <h2 id="easy-title">🟢 ЖЕҢИЛ МИСАЛДАР</h2>
 
-@media (orientation: portrait) {
-    .orientation-box {
-        background: #4CAF50;  /* Вертикалдык */
-    }
-}
+        <article class="example-group">
+          <h3>Мисал 1: max-width менен жөнөкөй адаптив текст</h3>
+          <div class="code-example">
+            <pre><code class="language-css">.title { font-size: 40px; }
 
-@media (orientation: landscape) {
-    .orientation-box {
-        background: #f5576c;  /* Горизонталдык */
-    }
+@media (max-width: 768px) { .title { font-size: 28px; } }
+@media (max-width: 480px) { .title { font-size: 22px; } }</code></pre>
+          </div>
+          <p class="tip">Кеңеш: max-width колдонсоң — чоң стил база, анан кичинекейге override.</p>
+        </article>
+
+        <article class="example-group">
+          <h3>Мисал 2: min-width (Mobile-first) padding өзгөртүү</h3>
+          <div class="code-example">
+            <pre><code class="language-css">.box { padding: 12px; } /* mobile */
+
+@media (min-width: 768px)  { .box { padding: 24px; } } /* tablet+ */
+@media (min-width: 1024px) { .box { padding: 32px; } } /* desktop+ */</code></pre>
+          </div>
+        </article>
+
+        <article class="example-group">
+          <h3>Мисал 3: Диапазон (768–1023) — планшет үчүн</h3>
+          <div class="code-example">
+            <pre><code class="language-css">@media (min-width: 768px) and (max-width: 1023px) {
+  .banner { border: 3px solid currentColor; }
 }</code></pre>
-                </div>
-            </div>
-        </section>
+          </div>
+        </article>
 
-        <!-- ООР МИСАЛДАР -->
-        <section class="examples-section">
-            <h2>🔴 ООР МИСАЛДАР</h2>
+        <article class="example-group">
+          <h3>Мисал 4: Grid карточкалар (Mobile-first)</h3>
+          <div class="code-example">
+            <pre><code class="language-css">.cards { display: grid; grid-template-columns: 1fr; gap: 12px; } /* mobile */
 
-            <div class="example-group">
-                <h3>Мисал 7: Практикалык респонсивдик макет</h3>
-                <div class="demo-box">
-                    <div class="practical-responsive-demo">
-                        <div class="responsive-layout">
-                            <header class="layout-header">Header</header>
-                            <nav class="layout-nav">Navigation</nav>
-                            <main class="layout-main">Main Content</main>
-                            <aside class="layout-sidebar">Sidebar</aside>
-                            <footer class="layout-footer">Footer</footer>
-                        </div>
-                    </div>
-                </div>
-                <div class="code-example">
-                    <h4>📄 HTML код:</h4>
-                    <pre><code>&lt;!DOCTYPE html&gt;
-&lt;html lang="ky"&gt;
-&lt;head&gt;
-    &lt;meta charset="UTF-8"&gt;
-    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
-    &lt;title&gt;Респонсивдик макет&lt;/title&gt;
-    &lt;link rel="stylesheet" href="styles.css"&gt;
-&lt;/head&gt;
-&lt;body&gt;
-    &lt;div class="container"&gt;
-        &lt;div class="responsive-layout"&gt;
-            &lt;header class="layout-header"&gt;
-                &lt;h1&gt;Менин сайтым&lt;/h1&gt;
-                &lt;p&gt;Башкы бөлүм&lt;/p&gt;
-            &lt;/header&gt;
-            &lt;nav class="layout-nav"&gt;
-                &lt;ul&gt;
-                    &lt;li&gt;&lt;a href="#"&gt;Башкы&lt;/a&gt;&lt;/li&gt;
-                    &lt;li&gt;&lt;a href="#"&gt;Биз жөнүндө&lt;/a&gt;&lt;/li&gt;
-                    &lt;li&gt;&lt;a href="#"&gt;Кызматтар&lt;/a&gt;&lt;/li&gt;
-                    &lt;li&gt;&lt;a href="#"&gt;Байланыш&lt;/a&gt;&lt;/li&gt;
-                &lt;/ul&gt;
-            &lt;/nav&gt;
-            &lt;main class="layout-main"&gt;
-                &lt;h2&gt;Негизги контент&lt;/h2&gt;
-                &lt;p&gt;Бул негизги контент бөлүмү. Бул жерде маанилүү маалыматтар жайгаштырылат.&lt;/p&gt;
-                &lt;article&gt;
-                    &lt;h3&gt;Макала 1&lt;/h3&gt;
-                    &lt;p&gt;Макаланын мазмуну...&lt;/p&gt;
-                &lt;/article&gt;
-                &lt;article&gt;
-                    &lt;h3&gt;Макала 2&lt;/h3&gt;
-                    &lt;p&gt;Макаланын мазмуну...&lt;/p&gt;
-                &lt;/article&gt;
-            &lt;/main&gt;
-            &lt;aside class="layout-sidebar"&gt;
-                &lt;h3&gt;Бок меню&lt;/h3&gt;
-                &lt;ul&gt;
-                    &lt;li&gt;&lt;a href="#"&gt;Ссылка 1&lt;/a&gt;&lt;/li&gt;
-                    &lt;li&gt;&lt;a href="#"&gt;Ссылка 2&lt;/a&gt;&lt;/li&gt;
-                    &lt;li&gt;&lt;a href="#"&gt;Ссылка 3&lt;/a&gt;&lt;/li&gt;
-                &lt;/ul&gt;
-            &lt;/aside&gt;
-            &lt;footer class="layout-footer"&gt;
-                &lt;p&gt;&copy; 2024 Менин сайтым. Бардык укуктар корголгон.&lt;/p&gt;
-            &lt;/footer&gt;
-        &lt;/div&gt;
-    &lt;/div&gt;
-&lt;/body&gt;
-&lt;/html&gt;</code></pre>
-                    <h4>🎨 CSS код:</h4>
-                    <pre><code>/* Reset */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+@media (min-width: 481px)  { .cards { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 1024px) { .cards { grid-template-columns: repeat(3, 1fr); } }
+@media (min-width: 1200px) { .cards { grid-template-columns: repeat(4, 1fr); } }</code></pre>
+          </div>
+        </article>
+      </section>
+
+      <!-- ООР МИСАЛДАР -->
+      <section id="hard" class="examples-section" aria-labelledby="hard-title">
+        <h2 id="hard-title">🔴 ООР МИСАЛДАР</h2>
+
+        <article class="example-group">
+          <h3>Мисал 5: Практикалык макет (Grid areas)</h3>
+          <div class="code-example">
+            <pre><code class="language-css">.layout{
+  display:grid; gap:12px;
+  grid-template-columns:1fr;
+  grid-template-areas:
+    "header" "nav" "main" "sidebar" "footer";
 }
 
-body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: #f8f9fa;
-    padding: 20px;
-    line-height: 1.6;
+@media (min-width: 768px){
+  .layout{
+    grid-template-columns:220px 1fr;
+    grid-template-areas:
+      "header header"
+      "nav nav"
+      "sidebar main"
+      "footer footer";
+  }
 }
 
-.container {
-    max-width: 1400px;
-    margin: 0 auto;
-}
-
-/* Практикалык респонсивдик макет - Mobile-first */
-.responsive-layout {
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-areas: 
-        "header"
-        "nav"
-        "main"
-        "sidebar"
-        "footer";
-    gap: 15px;
-}
-
-.layout-header {
-    grid-area: header;
-    background: linear-gradient(135deg, #667eea, #764ba2);
-    color: white;
-    padding: 20px;
-    border-radius: 10px;
-    text-align: center;
-}
-
-.layout-header h1 {
-    margin-bottom: 10px;
-    font-size: 1.8em;
-}
-
-.layout-nav {
-    grid-area: nav;
-    background: #333;
-    padding: 15px;
-    border-radius: 10px;
-}
-
-.layout-nav ul {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
-
-.layout-nav a {
-    color: white;
-    text-decoration: none;
-    padding: 10px;
-    display: block;
-    border-radius: 5px;
-    transition: background 0.3s ease;
-}
-
-.layout-nav a:hover {
-    background: #667eea;
-}
-
-.layout-main {
-    grid-area: main;
-    background: white;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.layout-main h2 {
-    color: #333;
-    margin-bottom: 15px;
-    font-size: 1.5em;
-}
-
-.layout-main article {
-    margin-bottom: 20px;
-    padding-bottom: 20px;
-    border-bottom: 1px solid #e0e0e0;
-}
-
-.layout-sidebar {
-    grid-area: sidebar;
-    background: #e9ecef;
-    padding: 20px;
-    border-radius: 10px;
-}
-
-.layout-sidebar h3 {
-    margin-bottom: 15px;
-    color: #333;
-}
-
-.layout-sidebar ul {
-    list-style: none;
-}
-
-.layout-sidebar a {
-    color: #667eea;
-    text-decoration: none;
-    display: block;
-    padding: 8px 0;
-    transition: color 0.3s ease;
-}
-
-.layout-sidebar a:hover {
-    color: #764ba2;
-}
-
-.layout-footer {
-    grid-area: footer;
-    background: #333;
-    color: white;
-    padding: 20px;
-    border-radius: 10px;
-    text-align: center;
-}
-
-/* Tablet (768px же чоң) */
-@media (min-width: 768px) {
-    .responsive-layout {
-        grid-template-columns: 200px 1fr;
-        grid-template-areas: 
-            "header header"
-            "nav nav"
-            "sidebar main"
-            "footer footer";
-        gap: 20px;
-    }
-    
-    .layout-nav ul {
-        flex-direction: row;
-        justify-content: space-around;
-    }
-    
-    .layout-header h1 {
-        font-size: 2.2em;
-    }
-}
-
-/* Desktop (1024px же чоң) */
-@media (min-width: 1024px) {
-    .responsive-layout {
-        grid-template-columns: 200px 1fr 250px;
-        grid-template-areas: 
-            "header header header"
-            "nav sidebar main"
-            "footer footer footer";
-        gap: 25px;
-    }
-    
-    .layout-main {
-        padding: 30px;
-    }
-    
-    .layout-sidebar {
-        padding: 25px;
-    }
+@media (min-width: 1024px){
+  .layout{
+    grid-template-columns:240px 1fr 280px;
+    grid-template-areas:
+      "header header header"
+      "nav main sidebar"
+      "footer footer footer";
+  }
 }</code></pre>
-                </div>
-            </div>
+          </div>
+          <p class="tip">Бул реал сайттардагы “dashboard/layout” логикасына окшош.</p>
+        </article>
 
-            <div class="example-group">
-                <h3>Мисал 8: Mobile-first карточкалар</h3>
-                <div class="demo-box">
-                    <div class="mobile-first-cards-demo">
-                        <div class="mobile-cards-grid">
-                            <div class="mobile-card">Карточка 1</div>
-                            <div class="mobile-card">Карточка 2</div>
-                            <div class="mobile-card">Карточка 3</div>
-                            <div class="mobile-card">Карточка 4</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="code-example">
-                    <h4>📄 HTML код:</h4>
-                    <pre><code>&lt;!DOCTYPE html&gt;
-&lt;html lang="ky"&gt;
-&lt;head&gt;
-    &lt;meta charset="UTF-8"&gt;
-    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
-    &lt;title&gt;Mobile-first карточкалар&lt;/title&gt;
-    &lt;link rel="stylesheet" href="styles.css"&gt;
-&lt;/head&gt;
-&lt;body&gt;
-    &lt;div class="container"&gt;
-        &lt;h1&gt;Биздин кызматтар&lt;/h1&gt;
-        &lt;div class="mobile-cards-grid"&gt;
-            &lt;div class="mobile-card"&gt;
-                &lt;div class="card-icon"&gt;🎨&lt;/div&gt;
-                &lt;h3&gt;Веб-дизайн&lt;/h3&gt;
-                &lt;p&gt;Современдуу жана функционалдык дизайн&lt;/p&gt;
-                &lt;button class="card-btn"&gt;Кененирээк&lt;/button&gt;
-            &lt;/div&gt;
-            &lt;div class="mobile-card"&gt;
-                &lt;div class="card-icon"&gt;💻&lt;/div&gt;
-                &lt;h3&gt;Веб-разработка&lt;/h3&gt;
-                &lt;p&gt;HTML, CSS, JavaScript менен сайттар&lt;/p&gt;
-                &lt;button class="card-btn"&gt;Кененирээк&lt;/button&gt;
-            &lt;/div&gt;
-            &lt;div class="mobile-card"&gt;
-                &lt;div class="card-icon"&gt;📱&lt;/div&gt;
-                &lt;h3&gt;Мобилдик приложения&lt;/h3&gt;
-                &lt;p&gt;iOS жана Android приложениялар&lt;/p&gt;
-                &lt;button class="card-btn"&gt;Кененирээк&lt;/button&gt;
-            &lt;/div&gt;
-            &lt;div class="mobile-card"&gt;
-                &lt;div class="card-icon"&gt;🚀&lt;/div&gt;
-                &lt;h3&gt;SEO оптимизация&lt;/h3&gt;
-                &lt;p&gt;Сайтыңызды Google'да жогору көтөрүү&lt;/p&gt;
-                &lt;button class="card-btn"&gt;Кененирээк&lt;/button&gt;
-            &lt;/div&gt;
-        &lt;/div&gt;
-    &lt;/div&gt;
-&lt;/body&gt;
-&lt;/html&gt;</code></pre>
-                    <h4>🎨 CSS код:</h4>
-                    <pre><code>/* Reset */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+        <article class="example-group" id="extras">
+          <h3>Мисал 6: Dark mode + reduced motion</h3>
+          <div class="code-example">
+            <pre><code class="language-css">/* dark mode */
+@media (prefers-color-scheme: dark) {
+  .card { background: #1b1b1b; color: #eee; border: 1px solid #333; }
 }
 
-body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: #f8f9fa;
-    padding: 20px;
-    line-height: 1.6;
-}
-
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-.container h1 {
-    text-align: center;
-    color: #333;
-    margin-bottom: 30px;
-    font-size: 1.8em;
-}
-
-/* Mobile-first карточкалар - баштапкы стилдер (Mobile) */
-.mobile-cards-grid {
-    display: grid;
-    grid-template-columns: 1fr;  /* Mobile: 1 колонка */
-    gap: 15px;
-}
-
-.mobile-card {
-    padding: 20px;
-    background: linear-gradient(135deg, #667eea, #764ba2);
-    color: white;
-    border-radius: 10px;
-    text-align: center;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.mobile-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
-}
-
-.card-icon {
-    font-size: 2.5em;
-    margin-bottom: 15px;
-}
-
-.mobile-card h3 {
-    margin-bottom: 10px;
-    font-size: 1.3em;
-}
-
-.mobile-card p {
-    margin-bottom: 15px;
-    font-size: 0.95em;
-    opacity: 0.9;
-}
-
-.card-btn {
-    padding: 10px 20px;
-    background: white;
-    color: #667eea;
-    border: none;
-    border-radius: 5px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: background 0.3s ease, color 0.3s ease;
-}
-
-.card-btn:hover {
-    background: #f8f9fa;
-    color: #764ba2;
-}
-
-/* Small Mobile (481px же чоң) */
-@media (min-width: 481px) {
-    .mobile-cards-grid {
-        gap: 18px;
-    }
-    
-    .mobile-card {
-        padding: 22px;
-    }
-}
-
-/* Tablet (768px же чоң) - 2 колонка */
-@media (min-width: 768px) {
-    .container h1 {
-        font-size: 2.2em;
-    }
-    
-    .mobile-cards-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 20px;
-    }
-    
-    .mobile-card {
-        padding: 25px;
-    }
-    
-    .card-icon {
-        font-size: 3em;
-    }
-    
-    .mobile-card h3 {
-        font-size: 1.5em;
-    }
-    
-    .mobile-card p {
-        font-size: 1em;
-    }
-}
-
-/* Desktop (1024px же чоң) - 3 колонка */
-@media (min-width: 1024px) {
-    .mobile-cards-grid {
-        grid-template-columns: repeat(3, 1fr);
-        gap: 25px;
-    }
-    
-    .mobile-card {
-        padding: 30px;
-    }
-}
-
-/* Large Desktop (1200px же чоң) - 4 колонка */
-@media (min-width: 1200px) {
-    .mobile-cards-grid {
-        grid-template-columns: repeat(4, 1fr);
-        gap: 30px;
-    }
+/* reduce motion */
+@media (prefers-reduced-motion: reduce) {
+  .card { transition: none; }
 }</code></pre>
-                </div>
-            </div>
+          </div>
+        </article>
+      </section>
 
-            <div class="example-group">
-                <h3>Мисал 9: Диапазон менен медиа-запрос</h3>
-                <div class="demo-box">
-                    <div class="range-demo">
-                        <div class="range-box">
-                            <p>Бул элемент диапазон менен стилделген</p>
-                            <p class="range-info">Tablet диапазону (768px - 1023px)</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="code-example">
-                    <h4>📄 HTML код:</h4>
-                    <pre><code>&lt;!DOCTYPE html&gt;
-&lt;html lang="ky"&gt;
-&lt;head&gt;
-    &lt;meta charset="UTF-8"&gt;
-    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
-    &lt;title&gt;Диапазон менен медиа-запрос&lt;/title&gt;
-    &lt;link rel="stylesheet" href="styles.css"&gt;
-&lt;/head&gt;
-&lt;body&gt;
-    &lt;div class="container"&gt;
-        &lt;div class="range-box"&gt;
-            &lt;h2&gt;Респонсивдик элемент&lt;/h2&gt;
-            &lt;p&gt;Бул элемент диапазон менен стилделген&lt;/p&gt;
-            &lt;p class="range-info"&gt;Экрандын өлчөмүн өзгөртүп көрүңүз!&lt;/p&gt;
-            &lt;div class="device-indicator"&gt;
-                &lt;span class="device-badge"&gt;Mobile&lt;/span&gt;
-            &lt;/div&gt;
-        &lt;/div&gt;
-    &lt;/div&gt;
-&lt;/body&gt;
-&lt;/html&gt;</code></pre>
-                    <h4>🎨 CSS код:</h4>
-                    <pre><code>/* Reset */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+      <!-- ПРАКТИКА -->
+      <section id="practice" class="practice-section" aria-labelledby="practice-title">
+        <h2 id="practice-title">💻 Практика: 20 тапшырма</h2>
 
-body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: #f8f9fa;
-    padding: 20px;
-    line-height: 1.6;
-}
+        <article class="practice-card">
+          <h3>ЖЕҢИЛ (1–7)</h3>
+          <ol>
+            <li><strong>Текст адаптив:</strong> <code>h1</code> font-size’ин ≤480де 22px, ≤768де 28px кыл.</li>
+            <li><strong>Padding:</strong> .box’тун padding’ин mobile 12px, tablet+ 24px, desktop+ 32px кыл.</li>
+            <li><strong>Hide/Show:</strong> “Категориялар” блокту mobile’де жашырып, tablet+’та көрсөт.</li>
+            <li><strong>Grid 1→2:</strong> карточкалар mobile 1 колонка, 481px+ 2 колонка болсун.</li>
+            <li><strong>Image:</strong> сүрөт 100% width, desktop+ max-width 600px кыл.</li>
+            <li><strong>Gap:</strong> мобилде gap 12px, desktop+ gap 24px кыл.</li>
+            <li><strong>Navbar:</strong> tablet+’та меню горизонтал, mobile’де вертикал болуп чыксын.</li>
+          </ol>
+        </article>
 
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-}
+        <article class="practice-card">
+          <h3>ОРТО (8–14)</h3>
+          <ol start="8">
+            <li><strong>Диапазон:</strong> 768–1023 аралыгында гана .banner’ге border кош.</li>
+            <li><strong>Cards 1→2→3:</strong> mobile 1, tablet 2, desktop 3 колонка.</li>
+            <li><strong>Typography scale:</strong> <code>p</code> line-height мобилде 1.6, desktop’та 1.8 болсун.</li>
+            <li><strong>Sidebar:</strong> mobile’де sidebar ылдый, desktop’та оң жакка чыксын.</li>
+            <li><strong>Container:</strong> 768де max-width 720, 1024де 960, 1200дө 1200 кыл.</li>
+            <li><strong>Menu A11y:</strong> бургер toggle болгондо <code>aria-expanded</code> true/false жаңырсын.</li>
+            <li><strong>Orientation:</strong> landscape болгондо .hero’нун height’ын кыскарт.</li>
+          </ol>
+        </article>
 
-/* Баштапкы стилдер (Mobile) */
-.range-box {
-    padding: 20px;
-    background: #667eea;
-    color: white;
-    border-radius: 10px;
-    text-align: center;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease;
-}
+        <article class="practice-card">
+          <h3>Оор (15–20)</h3>
+          <ol start="15">
+            <li><strong>Dashboard layout:</strong> Grid areas менен header/nav/main/sidebar/footer түз.</li>
+            <li><strong>prefers-color-scheme:</strong> dark mode’до фон/текст/карточка түсүн алмаштыр.</li>
+            <li><strong>prefers-reduced-motion:</strong> reduce motion болгондо transition/animation өчүр.</li>
+            <li><strong>hover/pointer:</strong> hover колдогондо гана hover эффект кош.</li>
+            <li><strong>Clamp колдон:</strong> <code>h1</code> үчүн <code>font-size: clamp(22px, 4vw, 44px)</code> колдон.</li>
+            <li><strong>“Контент сынган жер”:</strong> өз дизайн макет түзүп, брейкпоинтти контентке карап өзүң тандап жаз.</li>
+          </ol>
 
-.range-box h2 {
-    margin-bottom: 15px;
-    font-size: 1.8em;
-}
+          <p class="note">
+            Кеңеш: практикада биринчи Flex/Grid менен “fluid” кылып ал, анан гана media query’лер менен акыркы polish жаса.
+          </p>
+        </article>
+      </section>
 
-.range-box p {
-    margin-bottom: 10px;
-    font-size: 1em;
-}
+      <!-- КЕСТЕЛЕР -->
+      <section id="tables" class="table-section" aria-labelledby="tables-title">
+        <h2 id="tables-title">📊 Кестелер</h2>
 
-.range-info {
-    font-size: 0.9em;
-    opacity: 0.9;
-    font-weight: bold;
-}
+        <div class="table-wrapper">
+          <table>
+            <thead>
+              <tr>
+                <th>Экран</th>
+                <th>Өлчөм</th>
+                <th>Медиа (диапазон)</th>
+                <th>Mobile-first (min-width)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Mobile</td>
+                <td>≤ 480px</td>
+                <td><code>@media (max-width: 480px)</code></td>
+                <td>База стилдер</td>
+              </tr>
+              <tr>
+                <td>Large Mobile</td>
+                <td>481–767px</td>
+                <td><code>@media (min-width: 481px) and (max-width: 767px)</code></td>
+                <td><code>@media (min-width: 481px)</code></td>
+              </tr>
+              <tr>
+                <td>Tablet</td>
+                <td>768–1023px</td>
+                <td><code>@media (min-width: 768px) and (max-width: 1023px)</code></td>
+                <td><code>@media (min-width: 768px)</code></td>
+              </tr>
+              <tr>
+                <td>Desktop</td>
+                <td>1024–1199px</td>
+                <td><code>@media (min-width: 1024px) and (max-width: 1199px)</code></td>
+                <td><code>@media (min-width: 1024px)</code></td>
+              </tr>
+              <tr>
+                <td>Large Desktop</td>
+                <td>≥ 1200px</td>
+                <td><code>@media (min-width: 1200px)</code></td>
+                <td><code>@media (min-width: 1200px)</code></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
 
-.device-indicator {
-    margin-top: 15px;
-}
+        <div class="table-wrapper">
+          <table>
+            <thead>
+              <tr>
+                <th>Касиет</th>
+                <th>Подход</th>
+                <th>Качан колдонулат</th>
+                <th>Мисал</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><code>max-width</code></td>
+                <td>Desktop-first</td>
+                <td>Чоңдон кичинеге override</td>
+                <td><code>@media (max-width: 768px)</code></td>
+              </tr>
+              <tr>
+                <td><code>min-width</code></td>
+                <td>Mobile-first</td>
+                <td>Кичинеден чоңго кошумчалоо</td>
+                <td><code>@media (min-width: 768px)</code></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
 
-.device-badge {
-    display: inline-block;
-    padding: 5px 15px;
-    background: rgba(255, 255, 255, 0.2);
-    border-radius: 20px;
-    font-size: 0.85em;
-}
+      <section class="quiz-section" id="media-quiz">
+  <h2>✅ ТЕСТ: Media Queries (Адаптив)</h2>
+  <p class="subtitle">Суроолор: медиа-запрос, брейкпоинт, mobile-first, max/min-width</p>
 
-/* Mobile (480px же кичине) */
-@media (max-width: 480px) {
-    .range-box {
-        background: #f5576c;
-        padding: 15px;
-    }
-    
-    .range-box h2 {
-        font-size: 1.5em;
-    }
-    
-    .device-badge::after {
-        content: " (≤ 480px)";
-    }
-}
+  <div class="quiz-list">
 
-/* Small Mobile (481px - 767px) */
-@media (min-width: 481px) and (max-width: 767px) {
-    .range-box {
-        background: #ff9800;
-        padding: 18px;
-    }
-    
-    .device-badge::after {
-        content: " (481px - 767px)";
-    }
-}
-
-/* Tablet диапазону (768px - 1023px) */
-@media (min-width: 768px) and (max-width: 1023px) {
-    .range-box {
-        background: #4CAF50;
-        padding: 30px;
-    }
-    
-    .range-box h2 {
-        font-size: 2.2em;
-    }
-    
-    .range-box p {
-        font-size: 1.1em;
-    }
-    
-    .device-badge::after {
-        content: " (768px - 1023px)";
-    }
-}
-
-/* Desktop (1024px - 1199px) */
-@media (min-width: 1024px) and (max-width: 1199px) {
-    .range-box {
-        background: #9b59b6;
-        padding: 35px;
-    }
-    
-    .device-badge::after {
-        content: " (1024px - 1199px)";
-    }
-}
-
-/* Large Desktop (1200px же чоң) */
-@media (min-width: 1200px) {
-    .range-box {
-        background: #3498db;
-        padding: 40px;
-    }
-    
-    .range-box h2 {
-        font-size: 2.5em;
-    }
-    
-    .range-box p {
-        font-size: 1.2em;
-    }
-    
-    .device-badge::after {
-        content: " (≥ 1200px)";
-    }
-}</code></pre>
-                </div>
-            </div>
-
-            <div class="example-group">
-                <h3>Мисал 10: Бардык касиеттер бирге</h3>
-                <div class="demo-box">
-                    <div class="all-media-demo">
-                        <div class="all-media-box">
-                            <h4>Респонсивдик элемент</h4>
-                            <p>Бул элемент бардык медиа-запрос касиеттери менен стилделген</p>
-                            <div class="media-info">
-                                <p>Экрандын өлчөмүн өзгөртүп көрүңүз!</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="code-example">
-                    <h4>📄 HTML код:</h4>
-                    <pre><code>&lt;!DOCTYPE html&gt;
-&lt;html lang="ky"&gt;
-&lt;head&gt;
-    &lt;meta charset="UTF-8"&gt;
-    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
-    &lt;title&gt;Бардык касиеттер бирге&lt;/title&gt;
-    &lt;link rel="stylesheet" href="styles.css"&gt;
-&lt;/head&gt;
-&lt;body&gt;
-    &lt;div class="container"&gt;
-        &lt;div class="all-media-box"&gt;
-            &lt;h2&gt;Респонсивдик элемент&lt;/h2&gt;
-            &lt;p&gt;Бул элемент бардык медиа-запрос касиеттери менен стилделген&lt;/p&gt;
-            &lt;div class="media-info"&gt;
-                &lt;p class="info-text"&gt;Экрандын өлчөмүн жана багытын өзгөртүп көрүңүз!&lt;/p&gt;
-                &lt;div class="status-badges"&gt;
-                    &lt;span class="badge width-badge"&gt;Width: &lt;span id="width"&gt;0px&lt;/span&gt;&lt;/span&gt;
-                    &lt;span class="badge orientation-badge"&gt;Orientation: &lt;span id="orientation"&gt;portrait&lt;/span&gt;&lt;/span&gt;
-                &lt;/div&gt;
-            &lt;/div&gt;
-        &lt;/div&gt;
-    &lt;/div&gt;
-    
-    &lt;script&gt;
-        function updateInfo() {
-            document.getElementById('width').textContent = window.innerWidth + 'px';
-            document.getElementById('orientation').textContent = 
-                window.innerWidth > window.innerHeight ? 'landscape' : 'portrait';
-        }
-        window.addEventListener('resize', updateInfo);
-        updateInfo();
-    &lt;/script&gt;
-&lt;/body&gt;
-&lt;/html&gt;</code></pre>
-                    <h4>🎨 CSS код:</h4>
-                    <pre><code>/* Reset */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: #f8f9fa;
-    padding: 20px;
-    line-height: 1.6;
-}
-
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-/* Баштапкы стилдер (Mobile-first) */
-.all-media-box {
-    padding: 15px;
-    background: linear-gradient(135deg, #667eea, #764ba2);
-    color: white;
-    border-radius: 10px;
-    font-size: 14px;
-    text-align: center;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease;
-}
-
-.all-media-box h2 {
-    margin-bottom: 15px;
-    font-size: 1.5em;
-}
-
-.all-media-box p {
-    margin-bottom: 15px;
-    font-size: 1em;
-}
-
-.media-info {
-    margin-top: 20px;
-    padding-top: 20px;
-    border-top: 1px solid rgba(255, 255, 255, 0.3);
-}
-
-.info-text {
-    margin-bottom: 15px;
-    font-size: 0.9em;
-    opacity: 0.9;
-}
-
-.status-badges {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    align-items: center;
-}
-
-.badge {
-    display: inline-block;
-    padding: 8px 15px;
-    background: rgba(255, 255, 255, 0.2);
-    border-radius: 20px;
-    font-size: 0.85em;
-    font-weight: bold;
-}
-
-/* Small Mobile (481px же чоң) */
-@media (min-width: 481px) {
-    .all-media-box {
-        padding: 25px;
-        font-size: 16px;
-    }
-    
-    .all-media-box h2 {
-        font-size: 1.8em;
-    }
-    
-    .status-badges {
-        flex-direction: row;
-        justify-content: center;
-    }
-}
-
-/* Tablet (768px же чоң) */
-@media (min-width: 768px) {
-    .all-media-box {
-        padding: 40px;
-        font-size: 18px;
-    }
-    
-    .all-media-box h2 {
-        font-size: 2.2em;
-    }
-    
-    .all-media-box p {
-        font-size: 1.1em;
-    }
-}
-
-/* Desktop (1024px же чоң) */
-@media (min-width: 1024px) {
-    .all-media-box {
-        padding: 50px;
-        font-size: 20px;
-    }
-    
-    .all-media-box h2 {
-        font-size: 2.5em;
-    }
-}
-
-/* Горизонталдык экран (landscape) */
-@media (orientation: landscape) {
-    .all-media-box {
-        background: linear-gradient(135deg, #4CAF50, #45a049);
-    }
-    
-    .orientation-badge {
-        background: rgba(255, 255, 255, 0.3);
-    }
-}
-
-/* Вертикалдык экран (portrait) */
-@media (orientation: portrait) {
-    .all-media-box {
-        background: linear-gradient(135deg, #667eea, #764ba2);
-    }
-}
-
-/* Tablet диапазону (768px - 1023px) */
-@media (min-width: 768px) and (max-width: 1023px) {
-    .all-media-box {
-        border: 3px solid white;
-        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-    }
-}
-
-/* Desktop диапазону (1024px - 1199px) */
-@media (min-width: 1024px) and (max-width: 1199px) {
-    .all-media-box {
-        border: 4px solid rgba(255, 255, 255, 0.5);
-    }
-}
-
-/* Large Desktop (1200px же чоң) */
-@media (min-width: 1200px) {
-    .all-media-box {
-        padding: 60px;
-        font-size: 22px;
-    }
-    
-    .all-media-box h2 {
-        font-size: 3em;
-    }
-}
-
-/* Горизонталдык экран + Tablet */
-@media (min-width: 768px) and (orientation: landscape) {
-    .all-media-box {
-        background: linear-gradient(135deg, #f5576c, #e74c3c);
-    }
-}</code></pre>
-                </div>
-            </div>
-        </section>
-
-        <!-- ПРАКТИКА -->
-        <section class="practice-section">
-            <h2>💻 ПРАКТИКА</h2>
-            <div class="practice-card">
-                <h3>Өзүңүз кылыңыз:</h3>
-                <ol>
-                    <li>max-width менен кичине экрандар үчүн стилдерди кошуңуз</li>
-                    <li>min-width менен чоң экрандар үчүн стилдерди кошуңуз</li>
-                    <li>Телефон/Планшет/Десктоп адаптив макет кылыңыз</li>
-                    <li>Mobile-first подход менен стилдерди кошуңуз</li>
-                    <li>Респонсивдик карточкаларды кылыңыз</li>
-                    <li>Респонсивдик менюну кылыңыз</li>
-                    <li>orientation менен багытты текшериңиз</li>
-                    <li>Диапазон менен медиа-запрос кылыңыз</li>
-                    <li>Практикалык респонсивдик макет кылыңыз</li>
-                    <li>Бардык медиа-запрос касиеттерди бирге практикалаңыз</li>
-                </ol>
-            </div>
-        </section>
-
-        <!-- КЕСТЕ -->
-        <section class="table-section">
-            <h2>📊 Брейкпоинттер</h2>
-            <div class="table-wrapper">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Экран</th>
-                            <th>Өлчөм</th>
-                            <th>Медиа-запрос</th>
-                            <th>Мисал</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>Mobile (Телефон)</td>
-                            <td>≤ 480px</td>
-                            <td><code>@media (max-width: 480px)</code></td>
-                            <td>iPhone, Android</td>
-                        </tr>
-                        <tr>
-                            <td>Small Mobile</td>
-                            <td>481px - 767px</td>
-                            <td><code>@media (min-width: 481px) and (max-width: 767px)</code></td>
-                            <td>Чоң телефондор</td>
-                        </tr>
-                        <tr>
-                            <td>Tablet (Планшет)</td>
-                            <td>768px - 1023px</td>
-                            <td><code>@media (min-width: 768px) and (max-width: 1023px)</code></td>
-                            <td>iPad, планшеттер</td>
-                        </tr>
-                        <tr>
-                            <td>Desktop (Десктоп)</td>
-                            <td>1024px - 1199px</td>
-                            <td><code>@media (min-width: 1024px) and (max-width: 1199px)</code></td>
-                            <td>Компьютер, ноутбук</td>
-                        </tr>
-                        <tr>
-                            <td>Large Desktop</td>
-                            <td>≥ 1200px</td>
-                            <td><code>@media (min-width: 1200px)</code></td>
-                            <td>Чоң мониторлор</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </section>
-
-        <section class="table-section">
-            <h2>📊 max-width vs min-width</h2>
-            <div class="table-wrapper">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Касиет</th>
-                            <th>Подход</th>
-                            <th>Колдонулушу</th>
-                            <th>Мисал</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td><code>max-width</code></td>
-                            <td>Desktop-first</td>
-                            <td>Чоң экрандан кичине экранга</td>
-                            <td><code>@media (max-width: 768px)</code></td>
-                        </tr>
-                        <tr>
-                            <td><code>min-width</code></td>
-                            <td>Mobile-first</td>
-                            <td>Кичине экрандан чоң экранга</td>
-                            <td><code>@media (min-width: 481px)</code></td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </section>
-
-        <section class="table-section">
-            <h2>📊 Медиа-запрос касиеттери</h2>
-            <div class="table-wrapper">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Касиет</th>
-                            <th>Маанилер</th>
-                            <th>Колдонулушу</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td><code>max-width</code></td>
-                            <td>px, em, rem</td>
-                            <td>Максималдуу туурасы</td>
-                        </tr>
-                        <tr>
-                            <td><code>min-width</code></td>
-                            <td>px, em, rem</td>
-                            <td>Минималдуу туурасы</td>
-                        </tr>
-                        <tr>
-                            <td><code>max-height</code></td>
-                            <td>px, em, rem</td>
-                            <td>Максималдуу бийиктиги</td>
-                        </tr>
-                        <tr>
-                            <td><code>min-height</code></td>
-                            <td>px, em, rem</td>
-                            <td>Минималдуу бийиктиги</td>
-                        </tr>
-                        <tr>
-                            <td><code>orientation</code></td>
-                            <td>portrait, landscape</td>
-                            <td>Экрандын багыты</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </section>
-
-        <footer>
-            <p>Бактылуу окуу! 🎓</p>
-        </footer>
+    <div class="quiz-item">
+      <p><strong>Media query деген эмне?</strong><br/>Что такое media query?</p>
+      <p>
+        A) HTML теги / HTML тег<br/>
+        B) JavaScript функция / JS функция<br/>
+        C) ✅ Экранга жараша CSS колдонуу шарты / Условие CSS под разные экраны<br/>
+        D) Сүрөт коюу жолу / Способ вставки картинки
+      </p>
     </div>
+
+    <div class="quiz-item">
+      <p><strong>Адаптив үчүн кайсы жазуу туура?</strong><br/>Какая запись правильная?</p>
+      <p>
+        A) @screen (max-width: 768px)<br/>
+        B) @responsive (max-width: 768px)<br/>
+        C) ✅ @media (max-width: 768px) { ... }<br/>
+        D) @mobile (width: 768px)
+      </p>
+    </div>
+
+    <div class="quiz-item">
+      <p><strong>max-width эмнени билдирет?</strong><br/>Что означает max-width?</p>
+      <p>
+        A) Экран 768pxден чоң болсо / Экран больше 768px<br/>
+        B) ✅ Экран 768px же кичине болсо / Экран 768px или меньше<br/>
+        C) Экран дайым 768px / Экран всегда 768px<br/>
+        D) Бийиктикке тиешелүү / Про высоту
+      </p>
+    </div>
+
+    <div class="quiz-item">
+      <p><strong>min-width эмнени билдирет?</strong><br/>Что означает min-width?</p>
+      <p>
+        A) Экран 768pxден кичине болсо / Меньше 768px<br/>
+        B) ✅ Экран 768px же чоң болсо / 768px или больше<br/>
+        C) Экран дайым 768px / Всегда 768px<br/>
+        D) Кеңдикти жок кылат / Убирает ширину
+      </p>
+    </div>
+
+    <div class="quiz-item">
+      <p><strong>Mobile-first көбүнчө кайсы менен жазылат?</strong><br/>Mobile-first чаще пишут через…</p>
+      <p>
+        A) max-width<br/>
+        B) ✅ min-width<br/>
+        C) height<br/>
+        D) z-index
+      </p>
+    </div>
+
+    <div class="quiz-item">
+      <p><strong>Desktop-first көбүнчө кайсы менен жазылат?</strong><br/>Desktop-first чаще пишут через…</p>
+      <p>
+        A) ✅ max-width<br/>
+        B) min-width<br/>
+        C) line-height<br/>
+        D) opacity
+      </p>
+    </div>
+
+    <div class="quiz-item">
+      <p><strong>Экран 480pxден кичине болгондо кайсы медиа-запрос туура?</strong><br/>Для экрана меньше 480px</p>
+      <p>
+        A) @media (min-width: 480px)<br/>
+        B) ✅ @media (max-width: 480px)<br/>
+        C) @media (width: 480px)<br/>
+        D) @media (min-height: 480px)
+      </p>
+    </div>
+
+    <div class="quiz-item">
+      <p><strong>Тек гана 768–1023 диапазону үчүн туура жазуу?</strong><br/>Только для диапазона 768–1023</p>
+      <p>
+        A) @media (max-width: 1023px) { ... }<br/>
+        B) @media (min-width: 768px) { ... }<br/>
+        C) ✅ @media (min-width: 768px) and (max-width: 1023px) { ... }<br/>
+        D) @media (between: 768px-1023px) { ... }
+      </p>
+    </div>
+
+    <div class="quiz-item">
+      <p><strong>Эки шартты бир убакта колдонуу үчүн эмне колдонулат?</strong><br/>Как объединить 2 условия?</p>
+      <p>
+        A) or<br/>
+        B) ✅ and<br/>
+        C) plus<br/>
+        D) join
+      </p>
+    </div>
+
+    <div class="quiz-item">
+      <p><strong>“ЖЕ” (or) логикасы кайсы символ менен?</strong><br/>Логика “ИЛИ” в media query</p>
+      <p>
+        A) and<br/>
+        B) ✅ , (үтүр) / запятая<br/>
+        C) ||<br/>
+        D) &
+      </p>
+    </div>
+
+    <div class="quiz-item">
+      <p><strong>orientation: landscape эмнени текшерет?</strong><br/>Что проверяет orientation: landscape?</p>
+      <p>
+        A) Вертикалдык экран / portrait<br/>
+        B) ✅ Горизонталдык экран / landscape<br/>
+        C) Экрандын туурасы 1024px<br/>
+        D) Экрандын түсү кара
+      </p>
+    </div>
+
+    <div class="quiz-item">
+      <p><strong>Кайсы медиа query “dark mode” үчүн колдонулат?</strong><br/>Для тёмной темы</p>
+      <p>
+        A) @media (dark: true)<br/>
+        B) @media (theme: dark)<br/>
+        C) ✅ @media (prefers-color-scheme: dark)<br/>
+        D) @media (color: black)
+      </p>
+    </div>
+
+    <div class="quiz-item">
+      <p><strong>Кайсы шарт “анимацияны азайт” (accessibility) үчүн?</strong><br/>Уменьшить анимацию</p>
+      <p>
+        A) @media (reduce-motion: true)<br/>
+        B) ✅ @media (prefers-reduced-motion: reduce)<br/>
+        C) @media (animation: none)<br/>
+        D) @media (no-motion: yes)
+      </p>
+    </div>
+
+    <div class="quiz-item">
+      <p><strong>Viewport meta эмне үчүн маанилүү?</strong><br/>Почему важен viewport meta?</p>
+      <p>
+        A) Сайтты серверге чыгарат / Публикует сайт<br/>
+        B) ✅ Телефондо туура масштаб болуш үчүн / Чтобы на телефоне масштаб был правильный<br/>
+        C) Шрифтти өзгөртөт / Меняет шрифт<br/>
+        D) Түстү өзгөртөт / Меняет цвет
+      </p>
+    </div>
+
+    <div class="quiz-item">
+      <p><strong>Кайсы код mobile-first үчүн туура тартип?</strong><br/>Правильный порядок для mobile-first</p>
+      <p>
+        A) 1200 → 1024 → 768 → 481<br/>
+        B) ✅ 481 → 768 → 1024 → 1200<br/>
+        C) 768 → 480 → 1024 → 1200<br/>
+        D) 480 → 1200 → 768 → 1024
+      </p>
+    </div>
+
+  </div>
+</section>
+
+    </main>
+
+    <footer class="page-footer">
+      <p>Бактылуу окуу! 🎓</p>
+    </footer>
+  </div>
+
+  <script>
+    // Accessible menu toggle
+    const menuToggle = document.getElementById("menuToggle");
+    const navLinks = document.getElementById("navLinks");
+
+    menuToggle.addEventListener("click", () => {
+      navLinks.classList.toggle("nav-active");
+      const expanded = menuToggle.getAttribute("aria-expanded") === "true";
+      menuToggle.setAttribute("aria-expanded", String(!expanded));
+    });
+
+    // Close on Escape
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") {
+        navLinks.classList.remove("nav-active");
+        menuToggle.setAttribute("aria-expanded", "false");
+      }
+    });
+  </script>
 </body>
 </html>
-
