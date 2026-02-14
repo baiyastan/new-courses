@@ -1,0 +1,1675 @@
+<!DOCTYPE html>
+<html lang="ky">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HTML + CSS Quiz (All)</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+            line-height: 1.6;
+            color: #222;
+        }
+
+        .wrap {
+            max-width: 1440px;
+            margin: 0 auto;
+        }
+
+        header.page-header {
+            background: #fff;
+            border-radius: 16px;
+            padding: 20px;
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.18);
+            text-align: center;
+            margin-bottom: 16px;
+        }
+
+        header.page-header h1 {
+            color: #667eea;
+            font-size: clamp(22px, 3vw, 38px);
+            margin-bottom: 6px;
+        }
+
+        .subtitle {
+            color: #666;
+            font-size: clamp(14px, 1.8vw, 18px);
+        }
+
+        .quiz-section {
+            background: #f8f9fa;
+            border-radius: 16px;
+            padding: clamp(16px, 2.5vw, 26px);
+            border-left: 6px solid #667eea;
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.18);
+        }
+
+        .quiz-section h2 {
+            color: #333;
+            font-size: clamp(18px, 2.3vw, 28px);
+            margin-bottom: 6px;
+        }
+
+        .quiz-list {
+            margin-top: 16px;
+            /* display: grid; */
+            gap: 16px;
+
+            /* авто-колонка: 1/2/3/4 */
+            /* grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            align-items: stretch; */
+        }
+
+        .quiz-item {
+            background: #fff;
+            border-radius: 14px;
+            border: 1px solid #eee;
+            padding: clamp(14px, 2vw, 22px);
+            min-height: clamp(220px, 24vw, 320px);
+            box-shadow: 0 6px 14px rgba(0, 0, 0, 0.08);
+            transition: 0.2s ease;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .quiz-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 22px rgba(0, 0, 0, 0.12);
+        }
+
+        .q-title {
+            font-size: clamp(15px, 1.55vw, 18px);
+            font-weight: 800;
+            color: #2d2d2d;
+        }
+
+        .q-sub {
+            font-size: clamp(12px, 1.2vw, 14px);
+            color: #6b7280;
+            margin-top: -6px;
+        }
+
+        .answers {
+            white-space: pre-line;
+            background: #f8f9fa;
+            border-left: 4px solid #e5e7eb;
+            border-radius: 12px;
+            padding: 12px;
+
+            font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Courier New", monospace;
+            font-size: clamp(12px, 1.1vw, 14px);
+            color: #333;
+            flex: 1;
+        }
+
+        .tag {
+            display: inline-flex;
+            align-self: flex-start;
+            gap: 8px;
+            align-items: center;
+
+            font-size: 12px;
+            font-weight: 700;
+            color: #1f2937;
+            background: #e5e7eb;
+            border-radius: 999px;
+            padding: 6px 10px;
+        }
+
+        .tag.blue {
+            background: #e0e7ff;
+            color: #3730a3;
+        }
+
+        .tag.green {
+            background: #dcfce7;
+            color: #166534;
+        }
+
+        .tag.orange {
+            background: #ffedd5;
+            color: #9a3412;
+        }
+
+        .tag.gray {
+            background: #e5e7eb;
+            color: #374151;
+        }
+
+        footer {
+            margin-top: 16px;
+            text-align: center;
+            color: rgba(255, 255, 255, 0.92);
+            font-size: 14px;
+        }
+
+        @media (max-width: 480px) {
+            body {
+                padding: 12px;
+            }
+
+            .quiz-item {
+                min-height: auto;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrap">
+        <header class="page-header">
+            <h1>HTML + CSS Тест (Бардык суроолор)</h1>
+            <p class="subtitle">Туура жооп ✅ же ✅менен белгиленген. Карточкалар адаптив.</p>
+        </header>
+
+        <main class="quiz-section">
+            <h2>Суроолор</h2>
+            <p class="subtitle">Бардык суроолор карточка форматта (кайталанган суроолор да чыгат).</p>
+
+            <div class="quiz-list">
+
+                <!-- ====== BLOCK 1 ====== -->
+                <article class="quiz-item">
+                    <p></p>
+                    <div class="q-title">&lt;strong&gt; теги эмне кылат?</div>
+                    <div class="q-sub">Что делает тег &lt;strong&gt;?</div>
+                    <pre class="answers">A) Курсив кылат / Делает курсив
+B) Астын сызат / Подчёркивает
+C) ✅Текстти маанилүү кылат (жирный) / Делает текст важным (жирным)
+D) Тексттин түсүн өзгөртөт / Меняет цвет</pre>
+                </article>
+
+                <article class="quiz-item">
+                    <p></p>
+                    <div class="q-title">&lt;em&gt; теги эмнени билдирет?</div>
+                    <div class="q-sub">Что означает &lt;em&gt;?</div>
+                    <pre class="answers">A) Жирный текст / Жирный текст
+B) ✅Акцент (курсив) / Акцент (курсив)
+C) Баш аталыш (заголовок) / Заголовок
+D) Шилтеме / Ссылка</pre>
+                </article>
+
+                <article class="quiz-item">
+                    <p></p>
+                    <div class="q-title">&lt;label&gt; теги эмне үчүн керек?</div>
+                    <div class="q-sub">Для чего &lt;label&gt;?</div>
+                    <pre class="answers">A) Баш аталыш (заголовок) / Заголовок
+B) ✅Input менен байланыш түзөт / Связь с input
+C) Баскыч (кнопка) / Кнопка
+D) Контейнер / Контейнер</pre>
+                </article>
+
+                <article class="quiz-item">
+                    <p></p>
+                    <div class="q-title">CSSте текстти чоң тамга кылуу?</div>
+                    <div class="q-sub">Сделать текст заглавными буквами?</div>
+                    <pre class="answers">A) font-style: 18px
+B) ✅text-transform: uppercase
+C) font-weight: 900
+D) text-decoration: none</pre>
+                </article>
+
+                <article class="quiz-item">
+                    <p></p>
+                    <div class="q-title">Асты сызылган текст?</div>
+                    <div class="q-sub">Подчёркнутый текст?</div>
+                    <pre class="answers">A) font-style: 20px
+B) ✅text-decoration: underline
+C) border-bottom: 2px solid black
+D) outline: none</pre>
+                </article>
+
+                <article class="quiz-item">
+                    <p></p>
+                    <div class="q-title">Тамгалар ортосундагы аралык?</div>
+                    <div class="q-sub">Расстояние между буквами?</div>
+                    <pre class="answers">A) word-spacing
+B) ✅letter-spacing
+C) line-height
+D) text-align</pre>
+                </article>
+
+                <article class="quiz-item">
+                    <p></p>
+                    <div class="q-title">Максимал туурасын чектөө?</div>
+                    <div class="q-sub">Ограничение максимальной ширины?</div>
+                    <pre class="answers">A) width
+B) ✅max-width
+C) min-width
+D) size</pre>
+                </article>
+
+                <article class="quiz-item">
+                    <p></p>
+                    <div class="q-title">Button үстүнө барганда өзгөртүү?</div>
+                    <div class="q-sub">Эффект при наведении на кнопку?</div>
+                    <pre class="answers">A) :active
+B) :focus
+C) ✅:hover
+D) :checked</pre>
+                </article>
+
+                <article class="quiz-item">
+                    <p></p>
+                    <div class="q-title">transform: scale эмне кылат?</div>
+                    <div class="q-sub">Что делает scale?</div>
+                    <pre class="answers">A) Айландырат / Поворачивает
+B) ✅Масштабдайт (чоңойтот/кичирейтет) / Масштабирует
+C) Жылдыртат / Двигает
+D) Жашырат / Скрывает</pre>
+                </article>
+
+                <article class="quiz-item">
+                    <p></p>
+                    <div class="q-title">font-family эмне үчүн?</div>
+                    <div class="q-sub">Для чего font-family?</div>
+                    <pre class="answers">A) Өлчөмү / Размер
+B) ✅Шрифтти аныктайт / Шрифт
+C) Түс / Цвет
+D) Калыңдыгы / Толщин</pre>
+                </article>
+
+                <article class="quiz-item">
+                    <p></p>
+                    <div class="q-title">Семантикалык HTML деген эмне?</div>
+                    <div class="q-sub">Что такое семантический HTML?</div>
+                    <pre class="answers">A) Div тегдерин гана колдонуу / Использование только div
+B) ✅Тегдерди маанисине жараша колдонуу / Использование тегов по смыслу
+C) CSS колдонуу / Использование CSS
+D) JavaScript колдонуу / Использование JavaScript</pre>
+                </article>
+
+                <article class="quiz-item">
+                    <p></p>
+                    <div class="q-title">&lt;header&gt; теги эмнени билдирет?</div>
+                    <div class="q-sub">Что обозначает тег &lt;header&gt;?</div>
+                    <pre class="answers">A) Беттин асткы бөлүгү (подвал страницы) / Подвал страницы
+B) Негизги контент / Основной контент
+C) ✅Беттин башы, шапка / Шапка страницы
+D) Жан тараптагы панель / Боковая панель</pre>
+                </article>
+
+                <article class="quiz-item">
+                    <p></p>
+                    <div class="q-title">&lt;footer&gt; теги эмне үчүн?</div>
+                    <div class="q-sub">Для чего используется &lt;footer&gt;?</div>
+                    <pre class="answers">A) Баш аталыш / Заголовок
+B) Негизги текст / Основной текст
+C) ✅Беттин төмөнкү бөлүгү / Нижняя часть страницы
+D) Сүрөт / Картинка</pre>
+                </article>
+
+                <article class="quiz-item">
+                    <p></p>
+                    <div class="q-title">&lt;nav&gt; теги кайсы үчүн колдонулат?</div>
+                    <div class="q-sub">Для чего используется &lt;nav&gt;?</div>
+                    <pre class="answers">A) Сүрөттөр үчүн / Картинки
+B) ✅Навигация үчүн / Навигация
+C) Формалар үчүн / Формы
+D) Жадвалдар үчүн / Таблицы</pre>
+                </article>
+
+                <article class="quiz-item">
+                    <p></p>
+                    <div class="q-title">Тизмеден тандоо (dropdown)?</div>
+                    <div class="q-sub">Выпадающий список?</div>
+                    <pre class="answers">A) Тизме (unordered list) / &lt;ul&gt;
+B) Опция (вариант) / &lt;option&gt;
+C) ✅Тизмеден тандоо (select) / &lt;select&gt;
+D) Киргизүү талаасы (input) / &lt;input&gt;</pre>
+                </article>
+
+                <article class="quiz-item">
+                    <p></p>
+                    <div class="q-title">Талааны милдеттүү кылуучу атрибут?</div>
+                    <div class="q-sub">Атрибут обязательного поля?</div>
+                    <pre class="answers">A) ✅required
+B) checked
+C) disabled
+D) placeholder</pre>
+                </article>
+
+                <article class="quiz-item">
+                    <p></p>
+                    <div class="q-title">z-index эмне үчүн керек?</div>
+                    <div class="q-sub">Для чего нужен z-index?</div>
+                    <pre class="answers">A) Өлчөмү үчүн / Размер
+B) Түсү үчүн / Цвет
+C) ✅Элементтердин катмарын жөнгө салуу үчүн / Слой элементов
+D) Шрифт үчүн / Шрифт</pre>
+                </article>
+
+                <article class="quiz-item">
+                    <p></p>
+                    <div class="q-title">display: none эмнени кылат?</div>
+                    <div class="q-sub">Что делает display: none?</div>
+                    <pre class="answers">A) Жашырат, бирок орунду калтырат / Скрывает, но оставляет место
+B) ✅Элементти толугу менен жашырат / Полностью убирает элемент
+C) Ачыктык кылат / Делает прозрачным
+D) Фиксациялайт / Фиксирует</pre>
+                </article>
+
+                <article class="quiz-item">
+                    <p></p>
+                    <div class="q-title">visibility: hidden эмнени кылат?</div>
+                    <div class="q-sub">Что делает visibility: hidden?</div>
+                    <pre class="answers">A) Элементти толугу менен жок кылат / Убирает элемент полностью
+B) ✅Жашырат, бирок орунду калтырат / Скрывает, но место остаётся
+C) DOMдон чыгарат / Удаляет из DOM
+D) Кичирейтет / Делает маленьким</pre>
+                </article>
+
+                <article class="quiz-item">
+                    <p></p>
+                    <div class="q-title">Горизонталдык теңдөө (flex)?</div>
+                    <div class="q-sub">Горизонтальное выравнивание?</div>
+                    <pre class="answers">A) align-items
+B) ✅justify-content
+C) text-align
+D) flex-align</pre>
+                </article>
+
+                <article class="quiz-item">
+                    <p></p>
+                    <div class="q-title">Box model курамына кирбейт?</div>
+                    <div class="q-sub">Что НЕ входит в box model?</div>
+                    <pre class="answers">A) margin
+B) padding
+C) border
+D) ✅color</pre>
+                </article>
+
+                <article class="quiz-item">
+                    <p></p>
+                    <div class="q-title">&lt;meta charset="UTF-8"&gt; эмне үчүн керек?</div>
+                    <div class="q-sub">Для чего нужен &lt;meta charset="UTF-8"&gt;?</div>
+                    <pre class="answers">A) Баш аталыш үчүн / Заголовок
+B) ✅Символдордун кодировкасын белгилөө үчүн / Кодировка символов
+C) CSS туташтыруу үчүн / Подключение CSS
+D) SEO үчүн / SEO</pre>
+                </article>
+
+                <article class="quiz-item">
+                    <p></p>
+                    <div class="q-title">HTMLде комментарий браузерде көрүнөбү?</div>
+                    <div class="q-sub">Отображается ли HTML комментарий в браузере?</div>
+                    <pre class="answers">A) Ооба / Да
+B) Кээде / Иногда
+C) ✅Жок / Нет
+D) Только в Chrome / Только в Chrome</pre>
+                </article>
+
+                <article class="quiz-item">
+                    <p></p>
+                    <div class="q-title">CSSте !important эмне кылат?</div>
+                    <div class="q-sub">Что делает !important?</div>
+                    <pre class="answers">A) Стилди жок кылат / Удаляет стиль
+B) ✅Приоритетти жогорулатат / Повышает приоритет
+C) Ката берет / Ошибка
+D) Комментарий кылат / Комментарий</pre>
+                </article>
+
+                <article class="quiz-item">
+                    <p></p>
+                    <div class="q-title">Бир нече класс берүү туура синтаксис?</div>
+                    <div class="q-sub">Правильная запись нескольких классов?</div>
+                    <pre class="answers">A) class="item,box"
+B) class="item+box"
+C) ✅class="item box"
+D) class="item.box"</pre>
+                </article>
+
+                <article class="quiz-item">
+                    <p></p>
+                    <div class="q-title">ID канча жолу колдонулат?</div>
+                    <div class="q-sub">Сколько раз можно использовать id?</div>
+                    <pre class="answers">A) Көп жолу / Много раз
+B) ✅Бир жолу гана / Один раз
+C) Эки жолу / Два раза
+D) Мааниси жок / Неважно</pre>
+                </article>
+
+                <article class="quiz-item">
+                    <p></p>
+                    <div class="q-title">display: inline-block эмнени берет?</div>
+                    <div class="q-sub">Что даёт inline-block?</div>
+                    <pre class="answers">A) Фак гана саптык элемент / Только строка
+B) Фак гана блок элемент / Только блок
+C) ✅Блок өлчөмдөрү + саптык касиет / Размеры + строка
+D) Grid элемент / Grid</pre>
+                </article>
+
+                <article class="quiz-item">
+                    <p></p>
+                    <div class="q-title">top / left кайсы учурда иштейт?</div>
+                    <div class="q-sub">Когда работают top / left?</div>
+                    <pre class="answers">A) static
+B) ✅relative / absolute / fixed
+C) inline
+D) block</pre>
+                </article>
+
+                <!-- ====== Кутман агай ====== -->
+                <article class="quiz-item">
+                    <p></p>
+                    <div class="q-title">CSS файлын туташтыруу үчүн кайсы тег колдонулат?</div>
+                    <div class="q-sub">Какой тег используется для подключения CSS-файла?</div>
+                    <pre class="answers">A) &lt;style&gt;
+B) &lt;css&gt;
+C) ✅ &lt;link&gt;
+D) &lt;script&gt;</pre>
+                </article>
+
+                <article class="quiz-item">
+                    <p></p>
+                    <div class="q-title">CSS файлын кайсы жерде туура туташтыруу керек?</div>
+                    <div class="q-sub">Где правильно подключать CSS-файл?</div>
+                    <pre class="answers">A) В &lt;body&gt;
+B) В &lt;footer&gt;
+C) ✅ В &lt;head&gt;
+D) В конце HTML без тега</pre>
+                </article>
+
+                <article class="quiz-item">
+                    <p></p>
+                    <div class="q-title">Абзац текст үчүн кайсы тег колдонулат?</div>
+                    <div class="q-sub">Какой тег используется для абзаца текста?</div>
+                    <pre class="answers">A) &lt;span&gt;
+B) ✅ &lt;p&gt;
+C) &lt;div&gt;
+D) &lt;text&gt;</pre>
+                </article>
+
+                <article class="quiz-item">
+                    <p></p>
+                    <div class="q-title">Кайсы тег саптык (inline) элемент?</div>
+                    <div class="q-sub">Какой тег является строчным (inline)?</div>
+                    <pre class="answers">A) &lt;div&gt;
+B) &lt;section&gt;
+C) &lt;span&gt; ✅
+D) &lt;article&gt;</pre>
+                </article>
+
+                <article class="quiz-item">
+                    <p></p>
+                    <div class="q-title">Ссылка жаңы вкладкада ачылышы үчүн кайсы target мааниси колдонулат?</div>
+                    <div class="q-sub">Какое значение target открывает ссылку в новой вкладке?</div>
+                    <pre class="answers">A) href="_blank"
+B) target="_new"
+C) ✅ target="_blank"
+D) open="new"</pre>
+                </article>
+
+                <article class="quiz-item">
+                    <p></p>
+                    <div class="q-title">Маркерлер менен тизмени кайсы тег жасайт?</div>
+                    <div class="q-sub">Какой тег используется для списка с маркерами?</div>
+                    <pre class="answers">A) &lt;ol&gt;
+B) &lt;list&gt;
+C) &lt;ul&gt; ✅
+D) &lt;li&gt;</pre>
+                </article>
+
+                <article class="quiz-item">
+                    <p></p>
+                    <div class="q-title">Текстти семантикалык жактан калын кылган тег?</div>
+                    <div class="q-sub">Какой тег делает текст жирным семантически?</div>
+                    <pre class="answers">A) &lt;b&gt;
+B) &lt;strong&gt; ✅
+C) &lt;bold&gt;
+D) &lt;weight&gt;</pre>
+                </article>
+
+                <article class="quiz-item">
+                    <p></p>
+                    <div class="q-title">Форманы көрсөтүү үчүн кайсы тег колдонулат?</div>
+                    <div class="q-sub">Какой тег используется для формы?</div>
+                    <pre class="answers">A) &lt;input&gt;
+B) &lt;form&gt; ✅
+C) &lt;fieldset&gt;
+D) &lt;label&gt;</pre>
+                </article>
+
+                <article class="quiz-item">
+                    <p></p>
+                    <div class="q-title">input үчүн кайсы атрибут маалымат жөнөтүүдө милдеттүү?</div>
+                    <div class="q-sub">Какой атрибут обязателен у input для отправки данных?</div>
+                    <pre class="answers">A) id
+B) class
+C) name ✅
+D) placeholder</pre>
+                </article>
+
+                <article class="quiz-item">
+                    <p></p>
+                    <div class="q-title">Текстти input менен байланыштыруу үчүн кайсы тег колдонулат?</div>
+                    <div class="q-sub">Какой тег связывает текст с input?</div>
+                    <pre class="answers">A) &lt;span&gt;
+B) &lt;p&gt;
+C) &lt;label&gt; ✅
+D) &lt;legend&gt;</pre>
+                </article>
+
+                <article class="quiz-item">
+                    <p></p>
+                    <div class="q-title">Тексттин түсүн кантип өзгөртүүгө болот?</div>
+                    <div class="q-sub">Как задать цвет текста?</div>
+                    <pre class="answers">A) background-color
+B) font-color
+C) color ✅
+D) text-color</pre>
+                </article>
+
+                <article class="quiz-item">
+                    <p></p>
+                    <div class="q-title">&lt;span&gt; тегине бийиктик берүү мүмкүнбү?</div>
+                    <div class="q-sub">Можно ли задать высоту для &lt;span&gt;?</div>
+                    <pre class="answers">A) Да, height работает всегда
+B) Да, если использовать px
+C) ✅ Нет, потому что &lt;span&gt; — строчный элемент
+D) Да, если указать %</pre>
+                </article>
+
+                <article class="quiz-item">
+                    <p></p>
+                    <div class="q-title">Элементти жашырып, бирок орун калтыруу үчүн кайсы касиет?</div>
+                    <div class="q-sub">Как скрыть элемент, но оставить место?</div>
+                    <pre class="answers">A) display: none
+B) opacity: 0
+C) visibility: hidden ✅
+D) z-index: -1</pre>
+                </article>
+
+                <article class="quiz-item">
+                    <p></p>
+                    <div class="q-title">Шрифттин өлчөмүн өзгөртүүчү касиет кайсы?</div>
+                    <div class="q-sub">Какое свойство меняет размер шрифта?</div>
+                    <pre class="answers">A) font-weight
+B) text-size
+C) font-size ✅
+D) size</pre>
+                </article>
+
+                <article class="quiz-item">
+                    <p></p>
+                    <div class="q-title">Барактагы бардык элементтерди кантип тандайбыз?</div>
+                    <div class="q-sub">Как выбрать все элементы на странице?</div>
+                    <pre class="answers">A) #all
+B) .
+C) * ✅
+D) html</pre>
+                </article>
+
+                <article class="quiz-item">
+                    <p></p>
+                    <div class="q-title">Flex элементтеринин ортосундагы аралыкты кантип көрсөтөбүз?</div>
+                    <div class="q-sub">Как задать расстояние между flex-элементами?</div>
+                    <pre class="answers">A) margin
+B) gap ✅
+C) padding
+D) space</pre>
+                </article>
+
+                <article class="quiz-item">
+                    <p></p>
+                    <div class="q-title">Адаптив үчүн кайсы media query колдонулат?</div>
+                    <div class="q-sub">Какой media query используется для адаптива?</div>
+                    <pre class="answers">A) @screen
+B) @media ✅
+C) @responsive
+D) @mobile</pre>
+                </article>
+
+                <article class="quiz-item">
+                    <p></p>
+                    <div class="q-title">Элементти тегиз тегерек кылуу үчүн?</div>
+                    <div class="q-sub">Как сделать элемент круглым?</div>
+                    <pre class="answers">A) border: round
+B) radius: 50%
+C) border-radius: 50% ✅
+D) shape: circle</pre>
+                </article>
+
+                <article class="quiz-item">
+                    <p></p>
+                    <div class="q-title">Элементке көлөкөнү кайсы касиет берет?</div>
+                    <div class="q-sub">Какое свойство отвечает за тень?</div>
+                    <pre class="answers">A) shadow
+B) box-shadow ✅
+C) text-shadow
+D) depth</pre>
+                </article>
+
+                <article class="quiz-item">
+                    <p></p>
+                    <div class="q-title">Адаптивдүү верстка деген эмне?</div>
+                    <div class="q-sub">Что такое адаптивная верстка?</div>
+                    <pre class="answers">A) Один размер экрана
+B) Верстка только под телефон
+C) Подстраивается под разные экраны ✅
+D) Использует только flex</pre>
+                </article>
+
+                <article class="quiz-item">
+                    <p></p>
+                    <div class="q-title">Маңызды текстти курсив менен көрсөтүүчү семантикалык тег?</div>
+                    <div class="q-sub">Выделение важного текста курсивом (семантически)?</div>
+                    <pre class="answers">A) &lt;i&gt;
+B) &lt;em&gt; ✅
+C) &lt;italic&gt;
+D) &lt;mark&gt;</pre>
+                </article>
+
+                <article class="quiz-item">
+                    <p></p>
+                    <div class="q-title">Контентти логикалык маанисиз топтоо үчүн кайсы тег?</div>
+                    <div class="q-sub">Для группировки контента без логического смысла?</div>
+                    <pre class="answers">A) &lt;section&gt;
+B) &lt;article&gt;
+C) &lt;div&gt; ✅
+D) &lt;main&gt;</pre>
+                </article>
+
+                <article class="quiz-item">
+                    <p></p>
+                    <div class="q-title">&lt;a&gt; тегинде шилтеменин дареги кайсы атрибут?</div>
+                    <div class="q-sub">Какой атрибут у &lt;a&gt; задаёт адрес ссылки?</div>
+                    <pre class="answers">A) src
+B) link
+C) href ✅
+D) path</pre>
+                </article>
+
+                <article class="quiz-item">
+                    <p></p>
+                    <div class="q-title">Кнопка үчүн кайсы HTML тег?</div>
+                    <div class="q-sub">Какой HTML-тег используется для кнопки?</div>
+                    <pre class="answers">A) &lt;input&gt;
+B) &lt;btn&gt;
+C) &lt;button&gt; ✅
+D) &lt;click&gt;</pre>
+                </article>
+
+                <article class="quiz-item">
+                    <p></p>
+                    <div class="q-title">HTMLде комментарий кантип жазылат?</div>
+                    <div class="q-sub">Как сделать комментарий в HTML?</div>
+                    <pre class="answers">A) // comment
+B) /* comment */
+C) &lt;!-- comment --&gt; ✅
+D) # comment</pre>
+                </article>
+
+                <article class="quiz-item">
+                    <p></p>
+                    <div class="q-title">Сырткы аралыкты кайсы касиет берет?</div>
+                    <div class="q-sub">Какое свойство отвечает за внешний отступ?</div>
+                    <pre class="answers">A) padding
+B) border
+C) margin ✅
+D) gap</pre>
+                </article>
+
+                <article class="quiz-item">
+                    <p></p>
+                    <div class="q-title">Тексттин шрифтин кантип өзгөртөбүз?</div>
+                    <div class="q-sub">Как изменить шрифт текста?</div>
+                    <pre class="answers">A) text-style
+B) font-family ✅
+C) font-text
+D) font-change</pre>
+                </article>
+
+                <article class="quiz-item">
+                    <p></p>
+                    <div class="q-title">Элементти толугу менен жашыруу (орун калтырбай)?</div>
+                    <div class="q-sub">Как скрыть элемент полностью?</div>
+                    <pre class="answers">A) visibility: hidden
+B) opacity: 0
+C) display: none ✅
+D) z-index: -1</pre>
+                </article>
+
+                <article class="quiz-item">
+                    <p></p>
+                    <div class="q-title">Текстти борборго кантип тууралайбыз?</div>
+                    <div class="q-sub">Как выровнять текст по центру?</div>
+                    <pre class="answers">A) align: center
+B) text-align: center ✅
+C) center-text: true
+D) font-align: center</pre>
+                </article>
+
+                <article class="quiz-item">
+                    <p></p>
+                    <div class="q-title">Элементтерди бир сапка жайгаштыруу үчүн кайсы display?</div>
+                    <div class="q-sub">Какое значение display делает элементы в строку?</div>
+                    <pre class="answers">A) block
+B) inline ✅
+C) flex
+D) grid</pre>
+                </article>
+
+                <!-- ====== Айгуль ====== -->
+                <article class="quiz-item">
+                    <p></p>
+                    <div class="q-title">CSS созунун расшифровкасы кандай?</div>
+                    <div class="q-sub">Что расшифровывается как CSS?</div>
+                    <pre class="answers">A) ✅ Cascading Style Sheets
+B) Cascading Size Shorts
+C) Cascading Sheets
+D) Style</pre>
+                </article>
+
+                <article class="quiz-item">
+                    <p></p>
+                    <div class="q-title">Атрибут деген эмне?</div>
+                    <div class="q-sub">Что такое атрибут?</div>
+                    <pre class="answers">A) ✅ Тегге кошумча маани берет / Атрибут дает дополнительное значение тегу
+B) Атрибут бул одинарный тег
+C) Текстин размерин чонойтот
+D) Шилтеме иштетет</pre>
+                </article>
+
+                <article class="quiz-item">
+                    <p></p>
+                    <div class="q-title">Кайсы тег семантикалык эмес?</div>
+                    <div class="q-sub">Какой тег не является семантическим?</div>
+                    <pre class="answers">A) &lt;section&gt;
+B) &lt;article&gt;
+C) ✅ &lt;div&gt;</pre>
+                </article>
+
+                <article class="quiz-item">
+                    <p></p>
+                    <div class="q-title">Баракчанын атын (title) кайсы тегде жазабыз?</div>
+                    <div class="q-sub">В каком теге указывается название страницы (title)?</div>
+                    <pre class="answers">A) &lt;body&gt;
+B) ✅ &lt;title&gt;
+C) &lt;meta&gt;
+D) &lt;link&gt;</pre>
+                </article>
+
+                <article class="quiz-item">
+                    <p></p>
+                    <div class="q-title">Тексти ортого жылдыруу?</div>
+                    <div class="q-sub">Как выровнять текст по центру?</div>
+                    <pre class="answers">A) text-center
+B) ✅ text-align: center
+C) align: center
+D) margin: auto</pre>
+                </article>
+
+                <article class="quiz-item">
+                    <p></p>
+                    <div class="q-title">Блок элемент кайсы?</div>
+                    <div class="q-sub">Какой элемент является блочным?</div>
+                    <pre class="answers">A) ✅ &lt;div&gt;
+B) &lt;span&gt;
+C) &lt;meta&gt;
+D) &lt;href&gt;</pre>
+                </article>
+
+                <article class="quiz-item">
+                    <p></p>
+                    <div class="q-title">Margin эмне?</div>
+                    <div class="q-sub">Что такое margin?</div>
+                    <pre class="answers">A) Ички аралык
+B) ✅ Тышкы аралык
+C) Арткы фон
+D) Граница</pre>
+                </article>
+
+                <article class="quiz-item">
+                    <p></p>
+                    <div class="q-title">Баракчада көрүнгөн контент кайсы тегде болот?</div>
+                    <div class="q-sub">В каком теге находится видимое содержимое?</div>
+                    <pre class="answers">A) &lt;head&gt;
+B) ✅ &lt;body&gt;
+C) &lt;meta&gt;
+D) &lt;link&gt;</pre>
+                </article>
+
+                <article class="quiz-item">
+                    <p></p>
+                    <div class="q-title">Жаңы сапка түшүрүүчү тег?</div>
+                    <div class="q-sub">Какой тег переносит текст на новую строку?</div>
+                    <pre class="answers">A) ✅ &lt;br&gt;
+B) &lt;p&gt;
+C) &lt;hr&gt;
+D) &lt;h1&gt;</pre>
+                </article>
+
+                <article class="quiz-item">
+                    <p></p>
+                    <div class="q-title">Кайсы CSS синтаксиси туура?</div>
+                    <div class="q-sub">Какой синтаксис CSS правильный?</div>
+                    <pre class="answers">A) color = red;
+B) ✅ color: red;
+C) color -> red;
+D) color: { red }</pre>
+                </article>
+
+                <article class="quiz-item">
+                    <p></p>
+                    <div class="q-title">Текстти жоон (bold) кылуу?</div>
+                    <div class="q-sub">Как сделать текст жирным?</div>
+                    <pre class="answers">A) ✅ font-weight
+B) font-bold
+C) font-size
+D) font-family</pre>
+                </article>
+
+                <article class="quiz-item">
+                    <p></p>
+                    <div class="q-title">Padding эмне?</div>
+                    <div class="q-sub">Что такое padding?</div>
+                    <pre class="answers">A) Тышкы аралык
+B) Граница
+C) ✅ Ички аралык
+D) Ссылка иштетуу</pre>
+                </article>
+
+                <article class="quiz-item">
+                    <p></p>
+                    <div class="q-title">CSS’те id кантип жазылат?</div>
+                    <div class="q-sub">Как в CSS указывается id?</div>
+                    <pre class="answers">A) .id
+B) *id
+C) ✅ #id
+D) :id</pre>
+                </article>
+
+                <article class="quiz-item">
+                    <p></p>
+                    <div class="q-title">Фонго сүрөт коюу?</div>
+                    <div class="q-sub">Как задать изображение фона?</div>
+                    <pre class="answers">A) background-img
+B) bg-image
+C) ✅ background-image
+D) img</pre>
+                </article>
+
+                <article class="quiz-item">
+                    <p></p>
+                    <div class="q-title">Кайсы тег таблица түзөт?</div>
+                    <div class="q-sub">Какой тег создаёт таблицу?</div>
+                    <pre class="answers">A) ✅ &lt;table&gt;
+B) &lt;ul&gt;
+C) &lt;input&gt;
+D) &lt;option&gt;</pre>
+                </article>
+
+                <article class="quiz-item">
+                    <p></p>
+                    <div class="q-title">&lt;div&gt; тэгинин негизги максаты эмне?</div>
+                    <div class="q-sub">Какова основная цель тега &lt;div&gt;?</div>
+                    <pre class="answers">A) Тизмелерди түзүү
+B) Сүрөт киргизүү
+C) ✅ Веб-баракта бөлүктөрдү топтоо жана структура түзүү
+D) Шрифт өзгөртүү</pre>
+                </article>
+
+                <article class="quiz-item">
+                    <p></p>
+                    <div class="q-title">Кайсы код туура жазылган?</div>
+                    <div class="q-sub">Какой из кодов написан правильно?</div>
+                    <pre class="answers">A) &lt;a link="https://site.com"&gt;Сайт&lt;/a&gt;
+B) ✅ &lt;a href="https://site.com"&gt;Сайт&lt;/a&gt;
+C) &lt;a src="https://site.com"&gt;Сайт&lt;/a&gt;
+D) &lt;link href="https://site.com"&gt;Сайт&lt;/link&gt;</pre>
+                </article>
+
+                <article class="quiz-item">
+                    <p></p>
+                    <div class="q-title">Пароль киргизүү?</div>
+                    <div class="q-sub">Как сделать поле для ввода пароля?</div>
+                    <pre class="answers">A) &lt;input type="text"&gt;
+B) ✅ &lt;input type="password"&gt;
+C) &lt;input type="hidden"&gt;
+D) &lt;password&gt;</pre>
+                </article>
+
+                <article class="quiz-item">
+                    <p></p>
+                    <div class="q-title">Видео кошуу үчүн кайсыл тег?</div>
+                    <div class="q-sub">Какой тег используется для добавления видео?</div>
+                    <pre class="answers">A) &lt;mp4&gt;
+B) ✅ &lt;video&gt;
+C) &lt;media&gt;
+D) &lt;movie&gt;</pre>
+                </article>
+
+                <article class="quiz-item">
+                    <p></p>
+                    <div class="q-title">HTML файлды браузерде ачуу үчүн эмне керек?</div>
+                    <div class="q-sub">Что нужно, чтобы открыть HTML-файл?</div>
+                    <pre class="answers">A) Сервер
+B) Интернет
+C) ✅ Браузер
+D) Ноутбук</pre>
+                </article>
+
+                <article class="quiz-item">
+                    <p></p>
+                    <div class="q-title">Бир нече сап текст киргизүү?</div>
+                    <div class="q-sub">Как сделать поле для ввода многострочного текста?</div>
+                    <pre class="answers">A) &lt;input&gt;
+B) ✅ &lt;textarea&gt;
+C) &lt;textbox&gt;
+D) &lt;input&gt;</pre>
+                </article>
+
+                <article class="quiz-item">
+                    <p></p>
+                    <div class="q-title">Сүрөт жүктөлбөсө текст кайсы атрибут?</div>
+                    <div class="q-sub">Какой атрибут показывает текст если изображение не загрузилось?</div>
+                    <pre class="answers">A) &lt;link&gt;
+B) ✅ alt
+C) &lt;href&gt;
+D) &lt;img&gt;</pre>
+                </article>
+
+                <article class="quiz-item">
+                    <p></p>
+                    <div class="q-title">Видео автоматтык ойношу үчүн?</div>
+                    <div class="q-sub">Как сделать autoplay?</div>
+                    <pre class="answers">A) auto
+B) play
+C) start
+D) ✅ autoplay</pre>
+                </article>
+
+                <article class="quiz-item">
+                    <p></p>
+                    <div class="q-title">Кайсы тег inline элемент?</div>
+                    <div class="q-sub">Какой тег является inline элементом?</div>
+                    <pre class="answers">A) ✅ &lt;span&gt;
+B) &lt;div&gt;
+C) &lt;button&gt;
+D) &lt;p&gt;</pre>
+                </article>
+
+                <article class="quiz-item">
+                    <p></p>
+                    <div class="q-title">CSS Specificity туура ирети?</div>
+                    <div class="q-sub">Какой порядок специфичности?</div>
+                    <pre class="answers">A) ✅ element =&gt; class =&gt; id
+B) id =&gt; class =&gt; element
+C) class =&gt; element =&gt; id
+D) inline =&gt; element =&gt; div</pre>
+                </article>
+
+                <article class="quiz-item">
+                    <p></p>
+                    <div class="q-title">display: inline-block өзгөчөлүгү?</div>
+                    <div class="q-sub">Что имеет inline-block?</div>
+                    <pre class="answers">A) width иштебейт
+B) height иштебейт
+C) ✅ width + height иштейт
+D) margin иштебейт</pre>
+                </article>
+
+                <article class="quiz-item">
+                    <p></p>
+                    <div class="q-title">top: 20px качан иштейт?</div>
+                    <div class="q-sub">Когда работает top?</div>
+                    <pre class="answers">A) ар дайым
+B) ✅ position бар болгондо
+C) width бар болсо
+D) display block болгондо</pre>
+                </article>
+
+                <article class="quiz-item">
+                    <p></p>
+                    <div class="q-title">#header эмнени тандайт?</div>
+                    <div class="q-sub">Что выбирает #header?</div>
+                    <pre class="answers">A) тег
+B) ✅ id
+C) class
+D) атрибут</pre>
+                </article>
+
+                <article class="quiz-item">
+                    <p></p>
+                    <div class="q-title">div p эмнени билдирет?</div>
+                    <div class="q-sub">Что означает селектор div p?</div>
+                    <pre class="answers">A) div же p
+B) ✅ div ичиндеги p
+C) p ичиндеги div
+D) бардык p</pre>
+                </article>
+
+                <article class="quiz-item">
+                    <p></p>
+                    <div class="q-title">:hover качан иштейт?</div>
+                    <div class="q-sub">Когда срабатывает :hover?</div>
+                    <pre class="answers">A) басканда
+B) ✅ курсор үстүнө келгенде
+C) фокуста
+D) жүктөлгөндө</pre>
+                </article>
+
+                <!-- ====== Тилек ====== -->
+                <article class="quiz-item">
+                    <p></p>
+                    <div class="q-title">HTML документтин түрүн көрсөтүү үчүн кайсы тег?</div>
+                    <div class="q-sub">Какой тег указывает тип HTML-документа?</div>
+                    <pre class="answers">A) &lt;html&gt;
+B) &lt;head&gt;
+C) ✅ &lt;!DOCTYPE html&gt;
+D) &lt;meta&gt;</pre>
+                </article>
+
+                <article class="quiz-item">
+                    <p></p>
+                    <div class="q-title">HTML документтеги тамыр элемент кайсы?</div>
+                    <div class="q-sub">Какой тег является корневым элементом?</div>
+                    <pre class="answers">A) &lt;body&gt;
+B) &lt;head&gt;
+C) ✅ &lt;html&gt;
+D) &lt;main&gt;</pre>
+                </article>
+
+                <article class="quiz-item">
+                    <p></p>
+                    <div class="q-title">HTML-тег деген эмне?</div>
+                    <div class="q-sub">Что такое HTML-тег?</div>
+                    <pre class="answers">A) Стиль оформления
+B) Команда браузеру
+C) ✅ Элемент разметки
+D) Язык программирования</pre>
+                </article>
+
+                <article class="quiz-item">
+                    <p></p>
+                    <div class="q-title">Атрибутту кайда туура жазуу керек?</div>
+                    <div class="q-sub">Где правильно указывать атрибут?</div>
+                    <pre class="answers">A) Контенттин ичинде
+B) ✅ Внутри открывающего тега
+C) В закрывающем теге
+D) В CSS-файле</pre>
+                </article>
+
+                <article class="quiz-item">
+                    <p></p>
+                    <div class="q-title">Сүрөттүн жолун көрсөтүүчү атрибут кайсы?</div>
+                    <div class="q-sub">Какой атрибут указывает путь к изображению?</div>
+                    <pre class="answers">A) href
+B) ✅ src
+C) alt
+D) link</pre>
+                </article>
+
+                <article class="quiz-item">
+                    <p></p>
+                    <div class="q-title">Сайттын башын түзүү үчүн кайсы тег?</div>
+                    <div class="q-sub">Какой тег используется для шапки сайта?</div>
+                    <pre class="answers">A) &lt;top&gt;
+B) ✅ &lt;header&gt;
+C) &lt;head&gt;
+D) &lt;nav&gt;</pre>
+                </article>
+
+                <article class="quiz-item">
+                    <p></p>
+                    <div class="q-title">Барактын негизги бөлүгү үчүн кайсы тег?</div>
+                    <div class="q-sub">Основная часть страницы?</div>
+                    <pre class="answers">A) &lt;section&gt;
+B) ✅ &lt;main&gt;
+C) &lt;body&gt;
+D) &lt;article&gt;</pre>
+                </article>
+
+                <article class="quiz-item">
+                    <p></p>
+                    <div class="q-title">Навигация үчүн кайсы тег колдонулат?</div>
+                    <div class="q-sub">Какой тег используется для навигации?</div>
+                    <pre class="answers">A) &lt;menu&gt;
+B) &lt;aside&gt;
+C) ✅ &lt;nav&gt;
+D) &lt;ul&gt;</pre>
+                </article>
+
+                <article class="quiz-item">
+                    <p></p>
+                    <div class="q-title">&lt;article&gt; менен &lt;section&gt; айырмасы?</div>
+                    <div class="q-sub">Чем отличается &lt;article&gt; от &lt;section&gt;?</div>
+                    <pre class="answers">A) Ничем
+B) ✅ &lt;article&gt; — независимый контент
+C) &lt;section&gt; нельзя использовать
+D) &lt;article&gt; только для текста</pre>
+                </article>
+
+                <article class="quiz-item">
+                    <p></p>
+                    <div class="q-title">Сайттын төмөнкү бөлүгү үчүн кайсы тег?</div>
+                    <div class="q-sub">Какой тег обычно используют для подвала?</div>
+                    <pre class="answers">A) &lt;bottom&gt;
+B) ✅ &lt;footer&gt;
+C) &lt;end&gt;
+D) &lt;aside&gt;</pre>
+                </article>
+
+                <article class="quiz-item">
+                    <p></p>
+                    <div class="q-title">Сүрөт үчүн кайсы тег колдонулат?</div>
+                    <div class="q-sub">Какой тег используется для изображения?</div>
+                    <pre class="answers">A) &lt;image&gt;
+B) ✅ &lt;img&gt;
+C) &lt;picture&gt;
+D) &lt;src&gt;</pre>
+                </article>
+
+                <article class="quiz-item">
+                    <p></p>
+                    <div class="q-title">Сүрөттүн жеткиликтүүлүгү үчүн кайсы атрибут?</div>
+                    <div class="q-sub">Какой атрибут обязателен для доступности?</div>
+                    <pre class="answers">A) src
+B) title
+C) ✅ alt
+D) id</pre>
+                </article>
+
+                <article class="quiz-item">
+                    <p></p>
+                    <div class="q-title">Видео үчүн кайсы тег колдонулат?</div>
+                    <div class="q-sub">Какой тег используется для видео?</div>
+                    <pre class="answers">A) &lt;media&gt;
+B) ✅ &lt;video&gt;
+C) &lt;movie&gt;
+D) &lt;iframe&gt;</pre>
+                </article>
+
+                <article class="quiz-item">
+                    <p></p>
+                    <div class="q-title">PDFти баракка кантип кошсо болот?</div>
+                    <div class="q-sub">Как встроить PDF на страницу?</div>
+                    <pre class="answers">A) &lt;pdf&gt;
+B) &lt;embed&gt;
+C) &lt;iframe&gt;
+D) ✅ B и C</pre>
+                </article>
+
+                <article class="quiz-item">
+                    <p></p>
+                    <div class="q-title">Башка сайттарды киргизүү үчүн кайсы тег?</div>
+                    <div class="q-sub">Какой тег используется для встраивания сторонних сайтов?</div>
+                    <pre class="answers">A) &lt;object&gt;
+B) &lt;frame&gt;
+C) ✅ &lt;iframe&gt;
+D) &lt;embed&gt;</pre>
+                </article>
+
+                <article class="quiz-item">
+                    <p></p>
+                    <div class="q-title">Кайсы тег таблица түзөт?</div>
+                    <div class="q-sub">Какой тег создаёт таблицу?</div>
+                    <pre class="answers">A) ✅ &lt;table&gt;
+B) &lt;tr&gt;
+C) &lt;td&gt;
+D) &lt;thead&gt;</pre>
+                </article>
+
+                <article class="quiz-item">
+                    <p></p>
+                    <div class="q-title">Таблицанын катарын түзүү үчүн кайсы тег?</div>
+                    <div class="q-sub">Какой тег используется для строки таблицы?</div>
+                    <pre class="answers">A) &lt;td&gt;
+B) &lt;th&gt;
+C) ✅ &lt;tr&gt;
+D) &lt;row&gt;</pre>
+                </article>
+
+                <article class="quiz-item">
+                    <p></p>
+                    <div class="q-title">Email киргизүү үчүн кайсы input?</div>
+                    <div class="q-sub">Какой input используется для email?</div>
+                    <pre class="answers">A) text
+B) mail
+C) ✅ email
+D) input-email</pre>
+                </article>
+
+                <article class="quiz-item">
+                    <p></p>
+                    <div class="q-title">Файл тандаш үчүн кайсы input?</div>
+                    <div class="q-sub">Какой input позволяет выбрать файл?</div>
+                    <pre class="answers">A) ✅ file
+B) upload
+C) image
+D) media</pre>
+                </article>
+
+                <article class="quiz-item">
+                    <p></p>
+                    <div class="q-title">HTML5 validation эмне кылат?</div>
+                    <div class="q-sub">Что делает HTML5 validation?</div>
+                    <pre class="answers">A) Проверяет CSS
+B) Проверяет JS
+C) ✅ Проверяет данные формы
+D) Отправляет форму</pre>
+                </article>
+
+                <article class="quiz-item">
+                    <p></p>
+                    <div class="q-title">CSS деген эмне?</div>
+                    <div class="q-sub">Что такое CSS?</div>
+                    <pre class="answers">A) Язык программирования
+B) ✅ Язык стилей
+C) База данных
+D) Фреймворк</pre>
+                </article>
+
+                <article class="quiz-item">
+                    <p></p>
+                    <div class="q-title">ID боюнча селектор кайсы?</div>
+                    <div class="q-sub">Какой селектор выбирает элемент по id?</div>
+                    <pre class="answers">A) .
+B) ✅ #
+C) *
+D) @</pre>
+                </article>
+
+                <article class="quiz-item">
+                    <p></p>
+                    <div class="q-title">Box model эмне камтыйт?</div>
+                    <div class="q-sub">Что входит в box model?</div>
+                    <pre class="answers">A) ✅ margin, padding, border, content
+B) width, height
+C) color, font
+D) position, display</pre>
+                </article>
+
+                <article class="quiz-item">
+                    <p></p>
+                    <div class="q-title">Ички боштук (padding) үчүн касиет?</div>
+                    <div class="q-sub">Какое свойство отвечает за внутренний отступ?</div>
+                    <pre class="answers">A) margin
+B) border
+C) ✅ padding
+D) gap</pre>
+                </article>
+
+                <article class="quiz-item">
+                    <p></p>
+                    <div class="q-title">Flexboxту кантип күйгүзөбүз?</div>
+                    <div class="q-sub">Как включить flexbox?</div>
+                    <pre class="answers">A) position: flex
+B) ✅ display: flex
+C) flex: block
+D) align: flex</pre>
+                </article>
+
+                <article class="quiz-item">
+                    <p></p>
+                    <div class="q-title">Негизги огу боюнча түздөөчү касиет?</div>
+                    <div class="q-sub">Главная ось во Flex?</div>
+                    <pre class="answers">A) align-items
+B) ✅ justify-content
+C) flex-wrap
+D) gap</pre>
+                </article>
+
+                <article class="quiz-item">
+                    <p></p>
+                    <div class="q-title">CSS Gridти кантип күйгүзөбүз?</div>
+                    <div class="q-sub">Как включить CSS Grid?</div>
+                    <pre class="answers">A) ✅ display: grid
+B) grid: on
+C) position: grid
+D) layout: grid</pre>
+                </article>
+
+                <article class="quiz-item">
+                    <p></p>
+                    <div class="q-title">Скроллда «чапталуучу» position?</div>
+                    <div class="q-sub">Что прилипает при скролле?</div>
+                    <pre class="answers">A) fixed
+B) absolute
+C) relative
+D) ✅ sticky</pre>
+                </article>
+
+                <article class="quiz-item">
+                    <p></p>
+                    <div class="q-title">Өзгөрүүнү жумшарткан касиет?</div>
+                    <div class="q-sub">Плавность изменения?</div>
+                    <pre class="answers">A) animation
+B) transform
+C) ✅ transition
+D) hover</pre>
+                </article>
+
+                <article class="quiz-item">
+                    <p></p>
+                    <div class="q-title">Mobile-first деген эмне?</div>
+                    <div class="q-sub">Что такое Mobile-first?</div>
+                    <pre class="answers">A) Сначала ПК версия
+B) ✅ Сначала мобильная версия
+C) Только мобильный сайт
+D) Без media queries</pre>
+                </article>
+
+                <!-- ====== Аруна (көп суроо) ====== -->
+                <article class="quiz-item">
+                    <p></p>
+                    <div class="q-title">&lt;!DOCTYPE html&gt; декларациясынын негизги максаты?</div>
+                    <div class="q-sub">Какова основная цель объявления &lt;!DOCTYPE html&gt;?</div>
+                    <pre class="answers">A) Задаёт кодировку страницы
+B) ✅ Указывает браузеру версию HTML
+C) Подключает CSS-файл
+D) Определяет язык страницы</pre>
+                </article>
+
+                <article class="quiz-item">
+                    <p></p>
+                    <div class="q-title">Сүрөт чыкпаса текст көрсөтүүчү атрибут кайсы?</div>
+                    <div class="q-sub">Какой атрибут задаёт альтернативный текст изображения?</div>
+                    <pre class="answers">A) title
+B) name
+C) src
+D) ✅ alt</pre>
+                </article>
+
+                <article class="quiz-item">
+                    <p></p>
+                    <div class="q-title">Grid ичинде мамычалар ортосундагы аралыкты кайсы касиет?</div>
+                    <div class="q-sub">Какое свойство задаёт расстояние между колонками в Grid?</div>
+                    <pre class="answers">A) column-width
+B) grid-template-columns
+C) ✅ gap
+D) padding</pre>
+                </article>
+
+                <article class="quiz-item">
+                    <p></p>
+                    <div class="q-title">Төмөн түшүүчү тизмени түзүү үчүн кайсы тег?</div>
+                    <div class="q-sub">Какой тег используется для создания выпадающего списка?</div>
+                    <pre class="answers">A) &lt;datalist&gt;
+B) ✅ &lt;select&gt;
+C) &lt;option&gt;
+D) &lt;input&gt;</pre>
+                </article>
+
+                <article class="quiz-item">
+                    <p></p>
+                    <div class="q-title">&lt;section&gt; менен &lt;div&gt; кандай айырмаланат?</div>
+                    <div class="q-sub">Чем &lt;section&gt; отличается от &lt;div&gt;?</div>
+                    <pre class="answers">A) &lt;div&gt; только внутри &lt;header&gt;
+B) ✅ &lt;section&gt; несёт смысл, а &lt;div&gt; — контейнер
+C) &lt;section&gt; нельзя вложить в &lt;div&gt;
+D) Они одинаковы</pre>
+                </article>
+
+                <article class="quiz-item">
+                    <p></p>
+                    <div class="q-title">Төмөндөгү кайсысы блочный элемент эмес?</div>
+                    <div class="q-sub">Что не является блочным элементом?</div>
+                    <pre class="answers">A) &lt;section&gt;
+B) &lt;p&gt;
+C) ✅ &lt;span&gt;
+D) &lt;form&gt;</pre>
+                </article>
+
+                <article class="quiz-item">
+                    <p></p>
+                    <div class="q-title">Башка веб-баракчаны кошуу үчүн кайсы тег?</div>
+                    <div class="q-sub">Какой тег HTML используется для вставки другой веб-страницы?</div>
+                    <pre class="answers">A) &lt;object&gt;
+B) ✅ &lt;iframe&gt;
+C) &lt;embed&gt;
+D) &lt;link&gt;</pre>
+                </article>
+
+                <article class="quiz-item">
+                    <p></p>
+                    <div class="q-title">.article классындагы div ичиндеги бардык p тандаган селектор?</div>
+                    <div class="q-sub">Какой селектор выберет все p внутри div.article?</div>
+                    <pre class="answers">A) .article.p
+B) div.article, p
+C) ✅ .article p
+D) p.article div</pre>
+                </article>
+
+                <article class="quiz-item">
+                    <p></p>
+                    <div class="q-title">CSS файлды тышкы түрдө кошуунун жолу?</div>
+                    <div class="q-sub">Какой способ подключения CSS считается внешним?</div>
+                    <pre class="answers">A) &lt;style&gt;
+B) ✅ &lt;link rel="stylesheet" href="style.css"&gt;
+C) @import
+D) inline-стиль</pre>
+                </article>
+
+                <article class="quiz-item">
+                    <p></p>
+                    <div class="q-title">Эгер &lt;a&gt; ичине дагы &lt;a&gt; кошулса эмне болот?</div>
+                    <div class="q-sub">Что будет, если внутри a вставить другой a?</div>
+                    <pre class="answers">A) HTML разрешает, оба работают
+B) ✅ Это ошибка — вложенные ссылки не поддерживаются
+C) Вторая ссылка заменит первую
+D) Браузер объединит</pre>
+                </article>
+
+                <article class="quiz-item">
+                    <p></p>
+                    <div class="q-title">inline-block менен block айырмасы?</div>
+                    <div class="q-sub">Чем отличается inline-block от block?</div>
+                    <pre class="answers">A) inline-block не учитывает отступы
+B) ✅ inline-block можно ставить рядом
+C) block всегда фиксирован
+D) Ничем</pre>
+                </article>
+
+                <article class="quiz-item">
+                    <p></p>
+                    <div class="q-title">em менен rem айырмасы?</div>
+                    <div class="q-sub">В чём разница em и rem?</div>
+                    <pre class="answers">A) Одинаковые
+B) em от html, rem от родителя
+C) ✅ em от родителя, rem от корня
+D) Оба одинаково</pre>
+                </article>
+
+                <article class="quiz-item">
+                    <p></p>
+                    <div class="q-title">box-sizing: border-box эмне кылат?</div>
+                    <div class="q-sub">Что делает box-sizing: border-box?</div>
+                    <pre class="answers">A) ✅ Включает padding и border в общую ширину блока
+B) Убирает рамки
+C) Делает невидимым
+D) Расширяет границы</pre>
+                </article>
+
+                <article class="quiz-item">
+                    <p></p>
+                    <div class="q-title">BEM колдонгондо артыкчылык?</div>
+                    <div class="q-sub">Что даёт использование БЭМ?</div>
+                    <pre class="answers">A) Ускоряет загрузку
+B) ✅ Делает CSS читаемым и переиспользуемым
+C) Делает сайт адаптивным
+D) Убирает отступы</pre>
+                </article>
+
+                <article class="quiz-item">
+                    <p></p>
+                    <div class="q-title">relative менен absolute айырмасы?</div>
+                    <div class="q-sub">В чём отличие relative и absolute?</div>
+                    <pre class="answers">A) relative фиксирует, absolute адаптив
+B) ✅ relative — от себя, absolute — от предка
+C) relative только текст, absolute блоки
+D) Разницы нет</pre>
+                </article>
+
+                <article class="quiz-item">
+                    <p></p>
+                    <div class="q-title">Скроллда элемент көрүнүп турушу үчүн кайсы position?</div>
+                    <div class="q-sub">Какое position остаётся видимым при прокрутке?</div>
+                    <pre class="answers">A) relative
+B) absolute
+C) ✅ fixed
+D) sticky</pre>
+                </article>
+
+                <article class="quiz-item">
+                    <p></p>
+                    <div class="q-title">Элементти тунук кылган касиет?</div>
+                    <div class="q-sub">Какой параметр делает элемент прозрачным?</div>
+                    <pre class="answers">A) background-opacity
+B) visibility: hidden
+C) ✅ opacity: 0.5
+D) filter: blur(0)</pre>
+                </article>
+
+                <article class="quiz-item">
+                    <p></p>
+                    <div class="q-title">transform: scale(1.5) эмне кылат?</div>
+                    <div class="q-sub">Что делает transform: scale(1.5)?</div>
+                    <pre class="answers">A) ✅ Увеличивает элемент в 1.5 раза
+B) Уменьшает
+C) Поворачивает
+D) Смещает</pre>
+                </article>
+
+                <article class="quiz-item">
+                    <p></p>
+                    <div class="q-title">768pxден кичине экран үчүн media query?</div>
+                    <div class="q-sub">Какой медиа-запрос для ширины меньше 768px?</div>
+                    <pre class="answers">A) @screen and (min-width:768px)
+B) ✅ @media screen and (max-width:768px)
+C) @media screen only
+D) @max-width(768px)</pre>
+                </article>
+
+                <article class="quiz-item">
+                    <p></p>
+                    <div class="q-title">Тизмедеги ар экинчи элементти тандайт?</div>
+                    <div class="q-sub">Какой селектор выберет каждый второй элемент?</div>
+                    <pre class="answers">A) li:nth-of-type(2)
+B) ✅ li:nth-child(2n)
+C) li:even
+D) li:nth(2)</pre>
+                </article>
+
+                <article class="quiz-item">
+                    <p></p>
+                    <div class="q-title">transition менен animation айырмасы?</div>
+                    <div class="q-sub">В чём отличие transition и animation?</div>
+                    <pre class="answers">A) Никакого
+B) animation только hover
+C) ✅ transition — плавно, animation — сложные движения
+D) transition делает блочными</pre>
+                </article>
+
+                <article class="quiz-item">
+                    <p></p>
+                    <div class="q-title">"Посетить" тексти менен https://example.com шилтемеси?</div>
+                    <div class="q-sub">Какой HTML-код создаёт ссылку?</div>
+                    <pre class="answers">A) ✅ &lt;a href="https://example.com"&gt;Посетить&lt;/a&gt;
+B) &lt;link src="https://example.com"&gt;Посетить&lt;/link&gt;
+C) &lt;a src="https://example.com"&gt;Посетить&lt;/a&gt;
+D) &lt;a url="https://example.com"&gt;Посетить&lt;/a&gt;</pre>
+                </article>
+
+                <article class="quiz-item">
+                    <p></p>
+                    <div class="q-title">Элементти жок кылбай жашыруунун жолу?</div>
+                    <div class="q-sub">Как скрыть элемент, не удаляя его?</div>
+                    <pre class="answers">A) display: hide
+B) ✅ opacity: 0 или display: none
+C) margin: 0
+D) position: absolute</pre>
+                </article>
+
+                <article class="quiz-item">
+                    <p></p>
+                    <div class="q-title">Flexboxта вертикал + горизонтал борборлоо?</div>
+                    <div class="q-sub">Лучший способ центрирования в Flexbox?</div>
+                    <pre class="answers">A) ✅ align-items: center; justify-content: center;
+B) margin: auto;
+C) float: center;
+D) position: absolute;</pre>
+                </article>
+
+                <article class="quiz-item">
+                    <p></p>
+                    <div class="q-title">Google Fonts кошуу үчүн кайсы тег?</div>
+                    <div class="q-sub">Какой тег используется для подключения Google Fonts?</div>
+                    <pre class="answers">A) &lt;style&gt;
+B) ✅ &lt;link&gt;
+C) &lt;script&gt;
+D) &lt;font&gt;</pre>
+                </article>
+
+                <article class="quiz-item">
+                    <p></p>
+                    <div class="q-title">Flex row + wrap код?</div>
+                    <div class="q-sub">Flexbox контейнер с переносом строк?</div>
+                    <pre class="answers">A) ✅ display: flex; flex-direction: row; flex-wrap: wrap;
+B) display: flex; flex-direction: column; flex-wrap: nowrap;
+C) display: grid; flex-direction: row; flex-wrap: wrap;
+D) display: flex; flex-direction: row; wrap: wrap;</pre>
+                </article>
+
+                <article class="quiz-item">
+                    <p></p>
+                    <div class="q-title">Бир эле элементке бир нече стиль кантип берүү?</div>
+                    <div class="q-sub">Как задать несколько стилей одновременно?</div>
+                    <pre class="answers">A) Использовать несколько style
+B) ✅ Использовать , между селекторами
+C) Обернуть в div
+D) Использовать id и class вместе</pre>
+                </article>
+
+                <article class="quiz-item">
+                    <p></p>
+                    <div class="q-title">relative контейнерде элементти оң-төмөн бурчка?</div>
+                    <div class="q-sub">Как разместить элемент в правом нижнем углу?</div>
+                    <pre class="answers">A) ✅ position: absolute; bottom: 0; right: 0;
+B) position: relative; bottom: 0; right: 0;
+C) position: fixed; bottom: 0; right: 0;
+D) position: absolute; bottom: 10px; right: 10px;</pre>
+                </article>
+
+                <article class="quiz-item">
+                    <p></p>
+                    <div class="q-title">CSS менен анимация берүү?</div>
+                    <div class="q-sub">Как задать анимацию с использованием CSS?</div>
+                    <pre class="answers">A) ✅ animation: mymove 3s infinite;
+B) transition: mymove 3s;
+C) motion: mymove 3s;
+D) effect: mymove;</pre>
+                </article>
+
+                <article class="quiz-item">
+                    <p></p>
+                    <div class="q-title">visibility: hidden vs display: none айырмасы?</div>
+                    <div class="q-sub">Какая разница?</div>
+                    <pre class="answers">A) Они идентичны
+B) ✅ Первый скрывает, но оставляет место; второй — убирает полностью
+C) Первый удаляет; второй прячет
+D) Первый работает в Safari</pre>
+                </article>
+
+            </div>
+        </main>
+
+        <footer>
+            <p>Эгер кааласаң: кийинки кадам — “жоопту басканда көрсөтүүчү” версиясын да жасап берем.</p>
+        </footer>
+    </div>
+</body>
+
+</html>
