@@ -1,0 +1,844 @@
+<!DOCTYPE html>
+<html lang="ky">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>JavaScript Quiz (All)</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+      padding: 20px;
+      line-height: 1.6;
+      color: #222;
+    }
+
+    .wrap { max-width: 1440px; margin: 0 auto; }
+
+    header.page-header {
+      background: #fff;
+      border-radius: 16px;
+      padding: 20px;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.18);
+      text-align: center;
+      margin-bottom: 16px;
+    }
+
+    header.page-header h1 {
+      color: #667eea;
+      font-size: clamp(22px, 3vw, 38px);
+      margin-bottom: 6px;
+    }
+
+    .subtitle {
+      color: #666;
+      font-size: clamp(14px, 1.8vw, 18px);
+    }
+
+    .quiz-section {
+      background: #f8f9fa;
+      border-radius: 16px;
+      padding: clamp(16px, 2.5vw, 26px);
+      border-left: 6px solid #667eea;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.18);
+    }
+
+    .quiz-section h2 {
+      color: #333;
+      font-size: clamp(18px, 2.3vw, 28px);
+      margin-bottom: 6px;
+    }
+
+    .quiz-list { margin-top: 16px; gap: 16px; }
+
+    .quiz-item {
+      background: #fff;
+      border-radius: 14px;
+      border: 1px solid #eee;
+      padding: clamp(14px, 2vw, 22px);
+      min-height: clamp(220px, 24vw, 320px);
+      box-shadow: 0 6px 14px rgba(0, 0, 0, 0.08);
+      transition: 0.2s ease;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .quiz-item:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 22px rgba(0, 0, 0, 0.12);
+    }
+
+    .q-title {
+      font-size: clamp(15px, 1.55vw, 18px);
+      font-weight: 800;
+      color: #2d2d2d;
+    }
+
+    .q-sub {
+      font-size: clamp(12px, 1.2vw, 14px);
+      color: #6b7280;
+      margin-top: -6px;
+    }
+
+    .answers {
+      white-space: pre-line;
+      background: #f8f9fa;
+      border-left: 4px solid #e5e7eb;
+      border-radius: 12px;
+      padding: 12px;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Courier New", monospace;
+      font-size: clamp(12px, 1.1vw, 14px);
+      color: #333;
+      flex: 1;
+    }
+
+    footer {
+      margin-top: 16px;
+      text-align: center;
+      color: rgba(255, 255, 255, 0.92);
+      font-size: 14px;
+    }
+
+    @media (max-width: 480px) {
+      body { padding: 12px; }
+      .quiz-item { min-height: auto; }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+    <header class="page-header">
+      <h1>JavaScript Тест (Бардык суроолор)</h1>
+      <p class="subtitle">Туура жооп ✅ менен белгиленген.</p>
+    </header>
+
+    <main class="quiz-section">
+      <h2>Суроолор</h2>
+      <p class="subtitle">Карточка форматта — окууга оңой. (Кээ бир кайталанган суроолор бириктирилди.)</p>
+
+      <div class="quiz-list">
+
+        <!-- ====== JS BASICS ====== -->
+        <article class="quiz-item">
+          <div class="q-title">JavaScript кайсы жерде иштейт?</div>
+          <div class="q-sub">Где работает JavaScript?</div>
+          <pre class="answers">A) Серверде гана  / Только на сервере
+B) ✅ Браузерде / В браузере
+C) Маалымат базасында гана / Только в базе данных 
+D) HTML тегинде / В HTML теге</pre>
+        </article>
+
+        <article class="quiz-item">
+          <div class="q-title">JavaScript деген эмне?</div>
+          <div class="q-sub">Что такое JavaScript?</div>
+          <pre class="answers">A) Язык разметки / Белгилөө тили
+B) Язык стилей / Стиль тили
+C) ✅ Язык программирования / Программалоо тили
+D) База данных / Маалымат базасы</pre>
+        </article>
+
+        <article class="quiz-item">
+          <div class="q-title">JavaScript браузерде кантип иштейт?</div>
+          <div class="q-sub">Как JavaScript работает в браузере?</div>
+          <pre class="answers">A) Выполняется на сервере / Серверде иштейт
+B) Компилируется заранее / Алдын ала компиляцияланат
+C) ✅ Выполняется движком браузера / Браузердин движогу аркылуу иштейт
+D) Работает только с HTML / Факты HTML менен гана иштейт</pre>
+        </article>
+
+        <article class="quiz-item">
+          <div class="q-title">Программалоо тили кайсыл?</div>
+          <div class="q-sub">Какой язык является языком программирования?</div>
+          <pre class="answers">A) HTML
+B) CSS
+C) ✅ JavaScript
+D) React</pre>
+        </article>
+
+        <!-- ====== VARIABLES / TYPES ====== -->
+        <article class="quiz-item">
+          <div class="q-title">Өзгөрмөнү жарыялоо (ES6) кантип жасалат?</div>
+          <div class="q-sub">Как объявить переменную (ES6)?</div>
+          <pre class="answers">A) var
+B) let
+C) const
+D) ✅ B и C (let жана const)</pre>
+        </article>
+
+        <article class="quiz-item">
+          <div class="q-title">Кайсы тип JSте жок?</div>
+          <div class="q-sub">Какой тип данных НЕ существует в JS?</div>
+          <pre class="answers">A) string
+B) number
+C) boolean
+D) ✅ float</pre>
+        </article>
+
+        <article class="quiz-item">
+          <div class="q-title">typeof null жыйынтыгы?</div>
+          <div class="q-sub">Результат typeof null?</div>
+          <pre class="answers">A) null
+B) undefined
+C) ✅ object
+D) number</pre>
+        </article>
+
+        <article class="quiz-item">
+          <div class="q-title">typeof undefined эмне кайтарат?</div>
+          <div class="q-sub">Что вернёт typeof undefined?</div>
+          <pre class="answers">A) null
+B) NaN
+C) object
+D) ✅ undefined</pre>
+        </article>
+
+        <article class="quiz-item">
+          <div class="q-title">NaN эмнени билдирет?</div>
+          <div class="q-sub">Что означает NaN?</div>
+          <pre class="answers">A) No available number
+B) ✅ Not a Number
+C) New and Null
+D) Number Null NaN</pre>
+        </article>
+
+        <article class="quiz-item">
+          <div class="q-title">console.log(typeof NaN) эмне чыгарат?</div>
+          <div class="q-sub">Что выведет console.log(typeof NaN)?</div>
+          <pre class="answers">A) ✅ "number"
+B) "NaN"
+C) "undefined"
+D) "object"</pre>
+        </article>
+
+        <!-- ====== OPERATORS ====== -->
+        <article class="quiz-item">
+          <div class="q-title">Кайсы оператор маанисине жана типине карап салыштырат?</div>
+          <div class="q-sub">Какой оператор сравнивает по значению и типу?</div>
+          <pre class="answers">A) ==
+B) =
+C) ✅ ===
+D) !=</pre>
+        </article>
+
+        <article class="quiz-item">
+          <div class="q-title">Кайсы оператор strict неравенство?</div>
+          <div class="q-sub">Какой оператор проверяет строгое неравенство?</div>
+          <pre class="answers">A) =
+B) ==
+C) !=
+D) ✅ !==</pre>
+        </article>
+
+        <article class="quiz-item">
+          <div class="q-title">8 != 8 натыйжасы?</div>
+          <div class="q-sub">Какой результат выражения 8 != 8?</div>
+          <pre class="answers">A) true
+B) ✅ false
+C) boolean
+D) null</pre>
+        </article>
+
+        <article class="quiz-item">
+          <div class="q-title">1 + "2" кандай натыйжа берет?</div>
+          <div class="q-sub">Какой результат: 1 + "2"?</div>
+          <pre class="answers">A) 3
+B) "3"
+C) ✅ "12"
+D) error</pre>
+        </article>
+
+        <article class="quiz-item">
+          <div class="q-title">console.log(2 + "2") кандай чыгат?</div>
+          <div class="q-sub">Какой результат будет у console.log(2 + "2")?</div>
+          <pre class="answers">A) NaN
+B) ✅ 22
+C) 4
+D) string</pre>
+        </article>
+
+        <article class="quiz-item">
+          <div class="q-title">Boolean(" ") (боштук менен сап) эмне кайтарат?</div>
+          <div class="q-sub">Что вернёт Boolean(" ") (строка с пробелом)?</div>
+          <pre class="answers">A) false
+B) ✅ true
+C) null
+D) error</pre>
+        </article>
+
+        <article class="quiz-item">
+          <div class="q-title">[] == false эмне кайтарат?</div>
+          <div class="q-sub">Что вернёт [] == false?</div>
+          <pre class="answers">A) ✅ true
+B) false
+C) error
+D) undefined</pre>
+        </article>
+
+        <article class="quiz-item">
+          <div class="q-title">0 && "hello" эмне чыгат?</div>
+          <div class="q-sub">Что выведет console.log(0 && "hello")?</div>
+          <pre class="answers">A) "hello"
+B) ✅ 0
+C) false
+D) null</pre>
+        </article>
+
+        <article class="quiz-item">
+          <div class="q-title">false || "hello" эмне чыгат?</div>
+          <div class="q-sub">Что выведет console.log(false || "hello")?</div>
+          <pre class="answers">A) false
+B) ✅ "hello"
+C) undefined
+D) null</pre>
+        </article>
+
+        <article class="quiz-item">
+          <div class="q-title">?? (nullish coalescing) эмне кылат?</div>
+          <div class="q-sub">Что делает ?? (nullish coalescing)?</div>
+          <pre class="answers">A) Проверяет false
+B) ✅ Проверяет null и undefined
+C) Проверяет 0
+D) Проверяет NaN</pre>
+        </article>
+
+        <article class="quiz-item">
+          <div class="q-title">x = "" болсо: x || "def" жана x ?? "def"?</div>
+          <div class="q-sub">x = "". Что вернёт? x || "def" и x ?? "def"</div>
+          <pre class="answers">A) "def" и "def"
+B) ✅ "def" и ""
+C) "" и "def"
+D) "" и ""</pre>
+        </article>
+
+        <!-- ====== FUNCTIONS ====== -->
+        <article class="quiz-item">
+          <div class="q-title">Функция кантип жазылат?</div>
+          <div class="q-sub">Как объявить функцию?</div>
+          <pre class="answers">A) function myFunc() {}
+B) const myFunc = () => {}
+C) myFunc = function() {}
+D) ✅ Все варианты</pre>
+        </article>
+
+        <article class="quiz-item">
+          <div class="q-title">Return кайсы жерде колдонулат?</div>
+          <div class="q-sub">Где используется return?</div>
+          <pre class="answers">A) Циклда
+B) ✅ Функцияда
+C) Promise ичинде
+D) DOMдо</pre>
+        </article>
+
+        <article class="quiz-item">
+          <div class="q-title">Return жок функция эмне кайтарат?</div>
+          <div class="q-sub">Что вернёт функция без return?</div>
+          <pre class="answers">A) null
+B) false
+C) 0
+D) ✅ undefined</pre>
+        </article>
+
+        <article class="quiz-item">
+          <div class="q-title">Callback деген эмне?</div>
+          <div class="q-sub">Что такое callback?</div>
+          <pre class="answers">A) Асинхрондук ката
+B) ✅ Функция аргумент катары берилет
+C) Promise
+D) Метод массива</pre>
+        </article>
+
+        <article class="quiz-item">
+          <div class="q-title">Жебелүү (arrow) функциянын айырмасы эмнеде?</div>
+          <div class="q-sub">Чем стрелочная функция отличается?</div>
+          <pre class="answers">A) Нет аргументов
+B) ✅ Нет this (өзүнүн this'и жок)
+C) Не может вернуть значение
+D) Всегда async</pre>
+        </article>
+
+        <!-- ====== ARRAYS ====== -->
+        <article class="quiz-item">
+          <div class="q-title">push() эмне кылат?</div>
+          <div class="q-sub">Что делает push()?</div>
+          <pre class="answers">A) Удаляет
+B) ✅ Добавляет в конец
+C) Добавляет в начало
+D) Сортирует</pre>
+        </article>
+
+        <article class="quiz-item">
+          <div class="q-title">shift() эмне кылат?</div>
+          <div class="q-sub">Что делает shift()?</div>
+          <pre class="answers">A) Добавляет элемент
+B) ✅ Удаляет первый элемент массива
+C) Удаляет последний
+D) Меняет порядок</pre>
+        </article>
+
+        <article class="quiz-item">
+          <div class="q-title">map() эмне кайтарат?</div>
+          <div class="q-sub">Что возвращает map()?</div>
+          <pre class="answers">A) undefined
+B) Object
+C) ✅ Жаңы массив / Новый массив
+D) Boolean</pre>
+        </article>
+
+        <article class="quiz-item">
+          <div class="q-title">Кайсы метод баштапкы массивди өзгөртөт?</div>
+          <div class="q-sub">Какой метод МЕНЯЕТ исходный массив?</div>
+          <pre class="answers">A) map()
+B) filter()
+C) slice()
+D) ✅ splice()</pre>
+        </article>
+
+        <article class="quiz-item">
+          <div class="q-title">find() эч нерсе таппаса эмне кайтарат?</div>
+          <div class="q-sub">Что вернёт find() если ничего не найдено?</div>
+          <pre class="answers">A) null
+B) false
+C) ✅ undefined
+D) -1</pre>
+        </article>
+
+        <article class="quiz-item">
+          <div class="q-title">every() эмне кайтарат?</div>
+          <div class="q-sub">Что возвращает every()?</div>
+          <pre class="answers">A) массив
+B) число
+C) ✅ boolean
+D) объект</pre>
+        </article>
+
+        <article class="quiz-item">
+          <div class="q-title">Эки массивди кантип бириктиребиз?</div>
+          <div class="q-sub">Как объединить два массива?</div>
+          <pre class="answers">A) arr1 + arr2
+B) ✅ arr1.concat(arr2)
+C) merge(arr1, arr2)
+D) arr.push(arr2)</pre>
+        </article>
+
+        <article class="quiz-item">
+          <div class="q-title">Массивдин акыркы элементин кантип алабыз?</div>
+          <div class="q-sub">Как получить последний элемент массива arr?</div>
+          <pre class="answers">A) arr.last()
+B) ✅ arr[arr.length - 1]
+C) arr[-1]
+D) arr.getLast()</pre>
+        </article>
+
+        <article class="quiz-item">
+          <div class="q-title">[1,2,3].length эмне чыгат?</div>
+          <div class="q-sub">Что выведет console.log([1, 2, 3].length)?</div>
+          <pre class="answers">A) 2
+B) ✅ 3
+C) 4
+D) error</pre>
+        </article>
+
+        <article class="quiz-item">
+          <div class="q-title">indexOf(5) жок болсо эмне чыгат?</div>
+          <div class="q-sub">console.log(arr.indexOf(5))</div>
+          <pre class="answers">A) 5
+B) 0
+C) ✅ -1
+D) undefined</pre>
+        </article>
+
+        <article class="quiz-item">
+          <div class="q-title">Array экенин кантип текшеребиз?</div>
+          <div class="q-sub">Как проверить, что переменная — это массив?</div>
+          <pre class="answers">A) typeof arr
+B) arr instanceof Array
+C) ✅ Array.isArray(arr)
+D) isArray(arr)</pre>
+        </article>
+
+        <article class="quiz-item">
+          <div class="q-title">reverse() эмне үчүн?</div>
+          <div class="q-sub">Какой метод используется для разворота массива?</div>
+          <pre class="answers">A) ✅ reverse()
+B) sort()
+C) map()
+D) push()</pre>
+        </article>
+
+        <article class="quiz-item">
+          <div class="q-title">splice мисалы: number.splice(2,2) натыйжа?</div>
+          <div class="q-sub">let number=[1,2,3,4,5]; number.splice(2,2)</div>
+          <pre class="answers">A) ✅ [1, 2, 5]
+B) [1, 4]
+C) [1, 4, 5]
+D) [1, 5]</pre>
+        </article>
+
+        <!-- ====== OBJECTS ====== -->
+        <article class="quiz-item">
+          <div class="q-title">in оператору эмне кылат?</div>
+          <div class="q-sub">Что делает оператор in?</div>
+          <pre class="answers">A) Проверяет тип
+B) Проверяет значение
+C) ✅ Проверяет наличие свойства в объекте или prototype
+D) Сравнивает</pre>
+        </article>
+
+        <article class="quiz-item">
+          <div class="q-title">Объектте ачкыч бар экенин кантип текшеребиз?</div>
+          <div class="q-sub">Как проверить, есть ли ключ в объекте?</div>
+          <pre class="answers">A) obj.has(key)
+B) ✅ key in obj
+C) obj[key] !== null
+D) obj.includes(key)</pre>
+        </article>
+
+        <article class="quiz-item">
+          <div class="q-title">Object.keys(obj) эмне кылат?</div>
+          <div class="q-sub">Что делает Object.keys(obj)?</div>
+          <pre class="answers">A) значения
+B) пары
+C) ✅ массив ключей
+D) объект</pre>
+        </article>
+
+        <article class="quiz-item">
+          <div class="q-title">Объекттин касиетин кантип өчүрөбүз?</div>
+          <div class="q-sub">Как удалить свойство объекта?</div>
+          <pre class="answers">A) remove obj.key
+B) ✅ delete obj.key
+C) obj.key = null
+D) clear obj.key</pre>
+        </article>
+
+        <article class="quiz-item">
+          <div class="q-title">Бул код эмне чыгарат?</div>
+          <div class="q-sub">let obj={a:1}; obj.b=2; delete obj.a; console.log(obj)</div>
+          <pre class="answers">A) {a:1, b:2}
+B) ✅ {b:2}
+C) {}
+D) {a:undefined, b:2}</pre>
+        </article>
+
+        <article class="quiz-item">
+          <div class="q-title">Object.freeze() эмне кылат?</div>
+          <div class="q-sub">Что делает Object.freeze()?</div>
+          <pre class="answers">A) Клонирует объект
+B) ✅ Делает неизменяемым
+C) Удаляет свойства
+D) Блокирует prototype</pre>
+        </article>
+
+        <!-- ====== THIS / STRICT ====== -->
+        <article class="quiz-item">
+          <div class="q-title">this деген эмне?</div>
+          <div class="q-sub">Что такое this?</div>
+          <pre class="answers">A) Функция
+B) Класс
+C) ✅ Контекст вызова
+D) Всегда window</pre>
+        </article>
+
+        <article class="quiz-item">
+          <div class="q-title">this кайсы учурда глобалдык объектке таандык?</div>
+          <div class="q-sub">Когда this относится к глобальному объекту?</div>
+          <pre class="answers">A) ✅ Внутри функции без “strict mode”
+B) Внутри класса
+C) В стрелочной функции
+D) Всегда</pre>
+        </article>
+
+        <article class="quiz-item">
+          <div class="q-title">use strict эмне кылат?</div>
+          <div class="q-sub">Что делает use strict?</div>
+          <pre class="answers">A) Ускоряет JS
+B) ✅ Включает строгий режим
+C) Убирает ошибки
+D) Делает код async</pre>
+        </article>
+
+        <!-- ====== HOISTING / SCOPE / CLOSURE ====== -->
+        <article class="quiz-item">
+          <div class="q-title">Hoisting деген эмне?</div>
+          <div class="q-sub">Что такое hoisting?</div>
+          <pre class="answers">A) Асинхрон
+B) Замыкание
+C) ✅ Поднятие переменных и функций
+D) Promise</pre>
+        </article>
+
+        <article class="quiz-item">
+          <div class="q-title">Кайсы переменная блоктон тышка чыгат?</div>
+          <div class="q-sub">Какая переменная выйдет за пределы блока {}?</div>
+          <pre class="answers">A) let
+B) const
+C) ✅ var
+D) Все</pre>
+        </article>
+
+        <article class="quiz-item">
+          <div class="q-title">Closure эмне үчүн керек?</div>
+          <div class="q-sub">Зачем нужен closure?</div>
+          <pre class="answers">A) Кодду кыскартуу
+B) Асинхрон
+C) ✅ Маалыматты сактоо жана инкапсуляциялоо
+D) DOM менен иштөө</pre>
+        </article>
+
+        <article class="quiz-item">
+          <div class="q-title">Closure деген эмне?</div>
+          <div class="q-sub">Что такое замыкание (closure)?</div>
+          <pre class="answers">A) Ошибка памяти
+B) ✅ Доступ к внешней области видимости
+C) Класс
+D) Promise</pre>
+        </article>
+
+        <article class="quiz-item">
+          <div class="q-title">Натыйжа?</div>
+          <div class="q-sub">let x=1; function test(){x=2;} test(); console.log(x);</div>
+          <pre class="answers">A) 1
+B) ✅ 2
+C) undefined
+D) error</pre>
+        </article>
+
+        <article class="quiz-item">
+          <div class="q-title">Бул код эмне чыгарат?</div>
+          <div class="q-sub">let x=10; function test(){console.log(x);} test();</div>
+          <pre class="answers">A) undefined
+B) error
+C) ✅ 10
+D) null</pre>
+        </article>
+
+        <!-- ====== PROTOTYPE ====== -->
+        <article class="quiz-item">
+          <div class="q-title">Prototype деген эмне?</div>
+          <div class="q-sub">Что такое prototype?</div>
+          <pre class="answers">A) Копия объекта
+B) ✅ Механизм наследования
+C) Тип данных
+D) Метод массива</pre>
+        </article>
+
+        <!-- ====== ERRORS / CONTROL FLOW ====== -->
+        <article class="quiz-item">
+          <div class="q-title">Кайсы оператор ката ыргытат?</div>
+          <div class="q-sub">Какой оператор выбрасывает ошибку?</div>
+          <pre class="answers">A) ✅ throw
+B) break
+C) continue
+D) default</pre>
+        </article>
+
+        <article class="quiz-item">
+          <div class="q-title">break эмне кылат?</div>
+          <div class="q-sub">Что делает break?</div>
+          <pre class="answers">A) Улантат
+B) ✅ Токтотот (циклди же switchти)
+C) Өтүп жиберет
+D) Жок кылат</pre>
+        </article>
+
+        <!-- ====== TIMERS / EVENT LOOP ====== -->
+        <article class="quiz-item">
+          <div class="q-title">setTimeout жана setInterval айырмасы?</div>
+          <div class="q-sub">Разница между setTimeout и setInterval?</div>
+          <pre class="answers">A) Айырмасы жок
+B) ✅ setTimeout бир жолу иштейт, setInterval кайталайт
+C) setInterval бир жолу иштейт
+D) Promise</pre>
+        </article>
+
+        <article class="quiz-item">
+          <div class="q-title">Бул код эмне чыгарат?</div>
+          <div class="q-sub">console.log(1); setTimeout(()=>console.log(2),0); console.log(3);</div>
+          <pre class="answers">A) 1 2 3
+B) ✅ 1 3 2
+C) 2 1 3
+D) 3 1 2</pre>
+        </article>
+
+        <article class="quiz-item">
+          <div class="q-title">Эмне тезирээк аткарылат?</div>
+          <div class="q-sub">Что выполнится быстрее?</div>
+          <pre class="answers">A) setTimeout(fn, 0)
+B) ✅ Promise.then()
+C) fetch()
+D) setInterval()</pre>
+        </article>
+
+        <!-- ====== PROMISE / ASYNC AWAIT ====== -->
+        <article class="quiz-item">
+          <div class="q-title">async функция эмне кайтарат?</div>
+          <div class="q-sub">Что вернёт async-функция?</div>
+          <pre class="answers">A) значение
+B) object
+C) ✅ Promise
+D) undefined</pre>
+        </article>
+
+        <article class="quiz-item">
+          <div class="q-title">await кайсы жерде иштейт?</div>
+          <div class="q-sub">Где работает await?</div>
+          <pre class="answers">A) Каалаган жерде
+B) Функция ичинде
+C) ✅ async функция ичинде гана
+D) Promise ичинде</pre>
+        </article>
+
+        <article class="quiz-item">
+          <div class="q-title">await async ичинде эмне кылат?</div>
+          <div class="q-sub">Что делает await внутри async функции?</div>
+          <pre class="answers">A) Кодду токтотот
+B) ✅ Promise бүткөнчө күтөт, бирок thread блокталбайт
+C) Thread блоктойт
+D) Ката чыгарат</pre>
+        </article>
+
+        <article class="quiz-item">
+          <div class="q-title">async/await менен катаны кантип туура кармайбыз?</div>
+          <div class="q-sub">Как правильно ловить ошибку в async/await?</div>
+          <pre class="answers">A) .catch()
+B) ✅ try / catch
+C) if error
+D) throw()</pre>
+        </article>
+
+        <article class="quiz-item">
+          <div class="q-title">finally() эмне кылат?</div>
+          <div class="q-sub">Что делает finally()?</div>
+          <pre class="answers">A) Ловит ошибку
+B) ✅ Выполняется всегда
+C) Только при успехе
+D) Останавливает Promise</pre>
+        </article>
+
+        <!-- ====== DOM / STORAGE ====== -->
+        <article class="quiz-item">
+          <div class="q-title">localStorage эмне сактайт?</div>
+          <div class="q-sub">Что хранит localStorage?</div>
+          <pre class="answers">A) Временные данные
+B) Данные до закрытия вкладки
+C) ✅ Данные без срока хранения
+D) Только cookies</pre>
+        </article>
+
+        <article class="quiz-item">
+          <div class="q-title">localStorage'га маалыматты кантип сактайбыз?</div>
+          <div class="q-sub">Как сохранить данные в localStorage?</div>
+          <pre class="answers">A) localStorage.add()
+B) localStorage.save()
+C) ✅ localStorage.setItem()
+D) localStorage.push()</pre>
+        </article>
+
+        <article class="quiz-item">
+          <div class="q-title">classList.add() эмне кылат?</div>
+          <div class="q-sub">Что делает classList.add()?</div>
+          <pre class="answers">A) Удаляет класс
+B) ✅ Добавляет класс
+C) Переключает класс
+D) Проверяет класс</pre>
+        </article>
+
+        <article class="quiz-item">
+          <div class="q-title">JS аркылуу HTML элементти кантип түзөбүз?</div>
+          <div class="q-sub">Как создать HTML элемент через JS?</div>
+          <pre class="answers">A) new Element()
+B) ✅ document.createElement()
+C) document.addElement()
+D) create.element()</pre>
+        </article>
+
+        <article class="quiz-item">
+          <div class="q-title">append vs prepend айырмасы?</div>
+          <div class="q-sub">Чем отличается append от prepend?</div>
+          <pre class="answers">A) Ничем
+B) append — в начало
+C) ✅ prepend — в начало
+D) prepend удаляет</pre>
+        </article>
+
+        <article class="quiz-item">
+          <div class="q-title">Click болгондо кайсы событие иштейт?</div>
+          <div class="q-sub">Какое событие срабатывает при клике?</div>
+          <pre class="answers">A) submit
+B) input
+C) ✅ click
+D) change</pre>
+        </article>
+
+        <article class="quiz-item">
+          <div class="q-title">Форма жөнөтүлгөндө кайсы событие иштейт?</div>
+          <div class="q-sub">Какое событие срабатывает при отправке формы?</div>
+          <pre class="answers">A) click
+B) send
+C) ✅ submit
+D) input</pre>
+        </article>
+
+        <!-- ====== WINDOWS ====== -->
+        <article class="quiz-item">
+          <div class="q-title">Кайсы терезе билдирүү көрсөтөт, бирок киргизүүнү талап кылбайт?</div>
+          <div class="q-sub">Какое окно показывает сообщение без ввода?</div>
+          <pre class="answers">A) prompt
+B) ✅ alert
+C) confirm
+D) modal</pre>
+        </article>
+
+        <article class="quiz-item">
+          <div class="q-title">Кайсы терезе true/false кайтарат?</div>
+          <div class="q-sub">Какое окно возвращает true или false?</div>
+          <pre class="answers">A) alert
+B) prompt
+C) ✅ confirm
+D) input</pre>
+        </article>
+
+        <article class="quiz-item">
+          <div class="q-title">Кайсы терезе текст киргизүүгө мүмкүндүк берет?</div>
+          <div class="q-sub">Какое окно позволяет вводить текст?</div>
+          <pre class="answers">A) alert
+B) confirm
+C) ✅ prompt
+D) message</pre>
+        </article>
+
+        <!-- ====== REFERENCE / ALIAS ====== -->
+        <article class="quiz-item">
+          <div class="q-title">Бул код эмнени чыгарат?</div>
+          <div class="q-sub">let a=[1,2]; let b=a; b.push(3); console.log(a);</div>
+          <pre class="answers">A) [1, 2]
+B) [3]
+C) ✅ [1, 2, 3]
+D) error</pre>
+        </article>
+
+        <article class="quiz-item">
+          <div class="q-title">Бул код эмне чыгарат?</div>
+          <div class="q-sub">let a; console.log(a);</div>
+          <pre class="answers">A) null
+B) ✅ undefined
+C) 0
+D) error</pre>
+        </article>
+
+      </div>
+    </main>
+
+    <footer>
+      <p>Кааласаң кийинки версия: “жоопту басканда жашыр/көрсөт” (interactive) да жасап берем.</p>
+    </footer>
+  </div>
+</body>
+
+</html>
